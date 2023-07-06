@@ -9,14 +9,18 @@
 
 !$DSCR_WF1 = "PBSSD qualification"
 !$DSCR_WF2 = "PBSSD field issue handling"
-!$DSCR_WF1P1 = "baremetal devel. and ODM self-evaluation/delivery: SolDev(w/TED), ODM"
+!$DSCR_WF1P1 = "HW (baremetal) devel. and ODM's self-evaluation: SolDev(w/TED), ODM"
 !$DSCR_WF1P2 = "HW+SW integration and level-zero test: SWDev, DTC, MSL"
 !$DSCR_WF1P3 = "main qualification: SolPE, DevQA, SolDev, SWDev, DTC, MSL"
-!$DSCR_WF2P1 = "issue reception and initial inspection"
-!$DSCR_WF2P2 = "deeper inspection and troubleshooting"
+!$DSCR_WF2P1 = "field issue handling"
+!$COLOR_ACTIVATE = "#00ff00"
+!$COLOR_SAMSUNG = "#f0f0ff"
+!$COLOR_DSK = "#e0e0ff"
+!$COLOR_DSA = "#e0e0ff"
 
+'skinparam handwritten true 'BNOTE
 skinparam backgroundColor white
-skinparam ArrowColor black
+skinparam arrowColor black
 skinparam defaultFontSize 14
 skinparam defaultFontName courier
 skinparam note {
@@ -24,8 +28,8 @@ skinparam note {
 }
 
 skinparam participant {
-	BorderColor black
-'	BackgroundColor #94de5e
+	borderColor black
+'	backgroundColor #94de5e
 }
 'participant DSA.MSL as MSL
 'participant DSA.NB as DSANB 
@@ -33,18 +37,17 @@ skinparam participant {
 'participant DSA.CS as DSACS
 'participant DSK.SWDev as SWDEV
 
+participant DSK.NBP as DSKNBP
 participant DSK.PMO as PMO
 participant "PBSSD_FWDev\n- Block I/F: DSK.SWDev\n- File I/F: DSA.DTC\n- Object I/F: DSA.MSL" as PFD
 participant DSK.SolDev as SOLDEV
 participant DSK.SolPE as SOLPE
 participant DSK.DevQA as DEVQA
-
-participant Partner.ODM as ODM #6fbfbf
-participant DSA.DTC as DTC #8080ff
-participant DSA.TED as TED #8080ff
-participant DSA.QA as DSAQA #8080ff
-participant DSK.NBP as DSKNBP
-participant Customers as CSTMR #eebed0
+participant DSA.DTC as DTC
+participant DSA.TED as TED
+participant DSA.QA as DSAQA
+participant Partner.ODM as ODM #a9bfff
+participant Customers as CSTMR #ffafc0
 
 '//} SECTION_1
 
@@ -61,7 +64,7 @@ legend top left
 	| Item | Description |
 	| WFm.Pn | WorkFlow #m and Phase #n |
 	| WF1 | WF1: $DSCR_WF1 \n	P1: $DSCR_WF1P1 \n	P2: $DSCR_WF1P2 \n	P3: $DSCR_WF1P3 |
-	| WF2 | WF2: $DSCR_WF2 \n	P1: $DSCR_WF2P1 \n	P2: $DSCR_WF2P2 |
+	| WF2 | WF2: $DSCR_WF2 \n	P1: $DSCR_WF2P1 |
 	| PBSSD_FWDev | PBSSD FW development team/lab \n	Block I/F PBSSD FW: by DSK.SWDev \n	File I/F PBSSD FW: by DSA.DTC \n	Object I/F PBSSD FW: by DSA.MSL |
 endlegend
 
@@ -76,10 +79,10 @@ group WF1.P1 [$DSCR_WF1P1]
 	ODM -> SOLDEV : notification of ODM self-evaluation ready
 	SOLDEV -> ODM : SSDs to be used ODM self-evaluation
 	SOLDEV -> ODM : baremetal TC script for ODM self-evaluation
-	activate ODM #00ff00
+	activate ODM $COLOR_ACTIVATE
 	ODM -> ODM : ODM self-evaluation\nwith baremetal TC script
 	note left
-		[CHECK#]
+		[CHECK#1]
 		Can TED help SolDev and ODM to save the time?
 		e.g.,
 		TED's parallel execution of (ODM's) self-evaluation,
@@ -89,22 +92,22 @@ group WF1.P1 [$DSCR_WF1P1]
 	deactivate ODM
 	ODM -> SOLDEV : initial baremetal samples for SolDev's inspection
 	note right
-		[CHECK#]
+		[CHECK#2]
 		how many # of samples
 		for SolDev's initial baremetal inspection?
 	end note
-	activate SOLDEV #00ff00
+	activate SOLDEV $COLOR_ACTIVATE
 	SOLDEV -> SOLDEV : baremetal inspection by SolDev
 	SOLDEV -> ODM : request to manufacture further baremetal samples
 	deactivate SOLDEV
 	ODM -> ODM : manufacturing\nfurther baremetal samples\nfor level-zero test
-	activate ODM #00ff00
+	activate ODM $COLOR_ACTIVATE
 	ODM -> ODM : ODM self-evaluation\nwith baremetal TC script
 	ODM -> SOLDEV : ODM self-evaluation result report
 	deactivate ODM
 	ODM -> SOLDEV : further baremetal samples (for level-zero test)
 	note left
-		[CHECK#]
+		[CHECK#3]
 		how many # of samples
 		for level-zero test?
 	end note
@@ -123,7 +126,7 @@ group WF1.P2 [$DSCR_WF1P2]
 	end note
 '	PMO -> PMO : level-zero test: started
 	PMO -> PFD : request for level-zero test
-	activate PFD #00ff00
+	activate PFD $COLOR_ACTIVATE
 	PFD -> PFD : system bring-up
 	note left #ffffff
 		[NOTE]
@@ -133,7 +136,7 @@ group WF1.P2 [$DSCR_WF1P2]
 	end note
 	PFD -> PFD : PBSSD functional\nlevel-zero test\ntroubleshooting
 	note left
-		[CHECK#]
+		[CHECK#4]
 		what kinds of level-zero test items
 		for basic functionality test?
 		- I/O, Admin commands?
@@ -141,7 +144,7 @@ group WF1.P2 [$DSCR_WF1P2]
 	end note
 	PFD -> PFD : PBSSD performance\nlevel-zero test\ntroubleshooting
 	note left
-		[CHECK#]
+		[CHECK#5]
 		what kinds of level-zero test items
 		for basic performance test?
 		- SW/SR/RW/RR?
@@ -165,36 +168,36 @@ group WF1.P3 [$DSCR_WF1P3]
 	end note
 	...
 	PMO -> SOLPE : request to start DV
-	activate SOLPE #00ff00
+	activate SOLPE $COLOR_ACTIVATE
 	SOLPE -> SOLPE : PBSSD DV
-	note over SOLPE #ffffff : DV troubleshooting\nwith dev teams
-	/ note over SOLDEV #ffffff : DV troubleshooting\nfor PBSSD HW
-	/ note over PFD #ffffff : DV troubleshooting\nfor PBSSD FW
+	note over SOLPE #ffffff : [NOTE]\nDV troubleshooting\nwith dev teams
+	/ note over SOLDEV #ffffff : [NOTE]\nDV troubleshooting\nfor PBSSD HW
+	/ note over PFD #ffffff : [NOTE]\nDV troubleshooting\nfor PBSSD FW
 	SOLPE -> PMO : DV result report
 	deactivate SOLPE
 	...
 	PMO -> SOLPE : request to start PV
-	activate SOLPE #00ff00
+	activate SOLPE $COLOR_ACTIVATE
 	SOLPE -> SOLPE : PBSSD PV
-	note over SOLPE #ffffff : PV troubleshooting\nwith dev teams
-	/ note over SOLDEV #ffffff : PV troubleshooting\nfor PBSSD HW
-	/ note over PFD #ffffff : PV troubleshooting\nfor PBSSD FW
-	/ note over DTC : [CHECK#]\nCan DTC help PBSSD PV?\n----\nadvanced perf eval\nand troubleshooting\n(E2E perf eval\nwith customers'\nrealistic workload)\n----\nThis may give us\nwider perf. coverage.\nLet's discuss!
+	note over SOLPE #ffffff : [NOTE]\nPV troubleshooting\nwith dev teams
+	/ note over SOLDEV #ffffff : [NOTE]\nPV troubleshooting\nfor PBSSD HW
+	/ note over PFD #ffffff : [NOTE]\nPV troubleshooting\nfor PBSSD FW
+	/ note over DTC : [CHECK#6]\nCan DTC help PBSSD PV?\n----\nadvanced perf eval\nand troubleshooting\n(E2E perf eval\nwith customers'\nrealistic workload)\n----\nThis may give us\nwider perf. coverage.\nLet's discuss!
 	SOLPE -> PMO : PV result report
 	deactivate SOLPE
 	...
 	PMO -> DEVQA : request to start PR
-	activate DEVQA #00ff00
+	activate DEVQA $COLOR_ACTIVATE
 	DEVQA -> DEVQA : PBSSD PR
-	note over DEVQA #ffffff : PR troubleshooting\nwith dev teams
-	/ note over SOLDEV #ffffff : PR troubleshooting\nfor PBSSD HW
-	/ note over PFD #ffffff : PR troubleshooting\nfor PBSSD FW
+	note over DEVQA #ffffff : [NOTE]\nPR troubleshooting\nwith dev teams
+	/ note over SOLDEV #ffffff : [NOTE]\nPR troubleshooting\nfor PBSSD HW
+	/ note over PFD #ffffff : [NOTE]\nPR troubleshooting\nfor PBSSD FW
 	DEVQA -> PMO : PR result report
 	deactivate DEVQA
 	...
 '	PMO -> PMO : PBSSD qual: done
 	PMO -> DSKNBP : response (qual completed)
-	DSKNBP -> CSTMR : notification that PBSSD Customer Samples are ready
+'	DSKNBP -> CSTMR : notification that PBSSD Customer Samples are ready
 end group
 
 ...
@@ -205,48 +208,74 @@ end note
 ...
 autonumber 2.1.1
 group WF2.P1 [$DSCR_WF2P1]
+	note over DTC
+		[CHECK#7]
+		Can DTC help extend the troubleshooting coverage
+		from PBSSD itself even to the customer host system?
+		-----
+		e.g., Sometimes we need to prove that
+		the field issue reported was caused
+		not by PBSSD, but by customer host system.
+	end note
 	CSTMR -> DSAQA : problem reporting
 	DSAQA -> DSAQA : field issue status: open
-'	activate DSAQA #00ff00
-'	activate DSAQA #00ff00
+	activate DSAQA $COLOR_ACTIVATE
+'	activate DSAQA $COLOR_ACTIVATE
 	DSAQA -> TED : request for initial inspection
-	activate TED #00ff00
+	activate TED $COLOR_ACTIVATE
 	DSAQA -> DSAQA : field issue status: in-progress
 	TED -> TED : replay the case\nand initial inspection
 	TED -> DSAQA : initial inspection report\n(maybe with solution)
 	deactivate TED
-	alt issue resolved
-		DSAQA -> DSAQA : field issue status: resolved
-		DSAQA -> CSTMR : report to customer with solution
-		DSAQA -> DSAQA : field issue status: close
-'		deactivate DSAQA
-	else further actions required
-		DSAQA -> SOLDEV : request for PBSSD HW inspection
-		activate SOLDEV #00ff00
-		DSAQA -> PFD : request for PBSSD FW inspection
-		activate PFD #00ff00
-		DSAQA -> DTC : request for customer host system inspection
-		activate DTC #00ff00
-
-		SOLDEV -> ODM : request for PBSSD HW co-inspection
-		activate ODM #00ff00
-		ODM -> ODM : PBSSD HW inspection
-		ODM -> SOLDEV : inspection report from ODM
-		deactivate ODM
-		SOLDEV -> SOLDEV : PBSSD HW further inspection
-		SOLDEV -> DSAQA : PBSSD HW troubleshooting report with solution
-		deactivate SOLDEV
-
-		PFD -> DSAQA : PBSSD FW troubleshooting report with solution
-		deactivate PFD
-
-		DTC -> DSAQA : E2E customer host system troubleshooting report with solution
-		deactivate DTC
-
-		DSAQA -> CSTMR : report to customer with solution
-		DSAQA -> DSAQA : field issue status: close
-'		deactivate DSAQA
+	alt further actions required
+		alt most likely PBSSD HW issue
+			DSAQA -> SOLDEV : request for PBSSD HW inspection (if needed)
+			activate SOLDEV $COLOR_ACTIVATE
+			SOLDEV -> ODM : request for PBSSD HW co-inspection
+			activate ODM $COLOR_ACTIVATE
+			ODM -> ODM : PBSSD HW inspection
+			ODM -> SOLDEV : inspection report from ODM
+			deactivate ODM
+			SOLDEV -> SOLDEV : PBSSD HW further inspection
+			SOLDEV -> DSAQA : PBSSD HW troubleshooting report with solution
+			deactivate SOLDEV
+		else most likely PBSSD FW issue
+			DSAQA -> PFD : request for PBSSD FW inspection (if needed)
+			activate PFD $COLOR_ACTIVATE
+			PFD -> PFD : PBSSD FW inspection
+			PFD -> DSAQA : PBSSD FW troubleshooting report with solution
+			deactivate PFD
+		else most likely non-PBSSD issue (i.e., customer system's issue)
+			DSAQA -> DTC : request for customer host system inspection (if needed)
+			activate DTC $COLOR_ACTIVATE
+			DTC -> DTC : customer host system inspection
+			DTC -> DSAQA : E2E customer host system troubleshooting report with solution
+			deactivate DTC
+		else difficult to specify which problem it is
+			DSAQA -> SOLDEV : request for PBSSD HW inspection (if needed)
+			activate SOLDEV $COLOR_ACTIVATE
+			DSAQA -> PFD : request for PBSSD FW inspection (if needed)
+			activate PFD $COLOR_ACTIVATE
+			DSAQA -> DTC : request for customer host system inspection (if needed)
+			activate DTC $COLOR_ACTIVATE
+			SOLDEV -> ODM : request for PBSSD HW co-inspection
+			activate ODM $COLOR_ACTIVATE
+			ODM -> ODM : PBSSD HW inspection
+			ODM -> SOLDEV : inspection report from ODM
+			deactivate ODM
+			SOLDEV -> SOLDEV : PBSSD HW further inspection
+			SOLDEV -> DSAQA : PBSSD HW troubleshooting report with solution
+			deactivate SOLDEV
+			PFD -> DSAQA : PBSSD FW troubleshooting report with solution
+			deactivate PFD
+			DTC -> DSAQA : E2E customer host system troubleshooting report with solution
+			deactivate DTC
+		end alt
 	end alt
+	DSAQA -> DSAQA : field issue status: resolved
+	DSAQA -> CSTMR : report to customer with solution
+	DSAQA -> DSAQA : field issue status: close
+	deactivate DSAQA
 end group
 
 '//} SECTION_2
