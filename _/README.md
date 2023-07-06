@@ -3,7 +3,8 @@
 
 c: configuration
 d: data
-g: git
+m: memo (text)
 s: shortcut
 t: temporary
+w: work
 x: executables
