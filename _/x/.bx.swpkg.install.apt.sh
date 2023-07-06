@@ -6,6 +6,8 @@ _ts="date +%Y%m%d_%H%M%S";
 declare -A _apt_pkg_phase;
 _phase=0;
 
+
+#### phase 1
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
 git
@@ -40,6 +42,8 @@ gh
 python3-pip
 "
 
+
+#### phase 2
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
 xinit
@@ -54,6 +58,8 @@ xfce4
 
 "
 
+
+#### phase 3
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
 mediawiki
@@ -90,8 +96,12 @@ fonts-unfonts-extra
 fonts-woowa-bm
 xfonts-baekmuk
 
+cairosvg
+
 "
 
+
+#### phase 4
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
 kde-full
@@ -204,5 +214,5 @@ while [ $_i -lt $_phase ]; do
 	echo "phase[ $_i ]: " ${_apt_pkg_phase[$_i]};
 	sudo apt install ${_apt_pkg_phase[$_i]};
 done
-manual_install;
+# manual_install;
 exit 0;
