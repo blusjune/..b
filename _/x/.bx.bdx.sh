@@ -1,6 +1,6 @@
 #!/bin/bash
 #.bx.bdx.sh (_BDX)
-#
+# 20230701_010900
 
 
 #_list_of_BDX_files=$(ls -1 .bdx.*.y.*.sh);
