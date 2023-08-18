@@ -1,30 +1,20 @@
 #!/bin/bash
-#.bx.bmm.sh (bmm)
+#.bx.bmm.sh (bmm: b's management of memo)
 # 20230814_203318
 
 
 _progname="bmm";
+_progdescr="b's management of memo";
 _progname_called="$( echo $0 | sed -e 's/.*\/\(.*\)/\1/g' )";
 _basedir="${HOME}/..b/_/m";
-_prefix="_bmm";
+_prefix="_BMM";
 _tstamp="date +%Y%m%d";
 #_tstamp="date +%Y%m%d_%H%M%S";
 
 
-function _set_memo_file_name()
-{
-	if [ "X${_descr}" != "X" ]; then
-		_fn_descr="${_keyword}_$( echo $_descr | sed -e 's/ /_/g' )"
-	else
-		_fn_descr="${_keyword}";
-	fi
-	_fname="${_prefix}.$(${_tstamp}).${_fn_descr}.txt";
-	_fpath="${_basedir}/${_fname}";
-}
-
 function _print_help()
 {
-	echo "$_progname (B Memo Management)"
+	echo "$_progname ($_progdescr)"
 	echo "	-h           : help";
 	echo "	-c <keyword> : create a memo file with keyword";
 	echo "	-e <keyword> : edit a memo file of keyword";
@@ -35,7 +25,7 @@ function _print_help()
 
 function _bmm_create()
 {
-	echo ">>> ${_progname}.create";
+	#echo ">>> ${_progname}.create";
 	if [ "X$_keyword" = "X" ]; then
 		echo "ERROR(18): _keyword should be specified -- EXIT ";
 		exit 18;
@@ -55,7 +45,7 @@ function _bmm_create()
 
 function _bmm_edit()
 {
-	echo ">>> ${_progname}.edit";
+	#echo ">>> ${_progname}.edit";
 	if [ "X$_keyword" = "X" ]; then
 		echo "ERROR(18): _keyword should be specified -- EXIT";
 		exit 18;
@@ -72,7 +62,7 @@ function _bmm_edit()
 
 function _bmm_find()
 {
-	echo ">>> ${_progname}.find";
+	#echo ">>> ${_progname}.find";
 	if [ "X$_keyword" = "X" ]; then
 		echo "ERROR(18): _keyword should be specified -- EXIT";
 		exit 18;
@@ -84,7 +74,7 @@ function _bmm_find()
 
 function _bmm_grep()
 {
-	echo ">>> ${_progname}.grep";
+	#echo ">>> ${_progname}.grep";
 	if [ "X$_keyword" = "X" ]; then
 		echo "ERROR(18): _keyword should be specified -- EXIT";
 		exit 18;
@@ -96,7 +86,7 @@ function _bmm_grep()
 
 function _bmm_list()
 {
-	echo ">>> ${_progname}.list";
+	#echo ">>> ${_progname}.list";
 	(cd $_basedir;
 		ls -1 ${_prefix}.*.txt | more;
 	)
