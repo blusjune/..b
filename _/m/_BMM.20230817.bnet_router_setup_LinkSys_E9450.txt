@@ -1,0 +1,126 @@
+gateway: 10.0.10.1
+aerosmith: 10.123.1.1
+printer: 10.123.1.5
+
+
+
+
+########################################################################################
+# ifconfig -a
+cali91b220346e1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::ecee:eeff:feee:eeee  prefixlen 64  scopeid 0x20<link>
+        ether ee:ee:ee:ee:ee:ee  txqueuelen 0  (Ethernet)
+        RX packets 709  bytes 62852 (62.8 KB)
+        RX errors 0  dropped 1  overruns 0  frame 0
+        TX packets 700  bytes 414760 (414.7 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        ether 02:42:d2:72:7a:cb  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp86s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.123.1.2  netmask 255.0.0.0  broadcast 10.255.255.255
+        inet6 fe80::4a21:bff:fe51:14be  prefixlen 64  scopeid 0x20<link>
+        ether 48:21:0b:51:14:be  txqueuelen 1000  (Ethernet)
+        RX packets 542144  bytes 790108742 (790.1 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 95249  bytes 8607302 (8.6 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        device memory 0x84200000-842fffff  
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 828476  bytes 252391752 (252.3 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 828476  bytes 252391752 (252.3 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+vxlan.calico: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1450
+        inet 10.1.59.128  netmask 255.255.255.255  broadcast 0.0.0.0
+        inet6 fe80::6467:c6ff:fe30:cccf  prefixlen 64  scopeid 0x20<link>
+        ether 66:67:c6:30:cc:cf  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 55 overruns 0  carrier 0  collisions 0
+
+wlo1: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.123.141.6  netmask 255.0.0.0  broadcast 10.255.255.255
+        inet6 fe80::a8e:90ff:fe37:6513  prefixlen 64  scopeid 0x20<link>
+        ether 08:8e:90:37:65:13  txqueuelen 1000  (Ethernet)
+        RX packets 7653  bytes 557446 (557.4 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1332  bytes 157169 (157.1 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+
+
+
+########################################################################################
+# cat /etc/hosts
+127.0.0.1 localhost
+127.0.1.1 aerosmith
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+# brian network (BNET)
+10.0.10.1	gateway gw
+#10.123.1.1	b01
+10.123.1.2	b02 aerosmith
+10.123.1.5	b05 prince printer
+
+
+
+
+########################################################################################
+# route -n
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         10.0.10.1       0.0.0.0         UG    100    0        0 enp86s0
+0.0.0.0         10.0.10.1       0.0.0.0         UG    600    0        0 wlo1
+10.0.0.0        0.0.0.0         255.0.0.0       U     100    0        0 enp86s0
+10.0.0.0        0.0.0.0         255.0.0.0       U     600    0        0 wlo1
+10.0.10.1       0.0.0.0         255.255.255.255 UH    100    0        0 enp86s0
+10.0.10.1       0.0.0.0         255.255.255.255 UH    600    0        0 wlo1
+10.1.59.128     0.0.0.0         255.255.255.192 U     0      0        0 *
+10.1.59.175     0.0.0.0         255.255.255.255 UH    0      0        0 cali91b220346e1
+172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 docker0
+
+
+
+
+########################################################################################
+# arp -e
+Address                  HWtype  HWaddress           Flags Mask            Iface
+10.123.1.1                       (incomplete)                              enp86s0
+gateway                  ether   72:ec:5e:0b:19:48   C                     enp86s0
+gateway                  ether   72:ec:5e:0b:19:48   C                     wlo1
+b05                              (incomplete)                              enp86s0
+10.1.59.175              ether   6e:5e:f9:34:f9:c2   C                     cali91b220346e1
+
+
+
+
+########################################################################################
+aerosmith b02
+10.123.1.2
+48:21:0b:51:14:be
+
+c0:18:03:ea:b4:f7
+192.168.79.1
+
+10.123.1.1
+
+

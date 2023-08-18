@@ -80,7 +80,14 @@ function _bmm_grep()
 		exit 18;
 	fi
 	(cd $_basedir;
-		grep -nri $_keyword ${_prefix}.*.txt;
+		#grep -nriHT $_keyword ${_prefix}.*.txt;
+		# $ bmmg aerosmith
+		# _BMM.20230817.bnet_router_setup_LinkSys_E9450.txt:   3: aerosmith: 10.123.1.1
+		# _BMM.20230817.bnet_router_setup_LinkSys_E9450.txt:  30: aerosmith b02
+		find $_basedir -type f -name "${_prefix}.*.txt" -exec grep -nriHT $_keyword {} \;
+		# $ bmmg aerosmith
+		# /home/blusjune/..b/_/m/_BMM.20230817.bnet_router_setup_LinkSys_E9450.txt:   3:  aerosmith: 10.123.1.1
+		# /home/blusjune/..b/_/m/_BMM.20230817.bnet_router_setup_LinkSys_E9450.txt:  30:  aerosmith b02
 	)
 }
 
