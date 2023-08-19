@@ -5,6 +5,7 @@
 _ts="date +%Y%m%d_%H%M%S";
 declare -A _apt_pkg_phase;
 _phase=0;
+_exe_log=".exelog.$($_ts).log";
 
 
 #### phase++
@@ -74,6 +75,7 @@ kde-full
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
 mediawiki
+apache2
 phpmyadmin
 "
 
@@ -221,16 +223,35 @@ manual_install()
 
 
 
+echo "";
+echo "### Execution log will be saved in $_exe_log";
 _i=0;
 while [ $_i -lt $_phase ]; do
 	_i=$((_i + 1));
 	echo "";
 	echo "_____________";
 	echo "phase[ $_i ]: " ${_apt_pkg_phase[$_i]};
-	read -p ">>> Go ahead? [Y|n] " _answer;
-	if [ "X$_answer" != "Xn" ]; then
-		sudo apt install ${_apt_pkg_phase[$_i]};
-	fi
+	read -p ">>> Execute? [Y(yes)|s(skip)|t(terminate)] " _answer;
+	case $_answer in 
+		"y"|"Y")
+			echo "### $($_ts) :EXEC: phase[ $_i ]: " ${_apt_pkg_phase[$_i]} | tee -a $_exe_log;
+			sudo apt install ${_apt_pkg_phase[$_i]};
+			;;
+		"s"|"S"|"n"|"N")
+			echo "### $($_ts) :SKIP: phase[ $_i ]: " ${_apt_pkg_phase[$_i]} | tee -a $_exe_log;
+			;;
+		"t"|"T")
+			echo "### $($_ts) :TERM: terminate this installation loop" | tee -a $_exe_log;
+			break;
+			;;
+		*)
+			echo "### $($_ts) :SKIP: phase[ $_i ]: " ${_apt_pkg_phase[$_i]} | tee -a $_exe_log;
+			;;
+	esac
+#	if [ "X$_answer" = "Xy" ]; then
+#		echo "phase[ $_i ]: " ${_apt_pkg_phase[$_i]} >> $_exe_log;
+#		sudo apt install ${_apt_pkg_phase[$_i]};
+#	fi
 done
 # manual_install;
 exit 0;
