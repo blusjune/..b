@@ -17,10 +17,12 @@ function _print_help()
 	echo "$_progname ($_progdescr)"
 	echo "	-h           : help";
 	echo "	-c <keyword> : create a memo file with keyword";
-	echo "	-e <keyword> : edit a memo file of keyword";
+	echo "	-e <keyword> : edit a memo file of which name has keyword";
 	echo "	-f <keyword> : find memo files with keyword in the file name";
-	echo "	-g <keyword> : grep keyword for memo files";
+	echo "	-g <keyword> : grep memo files with keyword";
 	echo "	-l           : list all the memo files";
+	echo "	-p <keyword> : print the contents of the memo file of which name has keyword";
+	exit 114;
 }
 
 function _bmm_create()
@@ -99,13 +101,33 @@ function _bmm_list()
 	)
 }
 
+function _bmm_print()
+{
+	#echo ">>> ${_progname}.print";
+	if [ "X$_keyword" = "X" ]; then
+		echo "ERROR(18): _keyword should be specified -- EXIT";
+		exit 18;
+	fi
+	(cd $_basedir;
+		ls -1 ${_prefix}.*.txt | grep -i $_keyword | more;
+		_file_to_edit="$( ls -1 ${_prefix}.*.txt | grep -i $_keyword | tail -1 )";
+		read -p "Print the contents of the file '${_file_to_edit}'? [Y|n] " _answer;
+		if [ "X${_answer}" != "Xn" ]; then
+			echo "-------- BMM_PRINT { --------";
+			echo "";
+			cat ${_file_to_edit};
+			echo "";
+			echo "-------- } BMM_PRINT --------";
+		fi
+	)
+}
+
 
 
 
 if [ $# -eq 0 ]; then
 	if [ $_progname_called = "${_progname}" ]; then
 		_print_help;
-		exit 111;
 	fi
 fi
 case $_progname_called in
@@ -128,8 +150,12 @@ case $_progname_called in
 	"bmml")
 		_bmm_list;
 		;;
+	"bmmp")
+		_keyword=$1;
+		_bmm_print;
+		;;
 	"bmm")
-		while getopts "hc:e:f:g:l" _opt; do
+		while getopts "hc:e:f:g:lp:" _opt; do
 			case $_opt in
 			h)
 				_print_help;
@@ -153,6 +179,10 @@ case $_progname_called in
 			l)
 				_bmm_list;
 				;;
+			p)
+				_keyword=${OPTARG};
+				_bmm_print;
+				;;
 			*)
 				_print_help;
 				;;
@@ -163,7 +193,7 @@ case $_progname_called in
 		echo "($*)";
 		;;
 esac
-exit 100;
+exit 0;
 
 
 

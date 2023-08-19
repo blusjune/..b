@@ -7,7 +7,7 @@ declare -A _apt_pkg_phase;
 _phase=0;
 
 
-#### phase 1
+#### phase++
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
 git
@@ -36,14 +36,20 @@ ipython3
 python3-ipython
 python3-ipython-genutils
 make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl cmake
-mysql-server
-mysql-client
 gh
 python3-pip
 "
 
 
-#### phase 2
+#### phase++
+_phase=$((_phase + 1));
+_apt_pkg_phase[$_phase]="
+mysql-server
+mysql-client
+"
+
+
+#### phase++
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
 xinit
@@ -53,29 +59,44 @@ wmaker-data
 wmaker-utils
 chromium-browser 
 lightdm
-gnome
-xfce4
-
 "
 
 
-#### phase 3
+#### phase++
+_phase=$((_phase + 1));
+_apt_pkg_phase[$_phase]="
+xfce4
+kde-full
+"
+
+
+#### phase++
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
 mediawiki
 phpmyadmin
+"
+
+
+#### phase++
+_phase=$((_phase + 1));
+_apt_pkg_phase[$_phase]="
 latexml
 vim-latexsuite
 latex-make
 latex-mk
-
 vim-pathogen
 openjdk-19-dbg
 openjdk-19-doc
 openjdk-19-jdk
 openjdk-19-jre
 openjdk-19-source
+"
 
+
+#### phase++
+_phase=$((_phase + 1));
+_apt_pkg_phase[$_phase]="
 r-cran-findpython
 vim-python-jedi
 xscreensaver
@@ -97,16 +118,8 @@ fonts-woowa-bm
 xfonts-baekmuk
 
 cairosvg
-
 "
 
-
-#### phase 4
-_phase=$((_phase + 1));
-_apt_pkg_phase[$_phase]="
-kde-full
-
-"
 
 
 
@@ -211,8 +224,13 @@ manual_install()
 _i=0;
 while [ $_i -lt $_phase ]; do
 	_i=$((_i + 1));
+	echo "";
+	echo "_____________";
 	echo "phase[ $_i ]: " ${_apt_pkg_phase[$_i]};
-	sudo apt install ${_apt_pkg_phase[$_i]};
+	read -p ">>> Go ahead? [Y|n] " _answer;
+	if [ "X$_answer" != "Xn" ]; then
+		sudo apt install ${_apt_pkg_phase[$_i]};
+	fi
 done
 # manual_install;
 exit 0;
