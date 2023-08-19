@@ -1,0 +1,1 @@
+/home/blusjune/..b/_/x/.bx.swpkg.install.sh

@@ -1,5 +1,5 @@
 #!/bin/bash
-#.bx.swpkg.install.apt.sh 
+# .bx.swpkg.install.sh
 # 20230630_232320
 
 _ts="date +%Y%m%d_%H%M%S";

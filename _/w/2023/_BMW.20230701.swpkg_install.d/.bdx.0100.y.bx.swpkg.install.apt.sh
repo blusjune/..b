@@ -1,1 +1,1 @@
-.bx.swpkg.install.apt.sh
+.bx.swpkg.install.sh
