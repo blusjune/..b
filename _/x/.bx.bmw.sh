@@ -42,12 +42,18 @@ function _bmw_create()
 	mkdir -p $_dpath;
 	(cd $_dpath;
 		touch ..README..${_dname};
+		mkdir -p .files.d;
+		if [ ! -L .bxd ]; then
+			ln -s ${HOME}/..bxd/_ .bxd;
+		fi
 	)
 	if [ ! -d $_shortcut_dir ]; then
 		mkdir -p $_shortcut_dir;
 	fi
 	(cd $_shortcut_dir;
-		ln -s $_dpath $_dname;
+		if [ ! -L $_dname ]; then
+			ln -s $_dpath $_dname;
+		fi
 		if [ -L latest ]; then
 			rm latest ;
 		fi
