@@ -99,6 +99,14 @@ openjdk-19-source
 #### phase++
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
+gimp
+imagemagick 
+"
+
+
+#### phase++
+_phase=$((_phase + 1));
+_apt_pkg_phase[$_phase]="
 r-cran-findpython
 vim-python-jedi
 xscreensaver
@@ -106,7 +114,6 @@ language-pack-gnome-ko language-pack-gnome-ko-base language-pack-kde-ko language
 ibus-hangul libhangul-data libhangul-dev libhangul1
 python-is-python3
 pacman
-
 fonts-baekmuk
 fonts-lexi-gulim
 fonts-lexi-saebom
@@ -118,10 +125,8 @@ fonts-unfonts-core
 fonts-unfonts-extra
 fonts-woowa-bm
 xfonts-baekmuk
-
 cairosvg
 "
-
 
 
 

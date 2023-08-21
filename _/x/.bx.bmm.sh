@@ -3,10 +3,11 @@
 # 20230814_203318
 
 
+### assuming that /_b -> /home/blusjune/b/
 _progname="bmm";
 _progdescr="b's management of memo";
 _progname_called="$( echo $0 | sed -e 's/.*\/\(.*\)/\1/g' )";
-_basedir="${HOME}/..b/_/m";
+_basedir="/_b/m"; # _basedir="${HOME}/..b/_/m";
 _prefix="_BMM";
 _tstamp="date +%Y%m%d";
 #_tstamp="date +%Y%m%d_%H%M%S";
@@ -54,10 +55,15 @@ function _bmm_edit()
 	fi
 	(cd $_basedir;
 		ls -1 ${_prefix}.*.txt | grep -i $_keyword | more;
-		_file_to_edit="$( ls -1 ${_prefix}.*.txt | grep -i $_keyword | tail -1 )";
-		read -p "Edit the file '${_file_to_edit}'? [Y|n] " _answer;
-		if [ "X${_answer}" != "Xn" ]; then
-			vi ${_file_to_edit};
+		_target_file="$( ls -1 ${_prefix}.*.txt | grep -i $_keyword | tail -1 )";
+		if [ "X$_target_file" != "X" ]; then
+			read -p "Edit the file '${_target_file}'? [Y|n] " _answer;
+			if [ "X${_answer}" != "Xn" ]; then
+				vi ${_target_file};
+			fi
+		else
+			# echo "ERROR(28): No memo files found with $_keyword";
+			:
 		fi
 	)
 }
@@ -110,14 +116,19 @@ function _bmm_print()
 	fi
 	(cd $_basedir;
 		ls -1 ${_prefix}.*.txt | grep -i $_keyword | more;
-		_file_to_edit="$( ls -1 ${_prefix}.*.txt | grep -i $_keyword | tail -1 )";
-		read -p "Print the contents of the file '${_file_to_edit}'? [Y|n] " _answer;
-		if [ "X${_answer}" != "Xn" ]; then
-			echo "-------- BMM_PRINT { --------";
-			echo "";
-			cat ${_file_to_edit};
-			echo "";
-			echo "-------- } BMM_PRINT --------";
+		_target_file="$( ls -1 ${_prefix}.*.txt | grep -i $_keyword | tail -1 )";
+		if [ "X$_target_file" != "X" ]; then
+			read -p "Print the contents of the file '${_target_file}'? [Y|n] " _answer;
+			if [ "X${_answer}" != "Xn" ]; then
+				echo "-------- BMM_PRINT { --------";
+				echo "";
+				cat ${_target_file};
+				echo "";
+				echo "-------- } BMM_PRINT --------";
+			fi
+		else
+			# echo "ERROR(28): No memo files found with $_keyword";
+			:
 		fi
 	)
 }
@@ -125,6 +136,9 @@ function _bmm_print()
 
 
 
+###
+### Main code begins
+###
 if [ $# -eq 0 ]; then
 	if [ $_progname_called = "${_progname}" ]; then
 		_print_help;

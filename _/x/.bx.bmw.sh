@@ -3,10 +3,11 @@
 # 20230814_203318
 
 
+### assuming that /_b -> /home/blusjune/b/
 _progname="bmw";
 _progdescr="b's management of work";
 _progname_called="$( echo $0 | sed -e 's/.*\/\(.*\)/\1/g' )";
-_basedir="${HOME}/..b/_/w";
+_basedir="/_b/w"; # _basedir="${HOME}/..b/_/w";
 _shortcut_dir="${_basedir}/x";
 _prefix="_BMW";
 _tstamp="date +%Y%m%d";

@@ -1,0 +1,35 @@
+# 20230820_151205
+
+
+== simulator ==
+
+=== Gem5 ===
+
+* https://www.youtube.com/watch?v=L0QxSflnKN8
+** Tutorial 4 : Architectural Simulation using gem5
+** NPTEL IIT Guwahati
+** 20230820_150327
+
+
+
+== life ==
+
+=== weather ===
+
+* earth nullschool
+** https://earth.nullschool.net/
+* windy.com
+** https://www.windy.com/
+* google earth
+** https://earth.google.com/
+
+
+* Example: Hurricane Hilary on 2023.08.20 Sun.
+** nullschool
+*** https://earth.nullschool.net/#current/wind/surface/level/orthographic=-114.75,32.96,4891/loc=-115.056,32.440
+** windy
+*** https://www.windy.com/-Webcams/United-States/New-Mexico/Hidalgo/webcams/1590370971?32.101,-115.510,6
+** google earth
+*** https://earth.google.com/web/@38.09960837,-119.53849553,3299.3458324a,875434.97763142d,35y,357.48027141h,0t,0r
+
+
