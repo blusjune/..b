@@ -133,6 +133,30 @@ function _bmm_print()
 	)
 }
 
+function _bmm_print_y()
+{
+	#echo ">>> ${_progname}.print.y";
+	if [ "X$_keyword" = "X" ]; then
+		echo "ERROR(18): _keyword should be specified -- EXIT";
+		exit 18;
+	fi
+	(cd $_basedir;
+		ls -1 ${_prefix}.*.txt | grep -i $_keyword | more;
+		_target_file="$( ls -1 ${_prefix}.*.txt | grep -i $_keyword | tail -1 )";
+		if [ "X$_target_file" != "X" ]; then
+			echo "Print the contents of the file '${_target_file}'";
+			echo "-------- BMM_PRINT { --------";
+			echo "";
+			cat ${_target_file};
+			echo "";
+			echo "-------- } BMM_PRINT --------";
+		else
+			# echo "ERROR(28): No memo files found with $_keyword";
+			:
+		fi
+	)
+}
+
 
 
 
@@ -167,6 +191,10 @@ case $_progname_called in
 	"bmmp")
 		_keyword=$1;
 		_bmm_print;
+		;;
+	"bmmpy")
+		_keyword=$1;
+		_bmm_print_y;
 		;;
 	"bmm")
 		while getopts "hc:e:f:g:lp:" _opt; do
