@@ -207,8 +207,18 @@ manual_install__gem5()
 	sudo apt install hdf5-tools libhdf5-dev libhdf5-doc libhdf5-hl-100 libhdf5-hl-cpp-100 libhdf5-hl-fortran-100 hdf5-helpers hdf5-plugin-lzf libhdf5-103 libhdf5-cpp-103
 	sudo apt install libtcmalloc-minimal4
 	#
-	git clone https://${_GEM5_URL}/public/gem5
-	cd gem5
+	if [ -d gem5 ]; then
+		echo ">>> gem5 directory exists";
+		( cd gem5;
+		git pull;
+		)
+	else
+		echo ">>> gem5 directory does not exists";
+		( cd .bxd/src; 
+		git clone https://${_GEM5_URL}/public/gem5;
+		)
+	fi
+	cd gem5;
 	scons build/X86/gem5.opt -j ${_NUM_OF_CPU_CORES}
 	#
 	pip install gem5
