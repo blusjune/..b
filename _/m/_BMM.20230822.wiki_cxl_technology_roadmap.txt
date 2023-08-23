@@ -1,0 +1,89 @@
+CXL technology roadmap
+
+
+Key questions first,
+and then answer to these questions (via Tech Roadmap)
+
+
+== Questions ==
+
+; Strength and weakness of CXL itself
+: Do we understand the CXL technology properly? What are the strong points and weak points (limitations) of CXL technology?
+# Strong points
+## Scalability of memory
+# Weak points (which blocks the adoption of CXL)
+## Latency
+### Longer average latency (added by CXL switches)
+###* at least 99ns for one hop (Xconn said in FMS 2023)
+###* some other guy said it is at least 200ns<ref> URL here </ref>
+#### Can host CPU hardware or system software (such as GFS-II) help us avoid or mitigate this longer latency impact?
+### Degraded tail latency characteristics (non-deterministic latency to access CXL-DRAM, compared to DIMM)
+#### What about the many-host case? e.g., multiple (N) compute hosts are connected to one memory pool which is comprised of multiple (M) CXL devices
+#### Non-deterministic latency problems caused by many-tenant should be considered and handled
+## Bandwidth limitation (caused by underlying PCIe)
+### Then, what will happen if we change it to NVLink? Will it solve all the bandwidth related problems?
+### Let's consider also the bandwidth bottleneck issue of upstream port of CXL switch
+
+; Adoption blocker
+: What blocks the adoption of CXL, in addition to the weakness of the CXL itself?
+# limitations of CXL itself
+
+# bandwidth of underlying PCIe? (then, for example, do we need to change it to NVLink one?)
+# latency (and degraded tail latency characteristics also)?
+# host CPU (hardware perspective)?
+# host system software (such as Linux kernel)?
+# host application software?
+
+
+
+## Opportunity
+### Can we re-shape the system environment so that it can be more friendly to the CXL-based memory pool, in terms of the latency?
+#### First, CPU
+##### Do we need to change the behavior of the hardware such as host CPUs so that the CPU can be utilized 100%, without any idle time, even there exist many memory waits caused by longer memory response time? (e.g., It would be good if there was a CPU feature to make context switching very efficient, so that there is no need to get help from the software, such as OS kernel)
+##### This is possible scenario if CPU can switch contexts very efficiently/shortly to avoid idle time. The point is, the context switching should be very efficient, because the idle time caused by CXL memory pool may be tens of nano seconds. So if the context switching overhead is not small in terms of cycles (and time), then this can not be the solution to hide the long latency.
+#### Second, system software
+##### Is it possible to save the CPU from the long latency impact, by  
+#### Third, application software
+
+
+
+; Benefit
+# What innovation can we make in the world of CXL?
+## from the perspective of:
+### application?
+### compute server
+### memory and memory pool
+### storage
+### networking
+## Would it be possible that
+### CXL changes the impossible to the possible one
+### CXL enhances the legacy applications/systems
+
+; Ideal shape
+# What is the characteristics of the well-matched system environment with CXL technology?
+## Environment which is not that much sensitive to the latency (i.e., latency-tolerance) 
+### e.g., many-VM environment? to mitigate the waiting time from the host CPU
+
+; Adoption
+# Will the world adopt CXL as a default peripheral bus (rather than just having PCIe with no CXL)?
+## If yes is the answer, when will be the time? and what event will be the key triggering point?
+# What will be the killer application of CXL?
+## <s>current CXL (CXL 2.0)</s>
+## CXL 3.0
+## and future CXL (of what shape and characteristics)?
+
+== Prerequisites (and possible sources) to answer to the key questions ==
+
+# Technologies forecasting (5 years later or 10 years later)
+# Industry trend regarding CXL from the viewpoint of
+## Customers
+### Data center players (Hyperscalers)
+### others? edge such as Auto/Mobile/...? does it make any sense?
+## Competitors
+## Partners
+## Startups
+
+== References ==
+
+<references/>
+
