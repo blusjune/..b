@@ -1,5 +1,15 @@
 Technology Trends
 
+== News sites ==
+
+* [https://www.servethehome.com/ Serve The Home]
+* [https://blocksandfiles.com/ Blocks & Files]
+* [https://www.theregister.com/ The Register]
+* [https://www.aitimes.com/ AI Times]
+* [https://www.technologyreview.com/ MIT Technology Review]
+
+
+== Conferences ==
 {| class="wikitable sortable"
 |+
 ! Short Name
@@ -82,5 +92,4 @@ Technology Trends
 | 11 / November
 | https://supercomputing.org/ <br/> https://dl.acm.org/conference/sc
 |}
-
 
