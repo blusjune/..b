@@ -1,0 +1,30 @@
+
+== BWX (B's Web eXecution) troubleshooting: 20230822_224457 ===
+
+* Error: BWX execution failure
+** Tried to execute the command '/_b/x/bmmpy wiki' via BWX
+** but it generated an error: /_b/x/bmmpy permission denied
+
+* How to investigate the problematic situation
+** check the following logs
+*** /var/log/apache2/error.log
+*** /var/log/apache2/access.log
+*** /var/log/syslog
+
+* Root cause:
+** Apache2+PHP uses 'www-data' account ID/group
+** But the ~blusjune/ directory has 'drwxr-x---' permission
+** So Apache2+PHP could not access the file '/_b/x/bmmpy'
+
+* Solution:
+** add 'www-data' group ID to the 'blusjune' group
+** vigr; vigr -s; systemctl restart apache2;
+
+
+== How to change date and time ==
+
+$ sudo timedatectl list-timezones;
+$ sudo timedatectl set-timezone "America/Los_Angeles";
+$ sudo timedatectl set-time "2023-08-22 15:41:00";
+
+
