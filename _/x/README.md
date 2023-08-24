@@ -1,18 +1,23 @@
 20230822_231059
 
+== Guide ==
+
 You need to make a symbolic link "_b" which points to "/home/blusjune/..b/_" in the root "/" directory.
 
-$ ls -alF /_b;
-lrwxrwxrwx 1 root root 20 Aug 21 22:43 /_b -> /home/blusjune/..b/_/
+ $ ls -alF /_b;
+ lrwxrwxrwx 1 root root 20 Aug 21 22:43 /_b -> /home/blusjune/..b/_/
 
 This is very essential to enable BWX (B's Web eXection) to execute .bx.*.sh commands under the ..b/_/x directory.
 Then BWX will use the path '/_b/x/.bx.bmm.sh' to access '/home/blusjune/..b/_/x/.bx.bmm.sh' file.
 
+Do not forget to add 'www-data' group ID to the 'blusjune' group
+ vigr; vigr -s; systemctl restart apache2;
 
 
 
-e.g.,
 
+ _b -> /home/blusjune/..b/_/
+ <pre>
 $ ls -alF /;
 total 80
 drwxr-xr-x  19 root root  4096 Aug 21 22:44 ./
@@ -41,3 +46,28 @@ dr-xr-xr-x  13 root root     0 Aug 22 20:55 sys/
 drwxrwxrwt  33 root root  4096 Aug 22 23:02 tmp/
 drwxr-xr-x  14 root root  4096 Feb 17  2023 usr/
 drwxr-xr-x  15 root root  4096 Apr 18 00:48 var/
+</pre>
+
+
+== BWX (B's Web eXecution) troubleshooting ==
+: 20230822_224457
+
+* Error: BWX execution failure
+** Tried to execute the command '/_b/x/bmmpy wiki' via BWX
+** but it generated an error: /_b/x/bmmpy permission denied
+
+* How to investigate the problematic situation
+** check the following logs
+*** /var/log/apache2/error.log
+*** /var/log/apache2/access.log
+*** /var/log/syslog
+
+* Root cause:
+** Apache2+PHP uses 'www-data' account ID/group
+** But the ~blusjune/ directory has 'drwxr-x---' permission
+** So Apache2+PHP could not access the file '/_b/x/bmmpy'
+
+* Solution:
+** add 'www-data' group ID to the 'blusjune' group
+** vigr; vigr -s; systemctl restart apache2;
+
