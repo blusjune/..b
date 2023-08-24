@@ -11,15 +11,15 @@ _exe_log=".exelog.$($_ts).log";
 #### phase++
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
-git
-emacs
 vim
+emacs
+git
+w3m
 aptitude
 sysstat
 net-tools
 gnuplot
 r-base
-w3m
 itop
 irqtop
 htop
@@ -30,8 +30,11 @@ numatop
 tiptop
 usbtop
 graphviz
+imagemagick 
 proftpd
 ncftp
+exuberant-ctags
+cscope
 idle-python3.10
 ipython3
 python3-ipython
@@ -39,6 +42,7 @@ python3-ipython-genutils
 make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl cmake
 gh
 python3-pip
+gparted
 "
 
 
@@ -59,7 +63,6 @@ wmaker-common
 wmaker-data
 wmaker-utils
 chromium-browser 
-lightdm
 "
 
 
@@ -68,6 +71,9 @@ _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
 xfce4
 kde-full
+sddm
+plasma-desktop
+kde-plasma-desktop
 "
 
 
@@ -100,7 +106,6 @@ openjdk-19-source
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
 gimp
-imagemagick 
 "
 
 
@@ -110,7 +115,7 @@ _apt_pkg_phase[$_phase]="
 r-cran-findpython
 vim-python-jedi
 xscreensaver
-language-pack-gnome-ko language-pack-gnome-ko-base language-pack-kde-ko language-pack-ko language-pack-ko-base
+language-pack-kde-ko language-pack-ko language-pack-ko-base
 ibus-hangul libhangul-data libhangul-dev libhangul1
 python-is-python3
 pacman

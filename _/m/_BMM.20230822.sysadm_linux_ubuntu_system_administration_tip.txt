@@ -1,5 +1,6 @@
 
-== BWX (B's Web eXecution) troubleshooting: 20230822_224457 ===
+== BWX (B's Web eXecution) troubleshooting ==
+: 20230822_224457 
 
 * Error: BWX execution failure
 ** Tried to execute the command '/_b/x/bmmpy wiki' via BWX
@@ -22,9 +23,45 @@
 
 
 == How to change date and time ==
+: 20230823_235501
 
 $ sudo timedatectl list-timezones;
 $ sudo timedatectl set-timezone "America/Los_Angeles";
 $ sudo timedatectl set-time "2023-08-22 15:41:00";
+
+
+== Set kde-plasma as a default desktop (window manager) ==
+: 20230823_235554
+
+* '~/.dmrc' should have the following contents
+ <pre>
+blusjune@aerosmith:~$ cat ~/.dmrc 
+[Desktop]
+Session=plasma
+</pre>
+
+* 'plasma.desktop' file should be in the '/usr/share/xsessions' directory
+ <pre>
+blusjune@aerosmith:~$ ls -alF /usr/share/xsessions
+total 40
+drwxr-xr-x   2 root root  4096 Aug 21 19:28 ./
+drwxr-xr-x 479 root root 20480 Aug 21 22:42 ../
+-rw-r--r--   1 root root  3047 Oct 17  2022 plasma.desktop
+-rw-r--r--   1 root root   203 Oct  8  2021 wmaker-common.desktop
+-rw-r--r--   1 root root  6832 Feb 16  2021 xfce.desktop
+</pre>
+
+
+== Reset the kde-plasma desktop configuration to the factory init status ==
+: 20230824_000058
+
+ <pre>
+$ cd ~/.config
+$ rm plasma-org.kde.plasma.desktop-appletsrc
+</pre>
+
+
+
+
 
 

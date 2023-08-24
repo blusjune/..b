@@ -1,3 +1,6 @@
 _db_dump_dir="bxd_obj_mediawiki";
 
-mysqldump -u neo -p --databases matrix > ${_db_dump_dir}/mediawiki_db_dump.matrix.$(..ts).sql
+_db_name="matrix_radiohead";
+#_db_name="matrix";
+
+mysqldump -u neo -p --databases $_db_name > ${_db_dump_dir}/mediawiki_db_dump.${_db_name}.$(..ts).sql
