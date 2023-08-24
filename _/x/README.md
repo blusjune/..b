@@ -4,20 +4,18 @@
 
 You need to make a symbolic link "_b" which points to "/home/blusjune/..b/_" in the root "/" directory.
 
- $ ls -alF /_b;
- lrwxrwxrwx 1 root root 20 Aug 21 22:43 /_b -> /home/blusjune/..b/_/
+ <pre>
+$ ls -alF /_b;
+lrwxrwxrwx 1 root root 20 Aug 21 22:43 /_b -> /home/blusjune/..b/_/
+</pre>
 
 This is very essential to enable BWX (B's Web eXection) to execute .bx.*.sh commands under the ..b/_/x directory.
 Then BWX will use the path '/_b/x/.bx.bmm.sh' to access '/home/blusjune/..b/_/x/.bx.bmm.sh' file.
 
-Do not forget to add 'www-data' group ID to the 'blusjune' group
- vigr; vigr -s; systemctl restart apache2;
 
-
-
-
- _b -> /home/blusjune/..b/_/
  <pre>
+_b -> /home/blusjune/..b/_/
+
 $ ls -alF /;
 total 80
 drwxr-xr-x  19 root root  4096 Aug 21 22:44 ./
@@ -49,9 +47,18 @@ drwxr-xr-x  15 root root  4096 Apr 18 00:48 var/
 </pre>
 
 
+Do not forget to add 'www-data' group ID to the 'blusjune' group
+ <pre>
+$ sudo vigr;
+$ sudo vigr -s;
+$ sudo systemctl restart apache2;
+</pre>
+
+
 == BWX (B's Web eXecution) troubleshooting ==
 : 20230822_224457
 
+ <pre>
 * Error: BWX execution failure
 ** Tried to execute the command '/_b/x/bmmpy wiki' via BWX
 ** but it generated an error: /_b/x/bmmpy permission denied
@@ -70,4 +77,4 @@ drwxr-xr-x  15 root root  4096 Apr 18 00:48 var/
 * Solution:
 ** add 'www-data' group ID to the 'blusjune' group
 ** vigr; vigr -s; systemctl restart apache2;
-
+</pre>
