@@ -1,89 +1,215 @@
-CXL technology roadmap
+
+= Main =
+
+== What to do? ==
+
+== Why? ==
+
+== How? ==
 
 
-Key questions first,
-and then answer to these questions (via Tech Roadmap)
+= Appendix =
+
+== Use cases ==
+
+What are the killer use cases of CXL solutions (memory/storage)? Use case definition should be the first of all. Because it is the source of all the functional and non-functional requirements of the system.
+{| class="wikitable"
+|+
+! Use cases
+! Features
+! Ideal Case
+!What 
+|-
+| rowspan="9" | Memory Pool
+| Tiered
+| 
+|
+|-
+|Shared by Multi-Host
+|
+|
+|-
+|Topology
+|
+|
+|-
+|Hot Plugging/Unplugging (changes capacity)
+|
+|
+|-
+|Hot Swap (no change in capacity)
+|
+|
+|-
+|P2P data path
+|
+|
+|-
+|CXL-memory for application data
+|
+|
+|-
+|CXL-memory for kernel data
+|
+|
+|-
+|Computational
+|
+|
+|}
 
 
-== Questions ==
+#memory pool
+##tiered
+###media
+####DRAM only? (1st tier is DIMM DRAM, and the 2nd tier is CXL-DRAM)
+####DRAM+NAND hybrid? (1st tier is DIMM DRAM, and the 2nd tier is CXL-SSD<ref>DRAM works as a fast tier which has pre-fetched data from NAND, thanks to host's explicit pre-fetching hint</ref>)
+###topology
+####nested CXL switches?
+##shared
+##dynamtically-extendable by (sudden/scheduled) plugging/unplugging
+##for application data
+##for kernel data? (very dangerous)
+##computational? (does it really make any sense?)
 
-; Strength and weakness of CXL itself
-: Do we understand the CXL technology properly? What are the strong points and weak points (limitations) of CXL technology?
-# Strong points
-## Scalability of memory
-# Weak points (which blocks the adoption of CXL)
-## Latency
-### Longer average latency (added by CXL switches)
-###* at least 99ns for one hop (Xconn said in FMS 2023)
-###* some other guy said it is at least 200ns<ref> URL here </ref>
-#### Can host CPU hardware or system software (such as GFS-II) help us avoid or mitigate this longer latency impact?
-### Degraded tail latency characteristics (non-deterministic latency to access CXL-DRAM, compared to DIMM)
-#### What about the many-host case? e.g., multiple (N) compute hosts are connected to one memory pool which is comprised of multiple (M) CXL devices
-#### Non-deterministic latency problems caused by many-tenant should be considered and handled
-## Bandwidth limitation (caused by underlying PCIe)
-### Then, what will happen if we change it to NVLink? Will it solve all the bandwidth related problems?
-### Let's consider also the bandwidth bottleneck issue of upstream port of CXL switch
+==CXL business SWOT analysis==
 
-; Adoption blocker
-: What blocks the adoption of CXL, in addition to the weakness of the CXL itself?
-# limitations of CXL itself
+Definition: what is the success criteria of Samsung's CXL business?
 
-# bandwidth of underlying PCIe? (then, for example, do we need to change it to NVLink one?)
-# latency (and degraded tail latency characteristics also)?
-# host CPU (hardware perspective)?
-# host system software (such as Linux kernel)?
-# host application software?
+#Strengths: internal, positive attributes of you. These are things that are within your control.
+##Scalability of memory
+#Weaknesses: negative factors that detract from your strengths. These are things that you might need to improve on to be competitive.
+##Latency
+###Long average latency (added by CXL switches)
+#### at least 99ns for one hop (Xconn said in FMS 2023): so the round-trip latency may be about 360ns to get a data from CXL-DRAM via CXL switch
+####*host -> CXL_Switch (100ns: based on Xconn's comment) -> CXL_DRAM (160ns: asumming that CTRL 80ns + DRAM 80ns) -> CXL_Switch (100ns: based on Xconn's comment).
+####some other guy said it is at least 200ns<ref> URL here </ref>
+####Can host CPU hardware or system software (such as GFS-II) help us avoid or mitigate this longer latency impact?
+###Degraded tail latency characteristics (non-deterministic latency to access CXL-DRAM, compared to DIMM)
+####What about the many-host case? e.g., multiple (N) compute hosts are connected to one memory pool which is comprised of multiple (M) CXL devices
+####Non-deterministic latency problems caused by many-tenant should be considered and handled
+##Bandwidth limitation (caused by underlying PCIe)
+###Then, what will happen if we change it to NVLink? Will it solve all the bandwidth related problems?
+###Let's consider also the bandwidth bottleneck issue of upstream port of CXL switch
+#Opportunities: external factors in your business environment that are likely to contribute to your success
+##Can we re-shape the system environment so that it can be more friendly to the CXL-based memory pool, in terms of the latency?
+###First, CPU
+#### Do we need to change the behavior of the hardware such as host CPUs so that the CPU can be utilized 100%, without any idle time, even there exist many memory waits caused by longer memory response time? (e.g., It would be good if there was a CPU feature to make context switching very efficient, so that there is no need to get help from the software, such as OS kernel)
+####This is possible scenario if CPU can switch contexts very efficiently/shortly to avoid idle time. The point is, the context switching should be very efficient, because the idle time caused by CXL memory pool may be tens of nano seconds. So if the context switching overhead is not small in terms of cycles (and time), then this can not be the solution to hide the long latency.
+###Second, system software
+#### Is it possible to save the CPU from the long latency impact, by
+###Third, application software
+#Threats: external factors that you have no control over. You may want to consider putting in place contingency plans for dealing with them if they occur.
+##CXL ecosystem
+###Host software (system + application)
+###Switch
+###CXL fabric management
+##Alternative technologies for wider bandwidth and lower latency
+###NVIDIA NVLink
+###What else?
+
+==View points==
 
 
+===CXL ecosystems: software===
 
-## Opportunity
-### Can we re-shape the system environment so that it can be more friendly to the CXL-based memory pool, in terms of the latency?
-#### First, CPU
-##### Do we need to change the behavior of the hardware such as host CPUs so that the CPU can be utilized 100%, without any idle time, even there exist many memory waits caused by longer memory response time? (e.g., It would be good if there was a CPU feature to make context switching very efficient, so that there is no need to get help from the software, such as OS kernel)
-##### This is possible scenario if CPU can switch contexts very efficiently/shortly to avoid idle time. The point is, the context switching should be very efficient, because the idle time caused by CXL memory pool may be tens of nano seconds. So if the context switching overhead is not small in terms of cycles (and time), then this can not be the solution to hide the long latency.
-#### Second, system software
-##### Is it possible to save the CPU from the long latency impact, by  
-#### Third, application software
+*Memory management in the Linux kernel
+**problems of using
 
 
+;Adoption barrier
+:What blocks the adoption of CXL, in addition to the weakness of the CXL itself?
+#limitations of CXL itself
 
-; Benefit
-# What innovation can we make in the world of CXL?
-## from the perspective of:
-### application?
-### compute server
-### memory and memory pool
-### storage
-### networking
-## Would it be possible that
-### CXL changes the impossible to the possible one
-### CXL enhances the legacy applications/systems
+#bandwidth of underlying PCIe? (then, for example, do we need to change it to NVLink one?)
+#latency (and degraded tail latency characteristics also)?
+#host CPU (hardware perspective)?
+#host system software (such as Linux kernel)?
+#host application software?
 
-; Ideal shape
-# What is the characteristics of the well-matched system environment with CXL technology?
-## Environment which is not that much sensitive to the latency (i.e., latency-tolerance) 
-### e.g., many-VM environment? to mitigate the waiting time from the host CPU
 
-; Adoption
-# Will the world adopt CXL as a default peripheral bus (rather than just having PCIe with no CXL)?
+;Ideal shape of CXL
+#What is the characteristics of the well-matched system environment with CXL technology?
+##Environment which is not that much sensitive to the latency (i.e., latency-tolerance) 
+###e.g., many-VM environment? to mitigate the waiting time from the host CPU
+
+
+;Benefit from CXL
+#What innovation can we make in the world of CXL?
+##from the perspective of:
+###application?
+###compute server
+###memory and memory pool
+###storage
+###networking
+##Would it be possible that
+###CXL changes the impossible to the possible one
+###CXL enhances the legacy applications/systems
+
+;Adoption
+#Will the world adopt CXL as a default peripheral bus (rather than just having PCIe with no CXL)?
 ## If yes is the answer, when will be the time? and what event will be the key triggering point?
-# What will be the killer application of CXL?
-## <s>current CXL (CXL 2.0)</s>
-## CXL 3.0
-## and future CXL (of what shape and characteristics)?
+#What will be the killer application of CXL?
+##<s>current CXL (CXL 2.0)</s>
+##CXL 3.0
+##and future CXL (of what shape and characteristics)?
 
-== Prerequisites (and possible sources) to answer to the key questions ==
+==Prerequisites (and possible sources) to answer to the key questions==
 
-# Technologies forecasting (5 years later or 10 years later)
-# Industry trend regarding CXL from the viewpoint of
-## Customers
-### Data center players (Hyperscalers)
-### others? edge such as Auto/Mobile/...? does it make any sense?
-## Competitors
-## Partners
-## Startups
+#Technologies forecasting (5 years later or 10 years later)
+#Industry trend regarding CXL from the viewpoint of
+##Customers
+###Data center players (Hyperscalers)
+###others? edge such as Auto/Mobile/...? does it make any sense?
+##Competitors
+##Partners
+##Startups
 
-== References ==
+=References=
 
-<references/>
+==Footnotes automatically generated==
+
+<references />
+
+==References (Manually Added)==
+
+*[https://docs.kernel.org/admin-guide/mm/memory-hotplug.html Memory Hot(Un)Plug] Linux kernel documentation
+*[https://www.kernel.org/doc/html/v5.6/admin-guide/mm/numa_memory_policy.html#numa-memory-policy NUMA memory policy] Linux kernel documentation
+*[https://www.kernel.org/doc/html/v5.6/vm/numa.html What is NUMA?] Linux kernel documentation
+*[https://www.kernel.org/doc/html/v5.6/vm/hmm.html Heterogeneous Memory Management (HMM)] Linux kernel documentation
+*[https://www.kernel.org/doc/html/v5.0/vm/hmm.html Heterogeneous Memory Management (HMM)] Linux kernel documentation
+*[[LWN article: Memory-management changes for CXL]]
+*[https://lwn.net/Articles/lsfmmbpf2023/ The 2023 LSFMM+BPF Summit] The 2023 Linux Storage, Filesystem, Memory-Management, and BPF Summit was held May 8 to 10 in Vancouver
+*[https://lwn.net/Articles/931416/ LWN 931416 Memory-management changes for CXL]
+*[https://lwn.net/Articles/931282/ A storage standards update at LSFMM+BPF]
+*[https://lwn.net/Articles/931528/ Live migration of virtual machines over CXL]
+*[https://lwn.net/Articles/931421/ The future of memory tiering]
+*[https://www.anandtech.com/show/17047/the-intel-12th-gen-core-i912900k-review-hybrid-performance-brings-hybrid-complexity/12 The Intel 12th Gen Core i9-12900K Review: Hybrid Performance Brings Hybrid Complexity] by Dr. Ian Cutress & Andrei Frumusanu on November 4, 2021 9:00 AM EST
+*[https://stackoverflow.com/questions/11223523/what-is-the-meaning-of-gfp-in-kmalloc-flags What is the meaning of GFP in kmalloc flags?]
+*[https://cseweb.ucsd.edu/classes/fa12/cse260-b/Lectures/Lec17.pdf NUMA architecture and programming]
+*[https://www.intel.com/content/www/us/en/developer/articles/technical/memory-performance-in-a-nutshell.html Memory Performance in a Nutshell] Intel; June 6, 2016;
+*[https://www.intel.com/content/www/us/en/developer/articles/tool/intelr-memory-latency-checker.html Intel® Memory Latency Checker v3.10] Intel
+
+----
+References for the question:
+*what is the future of CXL? Is CXL-based tiered memory pool the answer?
+*what is the current status, what is the expected future, what are the killer use cases?
+
+;DRAM
+*[https://compas.cs.stonybrook.edu/~nhonarmand/courses/sp15/cse502/res/dramop.pdf Understanding DRAM Operation] IBM
+*[https://trts1004.tistory.com/12109180 SDRAM parameters] tistory.com
+*[https://www.gamersnexus.net/guides/3333-memory-timings-defined-cas-latency-trcd-trp-tras What Are Memory Timings? CAS Latency, tRCD, tRP, & tRAS (Pt 1)] Gamers Nexus
+*[https://www.anandtech.com/show/3851/everything-you-always-wanted-to-know-about-sdram-memory-but-were-afraid-to-ask/5 Everything You Always Wanted to Know About SDRAM (Memory): But Were Afraid to Ask] ANANDTech
+*[https://www.anandtech.com/show/16143/insights-into-ddr5-subtimings-and-latencies Insights into DDR5 Sub-timings and Latencies] ANANDTech
+
+;CXL
+*[https://www.synopsys.com/blogs/chip-design/cxl-protocol-memory-pooling.html?utm_source=google&utm_medium=search&utm_term=&utm_campaign=&cmp=ps-SIG-G_S_TestCampaign-PMax How CXL Is Improving Latency in High-Performance Computing] Synopsys
+*[https://www.micron.com/solutions/server/cxl CZ120 memory expansion module - Memory capacity for the data center using the CXL™ standard] Micron
+*[https://www.spiceworks.com/tech/hardware/guest-article/boosting-ai-ml-performance-with-compute-express-link/ How Compute Express Link (CXL) Can Boost Your AI/ML Performance] spiceworks.com; July 5, 2023;
+*[https://www.nextplatform.com/2022/12/05/just-how-bad-is-cxl-memory-latency/#:~:text=Most%20CXL%20memory%20controllers%20add,from%20the%20CPU%2C%20Tavallaei%20explains. JUST HOW BAD IS CXL MEMORY LATENCY?] The Next Platform; December 5, 2022;
+*[https://arxiv.org/pdf/2206.02878.pdf TPP: Transparent Page Placement for CXL-Enabled Tiered-Memory] NVIDIA, Meta, UMich
+
+;Intel CPU
+*[https://www.intel.com/content/www/us/en/developer/articles/guide/xeon-performance-tuning-and-solution-guides.html Tuning Guides for Intel® Xeon® Scalable Processor-Based Systems] Intel.com; April 23, 2023;
+
 
