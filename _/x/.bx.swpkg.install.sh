@@ -13,36 +13,17 @@ _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
 vim
 emacs
-git
+git gh
 w3m
 aptitude
-sysstat
-net-tools
-gnuplot
-r-base
-itop
-irqtop
-htop
-qtop
-btop
-atop
-numatop
-tiptop
-usbtop
-graphviz
-imagemagick 
-proftpd
-ncftp
-exuberant-ctags
-cscope
-idle-python3.10
-ipython3
-python3-ipython
-python3-ipython-genutils
+sysstat net-tools gparted rsync
+r-base gnuplot
+itop irqtop htop qtop btop atop numatop tiptop usbtop
+graphviz imagemagick 
+proftpd ncftp
+exuberant-ctags cscope
+ipython3 python3-ipython python3-ipython-genutils python3-pip idle-python3.10
 make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl cmake
-gh
-python3-pip
-gparted
 "
 
 
@@ -63,13 +44,14 @@ wmaker-common
 wmaker-data
 wmaker-utils
 chromium-browser 
+xfce4
+xscreensaver
 "
 
 
 #### phase++
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
-xfce4
 kde-full
 sddm
 plasma-desktop
@@ -106,6 +88,9 @@ openjdk-19-source
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
 gimp
+libreoffice
+libreoffice-plasma
+kphotoalbum
 "
 
 
@@ -114,7 +99,6 @@ _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
 r-cran-findpython
 vim-python-jedi
-xscreensaver
 language-pack-kde-ko language-pack-ko language-pack-ko-base
 ibus-hangul libhangul-data libhangul-dev libhangul1
 python-is-python3
@@ -131,6 +115,24 @@ fonts-unfonts-extra
 fonts-woowa-bm
 xfonts-baekmuk
 cairosvg
+"
+
+
+#### phase++
+_phase=$((_phase + 1));
+_apt_pkg_phase[$_phase]="
+fio
+gfio
+blktrace
+sysbench
+iperf
+"
+
+
+#### phase++
+_phase=$((_phase + 1));
+_apt_pkg_phase[$_phase]="
+meld
 "
 
 

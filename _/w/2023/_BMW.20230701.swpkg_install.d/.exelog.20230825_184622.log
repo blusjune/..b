@@ -1,0 +1,10 @@
+### 20230825_184625 :EXEC: phase[ 1 ]:  vim emacs git gh w3m aptitude sysstat net-tools gparted rsync r-base gnuplot itop irqtop htop qtop btop atop numatop tiptop usbtop graphviz imagemagick proftpd ncftp exuberant-ctags cscope ipython3 python3-ipython python3-ipython-genutils python3-pip idle-python3.10 make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl cmake
+### 20230825_191447 :SKIP: phase[ 2 ]:  mysql-server mysql-client
+### 20230825_191449 :SKIP: phase[ 3 ]:  xinit wmaker wmaker-common wmaker-data wmaker-utils chromium-browser xfce4 xscreensaver
+### 20230825_191450 :SKIP: phase[ 4 ]:  kde-full sddm plasma-desktop kde-plasma-desktop
+### 20230825_191452 :SKIP: phase[ 5 ]:  mediawiki apache2 phpmyadmin
+### 20230825_191503 :SKIP: phase[ 6 ]:  latexml vim-latexsuite latex-make latex-mk vim-pathogen openjdk-19-dbg openjdk-19-doc openjdk-19-jdk openjdk-19-jre openjdk-19-source
+### 20230825_191510 :SKIP: phase[ 7 ]:  gimp libreoffice libreoffice-plasma kphotoalbum
+### 20230825_191512 :SKIP: phase[ 8 ]:  r-cran-findpython vim-python-jedi language-pack-kde-ko language-pack-ko language-pack-ko-base ibus-hangul libhangul-data libhangul-dev libhangul1 python-is-python3 pacman fonts-baekmuk fonts-lexi-gulim fonts-lexi-saebom fonts-nanum fonts-nanum-eco fonts-nanum-extra fonts-naver-d2coding fonts-unfonts-core fonts-unfonts-extra fonts-woowa-bm xfonts-baekmuk cairosvg
+### 20230825_191515 :EXEC: phase[ 9 ]:  fio gfio blktrace sysbench iperf
+### 20230825_191530 :EXEC: phase[ 10 ]:  meld
