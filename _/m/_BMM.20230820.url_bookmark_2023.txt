@@ -1,6 +1,28 @@
 # 20230820_151205
 
 
+== AI ==
+
+=== visualizer ===
+: 20230827_225246
+
+* [https://github.com/jessevig/bertviz BertViz: Visualize Attention in NLP Models]
+** https://github.com/jessevig/bertviz
+** https://www.comet.com/site/blog/explainable-ai-for-transformers/
+*** Explainable AI: Visualizing Attention in Transformers
+
+* https://openaccess.thecvf.com/content/CVPR2021/papers/Chefer_Transformer_Interpretability_Beyond_Attention_Visualization_CVPR_2021_paper.pdf
+
+=== Introduction to the Transformer model ===
+: 20230827_225246
+
+* http://jalammar.github.io/illustrated-transformer/
+* https://jalammar.github.io/visualizing-neural-machine-translation-mechanics-of-seq2seq-models-with-attention/
+* [https://www.youtube.com/watch?v=UNmqTiOnRfg A friendly introduction to Recurrent Neural Networks] ((B.GOOD))
+
+
+
+
 == simulator ==
 
 === Gem5 ===
