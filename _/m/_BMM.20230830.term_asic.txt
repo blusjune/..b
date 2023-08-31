@@ -1,0 +1,39 @@
+
+
+== ASIC design flow terminologies ==
+: 20230830_224634
+
+; Design Frontend
+* TURNKEY SOC DESIGNS
+* ARCHITECTURE & LOGIC DESIGN
+* SOC INTEGRATION & VERIFICATION
+* TEST ENV & VIPS
+* IP INTEGRATION & CUSTOMIZATION
+* MODELING
+* ASIC & FPGA IMPLEMENTATION
+
+; Design Backend
+* SYNTHESIS:
+* LINT: Lint is a static code analysis tool that checks for potential errors in a software program. In the context of ASIC development, lint can be used to check for potential errors in the HDL code of an ASIC design.
+* CDC: Clock domain crossing is a situation where two signals in an ASIC design are driven by different clocks. This can cause timing problems and other errors. CDC analysis is used to identify potential clock domain crossing problems in an ASIC design.
+* LEC: Logic equivalence checking is a technique used to verify that two pieces of logic are functionally equivalent. In the context of ASIC development, LEC can be used to verify that the synthesized gate-level netlist of an ASIC design is functionally equivalent to the original HDL code.
+* DFT: Design for testability is a set of techniques used to make an ASIC design easier to test. DFT can be used to insert test points and logic into an ASIC design to make it easier to test for errors.
+* P&R: Place and route is the process of physically placing the components of an ASIC design on a silicon chip and routing the signals between them. P&R is a complex and challenging task, and it is often done using specialized software tools.
+* IR: ??? Inductive reasoning is a technique used to analyze the inductive loops in an ASIC design. Inductive loops are a type of circuit that can cause timing problems. IR can be used to identify potential inductive loops and to estimate their impact on the timing of the design.
+* SI: Signal integrity is the quality of the signals in an ASIC design. Signal integrity problems can cause timing problems and other errors. SI analysis is used to identify potential signal integrity problems in an ASIC design.
+* STA: Static timing analysis is used to analyze the timing of an ASIC design. It checks to make sure that all of the signals in the design meet their timing constraints. STA can be used to identify potential timing problems, such as critical paths and hold violations.
+* PV: Power verification is used to analyze the power consumption of an ASIC design. It checks to make sure that the design does not exceed its power budget. PV can be used to identify potential power problems, such as hot spots and leakage currents.
+* CUSTOM LAYOUT
+* FIB PLANNING: 
+
+; Misc
+* IP SELECTION
+* FOUNDRY SELECTION
+* VENDOR COMMUNICATION
+
+
+
+; Others
+* GDS: GDS stands for Graphic Data System. It is a standard file format for storing and exchanging integrated circuit layout artwork. GDS files are used by ASIC designers to represent the physical layout of an ASIC design. They contain information about the shapes and sizes of the different components in the design, as well as the connections between them.  GDS files are used in the final stages of the ASIC design process, after the design has been synthesized and verified. They are used to create the masks that are used to fabricate the ASIC.  GDS files are a binary format, which means that they are not human-readable. However, there are a number of software tools that can be used to view and edit GDS files.
+ 
+

