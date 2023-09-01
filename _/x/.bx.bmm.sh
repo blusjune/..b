@@ -120,11 +120,11 @@ function _bmm_print()
 		if [ "X$_target_file" != "X" ]; then
 			read -p "Print the contents of the file '${_target_file}'? [Y|n] " _answer;
 			if [ "X${_answer}" != "Xn" ]; then
-				echo "-------- BMM_PRINT { --------";
+				echo "#-------- BMM_PRINT { --------";
 				echo "";
 				cat ${_target_file};
 				echo "";
-				echo "-------- } BMM_PRINT --------";
+				echo "#-------- } BMM_PRINT --------";
 			fi
 		else
 			# echo "ERROR(28): No memo files found with $_keyword";
@@ -137,19 +137,20 @@ function _bmm_print_y()
 {
 	#echo ">>> ${_progname}.print.y";
 	if [ "X$_keyword" = "X" ]; then
-		echo "ERROR(18): _keyword should be specified -- EXIT";
+		echo "#ERROR(18): _keyword should be specified -- EXIT";
 		exit 18;
 	fi
 	(cd $_basedir;
-		ls -1 ${_prefix}.*.txt | grep -i $_keyword | more;
+		#ls -1 ${_prefix}.*.txt | grep -i $_keyword | more;
+		ls -1 ${_prefix}.*.txt | grep -i $_keyword | sed -e 's/^/#/g';
 		_target_file="$( ls -1 ${_prefix}.*.txt | grep -i $_keyword | tail -1 )";
 		if [ "X$_target_file" != "X" ]; then
-			echo "Print the contents of the file '${_target_file}'";
-			echo "-------- BMM_PRINT { --------";
+			echo "#Print the contents of the file '${_target_file}'";
+			echo "#-------- BMM_PRINT { --------";
 			echo "";
 			cat ${_target_file};
 			echo "";
-			echo "-------- } BMM_PRINT --------";
+			echo "#-------- } BMM_PRINT --------";
 		else
 			# echo "ERROR(28): No memo files found with $_keyword";
 			:

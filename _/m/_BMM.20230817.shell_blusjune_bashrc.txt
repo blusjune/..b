@@ -1,0 +1,42 @@
+### blusjune_bashrc{
+# 20230831_203203
+
+
+### env{ ###
+PATH=.:~/..b/_/x:${PATH} export PATH
+export HISTSIZE=100000
+export HISTFILESIZE=200000
+export LANGUAGE=$LANG
+export LC_ALL=C
+export EDITOR=vi
+### }env ###
+
+
+### alias{ ###
+#if [ -f ~/.bash_aliases ]; then
+#    . ~/.bash_aliases
+#fi
+alias l='ls -alF'
+alias lm='ls -alF | more'
+alias lg='ls -alF | grep'
+### }alias ###
+
+
+### pyenv{ ###
+if [ ! -d ~/.pyenv ]; then
+	git clone https://github.com/pyenv/pyenv.git ~/.pyenv;
+fi
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+### }pyenv ###
+
+
+### ibus{ ###
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+### }ibus ###
+
+
+### }blusjune_bashrc
