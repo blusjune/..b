@@ -133,6 +133,8 @@ iperf
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
 meld
+kompare
+diffuse
 "
 
 

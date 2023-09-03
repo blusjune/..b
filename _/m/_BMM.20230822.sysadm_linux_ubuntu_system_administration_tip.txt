@@ -1,3 +1,207 @@
+/* SysAdm: Linux Ubuntu System Administration Tips */
+
+
+
+
+== multi-head display in Linux X Window System ==
+: 20230903_084631
+
+* Use 'xrandr' (see also: [https://www.x.org/releases/X11R7.5/doc/man/man1/xrandr.1.html man xrandr])
+* Here is a good reference to 'How to use xrandr': https://wiki.archlinux.org/title/Multihead
+** easy-to-understand description with good examples
+
+
+=== ArchLinux's description ===
+
+* [https://wiki.archlinux.org/title/Multihead Multihead]
+
+Multi-head, multi-screen, multi-display or multi-monitor represent setups with multiple display devices attached to a single computer. This article provides a general description for several multi-head setup methods, and provides some configuration examples.
+
+Note: The terms used in this article are very specific to avoid confusion:
+* Monitor: refers to a physical display device, such as an LCD panel.
+* Screen: refers to an X-Window screen (that is: a monitor attached to a display).
+* Display: refers to a collection of screens that are in use at the same time showing parts of a single desktop (you can drag windows among all screens in a single display).
+
+RandR (Rotate and Resize) is an X Window System extension, which allows clients to dynamically change (e.g. resize, rotate, reflect) screens. In most cases, it can fully replace the old Xinerama setup. See an explanation why RandR is better than Xinerama.
+RandR can be configured for the current session via the xrandr tool, arandr or persistently via an xorg.conf file.
+
+
+==== Configuration example using xrandr: positioning two monitors ====
+
+You may arrange your screens either 
+* relatively to each other (using the --right-of, --left-of, --above, --below options),
+* or by absolute coordinates (using the --pos option
+** note that in this case you usually need to know resolutions of your monitors).
+
+Let's assume that we have two monitors and its configuration is as the following:
+ <pre>
++---------------+ +---------------+
+|               | |               |
+|   Monitor-1   | |   Monitor-2   |
+|    (VGA1)     | |    (HDMI1)    |
+|               | |               |
++---------------+ +---------------+
+</pre>
+
+
+* VGA1 left of HDMI1 at their preferred resolutions
+ $ xrandr --output VGA1 --auto --output HDMI1 --auto --right-of VGA1;
+
+* VGA1 right of HDMI1 at fixed resolutions
+ $ xrandr --output VGA1 --mode 1024x768 --pos 1920x0 --output HDMI1 --mode 1920x1080 --pos 0x0
+ or
+ $ xrandr --output VGA1 --mode 1024x768 --output HDMI1 --mode 1920x1080 --left-of VGA1
+
+
+* configuration using xorg.conf
+ $ cat /etc/X11/xorg.conf.d/10-monitor.conf
+ <pre>
+Section "Monitor"
+    Identifier  "VGA1"
+    Option      "Primary" "true"
+EndSection
+
+Section "Monitor"
+    Identifier  "HDMI1"
+    Option      "LeftOf" "VGA1"
+EndSection
+</pre>
+
+
+==== Combine screens into virtual display ====
+
+ <pre>
+                    
++-------------------+   +-------------------+   +-------------------+   
+|(0+0)              |   |(1920+0)           |   |(3840+0)           |   
+|   DisplayPort-3   |   |   DisplayPort-4   |   |     HDMI-A-0      |   
+|    (1920x1200)    |   |    (1920x1200)    |   |    (1920x1200)    |   
+|                   |   |                   |   |                   |   
++-------------------+   +-------------------+   +-------------------+   
+
+</pre>
+
+* Get monitor list by doing xrandr --listmonitors
+ $ xrandr --listmonitors 
+ <pre>
+0: +*DisplayPort-4 1920/518x1200/324+1920+0  DisplayPort-4
+1: +DisplayPort-3 1920/518x1200/324+0+0  DisplayPort-3
+2: +HDMI-A-0 1920/518x1200/324+3840+0  HDMI-A-0
+</pre>
+
+* Create virtual display: here below 'auto' determines the size of the virtual display, setting this to auto will automatically create the correct size of the display array. Monitor order in this command does not matter and the monitors need to be rearranged correctly after or before this command is executed.
+ $ xrandr --setmonitor SomeName auto DisplayPort-4,DisplayPort-3,HDMI-A-0
+
+
+
+
+== Vim (vim) drawit ==
+
+* [https://www.vim.org/scripts/script.php?script_id=40 DrawIt! : Ascii drawing plugin: lines, ellipses, arrows, fills, and more!]
+* [https://www.vim.org/scripts/download_script.php?src_id=21108 DrawIt.vba.gz] version 13 download
+
+ <pre>
+
+mkdir -p ~/t/vimball/drawit;
+cd ~/t/vimball/drawit;
+w3m https://www.vim.org/scripts/script.php?script_id=40 # download the latest version (ver. 13) of DrawIt.vba.gz
+vim DrawIt.vba.gz
+:so %
+:q
+
+</pre>
+
+== Xclock ==
+: 20230903_090344
+
+ <pre>
+xclock -update 1 -analog -geometry 100x100+1720+0 &
+xclock -update 1 -digital -geometry 240x40+1470+0 &
+</pre>
+
+
+
+
+== .xinitrc ==
+: 20230903_084358
+
+=== .xinitrc example ===
+Just for your information, let me share an example of .xinitrc below:
+
+ <pre>
+
+#!/bin/sh
+display-adjust
+keyboard-adjust
+touchpad-toggle
+xset s on +dpms
+xautolock -time 10 -locker slock &
+xmonad &> ~/.xmonad/log
+
+</pre>
+
+* display-adjust: custom xrandr script that adjusts display based on whether VGA is connected
+* keyboard-adjust: custom script that sets up keyboard layouts and swaps capslock and left ctrl (via setxkbmap)
+* touchpad-toggle: script that toggles whether the touchpad is enabled (I like it off by default)
+* xset s on +dpms: make screen blank after 10m of inactivity (default)
+* xautolock -time 10 -locker slock &: lock screen (with slock) after 10m of inactivity
+* xmonad &> ~/.xmonad/log: start xmonad and redirect stdout & stderr to a log file
+
+
+
+
+== Korean input method (for Window Maker - wmaker) ==
+: 20230902_094502
+
+=== Window Maker configuration to enable Korean input method ===
+
+Key point is to put a command line 'ibus-daemon -d' in the '~/GNUstep/Library/WindowMaker/autostart' file.
+(There is no need to put 'ibus-daemon -d' in the ~/.xinitrc file.)
+
+ <pre>
+blusjune@aerosmith:~$ cat GNUstep/Library/WindowMaker/autostart
+#!/bin/sh
+xset m 20/10 4
+ibus-daemon -d
+</pre>
+
+
+=== any .xinitrc configuration for ibus? ===
+: 20230902_094502
+
+* Q. What about .xinitrc? Do we need to put some 'ibus' related configuration inside this file?
+* A. No. only one command line is enough.
+
+ <pre>
+$ cat ~/.xinitrc
+
+exec /usr/bin/wmaker
+</pre>
+
+
+=== How to invoke a Korean input method setting program (even) in Window Maker? ===
+: 20230902_090630
+
+Simply, 'ibus-setup' is the answer.
+use 'ibus-setup' command as the following.
+
+ $ ibus-setup
+
+
+
+
+== GUI tool for diff & merge in Linux ==
+: 20230902_090415
+
+Please use 'meld'.
+'meld' is the easiest-to-use one which provides most intuitive UI, among many tools such as kompare, diffuse, and meld.
+
+ $ sudo apt install meld
+ $ sudo apt install kompare
+ $ sudo apt install diffuse
+
+
+
 
 == BWX (B's Web eXecution) troubleshooting ==
 : 20230822_224457 
@@ -22,6 +226,8 @@
 ** vigr; vigr -s; systemctl restart apache2;
 
 
+
+
 == How to change date and time ==
 : 20230823_235501
 
@@ -30,8 +236,11 @@ $ sudo timedatectl set-timezone "America/Los_Angeles";
 $ sudo timedatectl set-time "2023-08-22 15:41:00";
 
 
+
+
 == Set kde-plasma as a default desktop (window manager) ==
 : 20230823_235554
+: 20230902_090514: later, I decided to return back to wmaker (WindowMaker) for its rock-solid stability
 
 * '~/.dmrc' should have the following contents
  <pre>
@@ -52,6 +261,8 @@ drwxr-xr-x 479 root root 20480 Aug 21 22:42 ../
 </pre>
 
 
+
+
 == Reset the kde-plasma desktop configuration to the factory init status ==
 : 20230824_000058
 
@@ -59,9 +270,4 @@ drwxr-xr-x 479 root root 20480 Aug 21 22:42 ../
 $ cd ~/.config
 $ rm plasma-org.kde.plasma.desktop-appletsrc
 </pre>
-
-
-
-
-
 

@@ -1,0 +1,94 @@
+
+== 2023.09 ==
+
+=== 09/05 ===
+
+=== 09/01 ===
+
+==== Brian's Time Management ====
+
+;Question: How my work hour can be managed systematically?
+
+ <pre>
+
+MT: Meta thought Time
+TM: Technology Management for $_T
+OM: Organization Management for $_O
+PM._P: Project Management for $_P
+
+
+_T: one of the tech set {H, S, A, P, X}
+H: Hardware
+S: Software (including firmware, system software, application software)
+A: Algorithms
+P: Performance engineering
+X: unspecified, holistic
+
+
+_O: one of the organization unit {M, S, C, D, T}
+M: DSRA-Memory
+S: MSL (memory Solutions lab; software)
+C: ACD (advanced Controller development; controller)
+D: DTC (Datacenter technology and cloud?)
+T: TED (Technology Enabling & Development)
+
+
+_P: one of the projects {A, C, P, U}
+A: AI project
+C: CXL solutions
+P: PBSSD
+U: unspecified
+
+</pre>
+
+
+==== PM.C: CXL software ecosystem strategy ====
+
+소장님, 안녕하십니까?
+CXL software의 이상적인 모습은 무엇이며 (이유는 각주로 달았습니다), 무엇을 해야 할지에 대해 정리해보았습니다.
+CXL 사업 전략을 주도하는 DSK NBP, DSA New Biz, 그리고 SMDK 개발 조직 간 논의를 통해  SMDK의 역할/포지션을 재정비하여,
+일관된 메시지를 고객/community에 전달하는 것이 중요하다고 생각됩니다.
+
+; 이상적인 CXL software 모습은 무엇일까?
+# 당사 CXL solution 사용할 때, <u>별도 전용 software 설치 없이 기본 Linux kernel만으로도</u><ref group="cxlsw">거대하고 복잡한 시스템을 운영하면서도 zero-down-time을 지향하는 hyperscaler의 경우에는 이 측면이 더욱 중요함. Hardware에서 발생하는 수많은 문제/불량들도 software로 커버할 수 있도록 하는 것이 그들의 전략인데, 새로운 기술을 도입하기 위해서 community에서 충분히 검증되지 않은 software를 써야만 한다면, 그들로서는 도입을 망설일 수 밖에 없음.</ref>, 고객이 기대하는 성능을 내고 잘 동작하게 함.
+# 그런데 당사가 제공하는 전용 software를 쓰게 되면, <span style="color:#00cc33">고객은 dramatic한 가치를 얻고</span>, <span style="color:blue">당사도 추가로 value capture</span> 가능해야 함. <ref group="cxlsw">특정 vendor의 전용 software가 의미를 가지려면, 고객이 software infra 전환 비용과 유지 비용을 기꺼이 지불하게 만드는 대체불가한 value를 제공할 수 있어야 하겠음.</ref> <ref group="cxlsw">현재의 SMDK는 어떠한가? 이러한 dramatic value를 제공하는가? 고객 시스템에 설치되더라도, 기존 Linux kernel의 동작 방식과 상충 없이 잘 어우러지는 아키텍처인가? 참고로, 현재 SMDK의 구현 방식 (CXL memory device 지원 위해, 기존에 memory 기능을 구분하기 위해 사용되어 오던 Linux Memory Zone 동작 체계를 변경)은, 장점은 없으나 구현 복잡도가 올라가고 개념의 혼란을 야기할 수 있다는 점에서 Linux kernel community에서 받아들여지지 않을 것으로 예상됨. Linux kernel community에서는, 다양한 메모리 성능 특성을 다룰 수 있도록 고안되어 오랜 시간 사용해왔던 memory node 관리 구조에 CPU-less NUMA (Non-Uniform Memory Access) node를 단순 추가함으로써 CXL memory device 지원 가능하다는 consensus를 갖고 있으며, 이 방식이 기존의 Linux kernel memory 관리 체계를 흔들지 않으면서도 확장성을 제공하기 때문에 적절하다고 보고 있음.</ref>
+#* 가상의 예를 들어,
+#*# SMDK 쓰지 않아도 vanilla Linux kernel만으로도 충분히 좋은 성능 나오고 잘 동작함.
+#*# 무료로 제공되는 SMDK basic을 쓰면, <span style="color:#00cc33">CXL data access latency가 70%로 줄고 (30% 단축), 전력 소모 30% 감소됨</span>.
+#*# <span style="color:blue">유료</span>로 제공되는 SMDK premium - Lx를 쓰면, <span style="color:#00cc33">CXL data access latency가 30%로 줄고 (70% 단축), 전력 소모 30% 감소됨</span>.
+#*# <span style="color:blue">유료</span>로 제공되는 SMDK premium - Px를 쓰면, <span style="color:#00cc33">CXL data access latency가 70%로 줄고 (30% 단축), 전력 소모 50% 감소됨</span>.
+
+
+; 무엇을 해야 하는가?
+# 당사 CXL software 전략에서 SMDK의 역할/포지션을 고객 관점에서 정리, 일관된 메시지를 잠재고객/community에 전달 (CXL 사업 전략을 주도하는 DSK NBP, DSA New Biz, SMDK 개발 조직 간 consensus 기반).
+## 이때, <u>DRAM/SSD를 망라하는 전략</u>이 있어야겠음. Host software 관점에서 CXL solution은 backend media가 DRAM이건 NAND이건, 모두 CXL로 확장되는 memory임. CXL DRAM/SSD는 Latency QoS, bandwidth, capacity 등 필요에 따라 고객이 선택할 수 있는 메뉴로 보고, 통합된 software 전략<ref group="cxlsw">다만, 전술한 바와 같이 SMDK 현재 아키텍처 적절성 및 SMDK의 역할 포지셔닝에 대해서는 다시 검토 필요.</ref> 및 기술 개발이 필요하겠음.
+
+
+----
+<references group="cxlsw"/>
+
+== 2023.08 ==
+
+=== 08/30 ===
+
+* 1:1 with Peter (13:30-14:00)
+* 
+
+
+=== 08/29 ===
+
+* meeting with Javier
+** 1) 12:30~13:00 on 8/29 Tue PDT
+** 2) 14:00~14:30 on 8/29 Tue PDT
+** 3) 11:45~12:20 on 8/30 Wed PDT
+
+=== 08/28 ===
+
+* Setup conf call sched with Javier (to discuss CXL software eco system)
+** CXL 
+* Global R&D workshop - sync up with Myungjin JUNG
+* S2 meeting (8/28 18:30)
+** Workflow, R&R
+* Quick sync-up with Soogil; regarding DSRA-S.LSI collab.
+* Sync-up with Bhanu: how to be aligned with the company?
+*

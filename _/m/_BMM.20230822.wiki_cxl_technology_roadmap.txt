@@ -3,6 +3,48 @@
 
 == What to do? ==
 
+=== Ideal shape of Samsung's CXL solutions ===
+
+{| class="wikitable sortable mw-collapsible"
+|+ 
+! category
+! name and description
+!use cases
+!requirements
+! notes
+|-
+| HW: Leaf node
+|
+|
+|
+|
+|-
+| HW: Switch
+|
+|
+|
+|
+|-
+| HW: Host CPU
+|
+|
+|
+|
+|-
+| SW: OS
+|
+|
+|
+|
+|-
+| SW: Applications
+|
+|
+|
+|
+|-
+|}
+
 == Why? ==
 
 == How? ==
@@ -13,7 +55,7 @@
 == Use cases ==
 
 What are the killer use cases of CXL solutions (memory/storage)? Use case definition should be the first of all. Because it is the source of all the functional and non-functional requirements of the system.
-{| class="wikitable"
+{| class="wikitable sortable mw-collapsible"
 |+
 ! Use cases
 ! Features
@@ -76,25 +118,64 @@ What are the killer use cases of CXL solutions (memory/storage)? Use case defini
 
 Definition: what is the success criteria of Samsung's CXL business?
 
-#Strengths: internal, positive attributes of you. These are things that are within your control.
-##Scalability of memory
-#Weaknesses: negative factors that detract from your strengths. These are things that you might need to improve on to be competitive.
-##Latency
-###Long average latency (added by CXL switches)
-#### at least 99ns for one hop (Xconn said in FMS 2023): so the round-trip latency may be about 360ns to get a data from CXL-DRAM via CXL switch
-####*host -> CXL_Switch (100ns: based on Xconn's comment) -> CXL_DRAM (160ns: asumming that CTRL 80ns + DRAM 80ns) -> CXL_Switch (100ns: based on Xconn's comment).
-####some other guy said it is at least 200ns<ref> URL here </ref>
-####Can host CPU hardware or system software (such as GFS-II) help us avoid or mitigate this longer latency impact?
-###Degraded tail latency characteristics (non-deterministic latency to access CXL-DRAM, compared to DIMM)
-####What about the many-host case? e.g., multiple (N) compute hosts are connected to one memory pool which is comprised of multiple (M) CXL devices
-####Non-deterministic latency problems caused by many-tenant should be considered and handled
-##Bandwidth limitation (caused by underlying PCIe)
-###Then, what will happen if we change it to NVLink? Will it solve all the bandwidth related problems?
-###Let's consider also the bandwidth bottleneck issue of upstream port of CXL switch
-#Opportunities: external factors in your business environment that are likely to contribute to your success
-##Can we re-shape the system environment so that it can be more friendly to the CXL-based memory pool, in terms of the latency?
-###First, CPU
-#### Do we need to change the behavior of the hardware such as host CPUs so that the CPU can be utilized 100%, without any idle time, even there exist many memory waits caused by longer memory response time? (e.g., It would be good if there was a CPU feature to make context switching very efficient, so that there is no need to get help from the software, such as OS kernel)
+=== Features (CXL 3.0) ===
+
+Highlights of the CXL 3.0 spec. [https://www.computeexpresslink.org/_files/ugd/0c1418_1798ce97c1e6438fba818d760905e43a.pdf CXL Revision 3.0, Version 1.0 (August 1, 2022)]
+
+# fabric capabilities <ref group="cxl_feat">CXL fabric non-tree topology</ref>
+## multi-headed and fabric attached devices
+## enhanced fabric management
+## composable disaggregated infrastructure <ref group="cxl_feat">what is exactly this?</ref>
+# better scalability and improved resource utilization
+## enhanced memory pooling
+## multi-level switching
+## new enhanced coherency capabilities
+## improved software capabilities
+# performance
+## doubled the bandwidth to 64GT/s
+## zero added latency over CXL 2.0
+# compatibility
+## full backward compatibility with CXL 2.0, CXL 1.1, and CXL 1.0 
+# (enhanced) coherency
+## back invalidation<ref group="cxl_feat">why did CXL introduce this feature in the CXL 3.0 spec? To support real peer-to-peer communication, in the non-tree topology? To support memory sharing, rather just by supporting memory pool?</ref> of host's caches, for type 2 devices (accelerators with memory)
+# peer-to-peer communication
+
+
+
+----
+<references group="cxl_feat"/>
+
+=== Strengths ===
+: internal, positive attributes of you. These are things that are within your control.
+
+#Scalability of memory
+
+
+=== Weaknesses ===
+: negative factors that detract from your strengths. These are things that you might need to improve on to be competitive.
+
+#Latency
+##Long average latency (added by CXL switches)
+### at least 99ns for one hop (Xconn said in FMS 2023): so the round-trip latency may be about 360ns to get a data from CXL-DRAM via CXL switch
+###*host -> CXL_Switch (100ns: based on Xconn's comment) -> CXL_DRAM (160ns: asumming that CTRL 80ns + DRAM 80ns) -> CXL_Switch (100ns: based on Xconn's comment).
+###some other guy said it is at least 200ns<ref> URL here </ref>
+###Can host CPU hardware or system software (such as GFS-II) help us avoid or mitigate this longer latency impact?
+##Degraded tail latency characteristics (non-deterministic latency to access CXL-DRAM, compared to DIMM)
+###What about the many-host case? e.g., multiple (N) compute hosts are connected to one memory pool which is comprised of multiple (M) CXL devices
+###Non-deterministic latency problems caused by many-tenant should be considered and handled
+#Bandwidth limitation (caused by underlying PCIe)
+##Then, what will happen if we change it to NVLink? Will it solve all the bandwidth related problems?
+##Let's consider also the bandwidth bottleneck issue of upstream port of CXL switch
+
+
+=== Opportunities ===
+: external factors in your business environment that are likely to contribute to your success
+
+# demand for large amount of memory
+
+#Can we re-shape the system environment so that it can be more friendly to the CXL-based memory pool, in terms of the latency?
+##First, CPU
+### Do we need to change the behavior of the hardware such as host CPUs so that the CPU can be utilized 100%, without any idle time, even there exist many memory waits caused by longer memory response time? (e.g., It would be good if there was a CPU feature to make context switching very efficient, so that there is no need to get help from the software, such as OS kernel)
 ####This is possible scenario if CPU can switch contexts very efficiently/shortly to avoid idle time. The point is, the context switching should be very efficient, because the idle time caused by CXL memory pool may be tens of nano seconds. So if the context switching overhead is not small in terms of cycles (and time), then this can not be the solution to hide the long latency.
 ###Second, system software
 #### Is it possible to save the CPU from the long latency impact, by
@@ -108,10 +189,92 @@ Definition: what is the success criteria of Samsung's CXL business?
 ###NVIDIA NVLink
 ###What else?
 
-==View points==
+
+== Keywords for ideation ==
+
+: '''<span style="color:red">why</span>'''? what is the background of introducing the following items into 3.0?
+
+* memory sharing vs memory pooling
 
 
-===CXL ecosystems: software===
+=== remarkable things introduced in CXL 3.0 ===
+ 
+* 256B flit mode
+* back-invalidate
+* multiple CXL.cache devices per VCS
+* fabric
+* memory sharing (v3.0)
+* memory pooling (v2.0)
+* intra-VH P2P using UIO
+
+
+
+
+
+=== Terminilogies ===
+
+{| class="wikitable sortable mw-collapse"
+|+
+! Terminology
+! Definition
+|-
+| VCS
+| Virtual CXL Switch. Includes entities within the physical switch belonging to a single VH. It is identified using the VCS ID
+|-
+| VH 
+| Virtual Hierarchy. Everything from the CXL RP down, including the CXL RP, CXL PPBs, and CXL Endpoints. Hierarchy ID means the same as PCIe
+|-
+| RP
+| Root Port
+|-
+| PPB
+| PCI*-to-PCI Bridge inside a CXL switch that is FM-owned. The port connected to a PPB can be disconnected, or connected to a PCIe component or connected to a CXL component
+|-
+| FM
+| The Fabric Manager is an entity separate from the switch or host firmware that controls aspects of the 0system related to binding and management of pooled ports and devices.
+|-
+| Flit
+| Link Layer Unit of Transfer
+|-
+| FC
+| Flow Control
+|-
+| UIO
+| Unordered Input/Output
+|-
+| UIE
+| Uncorrectable Internal Error
+|-
+| VA
+| Virtual Address
+|-
+| PA
+| Physical Address
+|-
+| PDM
+| Private Device Memory. Device-attached memory that is not mapped to system address space or directly accessible to Host as cacheable memory. Memory located on PCIe devices is of this type. Memory located on a CXL device can be mapped as either PDM or HDM.
+|-
+| HDM
+| Host-managed Device Memory. Device-attached memory that is mapped to system coherent address space and accessible to the Host using standard write-back semantics. Memory located on a CXL device can be mapped as either HDM or PDM.
+|-
+| MLD
+| Multi-Logical Device. CXL component that contains multiple LDs, out of which one LD is reserved for configuration via the FM API, and each remaining LD is suitable for assignment to a different host. Currently MLDs are architected only for Type 3 LDs.
+|-
+| LD
+| Logical Device. Entity that represents a CXL Endpoint that is bound to a VCS. An SLD device contains one LD. An MLD contains multiple LDs.
+|-
+| FAM
+| Fabric-Attached Memory. HDM within a Type 2 or Type 3 device that can be made accessible to multiple hosts concurrently. Each HDM region can either be pooled (dedicated to a single host) or shared (accessible concurrently by multiple hosts).
+|-
+
+|-
+|}
+
+== View points ==
+
+
+
+=== CXL ecosystems: software ===
 
 *Memory management in the Linux kernel
 **problems of using
@@ -173,6 +336,17 @@ Definition: what is the success criteria of Samsung's CXL business?
 
 ==References (Manually Added)==
 
+
+* CXL 3.0
+** [https://www.anandtech.com/show/17520/compute-express-link-cxl-30-announced-doubled-speeds-and-flexible-fabrics CXL 3.0 announced: doubled speeds and flexible fabrics] Aug 2, 2022
+** [https://www.computeexpresslink.org/_files/ugd/0c1418_a859d94c29684b44b91c458d5dae454e.pdf CXL 3.0 Press Release] CXL Consortium releases Compute Express Link 3.0 specification to expand fabric capabilities and management
+** [https://www.computeexpresslink.org/_files/ugd/0c1418_a8713008916044ae9604405d10a7773b.pdf Compute Express Link 3.0 White Paper]
+
+
+* [https://www.cs.cornell.edu/courses/cs3410/2013sp/lecture/18-caches3-w.pdf Caches (Writing)] Computer Science, Cornell University
+* [https://my.eng.utah.edu/~cs7810/pres/09-7810-02.pdf Lecture 2: Snooping-Based Coherence]
+
+
 *[https://docs.kernel.org/admin-guide/mm/memory-hotplug.html Memory Hot(Un)Plug] Linux kernel documentation
 *[https://www.kernel.org/doc/html/v5.6/admin-guide/mm/numa_memory_policy.html#numa-memory-policy NUMA memory policy] Linux kernel documentation
 *[https://www.kernel.org/doc/html/v5.6/vm/numa.html What is NUMA?] Linux kernel documentation
@@ -211,5 +385,4 @@ References for the question:
 
 ;Intel CPU
 *[https://www.intel.com/content/www/us/en/developer/articles/guide/xeon-performance-tuning-and-solution-guides.html Tuning Guides for Intel® Xeon® Scalable Processor-Based Systems] Intel.com; April 23, 2023;
-
 

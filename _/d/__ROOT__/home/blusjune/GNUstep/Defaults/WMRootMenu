@@ -234,5 +234,5 @@
   ("Info Panel", INFO_PANEL),
   ("Restart Window Maker", RESTART),
   ("Other Window Managers", ("Start KWin", RESTART, kwin)),
-  ("Exit Window Maker", EXIT)
+  ("Exit Window Maker", SHORTCUT, "Control+Shift+Mod1+e", EXIT)
 )
