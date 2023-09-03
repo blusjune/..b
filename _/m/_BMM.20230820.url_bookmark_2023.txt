@@ -1,6 +1,8 @@
 # 20230820_151205
 
 
+
+
 == Music ==
 
 === YouTube playlist ===
@@ -9,6 +11,14 @@
 
 
 == AI ==
+
+=== Nvidia Jetson ===
+
+* https://www.youtube.com/watch?v=fc_tMsCZh_4
+* https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/
+* https://www.amazon.com/NVIDIA-Jetson-Nano-Developer-945-13450-0000-100/dp/B084DSDDLT?ref_=ast_sto_dp
+
+
 
 === visualizer ===
 : 20230827_225246
