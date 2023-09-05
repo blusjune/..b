@@ -1,0 +1,2109 @@
+    1  l
+    2  view /tmp/log1
+    3  l
+    4  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+    5  l
+    6  l 
+    7  echo $)
+    8  echo $0
+    9  basename $(echo $0 )
+   10  cd b/d/
+   11  l
+   12  cd home/
+   13  l
+   14  cd blusjune/
+   15  l
+   16  pwd
+   17  cd 
+   18  cd ..b
+   19  l
+   20  cd _
+   21  l
+   22  cd d
+   23  l
+   24  cd home/
+   25  l
+   26  cd ..
+   27  l
+   28  cd /b
+   29  cd /_b/
+   30  l
+   31  cd d
+   32  l
+   33  cd __ROOT__/
+   34  l
+   35  cd home/
+   36  l
+   37  cd blusjune/
+   38  l
+   39  pwd
+   40  pwd | awk -F'__ROOT__' '{ print $1 }'
+   41  pwd | awk -F'__ROOT__' '{ print $2 }'
+   42  pwd | awk -F'__ROOT_' '{ print $2 }'
+   43  pwd | awk -F'__ROOT___' '{ print $2 }'
+   44  pwd | awk -F'__ROOT__' '{ print $2 }'
+   45  pwd
+   46  l
+   47  cd 
+   48  l
+   49  man set
+   50  man bash
+   51  l
+   52  cd /_b/x/
+   53  l
+   54  mv .bdx.0100.y.copy_srcdir_here.srcdir_name.sh .bdx.0100.y.copy_src_here.src_name.sh
+   55  l
+   56  l /etc
+   57  l
+   58  cd /etc
+   59  l
+   60  cd GNUstep/
+   61  l
+   62  cd Defaults/
+   63  l
+   64  cd ..
+   65  l
+   66  cd ..
+   67  l
+   68  cd /_b/d/
+   69  l
+   70  cd __ROOT__/
+   71  l
+   72  cd 
+   73  cd -
+   74  l
+   75  cd home/
+   76  l
+   77  cd blusjune/
+   78  l
+   79  rm -fr GNUstep/
+   80  l
+   81  cd ..
+   82  l
+   83  cd ..
+   84  l
+   85  cd etc
+   86  l
+   87  rm hosts 
+   88  l
+   89  cd ..
+   90  l
+   91  cd var/
+   92  l
+   93  cd www/
+   94  l
+   95  rm -fr html/
+   96  l
+   97  cd ..
+   98  l
+   99  cd ..
+  100  l
+  101  rm -fr GNUstep/
+  102  l
+  103  man find 
+  104  dtree
+  105  tree
+  106  man tree
+  107  l
+  108  apt info tree
+  109  l
+  110  pwd
+  111  dirname $( pwd )
+  112  basename $( pwd )
+  113  l
+  114  find 
+  115  l
+  116  l etc/
+  117  l home/
+  118  l home/blusjune/
+  119  l var/
+  120  l var/www/
+  121  l
+  122  l etc/
+  123  l home/blusjune/
+  124  l var/www/
+  125  l
+  126  l var/www/
+  127  l
+  128  cd etc/
+  129  l
+  130  rm hosts.old 
+  131  l
+  132  cd ..
+  133  l
+  134  cd home/
+  135  l
+  136  cd blusjune/
+  137  l
+  138  rm -fr GNUstep.old/
+  139  l
+  140  cd ..
+  141  l
+  142  cd ..
+  143  l
+  144  cd var/
+  145  l
+  146  cd www/
+  147  l
+  148  rm -fr html.old/
+  149  l
+  150  cd ..
+  151  l
+  152  cd ..
+  153  l
+  154  cd ..
+  155  l
+  156  cd ..
+  157  l
+  158  cd x
+  159  l
+  160  mv .bdx.0100.y.exec_bdx.recursively.sh .bdx.0100.y.bdx_exec.recursively.sh 
+  161  l
+  162  mv .bdx.0100.y.bdx_exec.recursively.sh .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  163  l
+  164  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  165  l
+  166  cd /_b/d/
+  167  l
+  168  cd __ROOT__/
+  169  l
+  170  cd etc/
+  171  l
+  172  rm .bdx.0100.y.copy_src_here.hosts.sh 
+  173  ln -s /_b/x/.bdx.0100.y.fnbx.copy_src_here.src_name.sh 
+  174  mv .bdx.0100.y.fnbx.copy_src_here.src_name.sh .bdx.0100.y.fnbx.copy_src_here.hosts.sh 
+  175  l
+  176  cd ..
+  177  l
+  178  cd home/
+  179  l
+  180  cd blusjune/
+  181  l
+  182  rm .bdx.0100.y.copy_src_here.GNUstep.sh 
+  183  ln -s /_b/x/.bdx.0100.y.fnbx.copy_src_here.src_name.sh 
+  184  mv .bdx.0100.y.fnbx.copy_src_here.src_name.sh  .bdx.0100.y.fnbx.copy_src_here.GNUstep.sh 
+  185  l
+  186  rm -fr GNUstep/
+  187  l
+  188  _BDX 
+  189  l
+  190  cd ..
+  191  l
+  192  cd ..
+  193  l
+  194  cd etc/
+  195  l
+  196  rm -fr hosts 
+  197  l
+  198  _BDX 
+  199  l
+  200  cd ..
+  201  l
+  202  cd var/
+  203  l
+  204  cd www/
+  205  l
+  206  rm .bdx.0100.y.copy_src_here.html.sh 
+  207  ln -s /_b/x/.bdx.0100.y.fnbx.copy_src_here.src_name.sh 
+  208  mv .bdx.0100.y.fnbx.copy_src_here.src_name.sh  .bdx.0100.y.fnbx.copy_src_here.html.sh 
+  209  l
+  210  rm -fr html/
+  211  l
+  212  _BDX 
+  213  l
+  214  cd ..
+  215  l
+  216  l www/
+  217  l
+  218  cd ..
+  219  l
+  220  cd ..
+  221  l
+  222  cd ..
+  223  l
+  224  cd ..
+  225  l
+  226  cd 
+  227  l
+  228  cd ..b
+  229  l
+  230  cd .ddb.pkg.d/
+  231  l
+  232  cd ..
+  233  l
+  234  cd _
+  235  l
+  236  l c/
+  237  l
+  238  cat README.md 
+  239  l
+  240  cd x
+  241  l
+  242  cd ..
+  243  l
+  244  cd d
+  245  l
+  246  cd ..
+  247  l
+  248  cd c
+  249  l
+  250  cd ..
+  251  l
+  252  cd d
+  253  l
+  254  cd ..
+  255  l
+  256  cd c
+  257  l
+  258  mv .._configuration_.. .._control_.. 
+  259  l
+  260  cat .._control_.. 
+  261  l
+  262  cd ..
+  263  l
+  264  cd c
+  265  l
+  266  which _BDX
+  267  l
+  268  cd ..
+  269  l
+  270  l c
+  271  rm -fr c
+  272  l
+  273  vi README.md 
+  274  cd d
+  275  l
+  276  cd ..
+  277  l
+  278  cd w/
+  279  l
+  280  cd x
+  281  l
+  282  cd mediawiki_setup
+  283  l
+  284  cat .bdx.0100.y.mediawiki.mysql_dump.sh 
+  285  l
+  286  cd var_lib_mediawiki
+  287  l
+  288  cd ..
+  289  l
+  290  l /var/lib/mediawiki/
+  291  du -sm /var/lib/mediawiki/
+  292  sudo du -sm /var/lib/mediawiki/
+  293  sudo du -sm /var/lib/mediawiki/*
+  294  sudo du -sk /var/lib/mediawiki/*
+  295  sudo du -sk /var/lib/mediawiki/images/
+  296  l /var/lib/mediawiki/images/
+  297  sudo l /var/lib/mediawiki/images/
+  298  sudo ls -alF /var/lib/mediawiki/images/
+  299  sudo ls -alF /var/lib/mediawiki/
+  300  sudo ls -alF /var/lib/mediawiki/extensions/
+  301  sudo ls -alF /var/lib/mediawiki/
+  302  sudo ls -alF /var/lib/mediawiki/resources
+  303  sudo ls -alF /var/lib/mediawiki/resources/
+  304  sudo ls -alF /var/lib/mediawiki/resources/assets/
+  305  sudo ls -alF /var/lib/mediawiki/LocalSettings.php 
+  306  sudo view /var/lib/mediawiki/LocalSettings.php 
+  307  l
+  308  cd ..
+  309  l
+  310  cd mnt_sync
+  311  l
+  312  cat .bdx.0100.y.usb_mem.mount_and_sync.sh 
+  313  w
+  314  l
+  315  cd ..
+  316  l
+  317  cd mnt_sync
+  318  l
+  319  cp .bdx.0100.y.usb_mem.mount_and_sync.sh /_b/x/
+  320  l
+  321  rm .bdx.0100.y.usb_mem.mount_and_sync.sh 
+  322  ln -s /_b/x/.bdx.0100.y.usb_mem.mount_and_sync.sh
+  323  l
+  324  cd 
+  325  cd ..b
+  326  l
+  327  cd _/d
+  328  l
+  329  _BDX 
+  330  l
+  331  cd __ROOT__/
+  332  l
+  333  cd etc/
+  334  l
+  335  cd ..
+  336  l
+  337  cd home/
+  338  l
+  339  cd blusjune/
+  340  l
+  341  cd GNUstep/
+  342  l
+  343  cd ..
+  344  l
+  345  cd ..
+  346  l
+  347  cd ..
+  348  l
+  349  cd var/
+  350  l
+  351  cd www/
+  352  l
+  353  cd html/
+  354  l
+  355  cd ..
+  356  l
+  357  l html/
+  358  l html/bwx/
+  359  l
+  360  _BDX 
+  361  l
+  362  rm -fr html.old/
+  363  l
+  364  cd ..
+  365  l
+  366  cd ..
+  367  l
+  368  cd home/
+  369  l
+  370  cd ..
+  371  l
+  372  cd ..
+  373  l
+  374  view .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  375  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  376  _BDX 
+  377  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  378  _BDX 
+  379  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  380  _BDX 
+  381  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  382  l
+  383  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  384  l
+  385  cd __ROOT__/
+  386  l
+  387  cd ..
+  388  l
+  389  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  390  l
+  391  _BDX 
+  392  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  393  _BDX 
+  394  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  395  _BDX 
+  396  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  397  _BDX 
+  398  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  399  _BDX 
+  400  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  401  _BDX 
+  402  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  403  _BDX 
+  404  l
+  405  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  406  l
+  407  _BDX 
+  408  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  409  l
+  410  l __ROOT__/
+  411  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  412  l __ROOT__/
+  413  l
+  414  _BDX 
+  415  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  416  _BDX 
+  417  l
+  418  vi .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  419  l
+  420  _BDX 
+  421  l
+  422  _BDX 
+  423  l
+  424  ./.bdx.0100.y.*.sh
+  425  l
+  426  cd ../x/
+  427  l
+  428  mv .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh .bdx.0100.y.bdx.exec_all_subdir_bdx_files.sh
+  429  l
+  430  vi .bdx.0100.y.bdx.exec_all_subdir_bdx_files.sh
+  431  l
+  432  cd ..
+  433  l
+  434  cd d
+  435  l
+  436  rm .bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+  437  l
+  438  ln -s ../x/.bdx.0100.y.bdx.exec_all_subdir_bdx_files.sh 
+  439  l
+  440  cd ..
+  441  l
+  442  vi README.md 
+  443  l
+  444  cd d/
+  445  l
+  446  cd __ROOT__/
+  447  l
+  448  l home/blusjune/
+  449  l
+  450  cd ..
+  451  l
+  452  cd ..
+  453  l
+  454  cd ..
+  455  l
+  456  cat .ddb.pkg.
+  457  cat .ddb.pkg.sh 
+  458  l
+  459  vi README.md 
+  460  l
+  461  echo .ddb.pkg.sh 
+  462  echo .ddb.pkg.sh | sed -e 's/\(.*\)\.sh/\1/g'
+  463  l
+  464  cd 
+  465  l
+  466  du -sh .config/
+  467  du -sk .gn
+  468  du -sk .gnupg/
+  469  du -sk .gitconfig 
+  470  cat .gitconfig 
+  471  l
+  472  cd t
+  473  l
+  474  rm -fr _
+  475  l
+  476  rm .ddb.pkg._.20230824_194441.tar.gz 
+  477  l
+  478  git clone https://github.com/blusjune/..bxd.git
+  479  l
+  480  rm -fr ..bxd/
+  481  l
+  482  cd 
+  483  l
+  484  cat .gitconfig 
+  485  gh auth git-credential
+  486  l
+  487  cd .ssh/
+  488  l
+  489  cat id_ed25519.pub 
+  490  l
+  491  cd ..
+  492  l
+  493  gpg
+  494  cat .vimrc 
+  495  cat .exrc 
+  496  l
+  497  cat .gitconfig 
+  498  vi .gitconfig 
+  499  l
+  500  git config -l
+  501  cat .gitconfig 
+  502  l
+  503  bmml
+  504  bmme git_gitconfig
+  505  vi .gitconfig 
+  506  bmme git_gitconfig
+  507  l
+  508  git config -l
+  509  cat .gitconfig 
+  510  l
+  511  man gpg
+  512  man gpgv
+  513  man gpg
+  514  aptitude search gpg
+  515  kgpg 
+  516  gpg
+  517  l ~/
+  518  l ~/.ssh/
+  519  l ~/.ssh/authorized_keys 
+  520  l ~/.ssh/known_hosts 
+  521  cat ~/.ssh/known_hosts 
+  522  l
+  523  cat .bashrc 
+  524  l
+  525  bmml 
+  526  bmmf blusjune_bashrc
+  527  bmme blusjune_bashrc
+  528  l
+  529  l .vim
+  530  l .vim/
+  531  l .vim/*
+  532  du -sh .vim/*
+  533  l
+  534  l .vimrc 
+  535  cat .vimrc 
+  536  vi .vimrc 
+  537  l .pyenv/
+  538  l
+  539  cat .bashrc 
+  540  cd
+  541  l
+  542  cd ..bxd/
+  543  l
+  544  cd _
+  545  l
+  546  cd ..
+  547  l
+  548  cd ..
+  549  l
+  550  cd b
+  551  l
+  552  cd ..
+  553  l
+  554  cd ..b
+  555  l
+  556  cat .ddb.pkg.sh 
+  557  l
+  558  cd ..
+  559  l
+  560  cd bxd
+  561  l
+  562  cd _
+  563  l
+  564  l log/
+  565  l obj/
+  566  l src/
+  567  l wip/
+  568  l
+  569  cd ..
+  570  l
+  571  cd ..
+  572  l
+  573  cd t
+  574  l
+  575  .bx.bxd.create.sh 
+  576  l
+  577  cd ..
+  578  l
+  579  cd ..bxd/
+  580  l
+  581  cd _
+  582  l
+  583  cd obj/
+  584  l
+  585  cd ..
+  586  l
+  587  cd ..
+  588  l
+  589  cd ..
+  590  l
+  591  cd t
+  592  l
+  593  .bx.bxd.create.sh 
+  594  l
+  595  cd ..bxd/
+  596  l
+  597  cd _
+  598  l
+  599  cd ..
+  600  l
+  601  cd ..
+  602  l
+  603  cd ..bxd/
+  604  l
+  605  ln -s ~/..b/.ddb.pkg.sh 
+  606  l
+  607  _BDX 
+  608  l
+  609  ./.ddb.pkg.sh 
+  610  l
+  611  cd .ddb.pkg.d/
+  612  l
+  613  cd ..
+  614  l
+  615  cd .ddb.pkg.d/
+  616  l
+  617  gunzip -c .ddb.pkg._.20230901_013013.tar.gz | tar xf -
+  618  l
+  619  cd _
+  620  l
+  621  find . 
+  622  l
+  623  cd ..
+  624  l
+  625  cd ..
+  626  l
+  627  cd ..
+  628  l
+  629  rm -fr ..bxd/
+  630  l
+  631  man cp
+  632  l
+  633  cd 
+  634  cd ..b
+  635  l
+  636  cd 
+  637  cd t
+  638  l
+  639  .bx.bxd.create.sh 
+  640  l
+  641  cd ..bxd/
+  642  l
+  643  cd _
+  644  l
+  645  cd ..
+  646  l
+  647  cd ..
+  648  l
+  649  l ..bxd/
+  650  l
+  651  rm -fr ..bxd/
+  652  l
+  653  .bx.bxd.create.sh 
+  654  l
+  655  cd ..bxd/
+  656  l
+  657  cd _
+  658  l
+  659  cd ..
+  660  l
+  661  cd ..
+  662  l
+  663  rm -fr ..bxd/
+  664  l
+  665  .bx.bxd.create.sh 
+  666  l ~/..b/.ddb.pkg.sh
+  667  l
+  668  rm -fr ..bxd/
+  669  l
+  670  .bx.bxd.create.sh 
+  671  l
+  672  l ..bxd/
+  673  cd ..bxd/
+  674  l
+  675  ./.ddb.pkg.sh 
+  676  l
+  677  l .ddb.pkg.d/
+  678  l
+  679  cd ..
+  680  l
+  681  rm -fr ..bxd/
+  682  l
+  683  l
+  684  du -sh GNUstep/
+  685  cd ..b
+  686  l
+  687  vi .ddb.pkg.sh 
+  688  l
+  689  cat README.md 
+  690  l
+  691  cd _
+  692  l
+  693  cd d
+  694  l
+  695  cd ..
+  696  l
+  697  cd d
+  698  l
+  699  mkdir var
+  700  l
+  701  mv www var
+  702  l
+  703  mkdir home
+  704  l
+  705  cd home/ml
+  706  cd home/
+  707  l
+  708  mkdir blusjune
+  709  l
+  710  cd blusjune/
+  711  l
+  712  cd .
+  713  cd ..
+  714  l
+  715  cd blusjune/
+  716  l
+  717  cd ..
+  718  l
+  719  cd blusjune/
+  720  l
+  721  vi .bdx.0100.y.copy_to_ddb.GNUstep.sh
+  722  _BDX 
+  723  chmod 755 _BDX
+  724  chmod 755 .bdx.0100.y.copy_to_ddb.GNUstep.sh 
+  725  _BDX 
+  726  l
+  727  vi .bdx.0100.y.copy_to_ddb.GNUstep.sh 
+  728  mv .bdx.0100.y.copy_to_ddb.GNUstep.sh  .bdx.0100.y.copy_srcdir_here.srcdir_name.sh 
+  729  l .bdx.0100.y.copy_srcdir_here.srcdir_name.sh
+  730  echo .bdx.0100.y.copy_srcdir_here.srcdir_name.sh
+  731  echo .bdx.0100.y.copy_srcdir_here.srcdir_name.sh | awk -F'.' '{ print $6 }'
+  732  vi .bdx.0100.y.copy_srcdir_here.srcdir_name.sh 
+  733  l
+  734  _BDX 
+  735  ./.bdx.0100.y.copy_srcdir_here.srcdir_name.sh 
+  736  ln -s  .bdx.0100.y.copy_srcdir_here.srcdir_name.sh .bdx.0100.n.copy_srcdir_here.srcdir_name.sh 
+  737  l
+  738  ./.bdx.0100.n.copy_srcdir_here.srcdir_name.sh 
+  739  ./.bdx.0100.y.copy_srcdir_here.srcdir_name.sh 
+  740  l
+  741  rm .bdx.0100.n.copy_srcdir_here.srcdir_name.sh 
+  742  l
+  743  vi .bdx.0100.y.copy_srcdir_here.srcdir_name.sh 
+  744  _BDX 
+  745  vi .bdx.0100.y.copy_srcdir_here.srcdir_name.sh 
+  746  l
+  747  cd ..
+  748  l
+  749  cd ..
+  750  l
+  751  cd ..
+  752  l
+  753  cd d
+  754  l
+  755  mkdir __ROOT__
+  756  l
+  757  mv home var __ROOT__/
+  758  l
+  759  cd __ROOT__/
+  760  l
+  761  cd home/ml
+  762  cd home/
+  763  l
+  764  cd blusjune/
+  765  l
+  766  pwd
+  767  vi .bdx.0100.y.copy_srcdir_here.srcdir_name.sh 
+  768  _BDX 
+  769  vi .bdx.0100.y.copy_srcdir_here.srcdir_name.sh 
+  770  l
+  771  vi .bdx.0100.y.copy_srcdir_here.srcdir_name.sh 
+  772  l
+  773  cp .bdx.0100.y.copy_srcdir_here.srcdir_name.sh /_b/x/
+  774  l
+  775  ln -s .bdx.0100.y.copy_srcdir_here.srcdir_name.sh .bdx.0100.y.copy_srcdir_here.GNUstep.sh 
+  776  l
+  777  rm .bdx.0100.y.copy_srcdir_here.srcdir_name.sh 
+  778  l
+  779  l .bdx.0100.y.copy_srcdir_here.GNUstep.sh 
+  780  rm .bdx.0100.y.copy_srcdir_here.GNUstep.sh 
+  781  ln -s /_b/x/.bdx.0100.y.copy_srcdir_here.srcdir_name.sh .bdx.0100.y.copy_srcdir_here.GNUstep.sh 
+  782  l
+  783  _BDX 
+  784  l
+  785  cd GNUstep/
+  786  l
+  787  cd ..
+  788  l
+  789  cd GNUstep/
+  790  l
+  791  cd ..
+  792  l
+  793  _BDX 
+  794  l
+  795  cd GNUstep/
+  796  l
+  797  cd ..
+  798  l
+  799  rm -fr GNUstep/
+  800  l
+  801  _BDX 
+  802  l
+  803  vi .bdx.0100.y.copy_srcdir_here.GNUstep.sh 
+  804  l
+  805  _BDX 
+  806  l
+  807  l GNUstep.old/
+  808  l
+  809  vi .bdx.0100.y.copy_srcdir_here.GNUstep.sh 
+  810  man set
+  811  man bash
+  812  vi .bdx.0100.y.copy_srcdir_here.GNUstep.sh 
+  813  l
+  814  vi .bdx.0100.y.copy_srcdir_here.GNUstep.sh 
+  815  l
+  816  _BDX 
+  817  l
+  818  if [ -d GNUstep ]; then echo "OKOK"; fi
+  819  vi .bdx.0100.y.copy_srcdir_here.GNUstep.sh 
+  820  l
+  821  _BDX 
+  822  set -x
+  823  l
+  824  set +x
+  825  l
+  826  vi .bdx.0100.y.copy_srcdir_here.GNUstep.sh 
+  827  l
+  828  rm -fr GNUstep*
+  829  l
+  830  _BDX 
+  831  l
+  832  rm -fr GNUstep.old/
+  833  l
+  834  cd ..
+  835  l
+  836  cd ..
+  837  l
+  838  cd var/
+  839  l
+  840  cd www/
+  841  l
+  842  cd html/
+  843  l
+  844  cat .bdx.0100.y.sync.var_www_html.sh 
+  845  l
+  846  cd ..
+  847  l
+  848  cd html/
+  849  l
+  850  rm .bdx.0100.y.sync.var_www_html.sh 
+  851  l
+  852  cd bwx/
+  853  l
+  854  cd ..
+  855  l
+  856  cd ..
+  857  l
+  858  diff -r html /var/www/html
+  859  mv html html.old
+  860  l
+  861  ln -s /_b/x/.bdx.0100.y.copy_srcdir_here.srcdir_name.sh 
+  862  l
+  863  mv .bdx.0100.y.copy_srcdir_here.html.sh 
+  864  l
+  865  mv .bdx.0100.y.copy_srcdir_here.srcdir_name.sh .bdx.0100.y.copy_srcdir_here.html.sh 
+  866  l
+  867  _BDX 
+  868  l
+  869  diff -r html html.old
+  870  rm -fr html.old/
+  871  l
+  872  rm -fr html/
+  873  l
+  874  _BDX 
+  875  l
+  876  _BDX 
+  877  l
+  878  _BDX 
+  879  l
+  880  rm -fr html.old/
+  881  l
+  882  cd ..
+  883  l
+  884  cd ..
+  885  l
+  886  cd var/
+  887  l
+  888  echo WWW www
+  889  l
+  890  cd ..
+  891  l
+  892  mkdir etc
+  893  l
+  894  cd etc/
+  895  l
+  896  l /etc/
+  897  l /etc/sddm/
+  898  l /etc/sddm.conf
+  899  cat /etc/sddm.conf
+  900  cat /etc/sddm.conf.d/
+  901  l /etc/sddm.conf.d/
+  902  l
+  903  lm
+  904  l
+  905  cat /_b/x/.bdx.0100.y.copy_srcdir_here.srcdir_name.sh 
+  906  l
+  907  (cd /etc; tar cf - hosts) | tar xf -
+  908  l
+  909  cat hosts 
+  910  l
+  911  rm hosts 
+  912  l
+  913  ln -s /_b/x/.bdx.0100.y.copy_srcdir_here.srcdir_name.sh 
+  914  l
+  915  mv .bdx.0100.y.copy_srcdir_here.srcdir_name.sh  .bdx.0100.y.copy_srcdir_here.hosts.sh 
+  916  l
+  917  _BDX 
+  918  l
+  919  cat hosts 
+  920  l
+  921  _BDX 
+  922  l
+  923  _BDX 
+  924  l
+  925  vi .bdx.0100.y.copy_srcdir_here.hosts.sh 
+  926  l
+  927  vi .bdx.0100.y.copy_srcdir_here.hosts.sh 
+  928  l
+  929  _BDX 
+  930  l
+  931  diff hosts hosts.old 
+  932  l
+  933  _BDX 
+  934  l
+  935  rm hosts*
+  936  l
+  937  _BDX 
+  938  l
+  939  rm hosts*
+  940  l
+  941  _BDX 
+  942  l
+  943  rm .bdx.0100.y.copy_srcdir_here.hosts.sh 
+  944  ln -s /_b/x/.bdx.0100.y.copy_src_here.src_name.sh 
+  945  mv .bdx.0100.y.copy_src_here.src_name.sh  .bdx.0100.y.copy_src_here.hosts.sh 
+  946  l
+  947  cd ..
+  948  l
+  949  cd home/
+  950  l
+  951  cd blusjune/
+  952  l
+  953  rm .bdx.0100.y.copy_srcdir_here.GNUstep.sh 
+  954  ln -s /_b/x/.bdx.0100.y.copy_src_here.src_name.sh 
+  955  mv .bdx.0100.y.copy_src_here.src_name.sh  .bdx.0100.y.copy_src_here.GNUstep.sh 
+  956  l
+  957  rm -fr GNUstep/
+  958  l
+  959  _BDX 
+  960  l
+  961  rm -fr GNUstep.old/
+  962  l
+  963  cd ..
+  964  l
+  965  cd ..
+  966  l
+  967  cd var/
+  968  l
+  969  cd www/
+  970  l
+  971  rm html/
+  972  l
+  973  rm -fr html/
+  974  l
+  975  rm .bdx.0100.y.copy_srcdir_here.html.sh 
+  976  ln -s /_b/x/.bdx.0100.y.copy_src_here.src_name.sh 
+  977  mv .bdx.0100.y.copy_src_here.src_name.sh  .bdx.0100.y.copy_src_here.html.sh 
+  978  l
+  979  _BDX 
+  980  l
+  981  _BDX 
+  982  l
+  983  rm -fr html*
+  984  l
+  985  _BDX 
+  986  l
+  987  rm -fr html*
+  988  l
+  989  _BDX 
+  990  l
+  991  cd ..
+  992  l
+  993  cd ..
+  994  l
+  995  cd home/
+  996  l
+  997  cd blusjune/
+  998  l
+  999  cd ..
+ 1000  l
+ 1001  cd blusjune/
+ 1002  l
+ 1003  cd ..
+ 1004  l
+ 1005  cd ..
+ 1006  l
+ 1007  find . -type f -name '.bdx.*.y.*.sh'
+ 1008  find . -type f -name .bdx.*.y.*.sh
+ 1009  find . -type f 
+ 1010  find . -type L 
+ 1011  find . -type H 
+ 1012  find . -type l
+ 1013  find . -type L
+ 1014  find . -type H
+ 1015  find . -type h
+ 1016  find . -type l
+ 1017  find . -type l -name '.bdx.*.y.*.sh'
+ 1018  find . -type l -name '.bdx.*.y.*.sh' -exec {} \;
+ 1019  find . -type l -name '.bdx.*.y.*.sh' -exec pwd \;
+ 1020  find . -type l -name '.bdx.*.y.*.sh' -exec echo {} \;
+ 1021  pwd
+ 1022  find . -type l -name '.bdx.*.y.*.sh' -exec echo {} \;
+ 1023  find . -type l -name '.bdx.*.y.*.sh' -execdir echo {} \;
+ 1024  find . -type l -name '.bdx.*.y.*.sh' -execdir pwd \;
+ 1025  find . -type l -name '.bdx.*.y.*.sh' -exec  pwd \;
+ 1026  find . -type l -name '.bdx.*.y.*.sh' -exec  \;
+ 1027  find . -type l -name '.bdx.*.y.*.sh' -exec echo "xx"  \;
+ 1028  find . -type l -name '.bdx.*.y.*.sh' -exec $( echo pwd )  \;
+ 1029  find . -type l -name '.bdx.*.y.*.sh' -execdir $( echo pwd )  \;
+ 1030  find . -type l -name '.bdx.*.y.*.sh' -exec $( echo pwd )  \;
+ 1031  find . -type l -name '.bdx.*.y.*.sh' -exec pwd  \;
+ 1032  l
+ 1033  find . -type l -name '.bdx.*.y.*.sh' -exec pwd  \;
+ 1034  ls -alF
+ 1035  ls -alFr
+ 1036  ls -alF
+ 1037  l
+ 1038  find . -type l -name '.bdx.*.y.*.sh' 
+ 1039  basename $( find . -type l -name '.bdx.*.y.*.sh' )
+ 1040  find . -type l -name '.bdx.*.y.*.sh' | basename
+ 1041  find . -type l -name '.bdx.*.y.*.sh' | basename -
+ 1042  _list=$(find . -type l -name '.bdx.*.y.*.sh')
+ 1043  echo $_list
+ 1044  for _i in $_list; do basename $_i; done
+ 1045  for _i in $_list; do dirname $_i; done
+ 1046  find $(pwd) -type l -name '.bdx.*.y.*.sh' | basename -
+ 1047  find $(pwd) -type l -name '.bdx.*.y.*.sh' 
+ 1048  l
+ 1049  ls -alF
+ 1050  ls -alF /
+ 1051  l
+ 1052  pwd
+ 1053  cd ..
+ 1054  l
+ 1055  vi .bdx.0100.y.exec_bdx.recursively.sh
+ 1056  find $(pwd) -type l -name '.bdx.*.y.*.sh' 
+ 1057  vi .bdx.0100.y.exec_bdx.recursively.sh 
+ 1058  _BDX 
+ 1059  chmod 755 .bdx.0100.y.exec_bdx.recursively.sh 
+ 1060  l
+ 1061  _BDX 
+ 1062  vi .bdx.0100.y.exec_bdx.recursively.sh 
+ 1063  _BDX 
+ 1064  vi .bdx.0100.y.exec_bdx.recursively.sh 
+ 1065  _BDX 
+ 1066  vi .bdx.0100.y.exec_bdx.recursively.sh 
+ 1067  _BDX 
+ 1068  l
+ 1069  vi .bdx.0100.y.exec_bdx.recursively.sh 
+ 1070  _BDX 
+ 1071  vi .bdx.0100.y.exec_bdx.recursively.sh 
+ 1072  l
+ 1073  which _BDX 
+ 1074  _BDX 
+ 1075  l
+ 1076  mv .bdx.0100.y.exec_bdx.recursively.sh /_b/x/
+ 1077  l
+ 1078  ln -s /_b/x/.bdx.0100.y.exec_bdx.recursively.sh 
+ 1079  l
+ 1080  l .bdx.0100.y.exec_bdx.recursively.sh 
+ 1081  l
+ 1082  man pwd
+ 1083  l
+ 1084  rm .bdx.0100.y.exec_bdx.recursively.sh 
+ 1085  ln -s /_b/x/.bdx.0100.y.bdx.exec_all_bdx_files_under_cwd.sh 
+ 1086  l
+ 1087  cd /_b/x/
+ 1088  l
+ 1089  mv .bdx.0100.y.copy_src_here.src_name.sh .bdx.0100.y.fnbx.copy_src_here.src_name.sh 
+ 1090  vi .bdx.0100.y.fnbx.copy_src_here.src_name.sh
+ 1091  l
+ 1092  cd ..
+ 1093  l
+ 1094  cd ..
+ 1095  l
+ 1096  cd _b
+ 1097  l
+ 1098  vi README.md 
+ 1099  l
+ 1100  cd 
+ 1101  l
+ 1102  cd ..b
+ 1103  l
+ 1104  vi README.md 
+ 1105  l
+ 1106  cd _
+ 1107  l
+ 1108  l c
+ 1109  l
+ 1110  cd ..
+ 1111  l
+ 1112  vi README.md 
+ 1113  l
+ 1114  vi .ddb.pkg.
+ 1115  l
+ 1116  vi README.md 
+ 1117  l
+ 1118  cat _/README.md 
+ 1119  vi README.md 
+ 1120  l
+ 1121  cat README.md 
+ 1122  l
+ 1123  cd .ddb.pkg.d/
+ 1124  l
+ 1125  cd ..
+ 1126  l
+ 1127  vi .bdx.0100.y.ddb.pkg.sh 
+ 1128  l
+ 1129  cat .ddb.pkg.sh 
+ 1130  l
+ 1131  l .ddb.pkg.d/
+ 1132  _BDX 
+ 1133  l
+ 1134  cd .ddb.pkg.d/
+ 1135  l
+ 1136  cd ..
+ 1137  l
+ 1138  vi .bdx.0100.y.ddb.pkg.sh 
+ 1139  _BDX 
+ 1140  vi .bdx.0100.y.ddb.pkg.sh 
+ 1141  l
+ 1142  man find
+ 1143  l
+ 1144  vi .ddb.pkg.sh 
+ 1145  l
+ 1146  _BDX 
+ 1147  l
+ 1148  cd .ddb.pkg.d/
+ 1149  l
+ 1150  rm .ddb.pkg._.20230901_002904.tar.gz
+ 1151  l
+ 1152  cd ..
+ 1153  l
+ 1154  cd .ddb.pkg.d/
+ 1155  l
+ 1156  rm .ddb.pkg._.20230823_235015.tar.gz
+ 1157  l
+ 1158  cd ..
+ 1159  l
+ 1160  _BDX 
+ 1161  l
+ 1162  cd .ddb.pkg.d/
+ 1163  l
+ 1164  cd ..
+ 1165  l
+ 1166  git add -Av
+ 1167  l
+ 1168  git commit -avs
+ 1169  git push --all -u
+ 1170  l
+ 1171  cd 
+ 1172  l
+ 1173  vi .xinitrc 
+ 1174  l
+ 1175  cd bxd
+ 1176  l
+ 1177  cd _
+ 1178  l
+ 1179  l log/
+ 1180  l obj/
+ 1181  l src/
+ 1182  l wip/
+ 1183  l
+ 1184  cd obj/
+ 1185  l
+ 1186  cd pictures/
+ 1187  l
+ 1188  cd 
+ 1189  l
+ 1190  cat .bash_profile 
+ 1191  l
+ 1192  cd b
+ 1193  l
+ 1194  cd /_b/d/
+ 1195  l
+ 1196  cd __ROOT__/
+ 1197  l
+ 1198  cd home/
+ 1199  l
+ 1200  cd blusjune/
+ 1201  l
+ 1202  l ~/.dmrc 
+ 1203  cat ~/.dmrc 
+ 1204  cat ~/.config/
+ 1205  l ~/.config/
+ 1206  l ~/.config/sddmthemeinstallerrc 
+ 1207  cat ~/.config/sddmthemeinstallerrc 
+ 1208  l
+ 1209  ln -s /_b/x/.bdx.0100.y.fnbx.copy_src_here.src_name.sh
+ 1210  l
+ 1211  l ~/
+ 1212  l
+ 1213  vi .bdx.0100.y.fnbx.copy_src_here.src_name.sh 
+ 1214  l
+ 1215  mv .bdx.0100.y.fnbx.copy_src_here.src_name.sh .bdx.0100.y.fnbx.copy_src_here..config.sh 
+ 1216  l
+ 1217  _BDX 
+ 1218  l
+ 1219  du -sk .config/
+ 1220  du -sh .config/
+ 1221  du -sk .config/
+ 1222  du -sh .config/
+ 1223  l
+ 1224  _BDX 
+ 1225  l
+ 1226  du -sh .config
+ 1227  du -sh .config.old/
+ 1228  l
+ 1229  rm -fr .config*
+ 1230  l
+ 1231  rm -fr GNUstep
+ 1232  l
+ 1233  _BDX 
+ 1234  l
+ 1235  rm -fr GNUstep*
+ 1236  l
+ 1237  rm -fr .config/
+ 1238  l
+ 1239  _BDX 
+ 1240  l
+ 1241  _BDX 
+ 1242  l
+ 1243  _BDX 
+ 1244  l
+ 1245  rm .config
+ 1246  rm -fr .config*
+ 1247  l
+ 1248  l ~/
+ 1249  l
+ 1250  mv .bdx.0100.y.fnbx.copy_src_here..config.sh .bdx.0100.y.fnbx.copy_src_here..vimrc.sh 
+ 1251  l
+ 1252  rm GNUstep*
+ 1253  rm -fr GNUstep*
+ 1254  l
+ 1255  _BDX 
+ 1256  l
+ 1257  _BDX 
+ 1258  l
+ 1259  _BDX 
+ 1260  l
+ 1261  cd ..
+ 1262  l
+ 1263  cd ..
+ 1264  l
+ 1265  l etc/
+ 1266  l var/www/
+ 1267  l
+ 1268  cd ..
+ 1269  l
+ 1270  cd ..
+ 1271  l
+ 1272  cd ..
+ 1273  l
+ 1274  cd 
+ 1275  cd ..b
+ 1276  l
+ 1277  cd _/x/
+ 1278  l
+ 1279  vi .bdx.0100.y.bdx.exec_all_subdir_bdx_files.sh 
+ 1280  l
+ 1281  view .bdx.0100.y.fnbx.copy_src_here.src_name.sh 
+ 1282  l
+ 1283  cd ..
+ 1284  l
+ 1285  cd 
+ 1286  l
+ 1287  cd ..b
+ 1288  l
+ 1289  _BDX 
+ 1290  l
+ 1291  cd .ddb.pkg.d/
+ 1292  l
+ 1293  rm .ddb.pkg._.20230901_003218.tar.gz
+ 1294  l
+ 1295  cd 
+ 1296  l
+ 1297  cd ..b
+ 1298  l
+ 1299  git add -Av
+ 1300  git commit -avs
+ 1301  git push --all -u
+ 1302  l
+ 1303  cd _/x
+ 1304  l
+ 1305  vi .bx.bxd.create.sh
+ 1306  l
+ 1307  chmod 755 .bx.bxd.create.sh 
+ 1308  l
+ 1309  vi .bx.bxd.create.sh 
+ 1310  l
+ 1311  cd ..
+ 1312  l
+ 1313  cd ..
+ 1314  l
+ 1315  vi .ddb.pkg.sh 
+ 1316  cat .ddb.pkg.sh 
+ 1317  l
+ 1318  vi README.md 
+ 1319  l
+ 1320  _BDX 
+ 1321  l
+ 1322  cd _
+ 1323  l
+ 1324  cd x
+ 1325  l
+ 1326  vi .bx.bxd.create.sh 
+ 1327  l
+ 1328  vi .bx.bxd.create.sh 
+ 1329  l
+ 1330  vi .bx.bxd.create.sh 
+ 1331  l
+ 1332  vi .bx.bxd.create.sh 
+ 1333  l
+ 1334  mv .bx.bxd.create.sh .bx.bxd.init.sh 
+ 1335  l
+ 1336  vi .bx.bxd.init.sh
+ 1337  l
+ 1338  cd 
+ 1339  cd ..b
+ 1340  l
+ 1341  git add -Av
+ 1342  git commit -avs
+ 1343  git push --all -u
+ 1344  l
+ 1345  _BDX 
+ 1346  l
+ 1347  cd .ddb.pkg.d/
+ 1348  l
+ 1349  rm .ddb.pkg._.20230901_012933.tar.gz
+ 1350  l
+ 1351  rm .ddb.pkg._.20230901_012100.tar.gz
+ 1352  l
+ 1353  cd ..
+ 1354  l
+ 1355  git add -Av
+ 1356  git commit -avs
+ 1357  git push --all -u
+ 1358  l
+ 1359  l
+ 1360  l
+ 1361  vi .bashrc 
+ 1362  vi .bashrc 
+ 1363  cd GNUstep/Defaults/
+ 1364  l
+ 1365  l
+ 1366  diff WMState /tmp/WMState 
+ 1367  cp /tmp/WMState  .
+ 1368  diff WMState /tmp/WMState 
+ 1369  shutdown
+ 1370  l
+ 1371  konsole &
+ 1372  l
+ 1373  cd t
+ 1374  l
+ 1375  R
+ 1376  l
+ 1377  cd /media/
+ 1378  l
+ 1379  cd blusjune/
+ 1380  l
+ 1381  cd U2_USBMEM64GB/
+ 1382  l
+ 1383  cd .ddb.pkg.d/
+ 1384  l
+ 1385  l ~/..b/.ddb.pkg.d/
+ 1386  l
+ 1387  cp .ddb.pkg._.20230901_184249.tar.gz /tmp
+ 1388  cd 
+ 1389  l
+ 1390  lm
+ 1391  l
+ 1392  cd t
+ 1393  l
+ 1394  gunzip -c /tmp/.ddb.pkg._.20230901_184249.tar.gz | tar xf -
+ 1395  l
+ 1396  cd ..
+ 1397  l
+ 1398  diff -r ..b/_ t/_
+ 1399  diff -r ..b/_ t/_ | grep 'diff:'
+ 1400  diff -r ..b/_ t/_ | grep 'Only in'
+ 1401  ping 127.0.123.121
+ 1402  l
+ 1403  apt info meld
+ 1404  kompare 
+ 1405  l
+ 1406  diff -r ..b/_ t/_ 
+ 1407  diff -r ..b/_ t/_  | grep diff
+ 1408  diff -r ..b/_ t/_  | grep 'Only in'
+ 1409  l
+ 1410  bmml
+ 1411  bmml | | grep wiki
+ 1412  bmml | grep wiki
+ 1413  l
+ 1414  bmml
+ 1415  bmmf admin
+ 1416  bmmf sysadm_linux
+ 1417  bmme sysadm_linux
+ 1418  bmme sysadm_linux
+ 1419  l
+ 1420  bmme sysadm_linux
+ 1421  cd t/_/d/
+ 1422  l
+ 1423  cd __ROOT__/
+ 1424  l
+ 1425  cd ..
+ 1426  l
+ 1427  l __ROOT__/
+ 1428  l __ROOT__/home/
+ 1429  l __ROOT__/home/blusjune/
+ 1430  l __ROOT__/home/blusjune/GNUstep.old/Library/
+ 1431  l __ROOT__/home/blusjune/GNUstep.old/Library/WindowMaker/
+ 1432  l __ROOT__/home/blusjune/GNUstep.old/Library/WindowMaker/Backgrounds/
+ 1433  cd 
+ 1434  cd ..b/_/d
+ 1435  l __ROOT__/home/blusjune/GNUstep.old/Library/WindowMaker/Backgrounds/
+ 1436  l __ROOT__/home/blusjune/GNUstep.old/Library/WindowMaker/
+ 1437  l __ROOT__/home/blusjune/GNUstep.old/Library/WindowMaker/IconSets/
+ 1438  l __ROOT__/home/blusjune/GNUstep.old/Library/WindowMaker/Pixmaps/
+ 1439  l __ROOT__/home/blusjune/GNUstep.old/Library/WindowMaker/Styles/
+ 1440  l
+ 1441  pwd
+ 1442  l
+ 1443  cd 
+ 1444  l
+ 1445  cd t
+ 1446  l
+ 1447  cd _
+ 1448  l
+ 1449  cd d
+ 1450  l
+ 1451  cd __ROOT__/home/blusjune/GNUstep
+ 1452  l
+ 1453  cd ..
+ 1454  l
+ 1455  cd GNUstep.old/
+ 1456  l
+ 1457  cd Library/
+ 1458  l
+ 1459  cd WindowMaker/
+ 1460  l
+ 1461  cd Backgrounds/
+ 1462  l
+ 1463  cd ..
+ 1464  l
+ 1465  cd ..
+ 1466  l
+ 1467  cd 
+ 1468  l
+ 1469  cp -p t/_/m/_BMM.20230901.wiki_allpages.txt  ..b/_/m/
+ 1470  cp -p t/_/m/_BMM.20230901.wiki_b_task_2023.txt  ..b/_/m/
+ 1471  bmml
+ 1472  bmml |wc
+ 1473  bmml 
+ 1474  meld
+ 1475  bmml
+ 1476  dolphin 
+ 1477  bg
+ 1478  thunar &
+ 1479  diffmerge
+ 1480  aptitude search diffmerge
+ 1481  aptitude search diffuse
+ 1482  cd 
+ 1483  cd ..b
+ 1484  l
+ 1485  cd _/x/
+ 1486  l
+ 1487  cd 
+ 1488  cd ..b/_/x
+ 1489  l
+ 1490  vi bx.swpkg.install 
+ 1491  apt info diffuse
+ 1492  sudo apt install diffuse
+ 1493  l
+ 1494  cd 
+ 1495  l
+ 1496  diffuse &
+ 1497  cd t
+ 1498  l
+ 1499  rm -fr _
+ 1500  l
+ 1501  cd ..
+ 1502  l
+ 1503  cd 
+ 1504  l
+ 1505  cd /tm p
+ 1506  cd /tmp
+ 1507  l
+ 1508  reboot
+ 1509  l
+ 1510  ibus-setup-hangul 
+ 1511  ibus-daemon -d
+ 1512  ibus-setup-hangul 
+ 1513  vi .xinitrc 
+ 1514  bmme sysadm_linux
+ 1515  man xinitrc
+ 1516  man wmaker
+ 1517  cd GNUstep/
+ 1518  l
+ 1519  cd Library/
+ 1520  l
+ 1521  cd WindowMaker/
+ 1522  l
+ 1523  cat autostart 
+ 1524  vi autostart 
+ 1525  l
+ 1526  ibus-setup
+ 1527  vi .xinitrc 
+ 1528  l
+ 1529  cd GNUstep/Library/
+ 1530  l
+ 1531  cd WindowMaker/
+ 1532  l
+ 1533  vi autostart 
+ 1534  ibus-setup
+ 1535  reboot
+ 1536  ibus-setup
+ 1537  man ibus-setup
+ 1538  l
+ 1539  man ibus-daemon 
+ 1540  vi .xinitrc 
+ 1541  vi .xinitrc 
+ 1542  vi .xin
+ 1543  vi .xinitrc
+ 1544  top
+ 1545  l
+ 1546  l
+ 1547  cd GNUstep/Library/WindowMaker/
+ 1548  l
+ 1549  vi autostart 
+ 1550  vi autostart 
+ 1551  reboot
+ 1552  #
+ 1553  l
+ 1554  cd GNUstep/
+ 1555  l
+ 1556  cd Library/WindowMaker/
+ 1557  l
+ 1558  cat autostart 
+ 1559  l
+ 1560  reboot
+ 1561  l
+ 1562  bmml 
+ 1563  bmml
+ 1564  bmmf url
+ 1565  bmmf 
+ 1566  bmmf sysadm
+ 1567  bmml sysadm
+ 1568  bmml 
+ 1569  bmml sysadm_linux
+ 1570  bmme sysadm_linux
+ 1571  bmmf url
+ 1572  l
+ 1573  bmmf url
+ 1574  bmmf l
+ 1575  bmmf shell
+ 1576  bmml
+ 1577  l
+ 1578  cd GNUstep/
+ 1579  l
+ 1580  cd Library/WindowMaker/
+ 1581  l
+ 1582  cat autostart 
+ 1583  cd 
+ 1584  cat GNUstep/Library/WindowMaker/autostart 
+ 1585  bmml
+ 1586  bmme sysadm_linux
+ 1587  l
+ 1588  cd ..b
+ 1589  l
+ 1590  cd 
+ 1591  echo "find a way to set multiple monitor position alignment"
+ 1592  echo "find a way to set multiple monitor position alignment" 
+ 1593  man xrandr
+ 1594  cat > /tmp/te
+ 1595  man xclock
+ 1596  man xterm
+ 1597  man konsole
+ 1598  man xlogo
+ 1599  xlogo
+ 1600  man x
+ 1601  man X
+ 1602  xclock -update 1 -analog -geometry 100x100
+ 1603  xclock -update 1 -analog -geometry 100x100+0+0
+ 1604  xrandr 
+ 1605  xclock -update 1 -analog -geometry 100x100+100+0
+ 1606  xclock -update 1 -analog -geometry 100x100+1000+0
+ 1607  xclock -update 1 -analog -geometry 100x100+1800+0
+ 1608  xclock -update 1 -analog -geometry 100x100+1820+0
+ 1609  xclock -update 1 -analog -geometry 100x100+1720+0
+ 1610  xclock -update 1 -analog -geometry 100x100+1720+0 &
+ 1611  xclock -update 1 -digital -geometry 200x100+1520+0 &
+ 1612  xclock -update 1 -digital -geometry 200x50+1520+0 &
+ 1613  xclock -update 1 -digital -geometry 300x50+1420+0 &
+ 1614  xclock -update 1 -digital 
+ 1615  xclock -update 1 -digital -geometry 240x50+1420+0 &
+ 1616  xclock -update 1 -digital -geometry 240x50+1480+0 &
+ 1617  xclock -update 1 -analog -geometry 100x100+1720+0 &
+ 1618  xclock -update 1 -digital -geometry 240x50+1470+0 &
+ 1619  xclock -update 1 -digital -geometry 240x40+1470+0 &
+ 1620  l
+ 1621  bmml
+ 1622  bmme sysadm_linux
+ 1623  l
+ 1624  man gpg
+ 1625  l
+ 1626  du -sh .gnupg/
+ 1627  cd .gnupg/
+ 1628  l
+ 1629  cat gpg.conf 
+ 1630  du -sh *
+ 1631  du -sk *
+ 1632  l
+ 1633  cd ..
+ 1634  man gpg
+ 1635  xrandr
+ 1636  xrandr --listmonitors 
+ 1637  l /etc/X11/xorg.conf.d/
+ 1638  bmml
+ 1639  bmml sysadm
+ 1640  bmml
+ 1641  bmml sysadm
+ 1642  bmmf sysadm
+ 1643  bmme sysadm
+ 1644  l
+ 1645  bmme sysadm
+ 1646  bmme sysadm_linux
+ 1647  bmmp sysadm_linux
+ 1648  bmmpy sysadm_linux
+ 1649  bmmpy sysadm_linux > /tmp/te
+ 1650  kwrite /tmp/te
+ 1651  bg
+ 1652  l
+ 1653  bmme sysadm_linux
+ 1654  l
+ 1655  bmme sysadm_linux
+ 1656  autorandr
+ 1657  xrandr 
+ 1658  man xrandr 
+ 1659  xrandr --list-monitors
+ 1660  xrandr --list-monitor
+ 1661  xrandr --listmonitors
+ 1662  sudo apt install autorandr
+ 1663  autorandr 
+ 1664  sudo apt purge autorandr
+ 1665  l
+ 1666  cd 
+ 1667  l
+ 1668  cd ..b
+ 1669  l
+ 1670  git diff
+ 1671  l
+ 1672  cd .ddb.pkg.d/
+ 1673  l
+ 1674  cd ..
+ 1675  l
+ 1676  _BDX 
+ 1677  l
+ 1678  cd 
+ 1679  l
+ 1680  cd .vim/
+ 1681  l
+ 1682  cd plug
+ 1683  cd plugin/
+ 1684  l
+ 1685  cd ..
+ 1686  l
+ 1687  cd ..
+ 1688  l
+ 1689  cd ..b
+ 1690  l
+ 1691  l .ddb.pkg.
+ 1692  l .ddb.pkg.d/
+ 1693  _BDX 
+ 1694  l
+ 1695  l .ddb.pkg.d/
+ 1696  l
+ 1697  date
+ 1698  xclock -update 1 -digital 
+ 1699  bg
+ 1700  l
+ 1701  _BDX 
+ 1702  l
+ 1703  cd .ddb.pkg.d/
+ 1704  l
+ 1705  rm .ddb.pkg._.20230903_095832.tar.gz
+ 1706  l
+ 1707  rm .ddb.pkg._.20230903_095859.tar.gz
+ 1708  l
+ 1709  cd ..
+ 1710  l
+ 1711  git add -Av
+ 1712  git commit -avs
+ 1713  git push --all -u
+ 1714  l
+ 1715  bgpg
+ 1716  bpgp
+ 1717  bgpg
+ 1718  gpg
+ 1719  l
+ 1720  cd 
+ 1721  l
+ 1722  cd t
+ 1723  l
+ 1724  rm -fr vimball/
+ 1725  l
+ 1726  bmme sysadm
+ 1727  mkdir vim
+ 1728  cd vim/
+ 1729  l
+ 1730  w3m w3m https://www.vim.org/scripts/script.php?script_id=40
+ 1731  w3m https://www.vim.org/scripts/script.php?script_id=40
+ 1732  l
+ 1733  cat DrawIt.vba.gz | base64 > DrawIt.vba.gz.b64
+ 1734  l
+ 1735  gpg 
+ 1736  gpg --symmetric --cipher-algo AES256  --digest-algo SHA512 --batch --verbose --armor  --openpgp  
+ 1737  l
+ 1738  cat DrawIt.vba.gz | gpg --symmetric --cipher-algo AES256  --digest-algo SHA512 --batch --verbose --armor  --openpgp  
+ 1739  cat DrawIt.vba.gz | gpg --symmetric --cipher-algo AES256  --digest-algo SHA512 --batch --verbose --armor  --openpgp  --comment "Brian M. 'aerosmith' JUNG <brian.m.jung@gmail.com>"
+ 1740  cat DrawIt.vba.gz | gpg --symmetric --cipher-algo AES256  --digest-algo SHA512 --batch --verbose --armor  --openpgp  --comment "Brian M. 'aerosmith' JUNG <brian.m.jung@gmail.com> $(..ts)" 
+ 1741  l
+ 1742  view DrawIt.vba.gz.gpg 
+ 1743  cd 
+ 1744  l
+ 1745  cd /_b/x/
+ 1746  vi .bx.bgpg.sh
+ 1747  chmod 755 .bx.bgpg.sh
+ 1748  l
+ 1749  cd 
+ 1750  cd t
+ 1751  l
+ 1752  cd vim/
+ 1753  l
+ 1754  cd 
+ 1755  cd x/
+ 1756  l
+ 1757  cd /b/x/
+ 1758  l
+ 1759  cd b/x
+ 1760  l
+ 1761  cd -
+ 1762  l
+ 1763  cd t/vim/
+ 1764  l
+ 1765  cat DrawIt.vba.gz | .bx.bgpg.sh > DrawIt.vba.gz.b64
+ 1766  l
+ 1767  cat DrawIt.vba.gz | .bx.bgpg.sh > DrawIt.vba.gz.gpg 
+ 1768  l
+ 1769  view DrawIt.vba.gz.gpg 
+ 1770  which .bx.bgpg.sh 
+ 1771  vi $(which .bx.bgpg.sh )
+ 1772  cat DrawIt.vba.gz | .bx.bgpg.sh > DrawIt.vba.gz.gpg 
+ 1773  l
+ 1774  view DrawIt.vba.gz.gpg 
+ 1775  l
+ 1776  gpg DrawIt.vba.gz.gpg 
+ 1777  l
+ 1778  diff DrawIt.vba.gz new
+ 1779  rm new
+ 1780  l
+ 1781  vi $(which .bx.bgpg.sh )
+ 1782  cat DrawIt.vba.gz | .bx.bgpg.sh > DrawIt.vba.gz.gpg 
+ 1783  l
+ 1784  mkdir t
+ 1785  cd t
+ 1786  gpg ../DrawIt.vba.gz.gpg 
+ 1787  l
+ 1788  vi DrawIt.vba.gz 
+ 1789  l
+ 1790  diff DrawIt.vba.gz ../DrawIt.vba.gz
+ 1791  l
+ 1792  rm DrawIt.vba.gz 
+ 1793  l
+ 1794  cp ../DrawIt.vba.gz .
+ 1795  l
+ 1796  rm DrawIt.vba.gz 
+ 1797  l
+ 1798  cp ../DrawIt.vba.gz.gpg .
+ 1799  l
+ 1800  gpg DrawIt.vba.gz.gpg 
+ 1801  l
+ 1802  diff DrawIt.vba.gz ../DrawIt.vba.gz
+ 1803  l
+ 1804  vi DrawIt.vba.gz.gpg 
+ 1805  vi $(which .bx.bgpg.sh )
+ 1806  l
+ 1807  vi $(which .bx.bgpg.sh )
+ 1808  l
+ 1809  vi $(which .bx.bgpg.sh )
+ 1810  cat DrawIt.vba.gz | .bx.bgpg.sh > DrawIt.vba.gz.gpg 
+ 1811  vi $(which .bx.bgpg.sh )
+ 1812  cat DrawIt.vba.gz | .bx.bgpg.sh > DrawIt.vba.gz.gpg 
+ 1813  l
+ 1814  gpg DrawIt.vba.gz.gpg 
+ 1815  l
+ 1816  vi DrawIt.vba.gz
+ 1817  diff DrawIt.vba.gz ../DrawIt.vba.gz
+ 1818  l
+ 1819  vi DrawIt.vba.gz.gpg 
+ 1820  l
+ 1821  gpg DrawIt.vba.gz.gpg 
+ 1822  l
+ 1823  gpg DrawIt.vba.gz.gpg 
+ 1824  l
+ 1825  diff DrawIt.vba.gz ok
+ 1826  l
+ 1827  vi ok
+ 1828  l
+ 1829  rm ok
+ 1830  l
+ 1831  cat DrawIt.vba.gz | .bx.bgpg.sh > DrawIt.vba.gz.1.gpg 
+ 1832  l
+ 1833  diff DrawIt.vba.gz.1.gpg DrawIt.vba.gz.gpg 
+ 1834  diff DrawIt.vba.gz.1.gpg DrawIt.vba.gz.gpg  > /tmp/te
+ 1835  view /tmp/te
+ 1836  l
+ 1837  meld DrawIt.vba.gz.gpg DrawIt.vba.gz.1.gpg 
+ 1838  l
+ 1839  gpg DrawIt.vba.gz.1.gpg 
+ 1840  l
+ 1841  diff DrawIt.vba.gz.1 DrawIt.vba.gz
+ 1842  l
+ 1843  mv DrawIt.vba.gz.gpg DrawIt.vba.gz.bad.gpg
+ 1844  l
+ 1845  gpg DrawIt.vba.gz.bad.gpg 
+ 1846  l
+ 1847  gpg DrawIt.vba.gz.1.gpg 
+ 1848  l
+ 1849  vi DrawIt.vba.gz.1
+ 1850  l
+ 1851  rm DrawIt.vba.gz.*
+ 1852  l
+ 1853  vi DrawIt.vba.gz 
+ 1854  l
+ 1855  cat DrawIt.vba.gz | .bx.bgpg.sh > drawit.good.gpg
+ 1856  l
+ 1857  gpg drawit.good.gpg 
+ 1858  l
+ 1859  vi drawit.good
+ 1860  l
+ 1861  vi drawit.good.gpg 
+ 1862  l
+ 1863  vi $(which .bx.bgpg.sh )
+ 1864  cat DrawIt.vba.gz | .bx.bgpg.sh > drawit.good.gpg
+ 1865  vi $(which .bx.bgpg.sh )
+ 1866  cat DrawIt.vba.gz | .bx.bgpg.sh > drawit.good.gpg
+ 1867  l
+ 1868  view drawit.good.gpg 
+ 1869  l
+ 1870  gpg --decrypt drawit.good.gpg 
+ 1871  1;2cl
+ 1872  gpg --decrypt drawit.good.gpg > drawit.good
+ 1873  l
+ 1874  vi drawit.good
+ 1875  l
+ 1876  rm drawit.good
+ 1877  l
+ 1878  gpg drawit.good.gpg 
+ 1879  l
+ 1880  view drawit.good
+ 1881  l
+ 1882  rm drawit.good
+ 1883  l
+ 1884  vi $(which .bx.bgpg.sh )
+ 1885  vi DrawIt.vba.gz 
+ 1886  cat DrawIt.vba.gz | .bx.bgpg.sh > drawit.good.gpg 
+ 1887  l
+ 1888  view drawit.good.gpg 
+ 1889  gpg drawit.good.gpg 
+ 1890  file *
+ 1891  l
+ 1892  view drawit.good
+ 1893  l
+ 1894  view DrawIt.vba.gz 
+ 1895  l
+ 1896  mv drawit.good drawit.good.gz
+ 1897  l
+ 1898  view drawit.good.gz 
+ 1899  l
+ 1900  diff drawit.good.gz DrawIt.vba.gz 
+ 1901  l
+ 1902  gpg --decrypt drawit.good.gpg 
+ 1903  1;2cl
+ 1904  gpg --decrypt drawit.good.gpg  > drawit.good.new.gz
+ 1905  l
+ 1906  diff drawit.good.gz drawit.good.new.gz 
+ 1907  view drawit.good.new.gz 
+ 1908  view DrawIt.vba.gz 
+ 1909  l
+ 1910  vi $(which .bx.bgpg.sh)
+ 1911  l
+ 1912  view drawit.good.gpg 
+ 1913  l
+ 1914  bmml
+ 1915  bmmf url_book
+ 1916  bmme url_book
+ 1917  l
+ 1918  cd 
+ 1919  cd ..b
+ 1920  l
+ 1921  git diff
+ 1922  l
+ 1923  w
+ 1924  _BDX 
+ 1925  l
+ 1926  git diff
+ 1927  git add -Av
+ 1928  git commit -avs
+ 1929  git push --all -u
+ 1930  l
+ 1931  xclock -upd
+ 1932  man xclock
+ 1933  xclock -update 1 &
+ 1934  xclock -digital
+ 1935  man xclock
+ 1936  xclock -digital -update 1 &
+ 1937  xclock -update 1 -analog 
+ 1938  l
+ 1939  l t/
+ 1940  mkdir -p ~/t/vimball/drawit;
+ 1941  cd ~/t/vimball/drawit;
+ 1942  wget https://www.vim.org/scripts/download_script.php?src_id=21108;
+ 1943  l
+ 1944  wget https://www.vim.org/scripts/download_script.php?src_id=21108
+ 1945  l
+ 1946  rm *
+ 1947  l
+ 1948  mv ~/Downloads/DrawIt.vba.gz .
+ 1949  l
+ 1950  man base64 
+ 1951  cat DrawIt.vba.gz | base64 
+ 1952  cat DrawIt.vba.gz | base64 | more
+ 1953  man base64
+ 1954  cat DrawIt.vba.gz | base64 > DrawIt.vba.gz.b64
+ 1955  vi DrawIt.vba.gz.b64 
+ 1956  cat DrawIt.vba.gz.b64 | base64 -d > drawit.vba.gz
+ 1957  l
+ 1958  diff DrawIt.vba.gz drawit.vba.gz 
+ 1959  rm drawit.vba.gz 
+ 1960  l
+ 1961  vi DrawIt.vba.gz
+ 1962  vi DrawIt.vba.gz.b64 
+ 1963  l
+ 1964  view DrawIt.vba.gz
+ 1965  l
+ 1966  gunzip -c DrawIt.vba.gz > DrawIt.vba
+ 1967  l
+ 1968  view DrawIt.vba
+ 1969  l
+ 1970  view DrawIt.vba.gz
+ 1971  l
+ 1972  vim DrawIt.vba.gz
+ 1973  l
+ 1974  rm DrawIt.vba
+ 1975  l
+ 1976  gzip -c DrawIt.vba.gz.b64 > DrawIt.vba.gz.b64.gz
+ 1977  l
+ 1978  rm DrawIt.vba.gz.b64.gz 
+ 1979  l
+ 1980  cd ..
+ 1981  l
+ 1982  w3m https://www.vim.org/scripts/script.php?script_id=40
+ 1983  l
+ 1984  cd drawit/
+ 1985  l
+ 1986  cd ..
+ 1987  l
+ 1988  mv DrawIt.vba.gz drawit/
+ 1989  l
+ 1990  cd
+ 1991  l
+ 1992  man gpg
+ 1993  gpg --cipher-algo --version
+ 1994  gpg --version --cipher-algo 
+ 1995  gpg --version --digest-algo
+ 1996  bgpg
+ 1997  pip
+ 1998  l
+ 1999  bmw
+ 2000  bmwc ai
+ 2001  l
+ 2002  cd wx
+ 2003  l
+ 2004  mv _BMW.20230904.ai_llm_hugging_face.d ai_llm_hugging_face
+ 2005  l
+ 2006  cd ai_llm_hugging_face
+ 2007  l
+ 2008  which .bx.bxd.init.sh 
+ 2009  vi $(which .bx.bxd.init.sh )
+ 2010  l
+ 2011  echo "###___ hugging face"
+ 2012  pip install hugging face_hub
+ 2013  pip install huggingface_hub
+ 2014  huggingface-cli login
+ 2015  huggingface-cli 
+ 2016  l
+ 2017  huggingface-cli
+ 2018  l
+ 2019  cd .bxd/
+ 2020  l
+ 2021  cd wip/
+ 2022  l
+ 2023  cd work_gem5/
+ 2024  l
+ 2025  cd ..
+ 2026  l
+ 2027  mkdir huggingface
+ 2028  l
+ 2029  cd huggingface/
+ 2030  l
+ 2031  cd ..
+ 2032  l
+ 2033  cd ..
+ 2034  l
+ 2035  cd ..
+ 2036  l
+ 2037  ln -s .bxd/wip/huggingface 
+ 2038  l
+ 2039  cd huggingface
+ 2040  l
+ 2041  python -m venv .env
+ 2042  aptitude search python | grep venv
+ 2043  python --version
+ 2044  apt install python3.10-venv
+ 2045  sudo apt install python3.10-venv
+ 2046  python -m venv .env
+ 2047  pwd
+ 2048  cd /_b/w/
+ 2049  l
+ 2050  cd x/
+ 2051  l
+ 2052  cd ai_llm_hugging_face
+ 2053  l
+ 2054  pwd
+ 2055  cd huggingface
+ 2056  pwd
+ 2057  l
+ 2058  pwd
+ 2059  l
+ 2060  cd ..
+ 2061  l
+ 2062  pwd
+ 2063  l
+ 2064  cd huggingface
+ 2065  l
+ 2066  cd .env/
+ 2067  l
+ 2068  cd bin/
+ 2069  l
+ 2070  file activate
+ 2071  view activate
+ 2072  cd ..
+ 2073  l
+ 2074  cd ..
+ 2075  l
+ 2076  pwd
+ 2077  source .env/bin/activate
+ 2078  pip install --upgrade huggingface_hub
+ 2079  python -c "from huggingface_hub import model_info; print(model_info('gpt2'))"
+ 2080  python -c "from huggingface_hub import model_info; print(model_info('llama'))"
+ 2081  pip install 'huggingface_hub[tensorflow]'
+ 2082  pip install 'huggingface_hub[cli,torch]'
+ 2083  pwd
+ 2084  df -h .
+ 2085  huggingface-cli login
+ 2086  pip install spacy ftfy==4.4.3
+ 2087  python -m spacy download en
+ 2088  l
+ 2089  cd .env/
+ 2090  l
+ 2091  du -sk *
+ 2092  du -sm *
+ 2093  l lib
+ 2094  l lib/python3.10/
+ 2095  l lib/python3.10/site-packages/
+ 2096  l
+ 2097  cd ..
+ 2098  l
+ 2099  pycharm
+ 2100  idle
+ 2101  l
+ 2102  idle
+ 2103  pip install transformers;
+ 2104  idle
+ 2105  python
+ 2106  export TF_ENABLE_ONEDNN_OPTS=0
+ 2107  python
+ 2108  l
+ 2109  history > .cmdhist.log
