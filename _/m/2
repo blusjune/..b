@@ -1,7 +1,0 @@
-
-== HF (Hugging Face) installation ==
-: 20230904_165129
-
- cd /_b/w/x/ai_llm_hugging_face/huggingface;
- python -m venv .env;
- sudo apt install python3.10-venv; # if above is failed
