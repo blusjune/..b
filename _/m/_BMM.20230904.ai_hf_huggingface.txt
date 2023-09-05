@@ -1,0 +1,217 @@
+
+
+
+
+== HF (Hugging Face) sign-up ==
+: 20230904_174323
+
+* HF (Hugging Face) account information for brian.m.jung
+<pre>
+-----BEGIN PGP MESSAGE-----
+Comment: BGPGFile:20230904_174651 by B.
+
+jA0ECQMCKslMv0cADXb/0sACAfbGqGZOyR66IPXR/vOlgNZvpqOWDyzXUPyuWJVE
+mXmxLb+Y4RhAESk2cdFp+3vf2dSM2rnf27oGhGA/yL7VbCovmR5JIhPzgovMbqEb
+a2USZzf3H1DpN4vM3JFVM9iwjgaSfoGCIx5eDfrc14SYcP+vk6J+9uRTTpdWiVqe
+uM93v6ZfG9p6/PkvpwLNrO2d5Jnzc4Ujxtqb+dbejuC5ohfa9PDOngE2/SjJIjbk
+oa9X1sW0SE6XZnwAZW/qmTGT580=
+=Rxa4
+-----END PGP MESSAGE-----
+</pre>
+<pre>
+echo "### { ###";
+WebURL="https://huggingface.co/";
+Email="brian.m.jung@gmail.com";
+PW="Ek3!";
+Username="brian-m-jung";
+Fullname="Brian Myungjune JUNG";
+echo "### } ###";
+</pre>
+
+
+
+
+== HF (Hugging Face) installation ==
+: 20230904_165129
+
+* Guide document: https://huggingface.co/docs/huggingface_hub/installation
+
+
+
+
+=== Work directory preparation ===
+
+<pre>
+blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face$ pwd
+/_b/w/x/ai_llm_hugging_face
+
+blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face$ l
+total 12
+drwxrwxr-x  3 blusjune blusjune 4096 Sep  4 16:48 ./
+drwxrwxr-x 14 blusjune blusjune 4096 Sep  4 16:44 ../
+-rw-rw-r--  1 blusjune blusjune    0 Sep  4 16:44 ..README.._BMW.20230904.ai_llm_hugging_face.d
+lrwxrwxrwx  1 blusjune blusjune   22 Sep  4 16:44 .bxd -> /home/blusjune/..bxd/_/
+drwxrwxr-x  2 blusjune blusjune 4096 Sep  4 16:44 .files.d/
+lrwxrwxrwx  1 blusjune blusjune   20 Sep  4 16:48 huggingface -> .bxd/wip/huggingface/
+</pre>
+
+
+
+
+=== HF main installation ===
+
+* Command line history
+<pre>
+ cd /_b/w/x/ai_llm_hugging_face/huggingface; # 'Root' directory, actually. It should exist already.
+ python -m venv .env;
+ sudo apt install python3.10-venv; python -m venv .env; # if above is failed
+ source .env/bin/activate; # then you will see: (.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/huggingface$ 
+ pip install --upgrade huggingface_hub
+</pre>
+
+
+* Screenshot (log)
+<pre>
+blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/huggingface$ l
+total 12
+drwxrwxr-x 3 blusjune blusjune 4096 Sep  4 16:48 ./
+drwxrwxr-x 4 blusjune blusjune 4096 Sep  4 16:48 ../
+drwxrwxr-x 5 blusjune blusjune 4096 Sep  4 16:48 .env/
+
+blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/huggingface$ pwd
+/_b/w/x/ai_llm_hugging_face/huggingface
+
+blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/huggingface$ source .env/bin/activate
+
+(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/huggingface$ pip install --upgrade huggingface_hub
+Collecting huggingface_hub
+  Using cached huggingface_hub-0.16.4-py3-none-any.whl (268 kB)
+Collecting packaging>=20.9
+  Downloading packaging-23.1-py3-none-any.whl (48 kB)
+     |==========|  48.9/48.9 KB 692.4 kB/s eta 0:00:00
+Collecting pyyaml>=5.1
+  Downloading PyYAML-6.0.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (705 kB)
+     |==========|  705.5/705.5 KB 2.7 MB/s eta 0:00:00
+Collecting filelock
+  Downloading filelock-3.12.3-py3-none-any.whl (11 kB)
+Collecting fsspec
+  Using cached fsspec-2023.9.0-py3-none-any.whl (173 kB)
+Collecting requests
+  Downloading requests-2.31.0-py3-none-any.whl (62 kB)
+     |==========|  62.6/62.6 KB 2.6 MB/s eta 0:00:00
+Collecting tqdm>=4.42.1
+  Using cached tqdm-4.66.1-py3-none-any.whl (78 kB)
+Collecting typing-extensions>=3.7.4.3
+  Using cached typing_extensions-4.7.1-py3-none-any.whl (33 kB)
+Collecting charset-normalizer<4,>=2
+  Downloading charset_normalizer-3.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (201 kB)
+     |==========|  201.8/201.8 KB 2.9 MB/s eta 0:00:00
+Collecting urllib3<3,>=1.21.1
+  Downloading urllib3-2.0.4-py3-none-any.whl (123 kB)
+     |==========|  123.9/123.9 KB 3.6 MB/s eta 0:00:00
+Collecting idna<4,>=2.5
+  Downloading idna-3.4-py3-none-any.whl (61 kB)
+     |==========|  61.5/61.5 KB 3.3 MB/s eta 0:00:00
+Collecting certifi>=2017.4.17
+  Downloading certifi-2023.7.22-py3-none-any.whl (158 kB)
+     |==========|  158.3/158.3 KB 3.6 MB/s eta 0:00:00
+Installing collected packages: urllib3, typing-extensions, tqdm, pyyaml, packaging, idna, fsspec, charset-normalizer, certifi, requests, filelock, huggingface_hub
+Successfully installed certifi-2023.7.22 charset-normalizer-3.2.0 filelock-3.12.3 fsspec-2023.9.0 huggingface_hub-0.16.4 idna-3.4 packaging-23.1 pyyaml-6.0.1 requests-2.31.0 tqdm-4.66.1 typing-extensions-4.7.1 urllib3-2.0.4
+
+</pre>
+
+
+* Check installation
+<pre>
+(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/huggingface$ python -c "from huggingface_hub import model_info; print(model_info('gpt2'))"
+Model Name: gpt2, Tags: ['transformers', 'pytorch', 'tf', 'jax', 'tflite', 'rust', 'onnx', 'safetensors', 'gpt2', 'text-generation', 'en', 'doi:10.57967/hf/0039', 'exbert', 'license:mit', 'has_space', 'text-generation-inference', 'region:us'], Task: text-generation
+(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/huggingface$ 
+</pre>
+
+
+* Install more (optional dependencies)
+<pre>
+(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/huggingface$ pip install 'huggingface_hub[tensorflow]';
+(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/huggingface$ pip install 'huggingface_hub[cli,torch]';
+</pre>
+
+
+
+
+=== Install from source ===
+<pre>
+pip install git+https://github.com/huggingface/huggingface_hub; # This allows you to use the bleeding edge main version rather than the latest stable version.
+pip install git+https://github.com/huggingface/huggingface_hub@my-feature-branch; # When installing from source, you can also specify a specific branch. This is useful if you want to test a new feature or a new bug-fix that has not been merged yet.
+</pre>
+
+
+
+
+=== Editable install ===
+Installing from source allows you to setup an editable install. This is a more advanced installation if you plan to contribute to huggingface_hub and need to test changes in the code. You need to clone a local copy of huggingface_hub on your machine.
+<pre>
+git clone https://github.com/huggingface/huggingface_hub.git; # First, clone repo locally
+cd huggingface_hub; pip install -e .; # Then, install with -e flag
+</pre>
+
+
+
+
+== Welcome (login to Hugging Face) ==
+: 20230904_174038
+
+* Guide document: https://huggingface.co/welcome
+
+
+* hugging face token (Brian call this as 'HF_TOKEN' for his own convenience)
+** To login, `huggingface_hub` requires a token generated from https://huggingface.co/settings/tokens
+** echo $(cat ~/.cache/huggingface/token);
+** token contents: echo $HF_TOKEN
+<pre>
+-----BEGIN PGP MESSAGE-----
+Comment: BGPGFile:20230904_175119 by B.
+
+jA0ECQMCUPsM6YCDr6f/0mcBAOGFKOGtcQlMttnT2Chx8VNlIrnFk2PJtKDFxvWN
+0bwD5/ooiwRyV4ikZWLzCzoF20ENpO4pAW1IyGDsV88Uqa/lLFhHwCx+5I/7RhFS
+/m3oNFnUW9Z2avG4zXrbDF8q9Hv5Pthp
+=dPZP
+-----END PGP MESSAGE-----
+</pre>
+
+
+* Getting started with git and g it-lfs interface
+<pre>
+pip install huggingface_hub;
+huggingface-cli login; # you need the token 
+</pre>
+
+
+
+
+== HF (Hugging Face): OpenAI GPT ==
+: 20230904_181557
+
+
+* installation of spacy and ftfy
+<pre>
+pip install spacy ftfy==4.4.3;   # If you want to reproduce the original tokenization process of the OpenAI GPT paper, you will need to install ftfy and SpaCy. If you do not install ftfy and SpaCy, the OpenAIGPTTokenizer will default to tokenize using BERT's BasicTokenizer followed by Byte-Pair Encoding (which should be fine for most usage, do not worry).
+python -m spacy download en;   # This command was successful. But I got this message "As of spaCy v3.0, shortcuts like 'en' are deprecated. Please use the full pipeline package name 'en_core_web_sm' instead."
+</pre>
+
+
+* final message of 'python -m spacy download en' was:
+<pre>
+Download and installation successful
+You can now load the package via spacy.load('en_core_web_sm')
+</pre>
+
+
+* use 'python', rather than 'idle'
+<pre>
+from transformers import pipeline
+
+</pre>
+
+
+
+
