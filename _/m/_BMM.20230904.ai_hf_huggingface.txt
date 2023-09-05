@@ -215,7 +215,9 @@ from transformers import pipeline
 
 
 
-== References ==
+== Quick URLs ==
+
+=== 20230905_001714 ===
 
 * https://huggingface.co/learn/nlp-course/chapter1/4
 * https://www.datacamp.com/tutorial/an-introduction-to-using-transformers-and-hugging-face
@@ -228,3 +230,11 @@ set_seed(42)
 generator("Hello, I'm a language model,", max_length=30, num_return_sequences=5)
 </pre>
 
+* [https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/ NVIDIA Edge Computing - NVIDIA Jetson] Accelerating Next-Gen Edge AI and Robotics
+* [https://www.youtube.com/watch?v=IWjPlcpQWNU Jetson Nano With GPT2]
+
+* [https://www.hackster.io/pjdecarlo/llama-2-llms-w-nvidia-jetson-and-textgeneration-web-ui-96b070#:~:text=NVIDIA%20Jetson%20Orin%20hardware%20enables,70B%20parameter%20LLama%202%20models. LLaMa 2 LLMs w/ NVIDIA Jetson and textgeneration-web-ui]
+* [https://github.com/oobabooga/text-generation-webui text-generation-webui]
+* [https://github.com/huggingface/transformers GitHub HuggingFace Transformers]
+
+* [https://huggingface.co/docs/transformers/model_doc/openai-gpt HuggingFace OpenAI GPT]
