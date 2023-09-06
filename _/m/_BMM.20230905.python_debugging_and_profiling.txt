@@ -132,6 +132,31 @@ Tue Sep  5 23:48:47 2023    re.stats
 </pre>
 
 
+=== An example Python code for profiling ===
+
+==== pycode01.py ====
+
+<pre>
+
+import numpy as np
+
+"""
+This is
+multi-line 
+comments
+"""
+def F_matmul_with_numpy(a, b): # this is one-line comment
+        c = np.multiply(a, b); 
+        print(c);
+        return c;
+
+a = [[1,2], [3,4]];
+b = [[5,6], [7,8]];
+F_matmul_with_numpy(a, b); 
+
+</pre>
+
+
 
 
 == Python performance benchmarking ==
