@@ -1,0 +1,199 @@
+# 20230905_235205
+
+
+
+
+== Python profiling ==
+# 20230906_000106
+* [https://docs.python.org/3/library/profile.html The Python Profilers] Python documentation
+* [https://www.infoworld.com/article/3600993/9-fine-libraries-for-profiling-python-code.html 9 fine libraries for profiling Python code] May 23, 2022
+* [https://jiffyclub.github.io/snakeviz/ SnakeViz]
+
+
+=== Introduction to the Python profilers ===
+
+cProfile and profile provide deterministic profiling of Python programs. A profile is a set of statistics that describes how often and for how long various parts of the program executed. These statistics can be formatted into reports via the pstats module.
+
+The Python standard library provides two different implementations of the same profiling interface:
+
+# '''cProfile''' is recommended for most users; it is a C extension with reasonable overhead that makes it suitable for profiling long-running programs. Based on lsprof, contributed by Brett Rosen and Ted Czotter.
+# '''profile''', a pure Python module whose interface is imitated by cProfile, but which adds significant overhead to profiled programs. If you are trying to extend the profiler in some way, the task might be easier with this module. Originally designed and written by Jim Roskind.
+
+Note: The profiler modules are designed to provide an execution profile for a given program, not for benchmarking purposes (for that, there is '''[https://docs.python.org/3/library/timeit.html#module-timeit timeit]''' for reasonably accurate results). This particularly applies to benchmarking Python code against C code: the profilers introduce overhead for Python code, but not for C-level functions, and so the C code would seem faster than any Python one.
+
+
+
+
+=== profiling hello world ===
+
+
+==== import cProfile ====
+* To profile a function that takes a single argument, you can do:
+<pre>
+>>> import cProfile
+>>> import re
+>>> 
+>>> cProfile.run('re.compile("foo|bar")')
+         6 function calls in 0.000 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 re.py:249(compile)
+        1    0.000    0.000    0.000    0.000 re.py:288(_compile)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+</pre>
+
+
+* Instead of printing the output at the end of the profile run, you can save the results to a file by specifying a filename to the run() function:
+<pre>
+>>> cProfile.run('re.compile("foo|bar")', 're.stats')
+</pre>
+
+
+==== import pstats; from pstats import SortKey; ====
+
+* The pstats module's Stats class has a variety of methods for manipulating and printing the data saved into a profile results file (i.e., 're.stats' in the following example):
+<pre>
+>>> import pstats 
+>>> from pstats import SortKey 
+>>> p = pstats.Stats('re.stats')
+>>> p.strip_dirs().sort_stats(-1).print_stats()
+Tue Sep  5 23:48:47 2023    re.stats
+
+         6 function calls in 0.000 seconds
+
+   Ordered by: standard name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 re.py:249(compile)
+        1    0.000    0.000    0.000    0.000 re.py:288(_compile)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+<pstats.Stats object at 0x7fbcbde1d840>
+>>> 
+</pre>
+
+
+* various examples of sorting
+<pre>
+>>> p.sort_stats(SortKey.NAME)
+<pstats.Stats object at 0x7fbcbde1d840>
+>>> p.print_stats()
+Tue Sep  5 23:48:47 2023    re.stats
+
+         6 function calls in 0.000 seconds
+
+   Ordered by: function name
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.000    0.000    0.000    0.000 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 re.py:288(_compile)
+        1    0.000    0.000    0.000    0.000 re.py:249(compile)
+
+
+<pstats.Stats object at 0x7fbcbde1d840>
+>>> 
+>>> p.sort_stats(SortKey.CUMULATIVE).print_stats(10)
+Tue Sep  5 23:48:47 2023    re.stats
+
+         6 function calls in 0.000 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.exec}
+        1    0.000    0.000    0.000    0.000 <string>:1(<module>)
+        1    0.000    0.000    0.000    0.000 re.py:249(compile)
+        1    0.000    0.000    0.000    0.000 re.py:288(_compile)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+
+<pstats.Stats object at 0x7fbcbde1d840>
+>>> 
+</pre>
+
+
+* use dump_stats('filename') function to write the results of the current profile to the file 'filename'
+<pre>
+>>> p.sort_stats(SortKey.CUMULATIVE).dump_stats('re.stats.SortKey_CUMULATIVE.log')
+>>> 
+</pre>
+
+
+
+
+== Python performance benchmarking ==
+
+
+=== Lib/timeit.py ===
+
+
+==== timeit command-line interface ====
+
+<pre>
+python3 -m timeit '"-".join(str(n) for n in range(100))'
+10000 loops, best of 5: 30.2 usec per loop
+
+python3 -m timeit '"-".join([str(n) for n in range(100)])'
+10000 loops, best of 5: 27.5 usec per loop
+
+python3 -m timeit '"-".join(map(str, range(100)))'
+10000 loops, best of 5: 23.2 usec per loop
+</pre>
+
+
+==== timeit API in the code ====
+
+<pre>
+>>> import timeit
+
+>>> timeit.timeit('"-".join(str(n) for n in range(100))', number=10000)
+0.3018611848820001
+
+>>> timeit.timeit('"-".join([str(n) for n in range(100)])', number=10000)
+0.2727368790656328
+
+>>> timeit.timeit('"-".join(map(str, range(100)))', number=10000)
+0.23702679807320237
+</pre>
+
+
+
+
+== shell command execution ==
+
+=== escape to the shell ===
+
+==== import os; os.system('ls -alF'); ====
+
+<pre>
+>>> import os
+>>> os.system('ls -alF')
+total 44
+drwxrwxr-x 3 blusjune blusjune 4096 Sep  5 23:51 ./
+drwxrwxr-x 4 blusjune blusjune 4096 Sep  4 16:48 ../
+drwxrwxr-x 6 blusjune blusjune 4096 Sep  4 17:09 .env/
+-rw-rw-r-- 1 blusjune blusjune 7064 Sep  5 23:46 profile.calls.log
+-rw-rw-r-- 1 blusjune blusjune 7064 Sep  5 23:46 profile.cumulative.log
+-rw-rw-r-- 1 blusjune blusjune  630 Sep  5 23:48 re.stats
+-rw-rw-r-- 1 blusjune blusjune  616 Sep  5 23:51 re.stats.SortKey_CUMULATIVE.log
+-rw-rw-r-- 1 blusjune blusjune 5695 Sep  5 23:37 restats
+0
+>>> 
+</pre>
+
+
+
+
