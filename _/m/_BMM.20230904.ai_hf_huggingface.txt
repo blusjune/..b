@@ -163,6 +163,8 @@ cd huggingface_hub; pip install -e .; # Then, install with -e flag
 * Guide document: https://huggingface.co/welcome
 
 
+=== preparing pre-requisites ===
+
 * hugging face token (Brian call this as 'HF_TOKEN' for his own convenience)
 ** To login, `huggingface_hub` requires a token generated from https://huggingface.co/settings/tokens
 ** echo $(cat ~/.cache/huggingface/token);
@@ -179,7 +181,8 @@ jA0ECQMCUPsM6YCDr6f/0mcBAOGFKOGtcQlMttnT2Chx8VNlIrnFk2PJtKDFxvWN
 </pre>
 
 
-* Getting started with git and g it-lfs interface
+=== login with huggingface-cli ===
+* Getting started with git and git-lfs interface
 <pre>
 pip install huggingface_hub;
 huggingface-cli login; # you need the token 
