@@ -19,16 +19,32 @@ fi
 
 
 set -x;
+
+
 ### Prerequisites
-sudo apt install dkms;
-sudo apt install cmake make;
-sudo apt install clang-format
-sudo apt install python3.10;
-sudo apt install pip;
-sudo apt install python3-pytest python3-pillow
-sudo apt install libonnx-dev
-sudo apt install python3-numpy python3-onnx python3-pycuda python-pycuda-doc;
-sudo apt install git pkg-config wget;
+
+#sudo apt install dkms;
+#sudo apt install cmake make;
+#sudo apt install clang-format
+#sudo apt install python3.10;
+#sudo apt install pip;
+#sudo apt install python3-pytest python3-pillow
+#sudo apt install libonnx-dev
+#sudo apt install python3-numpy python3-onnx python3-pycuda python-pycuda-doc;
+#sudo apt install git pkg-config wget;
+
+_APT_PKG_LIST="
+dkms
+cmake make
+clang-format
+python3.10
+pip
+python3-pytest python3-pillow
+libonnx-dev
+python3-numpy python3-onnx python3-pycuda python-pycuda-doc
+git pkg-config wget
+";
+sudo apt install $_APT_PKG_LIST;
 
 
 ### NVIDIA 

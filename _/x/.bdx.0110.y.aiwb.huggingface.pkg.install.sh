@@ -6,6 +6,8 @@ _corename="aiwb.huggingface.pkg.install";
 _thisprog=".bdx.0110.y.${_corename}.sh"
 
 
+
+
 _ts="date +%Y%m%d_%H%M%S";
 declare -A _work_step_file;
 _step=0;
@@ -43,7 +45,11 @@ _work_step_file[$_step]=".workstep.${_corename}.$(printf '%08d' $_step).sh";
 cat > ${_work_step_file[$_step]} << EOF_WORK_STEP_COMMANDS
 #!/bin/bash
 ### workstep[$_step];
-echo "hello, world -- this is workstep"
+###{###----------------------------------
+echo "hello, world";
+echo "put your codes here";
+python --version;
+###}###----------------------------------
 EOF_WORK_STEP_COMMANDS
 chmod 755 ${_work_step_file[$_step]};
 
@@ -54,28 +60,26 @@ _work_step_file[$_step]=".workstep.${_corename}.$(printf '%08d' $_step).sh";
 cat > ${_work_step_file[$_step]} << EOF_WORK_STEP_COMMANDS
 #!/bin/bash
 ### workstep[$_step];
-git clone https://github.com/huggingface/huggingface_hub.git;
-(cd huggingface_hub;
-	pip install -e .;
-)
+###{###----------------------------------
+python -m venv .env;
+source .env/bin/activate;
+pip install --upgrade huggingface_hub;
+pip install 'huggingface_hub[tensorflow]';
+pip install 'huggingface_hub[cli,torch]';
+pip install transformers;
+pip install 'transformers[torch]';
+#pip install 'transformers[tf-cpu]';
+#pip install 'transformers[flax]';
+python -c "from transformers import pipeline; print(pipeline('sentiment-analysis')('we love you'))"
+echo "
+### JFYI, expected output:
+[{'label': 'POSITIVE', 'score': 0.9998704791069031}]
+";
+###}###----------------------------------
 EOF_WORK_STEP_COMMANDS
 chmod 755 ${_work_step_file[$_step]};
 
 
-### step++
-_step=$((_step + 1));
-_work_step_file[$_step]=".workstep.${_corename}.$(printf '%08d' $_step).sh";
-cat > ${_work_step_file[$_step]} << EOF_WORK_STEP_COMMANDS
-#!/bin/bash
-### workstep[$_step];
-(cd huggingface_hub;
-	sudo apt install python3.10-venv;
-	python -m venv .env;
-	source .env/bin/activate;
-	pip install --upgrade huggingface_hub;
-)
-EOF_WORK_STEP_COMMANDS
-chmod 755 ${_work_step_file[$_step]};
 
 
 echo "";
