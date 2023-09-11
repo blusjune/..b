@@ -1,0 +1,6 @@
+{
+  "brave-browser.Brave-browser" = {
+    AlwaysUserIcon = No;
+    KeepOnTop = Yes;
+  };
+}
