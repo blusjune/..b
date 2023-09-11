@@ -1,4 +1,79 @@
+# _BMM.20230905.python_howto_tip.txt
 # 20230905_235205
+
+
+
+
+== Python in general ==
+
+=== Use pip for installation ===
+: 20230909_142443
+
+* https://packaging.python.org/en/latest/tutorials/installing-packages/#use-pip-for-installing
+
+<pre>
+$ python3 -m pip install "SomeProject";   ### To install the latest version of 'SomeProject'
+$ python3 -m pip install "SomeProject==1.4";   ### To install a specific version
+$ python3 -m pip install "SomeProject>=1,<2";   ### To install greater than or equal to one version and less than another
+$ python3 -m pip install "SomeProject~=1.4.2";   ### To install a version that's compatible with a certaini version
+</pre>
+
+
+
+
+=== Python default version management in Ubuntu ===
+: 20230909_142428
+
+* [https://unix.stackexchange.com/questions/410579/change-the-python3-default-version-in-ubuntu Change the Python3 default version in Ubuntu]
+
+
+
+
+<pre>
+I am using Ubuntu 16.04 LTS . I have python3 installed. There are two versions installed, python 3.4.3 and python 3.6 . Whenever I use python3 command, it takes python 3.4.3 by default. I want to use python 3.6 with python3.
+	$ python3 --version shows version 3.4.3
+
+I am installing ansible which supports version > 3.5 . So, whenever, I type ansible in the terminal, it throws error because of python 3.4
+	$ sudo update-alternatives --config python3
+	$ update-alternatives: error: no alternatives for python3
+</pre>
+
+
+
+
+<pre>
+You need to update your update-alternatives , then you will be able to set your default python version.
+	$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.4 2
+	$ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 1
+
+Then run :
+	$ sudo update-alternatives --config python
+
+Set python3.6 as default.
+Or use the following command to set python3.6 as default:
+	$ sudo update-alternatives  --set python /usr/bin/python3.6
+</pre>
+
+
+
+
+* What I got after executing update-alternatives
+<pre>
+(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/wd.huggingface$ l /usr/bin/python*
+lrwxrwxrwx 1 root root      24 Sep  9 13:39 /usr/bin/python -> /etc/alternatives/python*
+lrwxrwxrwx 1 root root      10 Aug 18  2022 /usr/bin/python3 -> python3.10*
+lrwxrwxrwx 1 root root      17 Aug 18  2022 /usr/bin/python3-config -> python3.10-config*
+-rwxr-xr-x 1 root root 5913032 Jun 10 22:26 /usr/bin/python3.10*
+lrwxrwxrwx 1 root root      34 Jun 10 22:26 /usr/bin/python3.10-config -> x86_64-linux-gnu-python3.10-config*
+
+(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/wd.huggingface$ l /usr/local/bin/python*
+lrwxrwxrwx 1 root root        9 Sep  9 00:43 /usr/local/bin/python3 -> python3.9*
+lrwxrwxrwx 1 root root       16 Sep  9 00:43 /usr/local/bin/python3-config -> python3.9-config*
+-rwxr-xr-x 1 root root 15257792 Sep  9 00:42 /usr/local/bin/python3.9*
+-rwxr-xr-x 1 root root     3053 Sep  9 00:43 /usr/local/bin/python3.9-config*
+
+(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/wd.huggingface$
+</pre>
 
 
 

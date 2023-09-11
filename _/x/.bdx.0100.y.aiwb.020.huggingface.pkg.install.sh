@@ -1,13 +1,16 @@
 #!/bin/bash
 # AIWB: Artificial Intelligence Work Bench
-# .bdx.0110.y.aiwb.huggingface.pkg.install.sh
+# .bdx.0100.y.aiwb.020.huggingface.pkg.install.sh
 # 20230907_002829
-_corename="aiwb.huggingface.pkg.install";
+_corename="aiwb.020.huggingface.pkg.install";
 _thisprog=".bdx.0110.y.${_corename}.sh"
 
 
 
 
+###
+###
+### _work_step_file: declaration
 _ts="date +%Y%m%d_%H%M%S";
 declare -A _work_step_file;
 _step=0;
@@ -31,7 +34,7 @@ jA0ECQMCUPsM6YCDr6f/0mcBAOGFKOGtcQlMttnT2Chx8VNlIrnFk2PJtKDFxvWN
 -----END PGP MESSAGE-----
 EOF_HF_TOKEN
 gpg $_hf_token_gpg;
-cat $_hf_token
+echo "HF_TOKEN='$( cat $_hf_token )'";
 # huggingface-cli login;
 ### } prerequisites ###
 #######################
@@ -39,32 +42,38 @@ cat $_hf_token
 
 
 
-### step++
+###
+###
+### _work_step_file: _step++
 _step=$((_step + 1));
 _work_step_file[$_step]=".workstep.${_corename}.$(printf '%08d' $_step).sh";
 cat > ${_work_step_file[$_step]} << EOF_WORK_STEP_COMMANDS
 #!/bin/bash
 ### workstep[$_step];
-###{###----------------------------------
+###_step{###----------------------------------
 echo "hello, world";
-echo "put your codes here";
+echo "put your _step commands here";
 python --version;
-###}###----------------------------------
+###}_step###----------------------------------
 EOF_WORK_STEP_COMMANDS
 chmod 755 ${_work_step_file[$_step]};
 
 
-### step++
+
+
+###
+###
+### _work_step_file: _step++
 _step=$((_step + 1));
 _work_step_file[$_step]=".workstep.${_corename}.$(printf '%08d' $_step).sh";
 cat > ${_work_step_file[$_step]} << EOF_WORK_STEP_COMMANDS
 #!/bin/bash
 ### workstep[$_step];
-###{###----------------------------------
+###_step{###----------------------------------
 python -m venv .env;
 source .env/bin/activate;
 pip install --upgrade huggingface_hub;
-pip install 'huggingface_hub[tensorflow]';
+#pip install 'huggingface_hub[tensorflow]';
 pip install 'huggingface_hub[cli,torch]';
 pip install transformers;
 pip install 'transformers[torch]';
@@ -75,13 +84,16 @@ echo "
 ### JFYI, expected output:
 [{'label': 'POSITIVE', 'score': 0.9998704791069031}]
 ";
-###}###----------------------------------
+###}_step###----------------------------------
 EOF_WORK_STEP_COMMANDS
 chmod 755 ${_work_step_file[$_step]};
 
 
 
 
+###
+###
+### _work_step_file: execution main loop{
 echo "";
 echo "### Execution log will be saved in $_exe_log";
 _i=0;
@@ -116,3 +128,10 @@ while [ $_i -lt $_step ]; do
 	echo "";
 	echo "";
 done
+### _work_step_file: }execution main loop
+###
+###
+
+
+
+

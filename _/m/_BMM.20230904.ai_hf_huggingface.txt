@@ -1,9 +1,58 @@
 
+== Latest (conclusive! - LLAMA 2) ==
+
+=== Prerequisites ===
+
+* Python 3.9.18
+* promptsource 0.2.3
+* pip install --upgrade pip
+
+
+=== Main ===
+
+
+=== LLAMA 2 execution ===
+
+* use Brian's 'llama-meta-cpu'
 
 
 
-== HF (Hugging Face) sign-up ==
+
+==== Troubleshooting for non-GPU environment ====
+
+* [https://github.com/facebookresearch/llama/issues/436 RuntimeError: ProcessGroupNCCL is only supported with GPUs, no GPUs found?] ((B.GOOD))
+
+<pre>
+I have solved it with a cpu installation by installing this : https://github.com/krychu/llama instead of https://github.com/facebookresearch/llama
+
+Complete process to install :
+
+download the original version of Llama from : https://github.com/facebookresearch/llama and extract it to a llama-main folder
+download the cpu version from : https://github.com/krychu/llama and extract it and replace files in the llama-main folder
+run the download.sh script in a terminal, passing the URL provided when prompted to start the download
+go to the llama-main folder
+cretate an Python3 env : python3 -m venv env and activate it : source env/bin/activate
+install the cpu version of pytorch : python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu #pour la version cpu
+install dependencies off llama : python3 -m pip install -e .
+run if you have downloaded llama-2-7b :
+torchrun --nproc_per_node 1 example_text_completion.py \
+    --ckpt_dir llama-2-7b/ \
+    --tokenizer_path tokenizer.model \
+    --max_seq_len 128 --max_batch_size 1 #(instead of 4)
+
+</pre>
+
+
+
+
+== HF (HuggingFace) ==
 : 20230904_174323
+* HF (HuggingFace) sign-up: 20230904_174323
+
+
+
+
+=== HF (HuggingFace) account ===
 
 * HF (Hugging Face) account information for brian.m.jung
 <pre>
@@ -62,14 +111,23 @@ lrwxrwxrwx  1 blusjune blusjune   20 Sep  4 16:48 huggingface -> .bxd/wip/huggin
 
 * Command line history
 <pre>
- cd /_b/w/x/ai_llm_hugging_face/huggingface; # 'Root' directory, actually. It should exist already.
- python -m venv .env;
- sudo apt install python3.10-venv; python -m venv .env; # if above is failed
- source .env/bin/activate; # then you will see: (.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/huggingface$ 
- pip install --upgrade huggingface_hub
+echo "install python 3.9.18";
+echo "install promptsource 0.1.0";
+cd /_b/w/x/ai_llm_hugging_face/hf;   ### 'Root' directory, actually. It should exist already.
+python -m venv .env;
+sudo apt install python3.10-venv; python -m venv .env;   ### if above is failed
+source .env/bin/activate;   ### then you will see: (.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/hf$ 
+pip install --upgrade huggingface_hub;
+pip install 'huggingface_hub[cli,torch]';
+# pip install 'huggingface_hub[tensorflow]';
+pip install 'transformers[torch]';   ### Install more (optional dependencies)
+# pip install 'transformers[tf-cpu]';   ### Install more (optional dependencies)
 </pre>
 
 
+
+
+<span style="color:gray">
 * Screenshot (log)
 <pre>
 blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/huggingface$ l
@@ -117,8 +175,51 @@ Collecting certifi>=2017.4.17
      |==========|  158.3/158.3 KB 3.6 MB/s eta 0:00:00
 Installing collected packages: urllib3, typing-extensions, tqdm, pyyaml, packaging, idna, fsspec, charset-normalizer, certifi, requests, filelock, huggingface_hub
 Successfully installed certifi-2023.7.22 charset-normalizer-3.2.0 filelock-3.12.3 fsspec-2023.9.0 huggingface_hub-0.16.4 idna-3.4 packaging-23.1 pyyaml-6.0.1 requests-2.31.0 tqdm-4.66.1 typing-extensions-4.7.1 urllib3-2.0.4
+</pre>
+</span>
+
+
+
+
+<pre>
+
+(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/hf$ du -sk .env/
+6670408 .env/
+
+(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/hf$ pip uninstall 'huggingface_hub[tensorflow]'
+Found existing installation: huggingface-hub 0.16.4
+Uninstalling huggingface-hub-0.16.4:
+  Would remove:
+    /home/blusjune/..bxd/_/wip/hf/.env/bin/huggingface-cli
+    /home/blusjune/..bxd/_/wip/hf/.env/lib/python3.10/site-packages/huggingface_hub-0.16.4.dist-info/*
+    /home/blusjune/..bxd/_/wip/hf/.env/lib/python3.10/site-packages/huggingface_hub/*
+Proceed (Y/n)? y
+  Successfully uninstalled huggingface-hub-0.16.4
+
+(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/hf$ du -sk .env/
+6668280 .env/
+
+(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/hf$ pip uninstall 'transformers[tf-cpu]'
+Found existing installation: transformers 4.33.1
+Uninstalling transformers-4.33.1:
+  Would remove:
+    /home/blusjune/..bxd/_/wip/hf/.env/bin/transformers-cli
+    /home/blusjune/..bxd/_/wip/hf/.env/lib/python3.10/site-packages/transformers-4.33.1.dist-info/*
+    /home/blusjune/..bxd/_/wip/hf/.env/lib/python3.10/site-packages/transformers/*
+Proceed (Y/n)? y
+  Successfully uninstalled transformers-4.33.1
+
+(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/hf$ du -sk .env/
+6603288 .env/
+
+(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/hf$ pip uninstall 'transformers[flax]'
+WARNING: Skipping transformers as it is not installed.
+
+(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/hf$ 
 
 </pre>
+
+
 
 
 * Check installation
@@ -128,12 +229,6 @@ Model Name: gpt2, Tags: ['transformers', 'pytorch', 'tf', 'jax', 'tflite', 'rust
 (.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/huggingface$ 
 </pre>
 
-
-* Install more (optional dependencies)
-<pre>
-(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/huggingface$ pip install 'huggingface_hub[tensorflow]';
-(.env) blusjune@aerosmith:/_b/w/x/ai_llm_hugging_face/huggingface$ pip install 'huggingface_hub[cli,torch]';
-</pre>
 
 
 
