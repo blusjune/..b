@@ -79,10 +79,15 @@ lrwxrwxrwx 1 root root       16 Sep  9 00:43 /usr/local/bin/python3-config -> py
 
 
 == Python profiling ==
-# 20230906_000106
-* [https://docs.python.org/3/library/profile.html The Python Profilers] Python documentation
-* [https://www.infoworld.com/article/3600993/9-fine-libraries-for-profiling-python-code.html 9 fine libraries for profiling Python code] May 23, 2022
+
+# 20230911_072940
+* [https://pytorch.org/tutorials/recipes/recipes/profiler_recipe.html PYTORCH PROFILER] PyTorch includes a simple profiler API that is useful when user needs to determine the most expensive operators in the model.
 * [https://jiffyclub.github.io/snakeviz/ SnakeViz]
+* [https://medium.com/@narenandu/profiling-and-visualization-tools-in-python-89a46f578989 Profiling and visualization tools in Python]
+* [https://docs.python.org/3/library/profile.html The Python Profilers] Python documentation
+
+# 20230906_000106
+* [https://www.infoworld.com/article/3600993/9-fine-libraries-for-profiling-python-code.html 9 fine libraries for profiling Python code] May 23, 2022
 
 
 === Introduction to the Python profilers ===
