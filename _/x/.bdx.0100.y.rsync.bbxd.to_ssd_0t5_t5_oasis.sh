@@ -8,6 +8,10 @@ _ts="date +%Y%m%d_%H%M%S";
 _rsync_target_dir_root="/mnt/media.blusjune/.ssd_0t5_t5_oasis/..__ROOT__";
 _list_to_rsync="..b ..bxd";
 
+if [ ! -d $_rsync_target_dir_root ]; then
+	echo "### ERROR: no such directory ($_rsync_target_dir_root) -- EXIT 18";
+	exit 18;
+fi
 
 echo "### =======================================================================";
 echo "### _list_to_rsync: $_list_to_rsync";
