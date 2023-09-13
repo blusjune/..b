@@ -89,6 +89,11 @@ lrwxrwxrwx 1 root root       16 Sep  9 00:43 /usr/local/bin/python3-config -> py
 # 20230906_000106
 * [https://www.infoworld.com/article/3600993/9-fine-libraries-for-profiling-python-code.html 9 fine libraries for profiling Python code] May 23, 2022
 
+# 20230913_000539
+* [https://github.com/gaogaotiantian/viztracer VizTracer] VizTracer is a low-overhead logging/debugging/profiling tool that can trace and visualize your python code execution.
+
+
+
 
 === Introduction to the Python profilers ===
 
@@ -234,6 +239,56 @@ a = [[1,2], [3,4]];
 b = [[5,6], [7,8]];
 F_matmul_with_numpy(a, b); 
 
+</pre>
+
+
+
+
+=== VizTracer ===
+
+==== VizTracer CLI (Command Line Interface) ====
+
+Assume you have a python script to run:
+ python3 my_script.py arg1 arg2
+
+You can simply use VizTracer by
+ viztracer my_script.py arg1 arg2
+
+A result.json file will be generated, which you can open with vizviewer.  vizviewer will host an HTTP server on http://localhost:9001. You can also open your browser and use that address.
+
+If you do not want vizviewer to open the webbrowser automatically, you can use
+ vizviewer --server_only result.json
+
+If you just need to bring up the trace report once, and do not want the persistent server, use
+ vizviewer --once result.json
+
+You can display all the files in a directory and open them in browser too
+ vizviewer ./
+
+For very large trace files, try external trace processor
+ vizviewer --use_external_processor result.json
+
+
+
+==== VizTracer Inline Coding ====
+
+You can also manually start/stop VizTracer in your script as well.
+
+<pre>
+from viztracer import VizTracer
+
+tracer = VizTracer()
+tracer.start()
+# Something happens here
+tracer.stop()
+tracer.save() # also takes output_file as an optional argument
+</pre>
+
+
+Or, you can do it with with statement
+<pre>
+with VizTracer(output_file="optional.json") as tracer:
+    # Something happens here
 </pre>
 
 
