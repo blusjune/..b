@@ -18,6 +18,6 @@ echo "### _list_to_rsync: $_list_to_rsync";
 echo "### _rsync_target_dir_root: $_rsync_target_dir_root";
 for _i in $_list_to_rsync; do
 	echo "### _________: $_i";
-	$_ts;  rsync -a ${_i}/ ${_rsync_target_dir_root}/${_i};  $_ts;
+	$_ts;  rsync -a --delete ${_i}/ ${_rsync_target_dir_root}/${_i};  $_ts;
 done
 echo "### =======================================================================";
