@@ -129,9 +129,9 @@ function main_exec_profiling_with_viztracer()
 
 function _star_doe_exec()
 {
-	main_exec_profiling_with_cprofile;
-	main_exec_profiling_with_viztracer;
-#	python star_doe_dummy_test.py;
+#	main_exec_profiling_with_cprofile;
+#	main_exec_profiling_with_viztracer;
+	python star.doe.main.dummy_test.py;
 }
 
 
@@ -182,6 +182,7 @@ for _ckpt_dir in $_list__ckpt_dir; do
 						_xprmnt_sn="$(printf '%08d' $_exec_count)";
 						_xprmnt_name="${_xprmnt_sn}_${_xprmnt_ai_model}_${_xprmnt_cpu_model}_P${_nproc_per_node}_S${_max_seq_len}_G${_max_gen_len}_B${_max_batch_size}";
 						_xprmnt_uuid="${_tstamp}.${_xprmnt_name}";
+						echo "________________________________________________________________________________________________";
 						echo $_xprmnt_uuid;
 						_star_doe_conf;
 						_star_doe_exec;
