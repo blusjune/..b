@@ -1,22 +1,34 @@
+#!/bin/bash
 # /home/blusjune/..b/_/README.md
 # Sat Jul  1 00:57:05 PDT 2023
 
-<pre>
-d: data
-m: memo (text)
-s: shortcut
-t: temporary
-w: work
-x: executables
-</pre>
 
-<pre>
-----
-blusjune@aerosmith:~/..b/_$ pwd;
-/home/blusjune/..b/_
+echo "
+--------------------------------------
+README.d
+--------------------------------------
+
+blusjune@aerosmith:~/..b$ ls -alF
+.bdx.0100.y.ddb.pkg.sh -> _/README.md*
+.ddb.pkg.d/
+.git/
+README.md -> _/README.md*
+_/
 
 
-cat > ../.ddb.pkg.sh << EOF_DDB_PKG_SH
+blusjune@aerosmith:~/..b$ ls -alF _
+README.md*
+d/	: data
+m/	: memo (text)
+s/	: shortcut
+t/	: temporary
+w/	: work
+x/	: executables
+--------------------------------------
+";
+
+
+#cat > ../.ddb.pkg.sh << EOF_DDB_PKG_SH
 #!/bin/bash
 # ddb: "dot dot b" (or "double dot b")
 # ddb.pkg: ddb package
@@ -39,11 +51,6 @@ fi
 # main: tar gzip
 tar cf - ${_ddb_pkg_target} | gzip -c > ${_ddb_pkg_d}/${_ddb_pkg_file};
 echo "#>>> created: $_ddb_pkg_file";
-EOF_DDB_PKG_SH
+#EOF_DDB_PKG_SH
 
 
-cd ..;
-ln -s .ddb.pkg.sh .bdx.0100.y.ddb.pkg.sh;
-_BDX;
-----
-</pre>

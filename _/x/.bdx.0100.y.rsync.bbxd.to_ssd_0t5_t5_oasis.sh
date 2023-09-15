@@ -21,3 +21,8 @@ for _i in $_list_to_rsync; do
 	$_ts;  rsync -a --delete ${_i}/ ${_rsync_target_dir_root}/${_i};  $_ts;
 done
 echo "### =======================================================================";
+
+
+
+
+
