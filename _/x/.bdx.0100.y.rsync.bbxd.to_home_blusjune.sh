@@ -4,6 +4,7 @@
 
 
 _ts="date +%Y%m%d_%H%M%S";
+_tstamp=$($_ts);
 #set -x;
 
 
@@ -29,9 +30,10 @@ rsync_exec()
 
 
 _list_to_rsync="..b";
-_rsync_target_dir_root="/home/blusjune/.rsync.d/$($_ts)";
+_rsync_target_dir_root="/home/blusjune/.rsync.d/${_tstamp}";
 _rsync_opt="-v";
 rsync_exec;
+(cd $_rsync_target_dir_root/..; ln -s $_tstamp _LATEST;)
 
 
 _list_to_rsync="..bxd";
