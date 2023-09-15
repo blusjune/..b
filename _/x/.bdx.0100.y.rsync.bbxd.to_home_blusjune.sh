@@ -28,8 +28,8 @@ rsync_exec()
 }
 
 
-_list_to_rsync="_ .ddb.pkg.d";
-_rsync_target_dir_root="/home/blusjune/..b";
+_list_to_rsync="..b";
+_rsync_target_dir_root="/home/blusjune/.rsync.d/$($_ts)";
 _rsync_opt="-v";
 rsync_exec;
 
