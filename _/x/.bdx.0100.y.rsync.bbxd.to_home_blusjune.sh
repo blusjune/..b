@@ -13,6 +13,9 @@ rsync_exec()
 #_list_to_rsync="..b ..bxd";
 #_rsync_target_dir_root="/home/blusjune";
 #_rsync_opt="-v --delete";
+	if [ "X$_RSYNC_OPT_EXT" != "X" ]; then
+		_rsync_opt="$_rsync_opt $_RSYNC_OPT_EXT";
+	fi
 	if [ ! -d $_rsync_target_dir_root ]; then
 		echo "### WARNING: no such directory ($_rsync_target_dir_root)";
 		echo "mkdir -p $_rsync_target_dir_root";
@@ -21,6 +24,7 @@ rsync_exec()
 	echo "### =======================================================================";
 	echo "### _list_to_rsync: $_list_to_rsync";
 	echo "### _rsync_target_dir_root: $_rsync_target_dir_root";
+	echo "### _rsync_opt: ($_rsync_opt)";
 	for _i in $_list_to_rsync; do
 		echo "### _________: $_i";
 		$_ts;  rsync -a $_rsync_opt ${_i}/ ${_rsync_target_dir_root}/${_i};  $_ts;
@@ -33,7 +37,7 @@ _list_to_rsync="..b";
 _rsync_target_dir_root="/home/blusjune/.rsync.d/${_tstamp}";
 _rsync_opt="-v";
 rsync_exec;
-(cd $_rsync_target_dir_root/..; ln -s $_tstamp _LATEST;)
+(cd $_rsync_target_dir_root/..; rm -f _LATEST; ln -s $_tstamp _LATEST;)
 
 
 _list_to_rsync="..bxd";

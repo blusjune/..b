@@ -23,6 +23,9 @@ graphviz imagemagick
 proftpd-core ncftp
 exuberant-ctags cscope
 ipython3 python3-ipython python3-ipython-genutils python3-pip idle idle-python3.10 pyprof2calltree
+vim-latexsuite vim-pathogen
+latexml latex-make latex-mk
+jq
 make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl cmake
 plocate dkms
 "
@@ -72,16 +75,7 @@ phpmyadmin
 #### phase++
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
-latexml
-vim-latexsuite
-latex-make
-latex-mk
-vim-pathogen
-openjdk-19-dbg
-openjdk-19-doc
-openjdk-19-jdk
-openjdk-19-jre
-openjdk-19-source
+openjdk-19-dbg openjdk-19-doc openjdk-19-jdk openjdk-19-jre openjdk-19-source
 "
 
 

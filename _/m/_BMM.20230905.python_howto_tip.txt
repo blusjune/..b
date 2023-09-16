@@ -357,3 +357,62 @@ drwxrwxr-x 6 blusjune blusjune 4096 Sep  4 17:09 .env/
 
 
 
+== Python IDE (integrated development environment) ==
+: 20230915_225843
+
+
+=== Microsoft Code (in Linux) ===
+: 20230915_225843
+
+
+==== Installation of extensions for Visual Studio Code: Python, Vim ====
+: 20230915_225843
+
+* [https://marketplace.visualstudio.com/items?itemName=ms-python.python Python extension for Visual Studio Code]
+Launch VS Code Quick Open (Ctrl+P), paste the following command, and press enter.
+ ext install ms-python.python
+
+* [https://marketplace.visualstudio.com/items?itemName=vscodevim.vim Vim emulation for Visual Studio Code]
+Launch VS Code Quick Open (Ctrl+P), paste the following command, and press enter.
+ ext install vscodevim.vim
+
+
+
+
+== Function tracing ==
+: 20230916_000130
+
+
+=== Function call tracer ===
+: 20230916_000130
+
+
+==== sys.setprofile(tracefunc): How do I print functions as they are called? ====
+: 20230916_000130
+
+* [https://stackoverflow.com/questions/8315389/how-do-i-print-functions-as-they-are-called How do I print functions as they are called?]
+
+<pre>
+You can do this with a trace function (props to Spacedman for improving the original version of this to trace returns and use some nice indenting):
+
+def tracefunc(frame, event, arg, indent=[0]):
+      if event == "call":
+          indent[0] += 2
+          print("-" * indent[0] + "> call function", frame.f_code.co_name)
+      elif event == "return":
+          print("<" + "-" * indent[0], "exit function", frame.f_code.co_name)
+          indent[0] -= 2
+      return tracefunc
+
+import sys
+sys.setprofile(tracefunc)
+
+main()   # or whatever kicks off your script
+</pre>
+
+
+* [https://stackoverflow.com/questions/2039336/why-setprofile-print-this why 'setprofile' print this]
+
+
+
+
