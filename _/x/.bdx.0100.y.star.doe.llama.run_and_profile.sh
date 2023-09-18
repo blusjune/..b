@@ -6,7 +6,7 @@
 
 
 
-set -x; ### {
+#set -x; ### {
 _ts="date +%Y%m%d_%H%M%S";
 _tstamp="$($_ts)";
 _tmp_bdx_d=".tmp.bdx.d";
@@ -107,7 +107,7 @@ function _star_doe_testcase_prepare()
 
 function main_exec_profiling_with_cprofile()
 {
-	echo "### { =============================================";
+	echo "### { ========================================================================================== ";
 	echo "###	function main_exec_profiling_with_cprofile(): start";
 	_main_python_file_with_cprofile="example_text_completion.star.cprofile.py";   ### _main_python_file="example_text_completion.py";
 	torchrun --nproc_per_node $_nproc_per_node $_main_python_file_with_cprofile --ckpt_dir $_ckpt_dir  --tokenizer_path tokenizer.model --max_seq_len $_max_seq_len --max_batch_size $_max_batch_size ;
@@ -123,12 +123,12 @@ EOF_ASYS_SCRIPT
 	);
 	echo "###	Please run ${_star_prof_asys_script_cprofile} to see the profiling result";
 	echo "###	function main_exec_profiling_with_cprofile(): end";
-	echo "### } =============================================";
+	echo "### } ========================================================================================== ";
 }
 
 function main_exec_profiling_with_viztracer()
 {
-	echo "### { =============================================";
+	echo "### { ========================================================================================== ";
 	echo "###	function main_exec_profiling_with_viztracer(): start";
 	_main_python_file_with_viztracer="example_text_completion.star.viztracer.py";   ### _main_python_file="example_text_completion.py";
 	# python -m viztracer --tracer_entries $_star_prof_viztracer_tracer_entries -o ${_tmp_star_d}/${_star_prof_viztracer_out_json} \
@@ -143,7 +143,7 @@ EOF_ASYS_SCRIPT
 	);
 	echo "###	Please run ${_star_prof_asys_script_viztracer} to see the profiling result";
 	echo "###	function main_exec_profiling_with_viztracer(): end";
-	echo "### } =============================================";
+	echo "### } ========================================================================================== ";
 }
 
 function _star_doe_testcase_exec()
@@ -196,7 +196,7 @@ for _ckpt_dir in $_list__ckpt_dir; do
 		done
 	done
 done
-set +x; ### }
+#set +x; ### }
 
 
 
