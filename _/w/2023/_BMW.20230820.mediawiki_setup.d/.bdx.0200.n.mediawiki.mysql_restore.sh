@@ -5,8 +5,8 @@ _sql_dump_dir="bxd_obj_mediawiki";
 
 _sql_file_for_prep=".tmp.mysql_restore.prep.sql";
 cat > $_sql_file_for_prep << EOF
-drop matrix;
-create database matrix;
+drop matrix_radiohead;
+create database matrix_radiohead;
 EOF
 #drop matrix_radiohead;
 #create database matrix_radiohead;

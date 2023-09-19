@@ -15,6 +15,7 @@ _tmp_star_d=".tmp.star.d";
 
 _files_d=".files.d"; mkdir -p ${_files_d};
 _tlog_root=".tlog.d"; mkdir -p ${_tlog_root};
+_tlog_path="NULL";
 
 
 
@@ -56,9 +57,11 @@ if [ "X$_answer" != "Xn" ]; then
 	fi
 	)
 	### make tar-ball
+	echo "tar cf - $_src_d | gzip -c > ${_files_d}/${_tgt_tarball}";
 	tar cf - $_src_d | gzip -c > ${_files_d}/${_tgt_tarball};
 	### copy tar-ball to the $_tlog_path
-	if [ -d $_tlog_path ]; then
+	if [ "X$_tlog_path" != "XNULL" -a -d $_tlog_path ]; then
+		echo "cp -pr ${_files_d}/${_tgt_tarball} $_tlog_path";
 		cp -pr ${_files_d}/${_tgt_tarball} $_tlog_path;
 	fi
 else

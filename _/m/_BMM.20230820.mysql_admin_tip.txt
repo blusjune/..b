@@ -5,7 +5,7 @@
 
 == check the table outlook ==
 
- <pre>
+<pre>
 {
 
 mysql> show databases;
@@ -20,9 +20,59 @@ mysql> ALTER USER 'neo'@'localhost' IDENTIFIED BY 'kkk';
 mysql> GRANT CREATE ON *.* TO 'neo'@'localhost';
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'neo'@'localhost';
 
+### for mediawiki installation (for any host)
+mysql> CREATE USER 'neo'@'%' IDENTIFIED BY 'kkk';
+mysql> ALTER USER 'neo'@'%' IDENTIFIED BY 'kkk';
+mysql> GRANT CREATE ON *.* TO 'neo'@'%';
+mysql> GRANT ALL PRIVILEGES ON *.* TO 'neo'@'%';
+
 }
 </pre>
 
+
+
+
+== mediawiki mysql dump and restore ==
+
+<pre>
+_db_dump_dir="bxd_obj_mediawiki";
+_db_name="matrix_radiohead";
+mysqldump -u neo -p --databases $_db_name > ${_db_dump_dir}/mediawiki_db_dump.${_db_name}.$(..ts).sql
+mysql -p -u neo <  /mnt/media.blusjune/oasis/t/mediawiki.beatles/mediawiki_db_dump.matrix_radiohead.20230918_190412.sql
+</pre>
+
+
+
+
+== how to solve the connection refused error generated from mediawiki installation ? ==
+
+* problem description
+<pre>
+Cannot access the database: :real_connect(): (HY000/2002): Connection refused.
+Check the host, username and password and try again. If using "localhost" as the database host, try using "127.0.0.1" instead (or vice versa).
+</pre>
+
+* solution
+*# first, edit '/etc/mysql/mysql.conf.d/mysqld.cnf' to set bind-address to '0.0.0.0'
+*# second, run 'sudo systemctl restart mysql'
+<pre>
+{
+$ sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
+
+# Instead of skip-networking the default is now to listen only on
+# localhost which is more compatible and is not less secure.
+#bind-address           = 127.0.0.1
+bind-address            = 0.0.0.0
+
+$ sudo systemctl restart mysql
+
+}
+</pre>
+
+
+
+
+== check basic information ==
 
 * {
 <pre>

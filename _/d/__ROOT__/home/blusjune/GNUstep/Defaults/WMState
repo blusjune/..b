@@ -54,18 +54,6 @@
     Lock = No;
     Command = "-";
   };
-  Applications = (
-    {
-      Name = konsole.konsole;
-      Shaded = No;
-      Miniaturized = No;
-      Command = konsole;
-      Geometry = "960x521+475+324";
-      Hidden = No;
-      Workspace = WS.1;
-      ShortcutMask = 0;
-    }
-  );
   Drawers = (
     {
       Dock = {

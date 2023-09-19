@@ -6,7 +6,7 @@
 
 
 
-#set -x; ### {
+set -x; ### {
 _ts="date +%Y%m%d_%H%M%S";
 _tstamp="$($_ts)";
 _tmp_bdx_d=".tmp.bdx.d";
@@ -109,7 +109,8 @@ function main_exec_profiling_with_cprofile()
 {
 	echo "### { ========================================================================================== ";
 	echo "###	function main_exec_profiling_with_cprofile(): start";
-	_main_python_file_with_cprofile="example_text_completion.star.cprofile.py";   ### _main_python_file="example_text_completion.py";
+	#_main_python_file_with_cprofile="example_text_completion.star.cprofile.py";   ### _main_python_file="example_text_completion.py";
+	_main_python_file_with_cprofile="example_text_completion.star.cprofile.setprofile.py";   ### _main_python_file="example_text_completion.py";
 	torchrun --nproc_per_node $_nproc_per_node $_main_python_file_with_cprofile --ckpt_dir $_ckpt_dir  --tokenizer_path tokenizer.model --max_seq_len $_max_seq_len --max_batch_size $_max_batch_size ;
 	echo "###	${_main_python_file_with_cprofile}: completed";
 	( cd $_tmp_star_d; 

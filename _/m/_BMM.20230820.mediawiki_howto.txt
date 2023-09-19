@@ -1,8 +1,120 @@
 # 20230820_221610
 
+
+
+
 == mediawiki 1.35.6 ==
 * http://localhost/mediawiki/
 ** visit this URL to setup mediawiki
+
+
+
+
+=== mediawiki mysql dump and restore ===
+
+<pre>
+_db_dump_dir="bxd_obj_mediawiki";
+_db_name="matrix_radiohead";
+mysqldump -u neo -p --databases $_db_name > ${_db_dump_dir}/mediawiki_db_dump.${_db_name}.$(..ts).sql
+mysql -p -u neo <  /mnt/media.blusjune/oasis/t/mediawiki.beatles/mediawiki_db_dump.matrix_radiohead.20230918_190412.sql
+</pre>
+
+
+
+
+=== trouble shooting ===
+
+==== how to solve the connection refused error generated from mediawiki installation ? ====
+
+* problem description
+<pre>
+Cannot access the database: :real_connect(): (HY000/2002): Connection refused.
+Check the host, username and password and try again. If using "localhost" as the database host, try using "127.0.0.1" instead (or vice versa).
+</pre>
+
+* solution
+*# first, edit '/etc/mysql/mysql.conf.d/mysqld.cnf' to set bind-address to '0.0.0.0'
+*# second, run 'sudo systemctl restart mysql'
+<pre>
+{
+$ sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
+
+# Instead of skip-networking the default is now to listen only on
+# localhost which is more compatible and is not less secure.
+#bind-address           = 127.0.0.1
+bind-address            = 0.0.0.0
+
+$ sudo systemctl restart mysql
+
+}
+</pre>
+
+
+
+=== Aerosmith (10.123.1.2) mediawiki setup configuration ( 20230918_204551 ) ===
+
+* bmw: b's media wiki
+
+* Language: EN, EN
+
+*'''CAUTION''' Before going any further, the followings are essential to get success in MediaWiki installation.
+** mysql> CREATE USER 'neo'@'localhost' IDENTIFIED BY 'mmm';
+** mysql> ALTER USER 'neo'@'localhost' IDENTIFIED BY 'kkk';
+** mysql> CREATE USER 'neo'@'%' IDENTIFIED BY 'kkk';
+** mysql> GRANT CREATE ON *.* TO 'neo'@'localhost';
+** mysql> GRANT CREATE ON *.* TO 'neo'@'%';
+** mysql> GRANT ALL PRIVILEGES ON *.* TO 'neo'@'localhost';
+** mysql> GRANT ALL PRIVILEGES ON *.* TO 'neo'@'%';
+
+* MariaDB/MySQL settings
+** Database host: beatles	## beatles also points to aerosmith (/etc/hosts)
+*** Identify this wiki
+** Database name: matrix_radiohead
+** Database table prefix : matrix_radiohead_
+** user account for installation
+*** database username: neo
+*** database password: kkk
+
+* Database settings
+** Database account for web access
+[v] Use the same account as for installation
+
+* Name
+** Name of wiki: TheMatrix
+** Project namespace: Same as the wiki name: TheMatrix
+** Administrator account
+*** Your username: Brian
+*** Password (must be at least 10 characters): Ekf13!
+*** Email address: brian.m.jung@gmail.com
+*** [ ] Subscribe to the release announcements mailing list.
+*** [ ] Share data about this installation with MediaWiki developers. Privacy policy.
+
+* Ask me more questions
+
+* Options
+** User rights profile
+*** [ ] Open wiki
+*** [ ] Account creation required
+*** [*] Authorized editors only
+*** [ ] Private wiki
+** Copyright and license:
+*** [*] No license footer
+** Email settings
+*** [ ] Enable outbound email
+
+* Extensions: checked all boxes
+* Images and file uploads
+** [v] Enable file uploads
+** Directory for deleted files: /usr/share/mediawiki/images/deleted
+** Logo URL: $wgResourceBasePath/resources/assets/wiki.png
+*** [v] Enable Instant Commons
+
+* Advanced configuration
+** Settings for object caching:
+*** [*] PHP object caching (APC, APCu or WinCache)
+
+
+
 
 === Aerosmith (10.123.1.2) mediawiki setup configuration ===
 
@@ -38,7 +150,7 @@
 ** Project namespace: Same as the wiki name: TheMatrix
 ** Administrator account
 *** Your username: Brian
-*** Password (must be at least 10 characters): Ekfqk1rown3!
+*** Password (must be at least 10 characters): Ekf13!
 *** Email address: brian.m.jung@gmail.com
 *** [ ] Subscribe to the release announcements mailing list.
 *** [ ] Share data about this installation with MediaWiki developers. Privacy policy.
@@ -285,7 +397,7 @@ wfLoadExtension( 'WikiEditor' );
 ** Project namespace: Same as the wiki name: TheMatrix
 ** Administrator account
 *** Your username: Brian
-*** Password (must be at least 10 characters): Ekfqk1rown3!
+*** Password (must be at least 10 characters): Ekf13!
 *** Email address: brian.m.jung@gmail.com
 *** [ ] Subscribe to the release announcements mailing list.
 *** [ ] Share data about this installation with MediaWiki developers. Privacy policy.

@@ -31,7 +31,8 @@ $wgSitename = "TheMatrix";
 $wgScriptPath = "/mediawiki";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://localhost";
+#$wgServer = "http://localhost";
+$wgServer = "http://beatles";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -45,8 +46,8 @@ $wgLogos = [ '1x' => "$wgResourceBasePath/resources/assets/wiki.png" ];
 $wgEnableEmail = false;
 $wgEnableUserEmail = true; # UPO
 
-$wgEmergencyContact = "apache@🌻.invalid";
-$wgPasswordSender = "apache@🌻.invalid";
+$wgEmergencyContact = "";
+$wgPasswordSender = "";
 
 $wgEnotifUserTalk = false; # UPO
 $wgEnotifWatchlist = false; # UPO
@@ -54,8 +55,8 @@ $wgEmailAuthentication = true;
 
 ## Database settings
 $wgDBtype = "mysql";
-$wgDBserver = "localhost";
-$wgDBname = "matrix";
+$wgDBserver = "beatles";
+$wgDBname = "matrix_radiohead";
 $wgDBuser = "neo";
 $wgDBpassword = "kkk";
 
@@ -103,14 +104,14 @@ $wgShellLocale = "en_US.utf8";
 # Site language code, should be one of the list in ./languages/data/Names.php
 $wgLanguageCode = "en";
 
-$wgSecretKey = "c08ba2b264d315ba4c26f77b38c2cdd39e471fabdd7c08f06f2d93e5e9aba322";
+$wgSecretKey = "df00fe26a2ec9d71123bc3205f4f11fb6e8a5dff68c2f5a478ce353c98dddd8e";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "99e1186f0eebcd06";
+$wgUpgradeKey = "af2dc4b7d99105be";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation

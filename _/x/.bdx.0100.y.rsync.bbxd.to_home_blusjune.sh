@@ -35,14 +35,14 @@ rsync_exec()
 
 _list_to_rsync="..b";
 _rsync_target_dir_root="/home/blusjune/.rsync.d/${_tstamp}";
-_rsync_opt="-v";
+_rsync_opt="-v --delete";
 rsync_exec;
 (cd $_rsync_target_dir_root/..; rm -f _LATEST; ln -s $_tstamp _LATEST;)
 
 
 _list_to_rsync="..bxd";
 _rsync_target_dir_root="/home/blusjune";
-_rsync_opt="-v";
+_rsync_opt="-v --delete";
 rsync_exec;
 
 
