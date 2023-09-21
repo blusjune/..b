@@ -11,5 +11,5 @@ ff02::2 ip6-allrouters
 # brian network (BNET)
 10.0.10.1	gateway gw
 #10.123.1.1	b01
-10.123.1.2	b02 aerosmith
+10.123.1.2	b02 aerosmith beatles
 10.123.1.5	b05 prince printer

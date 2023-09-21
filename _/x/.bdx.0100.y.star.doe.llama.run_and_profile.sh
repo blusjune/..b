@@ -6,7 +6,12 @@
 
 
 
-set -x; ### {
+_star_doe_conf=".star.doe.conf";
+source $_star_doe_conf
+
+if [ "X$_star_doe_conf__verbose_run" = "Xy" ]; then
+	set -x; ### {
+fi
 _ts="date +%Y%m%d_%H%M%S";
 _tstamp="$($_ts)";
 _tmp_bdx_d=".tmp.bdx.d";
@@ -105,14 +110,47 @@ function _star_doe_testcase_prepare()
 	export STAR_DOE_CONF__PROF_OUT_SAVE_PATH_VIZTRACER="${_star_doe_conf__prof_out_save_path_viztracer}"
 }
 
-function main_exec_profiling_with_cprofile()
+function main_exec_runtype_dummy()
 {
 	echo "### { ========================================================================================== ";
-	echo "###	function main_exec_profiling_with_cprofile(): start";
-	#_main_python_file_with_cprofile="example_text_completion.star.cprofile.py";   ### _main_python_file="example_text_completion.py";
-	_main_python_file_with_cprofile="example_text_completion.star.cprofile.setprofile.py";   ### _main_python_file="example_text_completion.py";
-	torchrun --nproc_per_node $_nproc_per_node $_main_python_file_with_cprofile --ckpt_dir $_ckpt_dir  --tokenizer_path tokenizer.model --max_seq_len $_max_seq_len --max_batch_size $_max_batch_size ;
-	echo "###	${_main_python_file_with_cprofile}: completed";
+	echo "###	function main_exec_runtype_dummy(): start";
+	_main_python_file=".star.doe.main.testcase.dummy.py";   ### _main_python_file="example_text_completion.py";
+	python .star.doe.main.testcase.dummy.py ;
+	echo "###	${_main_python_file}: completed";
+	echo "###	function main_exec_runtype_dummy(): end";
+	echo "### } ========================================================================================== ";
+}
+
+function main_exec_runtype_normal()
+{
+	echo "### { ========================================================================================== ";
+	echo "###	function main_exec_runtype_normal(): start";
+	_main_python_file="example_text_completion.py";   ### _main_python_file="example_text_completion.py";
+	torchrun --nproc_per_node $_nproc_per_node $_main_python_file --ckpt_dir $_ckpt_dir  --tokenizer_path tokenizer.model --max_seq_len $_max_seq_len --max_batch_size $_max_batch_size ;
+	echo "###	${_main_python_file}: completed";
+	echo "###	function main_exec_runtype_normal(): end";
+	echo "### } ========================================================================================== ";
+}
+
+function main_exec_runtype_debug()
+{
+	echo "### { ========================================================================================== ";
+	echo "###	function main_exec_runtype_debug(): start";
+	_main_python_file="example_text_completion.star.dbg.py";   ### _main_python_file="example_text_completion.py";
+	torchrun --nproc_per_node $_nproc_per_node $_main_python_file --ckpt_dir $_ckpt_dir  --tokenizer_path tokenizer.model --max_seq_len $_max_seq_len --max_batch_size $_max_batch_size ;
+	echo "###	${_main_python_file}: completed";
+	echo "###	function main_exec_runtype_debug(): end";
+	echo "### } ========================================================================================== ";
+}
+
+function main_exec_runtype_profile_w_cprofile()
+{
+	echo "### { ========================================================================================== ";
+	echo "###	function main_exec_runtype_profile_w_cprofile(): start";
+	_main_python_file="example_text_completion.star.cprofile.py";   ### _main_python_file="example_text_completion.py";
+	#_main_python_file="example_text_completion.star.cprofile.setprofile.py";   ### _main_python_file="example_text_completion.py";
+	torchrun --nproc_per_node $_nproc_per_node $_main_python_file --ckpt_dir $_ckpt_dir  --tokenizer_path tokenizer.model --max_seq_len $_max_seq_len --max_batch_size $_max_batch_size ;
+	echo "###	${_main_python_file}: completed";
 	( cd $_tmp_star_d; 
 	cat > $_star_prof_asys_script_cprofile << EOF_ASYS_SCRIPT
 #!/bin/bash
@@ -123,18 +161,18 @@ EOF_ASYS_SCRIPT
 	chmod 755 $_star_prof_asys_script_cprofile;
 	);
 	echo "###	Please run ${_star_prof_asys_script_cprofile} to see the profiling result";
-	echo "###	function main_exec_profiling_with_cprofile(): end";
+	echo "###	function main_exec_runtype_profile_w_cprofile(): end";
 	echo "### } ========================================================================================== ";
 }
 
-function main_exec_profiling_with_viztracer()
+function main_exec_runtype_profile_w_viztracer()
 {
 	echo "### { ========================================================================================== ";
-	echo "###	function main_exec_profiling_with_viztracer(): start";
-	_main_python_file_with_viztracer="example_text_completion.star.viztracer.py";   ### _main_python_file="example_text_completion.py";
+	echo "###	function main_exec_runtype_profile_w_viztracer(): start";
+	_main_python_file="example_text_completion.star.viztracer.py";   ### _main_python_file="example_text_completion.py";
 	# python -m viztracer --tracer_entries $_star_prof_viztracer_tracer_entries -o ${_tmp_star_d}/${_star_prof_viztracer_out_json} \
-	torchrun --nproc_per_node $_nproc_per_node $_main_python_file_with_viztracer --ckpt_dir $_ckpt_dir  --tokenizer_path tokenizer.model --max_seq_len $_max_seq_len --max_batch_size $_max_batch_size ;
-	echo "###	${_main_python_file_with_viztracer}: completed";
+	torchrun --nproc_per_node $_nproc_per_node $_main_python_file --ckpt_dir $_ckpt_dir  --tokenizer_path tokenizer.model --max_seq_len $_max_seq_len --max_batch_size $_max_batch_size ;
+	echo "###	${_main_python_file}: completed";
 	( cd $_tmp_star_d;
 	cat > $_star_prof_asys_script_viztracer << EOF_ASYS_SCRIPT
 #!/bin/bash
@@ -143,19 +181,31 @@ EOF_ASYS_SCRIPT
 	chmod 755 $_star_prof_asys_script_viztracer;
 	);
 	echo "###	Please run ${_star_prof_asys_script_viztracer} to see the profiling result";
-	echo "###	function main_exec_profiling_with_viztracer(): end";
+	echo "###	function main_exec_runtype_profile_w_viztracer(): end";
 	echo "### } ========================================================================================== ";
 }
 
 function _star_doe_testcase_exec()
 {
-	echo "### CHK: _star_doe_conf_dummy_run: $_star_doe_conf_dummy_run";
-	if [ "X$_star_doe_conf_dummy_run" = "Xy" ]; then ### come from .star.doe.conf.testpool.sh;
-		2>&1 python .star.doe.main.testcase.dummy.py | tee -a $_star_doe_testcase_log;
-	else
-		2>&1 main_exec_profiling_with_cprofile | tee -a $_star_doe_testcase_log;
-		2>&1 main_exec_profiling_with_viztracer | tee -a $_star_doe_testcase_log;
-	fi
+	echo "### CHK: _star_doe_conf__runtype: $_star_doe_conf__runtype"; ### come from $_star_doe_conf
+	case $_star_doe_conf__runtype in
+		"dummy")
+			2>&1 main_exec_runtype_dummy | tee -a $_star_doe_testcase_log;
+			;;
+		"normal")
+			2>&1 main_exec_runtype_normal | tee -a $_star_doe_testcase_log;
+			;;
+		"debug")
+			2>&1 main_exec_runtype_debug | tee -a $_star_doe_testcase_log;
+			;;
+		"profile")
+			2>&1 main_exec_runtype_profile_w_cprofile | tee -a $_star_doe_testcase_log;
+			2>&1 main_exec_runtype_profile_w_viztracer | tee -a $_star_doe_testcase_log;
+			;;
+		*)
+			2>&1 main_exec_runtype_dummy | tee -a $_star_doe_testcase_log;
+			;;
+	esac
 }
 
 
@@ -171,7 +221,6 @@ function _star_doe_testcase_exec()
 	#_list__max_gen_len="64 128 256 512 1024";
 	#_list__max_batch_size="1 2 4 8 16 32";
 	#_list__xprmnt_cpu_model="CORE-I7-1270P";
-source .star.doe.conf.testpool.sh;
 _exec_count="0";
 for _ckpt_dir in $_list__ckpt_dir; do
 	_xprmnt_ai_model="${_ai_models[$_ckpt_dir]}";
@@ -187,6 +236,7 @@ for _ckpt_dir in $_list__ckpt_dir; do
 						_xprmnt_name="${_xprmnt_sn}_${_xprmnt_ai_model}_${_xprmnt_cpu_model}_P${_nproc_per_node}_S${_max_seq_len}_G${_max_gen_len}_B${_max_batch_size}";
 						_xprmnt_uuid="${_tstamp}.${_xprmnt_name}";
 						_star_doe_testcase_log="${_tmp_bdx_d}/.star.doe.log.${_xprmnt_uuid}.txt";
+						echo " " | tee $_star_doe_testcase_log;
 						echo "### DoE main-loop ________________________________________________________________________________________________" | tee $_star_doe_testcase_log;
 						echo "### ${_xprmnt_uuid} : $($_ts) " | tee -a $_star_doe_testcase_log;
 						_star_doe_testcase_prepare;
@@ -217,17 +267,34 @@ done
 ###
 print_help()
 {
-	echo "
-; LLAMA 2:
-* [https://github.com/facebookresearch/llama Llama 2]
-* [https://github.com/krychu/llama Llama 2 on CPU, and Mac M1/M2 GPU]
-* [https://github.com/facebookresearch/llama/issues/436#issuecomment-1650001563 RuntimeError: ProcessGroupNCCL is only supported with GPUs, no GPUs found? #436]
+	_help_msg="/tmp/help.${_tstamp}.txt";
+	cat > $_help_msg << EOF_HELP_MSG
+* LLAMA 2:
+*# [https://github.com/facebookresearch/llama Llama 2]
+*# [https://github.com/krychu/llama Llama 2 on CPU, and Mac M1/M2 GPU]
+*# [https://github.com/facebookresearch/llama/issues/436#issuecomment-1650001563 RuntimeError: ProcessGroupNCCL is only supported with GPUs, no GPUs found? #436]
 
-; Python profiling feferences:
-* https://docs.python.org/3/library/profile.html
-* https://medium.com/@narenandu/profiling-and-visualization-tools-in-python-89a46f578989
-* https://pytorch.org/tutorials/recipes/recipes/profiler_recipe.html
-	";
+* Python profiling feferences:
+*# https://docs.python.org/3/library/profile.html
+*# https://medium.com/@narenandu/profiling-and-visualization-tools-in-python-89a46f578989
+*# https://pytorch.org/tutorials/recipes/recipes/profiler_recipe.html
+
+* .star.doe.conf
+<pre>
+# .star.doe.testpool_conf.sh
+# 20230916_100813
+
+_star_doe_conf__verbose_run="n"; ### { "y", "n" }
+_star_doe_conf__runtype="profile"; ### { "dummy", "normal", "debug", "profile" }
+_list__ckpt_dir="llama-2-7b";
+_list__nproc_per_node="1";
+_list__max_seq_len="16 32 64"; ### max_seq_len should be larger than the input sequence lenght # please make sure to assert ( max_prompt_len <= params.max_seq_len ) # llama/generation.py", line 141, in generate()
+_list__max_gen_len="64";
+_list__max_batch_size="1";
+_list__xprmnt_cpu_model="CORE-I7-1270P";
+</pre>
+EOF_HELP_MSG
+	cat $_help_msg;
 }
 
 
