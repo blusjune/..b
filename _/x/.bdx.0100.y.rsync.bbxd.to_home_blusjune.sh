@@ -41,7 +41,7 @@ rsync_exec;
 
 
 _list_to_rsync="..bxd";
-_rsync_target_dir_root="/home/blusjune";
+_rsync_target_dir_root="/home/blusjune/.rsync.d";
 _rsync_opt="-v --delete";
 rsync_exec;
 
