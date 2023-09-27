@@ -2,6 +2,7 @@
 # .bdx.0100.y.llama.main.run_and_profile.sh
 # 20230910_225422
 # 20230914_234326
+# 20230926_205146
 
 
 
@@ -115,7 +116,7 @@ function main_exec_runtype_dummy()
 	echo "### { ========================================================================================== ";
 	echo "###	function main_exec_runtype_dummy(): start";
 	_main_python_file=".star.doe.main.testcase.dummy.py";   ### _main_python_file="example_text_completion.py";
-	python .star.doe.main.testcase.dummy.py ;
+	python $_main_python_file ;
 	echo "###	${_main_python_file}: completed";
 	echo "###	function main_exec_runtype_dummy(): end";
 	echo "### } ========================================================================================== ";
@@ -136,10 +137,23 @@ function main_exec_runtype_debug()
 {
 	echo "### { ========================================================================================== ";
 	echo "###	function main_exec_runtype_debug(): start";
-	_main_python_file="example_text_completion.star.dbg.py";   ### _main_python_file="example_text_completion.py";
+	_main_python_file=".star.doe.main.testcase.dbg.py";   ### _main_python_file="example_text_completion.py";
+		### .star.doe.main.testcase.dbg.py@  --> example_text_completion.star.dbg.py
 	torchrun --nproc_per_node $_nproc_per_node $_main_python_file --ckpt_dir $_ckpt_dir  --tokenizer_path tokenizer.model --max_seq_len $_max_seq_len --max_batch_size $_max_batch_size ;
 	echo "###	${_main_python_file}: completed";
 	echo "###	function main_exec_runtype_debug(): end";
+	echo "### } ========================================================================================== ";
+}
+
+function main_exec_runtype_functrace()
+{
+	echo "### { ========================================================================================== ";
+	echo "###	function main_exec_runtype_functrace(): start";
+	_main_python_file=".star.doe.main.testcase.functrace.py";   ### _main_python_file="example_text_completion.py";
+		### .star.doe.main.testcase.functrace.py@  --> example_text_completion.star.functrace.py
+	torchrun --nproc_per_node $_nproc_per_node $_main_python_file --ckpt_dir $_ckpt_dir  --tokenizer_path tokenizer.model --max_seq_len $_max_seq_len --max_batch_size $_max_batch_size ;
+	echo "###	${_main_python_file}: completed";
+	echo "###	function main_exec_runtype_functrace(): end";
 	echo "### } ========================================================================================== ";
 }
 
@@ -147,8 +161,8 @@ function main_exec_runtype_profile_w_cprofile()
 {
 	echo "### { ========================================================================================== ";
 	echo "###	function main_exec_runtype_profile_w_cprofile(): start";
-	_main_python_file="example_text_completion.star.cprofile.py";   ### _main_python_file="example_text_completion.py";
-	#_main_python_file="example_text_completion.star.cprofile.setprofile.py";   ### _main_python_file="example_text_completion.py";
+	_main_python_file=".star.doe.main.testcase.cprofile.py";   ### _main_python_file="example_text_completion.py";
+		### .star.doe.main.testcase.cprofile.py@     --> example_text_completion.star.cprofile.py
 	torchrun --nproc_per_node $_nproc_per_node $_main_python_file --ckpt_dir $_ckpt_dir  --tokenizer_path tokenizer.model --max_seq_len $_max_seq_len --max_batch_size $_max_batch_size ;
 	echo "###	${_main_python_file}: completed";
 	( cd $_tmp_star_d; 
@@ -169,7 +183,8 @@ function main_exec_runtype_profile_w_viztracer()
 {
 	echo "### { ========================================================================================== ";
 	echo "###	function main_exec_runtype_profile_w_viztracer(): start";
-	_main_python_file="example_text_completion.star.viztracer.py";   ### _main_python_file="example_text_completion.py";
+	_main_python_file=".star.doe.main.testcase.viztracer.py";   ### _main_python_file="example_text_completion.py";
+		### .star.doe.main.testcase.viztracer.py@    --> example_text_completion.star.viztracer.py
 	# python -m viztracer --tracer_entries $_star_prof_viztracer_tracer_entries -o ${_tmp_star_d}/${_star_prof_viztracer_out_json} \
 	torchrun --nproc_per_node $_nproc_per_node $_main_python_file --ckpt_dir $_ckpt_dir  --tokenizer_path tokenizer.model --max_seq_len $_max_seq_len --max_batch_size $_max_batch_size ;
 	echo "###	${_main_python_file}: completed";
@@ -197,6 +212,13 @@ function _star_doe_testcase_exec()
 			;;
 		"debug")
 			2>&1 main_exec_runtype_debug | tee -a $_star_doe_testcase_log;
+			;;
+		"functrace")
+			2>&1 main_exec_runtype_functrace >> $_star_doe_testcase_log;
+			;;
+		"functrace_and_cprofile")
+			2>&1 main_exec_runtype_functrace >> $_star_doe_testcase_log;
+			2>&1 main_exec_runtype_profile_w_cprofile | tee -a $_star_doe_testcase_log;
 			;;
 		"profile")
 			2>&1 main_exec_runtype_profile_w_cprofile | tee -a $_star_doe_testcase_log;
@@ -281,17 +303,20 @@ print_help()
 
 * .star.doe.conf
 <pre>
+
 # .star.doe.testpool_conf.sh
 # 20230916_100813
-
+# 20230926_204323
+#
 _star_doe_conf__verbose_run="n"; ### { "y", "n" }
-_star_doe_conf__runtype="profile"; ### { "dummy", "normal", "debug", "profile" }
+_star_doe_conf__runtype="profile"; ### { "dummy", "normal", "debug", "functrace", "functrace_and_cprofile", "profile" }
 _list__ckpt_dir="llama-2-7b";
 _list__nproc_per_node="1";
 _list__max_seq_len="16 32 64"; ### max_seq_len should be larger than the input sequence lenght # please make sure to assert ( max_prompt_len <= params.max_seq_len ) # llama/generation.py", line 141, in generate()
 _list__max_gen_len="64";
 _list__max_batch_size="1";
 _list__xprmnt_cpu_model="CORE-I7-1270P";
+
 </pre>
 EOF_HELP_MSG
 	cat $_help_msg;

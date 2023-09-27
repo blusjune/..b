@@ -390,8 +390,27 @@ Launch VS Code Quick Open (Ctrl+P), paste the following command, and press enter
 ==== sys.setprofile(tracefunc): How do I print functions as they are called? ====
 : 20230916_000130
 
-* [https://stackoverflow.com/questions/8315389/how-do-i-print-functions-as-they-are-called How do I print functions as they are called?]
 
+* Brian's code for functrace (sys.setprofile)
+<pre>
+import sys   ###BLUSJUNE ###functrace
+def tracefunc(frame, event, arg, indent=[0]):   ###BLUSJUNE ###functrace
+      if event == "call":
+          indent[0] += 2
+          # print("-" * indent[0] + "> call function", frame.f_code.co_name)
+          print("-" * indent[0] + "> {   ", frame.f_code.co_name, "  ", frame.f_code.co_filename, "  ", frame.f_lineno)
+      elif event == "return":
+	      # print("<" + "-" * indent[0], "exit function", frame.f_code.co_name)
+          print("<" + "-" * indent[0], "}   ", frame.f_code.co_name, "  ", frame.f_code.co_filename, "  ", frame.f_lineno)
+          indent[0] -= 2
+      return tracefunc
+
+
+sys.setprofile(tracefunc)
+</pre>
+
+
+* [https://stackoverflow.com/questions/8315389/how-do-i-print-functions-as-they-are-called How do I print functions as they are called?]
 <pre>
 You can do this with a trace function (props to Spacedman for improving the original version of this to trace returns and use some nice indenting):
 
