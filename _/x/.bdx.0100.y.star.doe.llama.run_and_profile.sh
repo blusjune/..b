@@ -237,9 +237,10 @@ function _star_doe_testcase_exec()
 		"functrace")
 			2>&1 main_exec_runtype_functrace >> $_star_doe_testcase_log;
 			;;
-		"functrace_and_cprofile")
+		"functrace_and_profile")
 			2>&1 main_exec_runtype_functrace >> $_star_doe_testcase_log;
 			2>&1 main_exec_runtype_profile_w_cprofile | tee -a $_star_doe_testcase_log;
+			2>&1 main_exec_runtype_profile_w_viztracer | tee -a $_star_doe_testcase_log;
 			;;
 		"profile")
 			2>&1 main_exec_runtype_profile_w_cprofile | tee -a $_star_doe_testcase_log;
@@ -335,7 +336,7 @@ print_help()
 # 20230927_175757
 #
 _star_doe_conf__verbose_run="n"; ### { "y", "n" }
-_star_doe_conf__runtype="pyspy"; ### { "dummy", "normal", "debug", "functrace", "functrace_and_cprofile", "profile", "pyspy" }
+_star_doe_conf__runtype="pyspy"; ### { "dummy", "normal", "debug", "functrace", "functrace_and_profile", "profile", "pyspy" }
 _star_doe_conf__pkg_install_sh=".star.doe.pkg.install.sh";
 _list__ckpt_dir="llama-2-7b";
 _list__nproc_per_node="1";
