@@ -3,34 +3,8 @@
 # 20230912_220510
 
 
-_ts="date +%Y%m%d_%H%M%S";
+source /_b/x/.blib.rsync.sh;
 _tstamp=$($_ts);
-#set -x;
-
-
-rsync_exec()
-{
-#_list_to_rsync="..b ..bxd";
-#_rsync_target_dir_root="/home/blusjune";
-#_rsync_opt="-v --delete";
-	if [ "X$_RSYNC_OPT_EXT" != "X" ]; then
-		_rsync_opt="$_rsync_opt $_RSYNC_OPT_EXT";
-	fi
-	if [ ! -d $_rsync_target_dir_root ]; then
-		echo "### WARNING: no such directory ($_rsync_target_dir_root)";
-		echo "mkdir -p $_rsync_target_dir_root";
-		mkdir -p $_rsync_target_dir_root;
-	fi
-	echo "### =======================================================================";
-	echo "### _list_to_rsync: $_list_to_rsync";
-	echo "### _rsync_target_dir_root: $_rsync_target_dir_root";
-	echo "### _rsync_opt: ($_rsync_opt)";
-	for _i in $_list_to_rsync; do
-		echo "### _________: $_i";
-		$_ts;  rsync -a $_rsync_opt ${_i}/ ${_rsync_target_dir_root}/${_i};  $_ts;
-	done
-	echo "### =======================================================================";
-}
 
 
 _list_to_rsync="..b";
@@ -40,14 +14,7 @@ rsync_exec;
 (cd $_rsync_target_dir_root/..; rm -f _LATEST; ln -s $_tstamp _LATEST;)
 
 
-_list_to_rsync="..bxd";
-_rsync_target_dir_root="/home/blusjune";
-_rsync_opt="-v --delete";
-rsync_exec;
-
-
-# rsync -a .bigfiles.d/ /home/blusjune/.bigfiles.d
-_list_to_rsync=".bigfiles.d";
+_list_to_rsync="..bxd  .bigfiles.d";
 _rsync_target_dir_root="/home/blusjune";
 _rsync_opt="-v --delete";
 rsync_exec;
