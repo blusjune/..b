@@ -33,7 +33,7 @@ rsync_exec()
 }
 
 
-_list_to_rsync="..b ..bxd";
+_list_to_rsync="..b ..bxd .bigfiles.d";
 _rsync_target_dir_root="/mnt/media.blusjune/.ssd_0t5_t5_oasis/..__ROOT__";
 _rsync_opt="-v --delete";
 rsync_exec;
