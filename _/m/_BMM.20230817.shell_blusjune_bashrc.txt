@@ -13,7 +13,7 @@ eval "$(pyenv init -)"
 
 
 ### env{ ###
-export BLUSJUNE_PATH=".:/_b/x:${HOME}/..b/_/x:${HOME}/.local/bin"
+export BLUSJUNE_PATH=".:/_b/x:${HOME}/..b/_/x:${HOME}/bxd/usr/bin:${HOME}/.local/bin"
 PATH=${BLUSJUNE_PATH}:${PATH} export PATH
 export HISTSIZE=100000
 export HISTFILESIZE=200000
