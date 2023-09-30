@@ -12,6 +12,28 @@ eval "$(pyenv init -)"
 ### }pyenv ###
 
 
+### home_init{ ###
+function _create_symlink_to_tgt()
+{
+#_tgt="b";
+	if [ ! -L ~/${_tgt} ]; then
+		if [ -d ..${_tgt} ]; then
+			echo "### INF: ln -s ..${_tgt}/_ ${_tgt}";
+			ln -s ..${_tgt}/_ ${_tgt};
+		else
+			echo "### ERR: there is no ..${_tgt}. so we can not create a symlink ${_tgt}";
+		fi
+	fi
+}
+#
+_tgt="b";
+_create_symlink_to_tgt;
+#
+_tgt="bxd";
+_create_symlink_to_tgt;
+### }home_init ###
+
+
 ### env{ ###
 export BLUSJUNE_PATH=".:/_b/x:${HOME}/..b/_/x:${HOME}/bxd/usr/bin:${HOME}/.local/bin"
 PATH=${BLUSJUNE_PATH}:${PATH} export PATH
