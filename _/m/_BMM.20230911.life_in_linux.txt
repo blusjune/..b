@@ -3,5 +3,39 @@
 == Music ==
 
 === Convert music files from m4a to mp3 (ffmpeg) ===
+: 20230911
 
 * [https://en.linuxportal.info/tutorials/hangkezeles/how-to-convert-at-m4a-format-music-files-to-mp3 How to Convert m4a Music Files to MP3]; ((B.GOOD))
+
+
+
+
+=== Rip Audio CDs ===
+: 20231002_015119
+
+* [https://wiki.archlinux.org/title/Rip_Audio_CDs Rip Audio CDs] ((B.GOOD))
+
+==== Ripping from Physical discs ====
+ $ cdda2wav -vall cddb=-1 speed=4 -paranoia paraopts=proof -B -D /dev/sr0
+or
+ $ cdrdao read-cd --read-raw --driver generic-mmc:0x20000 --datafile cdimage.bin cdimage.toc && toc2cue cdimage.toc cdimage.cue
+
+
+==== Ripping from image files ====
+ $ bchunk -w image.bin image.cue output
+
+==== Post processing ====
+
+ $ lame -V0 input.wav
+
+
+==== Tips and Tricks: Testing the ease, or difficulty, of ripping ====
+
+ $ cdparanoia --batch --log-debug -- -1
+ $ ffmpeg -i track01.cdda.wav -vn -ar 44100 -ac 2 -b:a 192k output-file.mp3
+
+----
+
+
+
+

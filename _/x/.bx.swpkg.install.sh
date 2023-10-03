@@ -90,6 +90,9 @@ kphotoalbum
 eog
 gwenview
 ffmpeg
+cdparanoia
+k3b
+sound-juicer
 "
 
 

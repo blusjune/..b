@@ -42,7 +42,7 @@
       }
     );
     Lowered = No;
-    Position = "-64,0";
+    Position = "-64,221";
   };
   Clip = {
     Forced = No;
@@ -63,7 +63,7 @@
         AutoAttractIcons = No;
       };
       Name = Drawer0;
-      Position = "1856,128";
+      Position = "1856,349";
     }
   );
   Workspaces = (

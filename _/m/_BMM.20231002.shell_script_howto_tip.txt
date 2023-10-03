@@ -1,0 +1,11 @@
+
+
+=== awk ===
+
+==== Print second-to-last column/field in `awk` ====
+: 20231002_114606
+ awk '{print $(NF-1)}'
+
+----
+
+
