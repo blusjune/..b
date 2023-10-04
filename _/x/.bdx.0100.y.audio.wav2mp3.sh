@@ -55,35 +55,51 @@ echo "### ---------------------------------------------------------------------"
 read -p "### ASK:  Exec phase-1? (create .disc-NN dirs and bdx.cdda.wav_gen) [n|Y] " _answer;
 if [ "X$_answer" = "Xy" ]; then
 	_k=0;
+	_kn=1;
 	_num_of_discs_default="20";
 	_bdx_cdda_wav_gen=".bdx.0100.y.cdda.wav_gen.sh";
 	read -p "_num_of_discs: [${_num_of_discs_default}] " _num_of_discs;
 	if [ "X$_num_of_discs" = "X" ]; then _num_of_discs=$_num_of_discs_default; fi
 	while [ $_k -lt $_num_of_discs ]; do
 		_k=$( expr $_k + 1 );
+		_kn=$( expr $_kn + 1 );
 		_dir_name=".disc-$( printf '%02d' $_k )";
-		echo "### INF:  mkdir -p $_dir_name";
+		_dir_name_next=".disc-$( printf '%02d' $_kn )";
+		echo -n "### INF:  mkdir -p ${_dir_name};";
 		mkdir -p $_dir_name;
 		(cd $_dir_name;
 			cat > $_bdx_cdda_wav_gen << EOF_BDX_CDDA_WAV_GEN
 #!/bin/bash
 # $($_ts)
 _t1="\$($_ts)";
-cdparanoia -sQ; cdparanoia -A; cdparanoia -BX;
+cdparanoia -sQ >& .cdda.tracklist.txt; cdparanoia -A; cat .cdda.tracklist.txt; cdparanoia -BX;
 _t2="\$($_ts)";
-echo "\$_t1  --[cdda_wav_gen]-->  \$_t2"
+echo "___________________________________________________________________";
+echo "### INF:  \$_t1  --[cdda_wav_gen]-->  \$_t2"
 EOF_BDX_CDDA_WAV_GEN
+			if [ $_k -lt $_num_of_discs ]; then
+				cat >> $_bdx_cdda_wav_gen << EOF_BDX_CDDA_WAV_GEN
+echo "___________________________________________________________________";
+echo "### INF:  Move to the next disc:  cd ../${_dir_name_next}"
+EOF_BDX_CDDA_WAV_GEN
+			else
+				cat >> $_bdx_cdda_wav_gen << EOF_BDX_CDDA_WAV_GEN
+echo "___________________________________________________________________";
+echo "### INF:  Processing completed ( $_k of $_k discs )";
+EOF_BDX_CDDA_WAV_GEN
+			fi
 			chmod 755 $_bdx_cdda_wav_gen;
-			echo "### INF:  created  $_bdx_cdda_wav_gen
-			";
+			echo "### INF:  cat > ${_bdx_cdda_wav_gen} << EOF;";
 		)
 	done
 	echo "### ---------------------------------------------------------------------";
-	echo "### INF:  Execute .bdx for each .disc-NN dir to make wav files from CDDA";
+	echo "### INF:  Please do .bdx (in .disc-NN dirs) to make wav files from CDDA";
 fi
 
 
-echo "### ---------------------------------------------------------------------";
+echo "
+
+### ---------------------------------------------------------------------";
 read -p "### ASK:  Exec phase-2? (wav-to-mp3 for each .disc-NN dir) [n|Y] " _answer;
 if [ "X$_answer" = "Xy" ]; then
 	_author_guess=$(pwd | awk -F'/' '{ print $(NF-1)}');

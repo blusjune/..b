@@ -35,7 +35,8 @@ _create_symlink_to_tgt;
 
 
 ### env{ ###
-export BLUSJUNE_PATH=".:/_b/x:${HOME}/..b/_/x:${HOME}/bxd/usr/bin:${HOME}/.local/bin"
+export BLUSJUNE_PATH=".:/_b/x:${HOME}/..b/_/x:${HOME}/bxd/usr/sbin:${HOME}/bxd/usr/bin:${HOME}/anaconda3/sbin:${HOME}/anaconda3/bin:${HOME}/.local/bin
+"
 PATH=${BLUSJUNE_PATH}:${PATH} export PATH
 export HISTSIZE=100000
 export HISTFILESIZE=200000

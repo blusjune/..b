@@ -1,0 +1,157 @@
+* [https://siboehm.com/articles/22/Fast-MMM-on-CPU Fast Multidimensional Matrix Multiplication on CPU from Scratch] August 2022
+
+
+
+
+<pre>
+______________________________________________________________________
+implementation	time						(ms)
+______________________________________________________________________
+(1) Naive Implementation (RCI)					4481
+(2) Naive Implementation (RCI) + compiler flags			1621
+(3) Naive Implementation (RCI) + flags + register accumulate	1512
+(4) Cache-aware loop reorder (RIC)				89
+(5) Loop reorder (RIC) + L1 tiling on I				70
+(6) Loop reorder (RIC) + L1 tiling on I + multithreading on R&C	16
+(7) Numpy (MKL)							8
+______________________________________________________________________
+</pre>
+
+
+
+
+<pre>
+(1) Naive Implementation (RCI)					4481
+(2) Naive Implementation (RCI) + compiler flags			1621
+template <int rows, int columns, int inners>
+inline void matmulImplNaive(const float *left, const float *right, float *result)
+{
+    for (int row = 0; row < rows; row++) {
+        for (int col = 0; col < columns; col++) {
+            for (int inner = 0; inner < inners; inner++) {
+                result[row * columns + col] += left[row * columns + inner] * right[inner * columns + col];
+            }
+        }
+    }
+}
+</pre>
+
+
+<pre>
+(3) Naive Implementation (RCI) + flags + register accumulate	1512
+template <int rows, int columns, int inners>
+inline void matmulImplNaiveRegisterAcc(const float *left, const float *right, float *result)
+{
+    for (int row = 0; row < rows; row++) {
+        for (int col = 0; col < columns; col++) {
+            float acc = 0.0;
+            for (int inner = 0; inner < inners; inner++) {
+                acc += left[row * columns + inner] * right[inner * columns + col];
+            }
+            result[row * columns + col] = acc;
+        }
+    }
+}
+</pre>
+
+
+<pre>
+(4) Cache-aware loop reorder (RIC)					89
+template <int rows, int columns, int inners>
+inline void matmulImplLoopOrder(const float *left, const float *right, float *result)
+{
+    for (int row = 0; row < rows; row++) {
+        for (int inner = 0; inner < inners; inner++) {
+            for (int col = 0; col < columns; col++) {
+                result[row * columns + col] +=
+                    left[row * columns + inner] * right[inner * columns + col];
+            }
+        }
+    }
+}
+
+-----------------------------------------------------------------------------------
+; In the loop setup, load a single fp32 from the current A row
+; and broadcast it to all 8 entries of the ymm0 register
+; vbroadcastss ymm0, dword ptr [rsi + 4*r8]
+
+; In each instruction, load 8 entries from
+; the current row of B into a ymm register
+vmovups ymm1, ymmword ptr [rbx + 4*rbp - 96]
+vmovups ymm2, ymmword ptr [rbx + 4*rbp - 64]
+vmovups ymm3, ymmword ptr [rbx + 4*rbp - 32]
+vmovups ymm4, ymmword ptr [rbx + 4*rbp]
+; In each instruction, multipy the current entry of A (ymm0) times
+; the entries of C (ymm1-4) and add partial results from C (memory load)
+vfmadd213ps ymm1, ymm0, ymmword ptr [rcx + 4*rbp - 96] ; ymm1 = (ymm0 * ymm1) + mem
+vfmadd213ps ymm2, ymm0, ymmword ptr [rcx + 4*rbp - 64] ; ymm2 = (ymm0 * ymm2) + mem
+vfmadd213ps ymm3, ymm0, ymmword ptr [rcx + 4*rbp - 32] ; ymm3 = (ymm0 * ymm3) + mem
+vfmadd213ps ymm4, ymm0, ymmword ptr [rcx + 4*rbp] ; ymm4 = (ymm0 * ymm4) + mem
+; Store the partial results back to C's memory
+vmovups ymmword ptr [rcx + 4*rbp - 96], ymm1
+vmovups ymmword ptr [rcx + 4*rbp - 64], ymm2
+vmovups ymmword ptr [rcx + 4*rbp - 32], ymm3
+vmovups ymmword ptr [rcx + 4*rbp], ymm4
+-----------------------------------------------------------------------------------
+</pre>
+
+
+<pre>
+(5) Loop reorder (RIC) + L1 tiling on I				70
+template <int rows, int columns, int inners, int tileSize>
+inline void matmulImplTiling(const float *left, const float *right, float *result)
+{
+    for (int innerTile = 0; innerTile < inners; innerTile += tileSize) {
+        for (int row = 0; row < rows; row++) {
+            int innerTileEnd = std::min(inners, innerTile + tileSize);
+            for (int inner = innerTile; inner < innerTileEnd; inner++) {
+                for (int column = 0; column < columns; column++) {
+                    result[row * columns + column] +=
+                        left[row * inners + inner] * right[inner * columns + column];
+                }
+            }
+        }
+    }
+}
+</pre>
+
+
+<pre>
+(6) Loop reorder (RIC) + L1 tiling on I + multithreading on R&C	16
+template <int rows, int columns, int inners, int tileSize = ROW_COL_PARALLEL_INNER_TILING_TILE_SIZE>
+inline void matmulImplRowColParallelInnerTiling(const float *left, const float *right, float *result)
+{
+    #pragma omp parallel for shared(result, left, right) default(none) \
+    collapse(2) num_threads(8)
+    for (int rowTile = 0; rowTile < rows; rowTile += 256) {
+        for (int columnTile = 0; columnTile < columns; columnTile += 256) {
+            for (int innerTile = 0; innerTile < inners; innerTile += tileSize) {
+                for (int row = rowTile; row < rowTile + 256; row++) {
+                    int innerTileEnd = std::min(inners, innerTile + tileSize);
+                    for (int inner = innerTile; inner < innerTileEnd; inner++) {
+                        for (int col = columnTile; col < columnTile + 256; col++) {
+                            result[row * columns + col] +=
+                                left[row * inners + inner] * right[inner * columns + col];
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+</pre>
+
+
+<pre>
+(7) Numpy (MKL)							8
+</pre>
+
+
+
+
+* Compiler Explorer:
+https://godbolt.org/#z:OYLghAFBqd5TKALEBjA9gEwKYFFMCWALugE4A0BIEAZgQDbYB2AhgLbYgDkAjF%2BTXRMiAZVQtGIHgBYBQogFUAztgAKAD24AGfgCsp5eiyahUAUgBMAIUtXyKxqiIEh1ZpgDC6egFc2TA3cAGQImbAA5PwAjbFIDAAd0JWIXJi9ffwSklKEQsMi2GLiee2xHZyERIhZSInS/AJKHbCdUqpqiPIjo2IMlatr6zKaBztDuwt6eAEp7dB9SVE4uADd0AkwAajYWIgBZH3oASTZ4%2Blp6dF2AKk3SAmAkInJNmkubzcYaZ9f3olvSNglIciNMzAB2GxaACCm1eZE2EFCRDu6AA7pszABmAAimy02KsqIx2I8mx4Wgs0kJxNstmmmMhZhhcLhglIiORm1CYQ52LxBKxRJ5sUxWLJFKpNJFpDp1gZEKhsNZKvZnOEmwwGSYYoFNK1DTFEsp1KFmu8DTlVgVTJZKvtcMBwPoRDMAFYrKR0ZtbpLpJjrObte68XTcczlQ77V9XR6vRjfSaA8KmLyQz67g8nu6rDKM37k0HLW6cYSIw6IaW7XDK%2BXGVXoZWuLN6Nw3fwAlwdOR0NwPFbNkp5otsAGsXxyERtM3ZgBrEBurSGbjSfhsBdLzvd3tcfhKEBLqdd5vkOCwFDYdQtHwkChUCA1YBKVTGMoiJDozsTjCnBi7VIvmE9Dvp%2B07kD%2B8QML0wA8BYJQQVBpAAPI3iBaJbvwl4tNCpBPtwmFXqgVSEJ2/CCMIYgSJwMhyMIyhqJox7kPoJRGCYaBWoYBBRPukCzOg8QVEw%2B67nMCxLH0RAkYBb4fuh3ATkQgLLBOaKkCw8QKSerZcO25AYT23C4IRN4IuoAAcABsAC0ln%2BsAqCoOSFgAHQ8Ii/bWLYLz4MQCKWOO0z8EeOjTLMSDYCwOBxBALYrmuG76WBO57gek7TmF5Dzouy5cFiHbJfh6XHrMZ7IGg6C/owd7UAh1VoGxMHSFoS50C6sT7hAURgVEoQ1AAnlp4GVRwwhIUw9CDUxOA7CYkjTQQgKtCsQJgVhqA3ip/DImUYH0Nx6mkP1Xg4GBSkEOuvAnm8LBPgAagQ2Bokh8TMEN5GiOIkg0R99EaGBLGGMYpicftPHwPxgmpCJ1lIVimzWTQNAsP01k7EQSAIzsixIPySAo2iZT0Jse5lC0QluEwngWsM5DBOMBRFFkyRCUMjTkIkLOpF0jNTKU5RtKMbN9GTrSVKMPM9MU9hCzT7P9B0kuTMUsxDuJ1GTspQ1osYRAvUQRxMIIWlxbpBVMTuFk2XZmqNeS0guVojseZxmy%2BbeY4lJsXhVaKAUzMFGXhZF0XUHOiU6auSUW0V%2B6HkHuUWOb25FSFM7kCtpDJK40hAA%3D%3D
+
+
+
+
