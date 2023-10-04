@@ -1,0 +1,34 @@
+
+
+== /mnt ==
+: 20231004_000917
+
+<pre>
+blusjune@aerosmith:~$ ls -alF /mnt
+total 8
+drwxr-xr-x  2 root root 4096 Sep 30 11:23 ./
+drwxr-xr-x 19 root root 4096 Aug 21 22:44 ../
+lrwxrwxrwx  1 root root   42 Sep 30 11:23 blur -> media.blusjune/.ssd_1t0_t7_blur/..__ROOT__/
+lrwxrwxrwx  1 root root   15 Sep 10 21:23 media.blusjune -> /media/blusjune/
+lrwxrwxrwx  1 root root   43 Sep 18 21:52 oasis -> media.blusjune/.ssd_0t5_t5_oasis/..__ROOT__
+
+
+blusjune@aerosmith:~$ ls -alF /mnt/media.blusjune/
+total 20
+drwxr-x---+ 4 root     root     4096 Oct  4 00:04 ./
+drwxr-xr-x  3 root     root     4096 Apr 21 22:45 ../
+-rw-r--r--  1 root     root      334 Sep 10 18:17 ._README_
+lrwxrwxrwx  1 root     root       10 Sep 10 18:07 .hdd_4t5_wd -> HDD_WD_4T5/
+lrwxrwxrwx  1 root     root       16 Sep 11 00:33 .ssd_0t5_t5_oasis -> SSD_T5_0T5_oasis
+lrwxrwxrwx  1 root     root       15 Sep 29 22:38 .ssd_1t0_t7_blur -> SSD_T7_1T0_blur/
+lrwxrwxrwx  1 root     root       10 Sep 11 00:22 .ssd_1t0_t7_coldplay -> SSD_T7_1T0
+lrwxrwxrwx  1 root     root       10 Sep 10 18:08 .ssd_2t0_t7_shield -> SSD_T7_2T0
+lrwxrwxrwx  1 root     root       11 Sep 10 18:26 .usbmem_0t064_kulashaker -> UM064G_KULA
+lrwxrwxrwx  1 root     root       11 Sep 10 18:27 .usbmem_0t064_trex -> UM064G_TREX
+lrwxrwxrwx  1 root     root       16 Sep 10 18:27 .usbmem_0t256_dukeellington -> UM256G_DukeEllin
+drwxrwxrwx  1 blusjune blusjune 4096 Sep 21 23:32 HDD_WD_4T5/
+drwxr-xr-x  4 root     root     4096 Sep 29 22:57 SSD_T7_1T0_blur/
+lrwxrwxrwx  1 root     root       28 Sep 14 19:37 oasis -> .ssd_0t5_t5_oasis/..__ROOT__
+</pre>
+
+
