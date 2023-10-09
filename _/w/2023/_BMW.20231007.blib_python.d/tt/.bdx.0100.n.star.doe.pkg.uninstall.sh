@@ -1,0 +1,1 @@
+/_b/x/.bdx.0100.y.star.doe.pkg.install.sh

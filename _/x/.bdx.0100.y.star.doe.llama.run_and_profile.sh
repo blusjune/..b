@@ -36,6 +36,7 @@ if [ "X$_answer" = "Xy" ]; then
 	echo $_tstamp > ${_tmp_bdx_d}/.flag.venv.created;
 	#
 	$_star_doe_conf__pkg_install_sh;
+	python -m pip install -e .;
 	echo $_tstamp > ${_tmp_bdx_d}/.flag.pkg.installed;
 	#
 else
