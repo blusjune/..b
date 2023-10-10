@@ -67,6 +67,14 @@ kde-plasma-desktop
 #### phase++
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
+krusader nemo xfe nnn
+krename
+"
+
+
+#### phase++
+_phase=$((_phase + 1));
+_apt_pkg_phase[$_phase]="
 mediawiki
 apache2
 phpmyadmin

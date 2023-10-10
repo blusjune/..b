@@ -1,1 +1,11 @@
-(kwrite, kwrite, "chromium-browser", kate, xclock, konsole, bash, xterm)
+(
+  kwrite,
+  screenshot,
+  kwrite,
+  "chromium-browser",
+  kate,
+  xclock,
+  konsole,
+  bash,
+  xterm
+)

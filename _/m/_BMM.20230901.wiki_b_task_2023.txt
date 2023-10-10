@@ -1,7 +1,342 @@
+== 2023.10 ==
+
+=== 10/09 ===
+
+==== Python code memory profiling ====
+
+<pre>
+b 108
+b 109
+b 110
+b 131
+</pre>
+
+==== tracing data via psutil, logging data via sqlite3 ====
+
+* https://docs.python.org/3/library/sqlite3.html
+* https://psutil.readthedocs.io/en/latest/#system-related-functions
+
+<pre>
+(Pdb) psutil.cpu_times()
+scputimes(user=3140.15, nice=4.4, system=1263.34, idle=226354.7, iowait=673.93, irq=0.0, softirq=39.68, steal=0.0, guest=0.0, guest_nice=0.0)
+(Pdb) psutil.Process().cpu_times()
+pcputimes(user=31.2, system=37.43, children_user=0.0, children_system=0.0, iowait=0.0)
+(Pdb) psutil.Process().cpu_times()
+pcputimes(user=31.2, system=37.43, children_user=0.0, children_system=0.0, iowait=0.0)
+(Pdb) psutil.Process().cpu_times()
+pcputimes(user=31.2, system=37.43, children_user=0.0, children_system=0.0, iowait=0.0)
+(Pdb) import sqlite3
+(Pdb) import sqlite3 as sq 
+(Pdb) sq.connect("star.trace.db")
+<sqlite3.Connection object at 0x7f1b339327a0>
+(Pdb) con = sq.connect("star.trace.db")
+(Pdb) con
+<sqlite3.Connection object at 0x7f1b33932890>
+(Pdb) cur = con.cursor()
+(Pdb) cur
+<sqlite3.Cursor object at 0x7f1b336b7840>
+(Pdb) cur.execute("SHOW DATABASES")
+*** sqlite3.OperationalError: near "SHOW": syntax error
+(Pdb) cur.execute("SHOW help")     
+*** sqlite3.OperationalError: near "SHOW": syntax error
+(Pdb) cur.execute("SHOW help;")
+*** sqlite3.OperationalError: near "SHOW": syntax error
+(Pdb) cur.execute("help SHOW")
+*** sqlite3.OperationalError: near "help": syntax error
+(Pdb) cur.execute("help SHOW;")
+*** sqlite3.OperationalError: near "help": syntax error
+(Pdb) cur.execute("CREATE TABLE movie(title, year, score, genre)")
+<sqlite3.Cursor object at 0x7f1b336b7840>
+(Pdb) res = cur.execute("SHOW COLUMNS from movie")
+*** sqlite3.OperationalError: near "SHOW": syntax error
+(Pdb) b 108
+*** Blank or comment
+(Pdb) b 109
+*** Blank or comment
+(Pdb) b 110
+Breakpoint 3 at /home/blusjune/..b/_/w/2023/_BMW.20231007.blib_python.d/tt/.blib.python.prof.mem.py:110
+(Pdb) cur.execute("CREATE TABLE movie(title, year, score)")
+*** sqlite3.OperationalError: table movie already exists
+(Pdb) res = cur.execute("SELECT name FROM sqlite_master")
+(Pdb) res.fetchone()
+('movie',)
+(Pdb) res.fetchone()
+(Pdb) p data
+*** NameError: name 'data' is not defined
+(Pdb) p d
+*** NameError: name 'd' is not defined
+(Pdb) p dat=[
+*** SyntaxError: invalid syntax
+(Pdb) p dat=[ ("the legend of the fall", 1994, 8.9, "drama" ), ]
+*** SyntaxError: invalid syntax
+(Pdb) dat=[ ("the legend of the fall", 1994, 8.9, "drama" ), ]
+(Pdb) p dat
+[('the legend of the fall', 1994, 8.9, 'drama')]
+(Pdb) dat
+[('the legend of the fall', 1994, 8.9, 'drama')]
+(Pdb) dat = dat + [ ("the purple rain", 1984, 9.1, "music video"), ]
+(Pdb) dat
+[('the legend of the fall', 1994, 8.9, 'drama'), ('the purple rain', 1984, 9.1, 'music video')]
+(Pdb) cur.executemany("INSERT INTO movie VALUES(?, ?, ?, ?)", dat)
+<sqlite3.Cursor object at 0x7f1b336b7840>
+(Pdb) con.commit()
+(Pdb) cur
+<sqlite3.Cursor object at 0x7f1b336b7840>
+(Pdb) for row in cur.execute("SELECT year, title FROM movie ORDER BY year"):
+*** IndentationError: expected an indented block after 'for' statement on line 1
+(Pdb) for row in cur.execute("SELECT year, title FROM movie ORDER BY year"):\
+*** SyntaxError: unexpected EOF while parsing
+(Pdb) for row in cur.execute("SELECT year, title FROM movie ORDER BY year"):\n    print(row)
+*** SyntaxError: unexpected character after line continuation character
+(Pdb) for row in cur.execute("SELECT year, title FROM movie ORDER BY year"): print(row)     
+(1984, 'the purple rain')
+(1994, 'the legend of the fall')
+(Pdb) q
+</pre>
 
 == 2023.09 ==
 
+
+=== 09/20 ===
+
+==== LLAMA 2 analysis: processing flow ====
+
+===== tracing points =====
+<pre>
+
+llama/model.py:280:forward # class Transformer
+llama/model.py:242:forward # class TransformerBlock
+llama/model.py:155 # class Attention
+llama/model.py:221 # class FeedForward
+.env/lib/python3.9/site-packages/fairscale/nn/model_parallel/layers.py:286 # class ColumnParallelLinear
+.env/lib/python3.9/site-packages/fairscale/nn/model_parallel/layers.py:373 # class RowParallelLinear
+
+llama/generation.py:61:build
+llama/generation.py:207:text_completion
+llama/generation.py:125:generate
+torch/utils/_contextlib.py:112:decorate_context
+llama/generation.py:125:generate @torch.inference_mode
+
+.env/lib/python3.9/site-packages/torch/autograd/grad_mode.py:164 # class inference_mode(_DecoratorContextManager):
+
+</pre>
+
+===== actual function tracing configuration =====
+
+
+
+<pre>
+
+
+b llama/model.py:257
+b llama/model.py:280
+b llama/model.py:226
+b llama/model.py:242
+b llama/model.py:100
+b llama/model.py:155
+b llama/model.py:197
+b llama/model.py:221
+b llama/model.py:187
+b .env/lib/python3.9/site-packages/fairscale/nn/model_parallel/layers.py:286
+b .env/lib/python3.9/site-packages/fairscale/nn/model_parallel/layers.py:290
+b .env/lib/python3.9/site-packages/fairscale/nn/model_parallel/layers.py:373
+b llama/generation.py:207
+b llama/generation.py:125
+
+
+</pre>
+
+
+
+
+<pre>
+
+(Pdb) b
+Num Type         Disp Enb   Where
+1   breakpoint   keep yes   at /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/model.py:257
+        breakpoint already hit 1 time
+2   breakpoint   keep yes   at /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/model.py:280
+3   breakpoint   keep yes   at /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/model.py:226
+        breakpoint already hit 1 time
+4   breakpoint   keep yes   at /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/model.py:242
+5   breakpoint   keep yes   at /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/model.py:100
+        breakpoint already hit 1 time
+6   breakpoint   keep yes   at /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/model.py:155
+        breakpoint already hit 5 times
+7   breakpoint   keep yes   at /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/model.py:197
+        breakpoint already hit 1 time
+8   breakpoint   keep yes   at /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/model.py:221
+9   breakpoint   keep yes   at /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/.env/lib/python3.9/site-packages/fairscale/nn/model_parallel/layers.py:286
+10  breakpoint   keep yes   at /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/.env/lib/python3.9/site-packages/fairscale/nn/model_parallel/layers.py:373
+11  breakpoint   keep yes   at /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/generation.py:207
+12  breakpoint   keep yes   at /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/generation.py:125
+        breakpoint already hit 1 time
+14  breakpoint   keep yes   at /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/model.py:109
+        breakpoint already hit 63 times
+15  breakpoint   keep yes   at /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/model.py:181
+        breakpoint already hit 10 times
+16  breakpoint   keep yes   at /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/model.py:187
+        breakpoint already hit 1 time
+
+</pre>
+
+===== actual function tracing result =====
+
+<pre>
+
+
+(Pdb) w
+  /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/example_text_completion.star.cprofile.dbg.py(32)<module>()
+-> from llama import Llama
+  <frozen importlib._bootstrap>(1027)_find_and_load()
+  <frozen importlib._bootstrap>(1006)_find_and_load_unlocked()
+  <frozen importlib._bootstrap>(688)_load_unlocked()
+  <frozen importlib._bootstrap_external>(883)exec_module()
+  <frozen importlib._bootstrap>(241)_call_with_frames_removed()
+  /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/__init__.py(4)<module>()
+-> from .generation import Llama
+  <frozen importlib._bootstrap>(1027)_find_and_load()
+  <frozen importlib._bootstrap>(1006)_find_and_load_unlocked()
+  <frozen importlib._bootstrap>(688)_load_unlocked()
+  <frozen importlib._bootstrap_external>(883)exec_module()
+  <frozen importlib._bootstrap>(241)_call_with_frames_removed()
+  /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/generation.py(20)<module>()
+-> from llama.model import ModelArgs, Transformer
+  <frozen importlib._bootstrap>(1027)_find_and_load()
+  <frozen importlib._bootstrap>(1006)_find_and_load_unlocked()
+  <frozen importlib._bootstrap>(688)_load_unlocked()
+  <frozen importlib._bootstrap_external>(883)exec_module()
+  <frozen importlib._bootstrap>(241)_call_with_frames_removed()
+  /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/model.py(99)<module>()
+-> class Attention(nn.Module):
+> /home/blusjune/..bxd/_/wip/huggingface/wd.huggingface.20230909_134524/model.llama/llama-meta-cpu/llama/model.py(155)Attention()
+-> def forward(
+(Pdb) l
+150                     self.n_local_kv_heads,
+151                     self.head_dim,
+152                 )
+153             ).to(device)
+154  
+155 B->     def forward(
+156             self,
+157             x: torch.Tensor,
+158             start_pos: int,
+159             freqs_cis: torch.Tensor,
+160             mask: Optional[torch.Tensor],
+(Pdb) 
+
+
+
+</pre>
+
+==== 6-month short dispatcher ====
+
+==== Work infra innovation (with KL Do) =====
+
+=== 09/11 (Mon) ===
+
+==== DSRA-Memory Staff Meeting (2023.09.11) ====
+
+; Project
+* AVP meeting (JM Han) materials: UCIe, HBM (work with Soogil, Jaehyup)
+* CMM project (DSRA-Memory and DSK SolDev/DRAMDev; what is the ideal shape?)
+* AI project slides in the DSK biz trip material
+* PBSSD project in DSRA-Memory
+** File: re-launch the startup is the goal; what is killer feature?
+** Object: still unacceptable in terms of core value proposition
+* [ ] DRAM meeting with DSRA-Memory together?
+
+; Organization
+* Dispatcher successor? Hyobong Sohn?
+* Which place for BoEok Seo?
+* DS financial executives: Cho
+* 
+
+; Lab leader tea meeting
+* template
+*
+
+=== 09/07 ===
+
+
+==== sharing asset ====
+
+Syed
+
+==== ai/hf certificate very failed issue ====
+
+ generator = pipeline('text-generation', model='gpt2')
+
+<pre>
+  File "/usr/lib/python3.10/ssl.py", line 1342, in do_handshake
+    self._sslobj.do_handshake()
+ssl.SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1007)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/blusjune/..bxd/_/wip/hf/.env/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/home/blusjune/..bxd/_/wip/hf/.env/lib/python3.10/site-packages/urllib3/connectionpool.py", line 798, in urlopen
+    retries = retries.increment(
+  File "/home/blusjune/..bxd/_/wip/hf/.env/lib/python3.10/site-packages/urllib3/util/retry.py", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /gpt2/resolve/main/config.json (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1007)')))
+</pre>
+
+=== 09/06 ===
+
+==== DSRA-Memory Monthly ====
+
+* ACD
+* MSL
+* TED
+* DTC
+
+
+
+==== Cache DRAM, bufferless HBM, 3D PKG, 3D packaging ====
+
+* [https://www.sedaily.com/NewsView/29UKE4NV4J 삼성, 차세대 '캐시 D램' 개발…패키징에만 2조 투자 고삐] 2023.09.05
+* [https://www.hardwaretimes.com/intels-answer-to-amd-3d-v-cache-cache-dram-50-faster-60-more-efficient-than-hbm/#:~:text=Samsung%20is%20developing%20its%20next,primary%20CPU%20or%20GPU%20die. Intel’s Answer to AMD 3D V-Cache: Cache DRAM, 50% Faster & 60% More Efficient than HBM]
+
+
+
+==== Semiconductor process terminologies ====
+
+* http://blogspot.designonchip.com/2009/10/rtl-engineer.html
+
+==== system simulation information ====
+
+* latency accuracy, IPC (Instructions per cycle) accuracy
+** [https://pharm.ece.wisc.edu/talks/compe_sem_2_8_2002_pharmsim.pdf Precise and Accurate Processor Simulation]
+** [https://scholarworks.wmich.edu/cgi/viewcontent.cgi?article=1000&context=casrl_reports A Comparison of x86 Computer Architecture Simulators]
+** [https://www.intel.com/content/www/us/en/developer/articles/technical/intel-sdm.html Intel® 64 and IA-32 Architectures Software Developer Manuals]
+** [https://www.agner.org/optimize/instruction_tables.pdf Instruction tables] By Agner Fog. Technical University of Denmark.
+
 === 09/05 ===
+
+==== DSRA-Memory materials outline ====
+
+; DSRA-Memory 과제 요약
+# 미래 제품
+## AI 가속 시스템: Bufferless HBM3P 3D PKG 기반 LLM 가속 SoC 구조 확보 및 Test Chip 개발 ('25.4Q MTO)
+## CMM: Memory pooling system (box '25.4Q) 개발 목표로 CMM test chip ('23.9 MTO) 및 switch 요소 기술 및 관리 SW 확보 ('25.1Q)
+# 현세대 솔루션 제품 biz
+## TED 역할: EP/DC SSD PreQ 및 JQ, Field Issue 대응, 이후 PBSSD 및 CMM 등 미래제품 평가/고객대응까지 역할 확대
+
+; 미래 제품 및 요소 기술
+: 목표 일정, 주요 개발 현황, 협업 요청 사항 table
+# 미래제품
+## AI 가속 시스템
+## CMM
+# 요소 기술
+## CXL-DRAM controller
+## DRAM perf simulator
+
+; 현세대 솔루션 제품 biz TED 역할 현황
+# 현황
+# 향후 계획 (주요 마일 스톤)
 
 === 09/01 ===
 
@@ -12,9 +347,10 @@
  <pre>
 
 MT: Meta thought Time
-TM: Technology Management for $_T
-OM: Organization Management for $_O
+TM._T: Technology Management for $_T
+OM._O: Organization Management for $_O
 PM._P: Project Management for $_P
+XI._X: Innovation for $_X
 
 
 _T: one of the tech set {H, S, A, P, X}
@@ -39,8 +375,11 @@ C: CXL solutions
 P: PBSSD
 U: unspecified
 
-</pre>
 
+_X: anything to innovate
+
+
+</pre>
 
 ==== PM.C: CXL software ecosystem strategy ====
 
@@ -91,4 +430,26 @@ CXL 사업 전략을 주도하는 DSK NBP, DSA New Biz, 그리고 SMDK 개발 �
 ** Workflow, R&R
 * Quick sync-up with Soogil; regarding DSRA-S.LSI collab.
 * Sync-up with Bhanu: how to be aligned with the company?
-*
+
+
+
+==== What is the future of CXL? Is CXL-based tiered memory pool the answer? ====
+What is the current status, what is the expected future, what are the killer use cases?
+
+; DRAM
+* [https://compas.cs.stonybrook.edu/~nhonarmand/courses/sp15/cse502/res/dramop.pdf Understanding DRAM Operation] IBM
+* [https://trts1004.tistory.com/12109180 SDRAM parameters] tistory.com
+* [https://www.gamersnexus.net/guides/3333-memory-timings-defined-cas-latency-trcd-trp-tras What Are Memory Timings? CAS Latency, tRCD, tRP, & tRAS (Pt 1)] Gamers Nexus
+* [https://www.anandtech.com/show/3851/everything-you-always-wanted-to-know-about-sdram-memory-but-were-afraid-to-ask/5 Everything You Always Wanted to Know About SDRAM (Memory): But Were Afraid to Ask] ANANDTech
+* [https://www.anandtech.com/show/16143/insights-into-ddr5-subtimings-and-latencies Insights into DDR5 Sub-timings and Latencies] ANANDTech
+
+; CXL
+* [https://www.synopsys.com/blogs/chip-design/cxl-protocol-memory-pooling.html?utm_source=google&utm_medium=search&utm_term=&utm_campaign=&cmp=ps-SIG-G_S_TestCampaign-PMax How CXL Is Improving Latency in High-Performance Computing] Synopsys
+* [https://www.micron.com/solutions/server/cxl CZ120 memory expansion module - Memory capacity for the data center using the CXL™ standard] Micron
+* [https://www.spiceworks.com/tech/hardware/guest-article/boosting-ai-ml-performance-with-compute-express-link/ How Compute Express Link (CXL) Can Boost Your AI/ML Performance] spiceworks.com; July 5, 2023;
+* [https://www.nextplatform.com/2022/12/05/just-how-bad-is-cxl-memory-latency/#:~:text=Most%20CXL%20memory%20controllers%20add,from%20the%20CPU%2C%20Tavallaei%20explains. JUST HOW BAD IS CXL MEMORY LATENCY?] The Next Platform; December 5, 2022;
+* [https://arxiv.org/pdf/2206.02878.pdf TPP: Transparent Page Placement for CXL-Enabled Tiered-Memory] NVIDIA, Meta, UMich
+
+; Intel CPU
+* [https://www.intel.com/content/www/us/en/developer/articles/guide/xeon-performance-tuning-and-solution-guides.html Tuning Guides for Intel® Xeon® Scalable Processor-Based Systems] Intel.com; April 23, 2023;
+
