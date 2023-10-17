@@ -1,4 +1,5 @@
 #!/bin/bash
+# .bdx.0100.y.audio.cdda2wav2mp3.sh
 # 20231002_110918
 
 

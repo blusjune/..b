@@ -2,6 +2,14 @@
 
 
 
+== systemsettings ==
+: 20231016_233441
+
+* 'systemsettings' launches the system setting configuration GUI: this is pretty useful.
+
+
+
+
 == rsync ==
 : 20230910_101144
 

@@ -15,6 +15,15 @@
 
 * [https://wiki.archlinux.org/title/Rip_Audio_CDs Rip Audio CDs] ((B.GOOD))
 
+
+==== Recommened way to rip Audio CD (CDDA) to make mp3 files ====
+
+$ k3b
+
+* Ripped files pattern: %{albumartist}--%{albumtitle}/%{albumartist}--%{albumtitle}--%{number}--%{title}
+* Playlist pattern: %{albumartist}--%{albumtitle}
+
+
 ==== Ripping from Physical discs ====
  $ cdda2wav -vall cddb=-1 speed=4 -paranoia paraopts=proof -B -D /dev/sr0
 or

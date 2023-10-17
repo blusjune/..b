@@ -1,7 +1,8 @@
 (
   kwrite,
-  screenshot,
   kwrite,
+  "xclock -update 1 -analog",
+  screenshot,
   "chromium-browser",
   kate,
   xclock,
