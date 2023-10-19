@@ -1,0 +1,36 @@
+
+
+
+
+== how to checkout to the specific tag ==
+: 20231018_222950
+
+<pre>
+
+$ git clone https://github.com/python/cpython.git
+$ git log
+
+$ git tag   # to check which tags are there
+
+$ git checkout tags/v3.11.0 -b tags-v3.11.0   # checkout tags/v3.11.0 and create a branch with name of 'tags-v3.11.0'
+$ git branch   # check the current branch
+  main
+* tags-v3.11.0
+
+$ git checkout tags/v3.10.0 -b tags-v3.10.0   # checkout tags/v3.10.0 and create a branch with name of 'tags-v3.10.0'
+$ git branch   # check the current branch
+  main
+* tags-v3.10.0
+  tags-v3.11.0
+
+$ git checkout tags-v3.11.0   # switch back to tags/v3.11.0
+$ git branch   # check the current branch
+  main
+  tags-v3.10.0
+* tags-v3.11.0
+
+</pre>
+
+
+
+

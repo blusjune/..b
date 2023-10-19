@@ -1,2 +1,2 @@
-drop matrix_radiohead;
+drop database matrix_radiohead;
 create database matrix_radiohead;
