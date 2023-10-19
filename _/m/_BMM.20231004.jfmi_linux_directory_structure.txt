@@ -1,7 +1,57 @@
 
 
-== /mnt ==
-: 20231004_000917
+
+
+== /mnt: 20231018_233446 ==
+
+
+ $ ls -alF /mnt;
+<pre>
+total 8
+drwxr-xr-x  2 root root 4096 Oct 17 23:20 ./
+drwxr-xr-x 19 root root 4096 Aug 21 22:44 ../
+lrwxrwxrwx  1 root root   42 Sep 30 11:23 blur -> media.blusjune/.ssd_1t0_t7_blur/..__ROOT__
+lrwxrwxrwx  1 root root   42 Oct 17 23:20 dave -> media.blusjune/.hdd_5t0_wd_dave/..__ROOT__
+lrwxrwxrwx  1 root root   43 Oct 17 23:18 duke -> media.blusjune/.hdd_16t0_wd_duke/..__ROOT__
+lrwxrwxrwx  1 root root   15 Sep 10 21:23 media.blusjune -> /media/blusjune/
+lrwxrwxrwx  1 root root   43 Sep 18 21:52 oasis -> media.blusjune/.ssd_0t5_t5_oasis/..__ROOT__
+</pre>
+
+
+ $ ls -alF /mnt/media.blusjune
+<pre>
+total 12
+drwxr-x---+ 2 root     root     4096 Oct 18 23:31 ./
+drwxr-xr-x  3 root     root     4096 Apr 21 22:45 ../
+-rw-r--r--  1 blusjune blusjune  878 Oct 18 23:32 ._README_
+lrwxrwxrwx  1 root     root       16 Oct 16 23:55 .hdd_16t0_wd_duke -> HDD_WD_16T0_Duke
+lrwxrwxrwx  1 root     root       15 Oct 17 23:18 .hdd_5t0_wd_dave -> HDD_WD_5T0_Dave
+lrwxrwxrwx  1 root     root       16 Sep 11 00:33 .ssd_0t5_t5_oasis -> SSD_T5_0T5_oasis
+lrwxrwxrwx  1 root     root       15 Sep 29 22:38 .ssd_1t0_t7_blur -> SSD_T7_1T0_blur
+lrwxrwxrwx  1 root     root       10 Sep 10 18:08 .ssd_2t0_t7_shield -> SSD_T7_2T0
+lrwxrwxrwx  1 root     root       11 Sep 10 18:26 .usbmem_0t064_kulashaker -> UM064G_KULA
+lrwxrwxrwx  1 root     root       11 Sep 10 18:27 .usbmem_0t064_trex -> UM064G_TREX
+lrwxrwxrwx  1 root     root       16 Sep 10 18:27 .usbmem_0t256_dukeellington -> UM256G_DukeEllin
+</pre>
+
+
+ $ tar cf - mnt | gzip -c > /tmp/_root_mnt.tgz
+ $ cat /tmp/_root_mnt.tgz | base64
+<pre>
+H4sIAAAAAAAAA+3VbUrEMBAG4B6lJ2gy+TzGgvg/VFJw1W6hSfX6TqIgyqpFN6DwPhRS2kKGvJ1k
+PmXRNSaZt7aO7ONY78lY0s4bY/k5Se1019vWhRVbyuPa9926LPmr7757/0/NnH/c7qeWc9T8vd+V
+vybqpJKu5K/mKR7H4eZhS3fbaRLDbYyBXJbhKYZStBiGEK4Oh+sQflwc8hfLmI6p4Rw785dKKaOd
+4fyJlDqTf0oxyGwDX7Vm5P9rtf/Hxz/T/3X/V9J+2v/2tf255kvEj/yzeL/Ml59jX/7Ge/4FSDo+
+/x2R5/xfKhPtKuuQP+fP67u2nGPv/u+k0075ev7Lc/1f9n/i/s8+lJrR/wAAAAAAAAAAAAAAAAAA
+b54Bsk2N5gAoAAA=
+</pre>
+ $ cat /tmp/_root_mnt.tgz | base64 > /tmp/_root_mnt.tgz.b64
+ $ cat /tmp/_root_mnt.tgz.b64 | base64 -d > /tmp/mnt.tgz
+
+
+
+
+== /mnt: 20231004_000917 ==
 
 <pre>
 blusjune@aerosmith:~$ ls -alF /mnt
