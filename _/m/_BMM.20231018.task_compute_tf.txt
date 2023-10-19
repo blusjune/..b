@@ -1,0 +1,47 @@
+
+
+== 20231018_183727: patent search ==
+
+
+https://ppubs.uspto.gov/pubwebapp/
+
+https://www.uspto.gov/sites/default/files/documents/Advanced-search-overview-QRG-Patent-Public-Search.pdf
+
+
+
+
+
+"quadric.io".as.
+US-20230054560-A1 or US-20230118326-A1 or US-20230129104-A1 OR US-20230258888-A1 OR US-20230268999-A1
+US-11687466-B1
+"Pezeshki Bardia".inv. # Pezeshki; Bardia
+"Kalman Robert".inv. # Kalman; Robert
+"Kalman Robert".inv. and "Pezeshki Bardia".inv.
+
+
+
+"Ventana Micro Systems".as.
+"Favor John G".inv. # Favor; John G.
+"Srinivasan Srivatsan".inv. # Srinivasan; Srivatsan
+"Favor John G".inv. AND "Srinivasan Srivatsan".inv.
+US-11687466-B1 or US-20220358210-A1 or US-20220358038-A1 OR US-20220358040-A1 or US-20220358044-A1
+
+
+"Next Silicon Ltd".as.
+US-20230244457-A1 or US-20230229489-A1 or EP-4213018-A1 or EP-4209936-A1
+
+
+"SPEEDATA LTD.".as.
+
+
+"Cerebras Systems Inc.".as.
+"Cerebras Systems Inc.".as.
+US-20210143041-A1 or US-11145530-B2 or US-20230071424-A1 or US-20230125522-A1
+
+
+"Groq inc".as.
+US-20230161621-A1 or US-20230141657-A1 or US-20230129113-A1 or US-20230024670-A1 or US-20220365582-A1
+
+
+----
+
