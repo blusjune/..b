@@ -35,11 +35,31 @@ function _rsync_from_cwd_to_usbmem()
 }
 
 
+
+
+### ..b
+(cd  ..b;
+	/_b/x/_BDX;
+	git add -Av;
+	git commit -avs;
+	read -p "### ASK:  git push --all -u ? [y|N]" _answer;
+	if [ "X$_answer" = "Xy" ]; then
+		git push --all -u;
+	fi
+)
+
+
+### mediawiki DB dump
+(cd  /_b/w/x/mediawiki; /_b/x/_BDX;)
+
+
 _usbmem_tgt="$_usbmem_oasis";
 _rsync_from_cwd_to_usbmem;
 
 
 _usbmem_tgt="$_usbmem_blur";
 _rsync_from_cwd_to_usbmem;
+
+
 
 
