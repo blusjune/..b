@@ -31,7 +31,8 @@ $wgSitename = "TheMatrix";
 $wgScriptPath = "/mediawiki";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "http://localhost";
+#$wgServer = "http://localhost";
+$wgServer = "http://beatles";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -45,8 +46,8 @@ $wgLogos = [ '1x' => "$wgResourceBasePath/resources/assets/wiki.png" ];
 $wgEnableEmail = false;
 $wgEnableUserEmail = true; # UPO
 
-$wgEmergencyContact = "apache@🌻.invalid";
-$wgPasswordSender = "apache@🌻.invalid";
+$wgEmergencyContact = "";
+$wgPasswordSender = "";
 
 $wgEnotifUserTalk = false; # UPO
 $wgEnotifWatchlist = false; # UPO
@@ -54,13 +55,13 @@ $wgEmailAuthentication = true;
 
 ## Database settings
 $wgDBtype = "mysql";
-$wgDBserver = "localhost";
-$wgDBname = "matrix";
+$wgDBserver = "beatles";
+$wgDBname = "matrix_radiohead";
 $wgDBuser = "neo";
 $wgDBpassword = "kkk";
 
 # MySQL specific settings
-$wgDBprefix = "matrix_";
+$wgDBprefix = "matrix_radiohead_";
 
 # MySQL table options to use during installation or update
 $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
@@ -103,14 +104,14 @@ $wgShellLocale = "en_US.utf8";
 # Site language code, should be one of the list in ./languages/data/Names.php
 $wgLanguageCode = "en";
 
-$wgSecretKey = "297c29ad1e95be36827fb05b135eccc0ac903c528a08fe8beeca20459fec734d";
+$wgSecretKey = "df00fe26a2ec9d71123bc3205f4f11fb6e8a5dff68c2f5a478ce353c98dddd8e";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "196ffed4a45fb25b";
+$wgUpgradeKey = "af2dc4b7d99105be";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -145,6 +146,8 @@ wfLoadSkin( 'Vector' );
 wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'Cite' );
 wfLoadExtension( 'CiteThisPage' );
+wfLoadExtension( 'CodeEditor' );
+wfLoadExtension( 'ConfirmEdit' );
 wfLoadExtension( 'Gadgets' );
 wfLoadExtension( 'ImageMap' );
 wfLoadExtension( 'InputBox' );
@@ -161,9 +164,11 @@ wfLoadExtension( 'Renameuser' );
 wfLoadExtension( 'ReplaceText' );
 wfLoadExtension( 'Scribunto' );
 wfLoadExtension( 'SecureLinkFixer' );
+wfLoadExtension( 'SpamBlacklist' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TextExtracts' );
+wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'VisualEditor' );
 wfLoadExtension( 'WikiEditor' );
 
