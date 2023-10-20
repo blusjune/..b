@@ -38,8 +38,12 @@ function _rsync_from_cwd_to_usbmem()
 
 
 ### ..b
+echo "### INF:  ..b update";
 (cd  ..b;
-	/_b/x/_BDX;
+	read -p "### ASK:  ..b/_BDX ? [y|N]" _answer;
+	if [ "X$_answer" = "Xy" ]; then
+		/_b/x/_BDX;
+	fi
 	git add -Av;
 	git commit -avs;
 	read -p "### ASK:  git push --all -u ? [y|N]" _answer;
@@ -48,17 +52,16 @@ function _rsync_from_cwd_to_usbmem()
 	fi
 )
 
-
-### mediawiki DB dump
-(cd  /_b/w/x/mediawiki; /_b/x/_BDX;)
-
+(cd  /_b/w/x/mediawiki; /_b/x/_BDX;) ### mediawiki DB dump
 
 _usbmem_tgt="$_usbmem_oasis";
 _rsync_from_cwd_to_usbmem;
 
-
 _usbmem_tgt="$_usbmem_blur";
 _rsync_from_cwd_to_usbmem;
+
+sync;
+
 
 
 
