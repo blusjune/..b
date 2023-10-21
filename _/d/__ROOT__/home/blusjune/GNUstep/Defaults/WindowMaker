@@ -5,8 +5,8 @@
   CycleIgnoreMinimized = NO;
   MenuDisabledColor = "#666666";
   LastWorkspaceKey = None;
-  MoveToWorkspace9Key = None;
   IconTitleBack = "#000000";
+  MoveToWorkspace9Key = None;
   MoveToPrevWorkspaceLayerKey = None;
   MiniwindowPreviewBalloons = NO;
   MaximizeKey = "Control+Mod1+M";
@@ -23,27 +23,28 @@
   WindowShortcut3Key = None;
   MenuTitleFont = "sans serif:bold:pixelsize=12:xlfd=-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
   ClipAutolowerDelay = "";
+  WindowRelaunchKey = "Control+Shift+Mod1+R";
   EnableWorkspacePager = NO;
   MoveTo6to12Head = None;
-  WindowRelaunchKey = "Control+Shift+Mod1+R";
-  IconPosition = trh;
+  IconPosition = brv;
   WindowShortcut4Key = None;
   NoWindowOverDock = NO;
+  OmnipresentKey = None;
   WorkspaceBack = (
     mpixmap,
     "/home/blusjune/GNUstep/Library/WindowMaker/Backgrounds/pink_floyd--dark_side_of_the_moon--wallpaper.svg",
     black
   );
-  OmnipresentKey = None;
   HighlightTextColor = "#000000";
-  SnapEdgeDetect = 1;
   LBCMaximizeKey = None;
+  SnapEdgeDetect = 1;
   ClipAutoexpandDelay = "";
   WindowShortcut9Key = None;
   EnforceIconMargin = NO;
   HelpBalloons = NO;
   WindowSnapping = NO;
   KeepAtBottomKey = None;
+  AutoArrangeIcons = YES;
   KeepOnTopKey = None;
   MoveResizeKey = "Control+Mod1+semicolon";
   AppIconBalloons = NO;
@@ -64,15 +65,15 @@
   MouseBackwardButtonAction = None;
   WorkspaceBorderSize = 0;
   CycleActiveHeadOnly = NO;
-  DockRaiseLowerKey = None;
   MoveToWorkspace1Key = None;
+  DockRaiseLowerKey = None;
   IgnoreGtkHints = NO;
-  WindowShortcut1Key = None;
   ShowClipTitle = YES;
+  WindowShortcut1Key = None;
   RHMaximizeKey = None;
   FrameSelectedBorderColor = "#ffffff";
-  THMaximizeKey = None;
   ClipAutocollapseDelay = "";
+  THMaximizeKey = None;
   AlternativeHalfMaximized = NO;
   MiniaturizeKey = None;
   WindowShortcut2Key = None;
@@ -93,10 +94,10 @@
   MoveToLastWorkspaceKey = None;
   GroupNextKey = None;
   SingleClickLaunch = NO;
-  MenuTextColor = "#000000";
   Attraction = NO;
-  AntialiasedText = YES;
+  MenuTextColor = "#000000";
   DisableBlinking = NO;
+  AntialiasedText = YES;
   MoveToWorkspace5Key = None;
   WorkspaceNameDisplayPosition = center;
   MenuTextFont = "sans serif:bold:pixelsize=12:xlfd=-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
@@ -108,9 +109,9 @@
   HighlightColor = "#ffffff";
   GroupPrevKey = None;
   PointerWithHalfMaxWindows = NO;
-  DisableDrawers = NO;
   MinimizeAllKey = None;
   MoveToWorkspace3Key = None;
+  DisableDrawers = NO;
   CClipTitleColor = "#333333";
   VMaximizeKey = "Control+Mod1+V";
   WindowShortcut5Key = None;

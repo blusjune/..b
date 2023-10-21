@@ -1,7 +1,8 @@
-" 20230701_103934
+" 20230704_013146
 set nu ai cin
 set nocompatible
 set ignorecase
+syntax off
 "Please
 "Open this .vimrc file, and
 "execute the ex command :PlugInstall
