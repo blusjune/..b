@@ -52,6 +52,8 @@ wmaker-utils
 chromium-browser 
 xfce4
 xscreensaver
+xscreensaver-data
+xscreensaver-data-extra
 "
 
 

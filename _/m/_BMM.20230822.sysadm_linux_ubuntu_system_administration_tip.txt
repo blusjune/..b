@@ -2,6 +2,16 @@
 
 
 
+== xscreensaver ==
+: 20231020_220524
+
+$ xscreensaver-command -lock
+$ xscreensaver-command -activate
+$ xscreensaver-command -prefs
+
+
+
+
 == systemsettings ==
 : 20231016_233441
 
