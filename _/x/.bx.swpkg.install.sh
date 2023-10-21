@@ -11,8 +11,7 @@ _exe_log=".exelog.$($_ts).log";
 #### phase++
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
-vim
-emacs
+vim emacs bluefish kwrite
 git gh
 w3m
 aptitude
