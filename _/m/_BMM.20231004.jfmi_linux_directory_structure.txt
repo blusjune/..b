@@ -2,6 +2,44 @@
 
 
 
+== /mnt: 20231022_214348 ==
+
+
+<pre>
+blusjune@aerosmith:/mnt$ ls -alF /mnt/
+total 8
+drwxr-xr-x  2 root root 4096 Oct 22 21:42 ./
+drwxr-xr-x 19 root root 4096 Aug 21 22:44 ../
+lrwxrwxrwx  1 root root   41 Oct 22 21:40 blur -> media.blusjune/.mnt.S01T0_blur/..__ROOT__/
+lrwxrwxrwx  1 root root   15 Sep 10 21:23 media.blusjune -> /media/blusjune/
+lrwxrwxrwx  1 root root   46 Oct 22 21:42 metallica -> media.blusjune/.mnt.H16T0_metallica/..__ROOT__/
+lrwxrwxrwx  1 root root   42 Oct 22 21:41 oasis -> media.blusjune/.mnt.S02T0_oasis/..__ROOT__/
+lrwxrwxrwx  1 root root   46 Oct 22 21:42 pinkfloyd -> media.blusjune/.mnt.H05T0_pinkfloyd/..__ROOT__/
+
+
+blusjune@aerosmith:/mnt$ ls -alF /mnt/media.blusjune/
+total 28
+drwxr-x---+ 6 root     root     4096 Oct 22 14:27 ./
+drwxr-xr-x  3 root     root     4096 Apr 21  2023 ../
+-rw-r--r--  1 blusjune blusjune  878 Oct 18 23:32 ._README_
+lrwxrwxrwx  1 root     root       15 Oct 22 13:41 .mnt.H05T0_pinkfloyd -> H05T0_pinkfloyd/
+lrwxrwxrwx  1 root     root       15 Oct 22 13:41 .mnt.H16T0_metallica -> H16T0_metallica/
+lrwxrwxrwx  1 root     root       14 Oct 22 13:41 .mnt.S00T5_coldplay -> S00T5_coldplay
+lrwxrwxrwx  1 root     root       10 Oct 22 13:50 .mnt.S01T0_blur -> S01T0_blur/
+lrwxrwxrwx  1 root     root       11 Oct 22 13:41 .mnt.S02T0_oasis -> S02T0_oasis/
+lrwxrwxrwx  1 root     root       11 Oct 22 13:54 .mnt.S02T0_verve -> S02T0_verve
+lrwxrwxrwx  1 root     root       11 Sep 10 18:26 .usbmem_0t064_kulashaker -> UM064G_KULA
+lrwxrwxrwx  1 root     root       11 Sep 10 18:27 .usbmem_0t064_trex -> UM064G_TREX
+lrwxrwxrwx  1 root     root       16 Sep 10 18:27 .usbmem_0t256_dukeellington -> UM256G_DukeEllin
+drwxr-xr-x  4 root     root     4096 Oct 22 13:44 H05T0_pinkfloyd/
+drwxr-xr-x  4 root     root     4096 Oct 22 13:44 H16T0_metallica/
+drwxr-xr-x  4 root     root     4096 Sep 29 22:57 S01T0_blur/
+drwxr-xr-x  4 root     root     4096 Oct 22 13:48 S02T0_oasis/
+</pre>
+
+
+
+
 == /mnt: 20231018_233446 ==
 
 

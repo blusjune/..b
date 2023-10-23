@@ -7,8 +7,8 @@ source /_b/x/.blib.rsync.sh;
 
 
 _mnt_root="/mnt/media.blusjune";
-_usbmem_oasis=".ssd_0t5_t5_oasis";
-_usbmem_blur=".ssd_1t0_t7_blur";
+_usbmem_oasis=".mnt.S02T0_oasis";	# S02T0_oasis	# previously ".ssd_0t5_t5_oasis";
+_usbmem_blur=".mnt.S01T0_blur";		# S01T0_blur	# previously ".ssd_1t0_t7_blur";
 
 
 function _rsync_from_cwd_to_usbmem()

@@ -8,8 +8,8 @@
   MoveToWorkspace9Key = None;
   IconTitleBack = "#000000";
   MoveToPrevWorkspaceLayerKey = None;
-  MiniwindowPreviewBalloons = NO;
   MaximizeKey = "Control+Mod1+M";
+  MiniwindowPreviewBalloons = NO;
   MouseForwardButtonAction = None;
   MoveToWorkspace7Key = None;
   IconTitleFont = "sans serif:bold:pixelsize=9:xlfd=-*-helvetica-bold-r-normal-*-9-*-*-*-*-*-*-*";
@@ -36,8 +36,8 @@
     black
   );
   LBCMaximizeKey = None;
-  SnapEdgeDetect = 1;
   HighlightTextColor = "#000000";
+  SnapEdgeDetect = 1;
   ClipAutoexpandDelay = "";
   WindowShortcut9Key = None;
   EnforceIconMargin = NO;
@@ -46,8 +46,8 @@
   KeepAtBottomKey = None;
   MoveResizeKey = "Control+Mod1+semicolon";
   KeepOnTopKey = None;
-  ClipTitleColor = "#000000";
   AppIconBalloons = NO;
+  ClipTitleColor = "#000000";
   MoveTo12to6Head = None;
   MoveHalfMaximizedWindowsBetweenScreens = NO;
   WorkspaceBorder = None;
@@ -56,11 +56,11 @@
   MoveToWorkspace8Key = None;
   WrapAppiconsInDock = YES;
   RunKey = "Control+Shift+R";
-  LHMaximizeKey = None;
-  MoveToPrevWorkspaceKey = "Control+Shift+Mod1+Left";
+  LHMaximizeKey = "Control+Shift+Mod1+Left";
+  MoveToPrevWorkspaceKey = None;
   MoveToWorkspace6Key = None;
   MoveToWorkspace10Key = None;
-  BHMaximizeKey = None;
+  BHMaximizeKey = "Control+Shift+Mod1+Down";
   MouseBackwardButtonAction = None;
   WorkspaceBorderSize = 0;
   CycleActiveHeadOnly = NO;
@@ -69,9 +69,9 @@
   IgnoreGtkHints = NO;
   WindowShortcut1Key = None;
   ShowClipTitle = YES;
-  RHMaximizeKey = None;
+  RHMaximizeKey = "Control+Shift+Mod1+Right";
   FrameSelectedBorderColor = "#ffffff";
-  THMaximizeKey = None;
+  THMaximizeKey = "Control+Shift+Mod1+Up";
   ClipAutocollapseDelay = "";
   AlternativeHalfMaximized = NO;
   MiniaturizeKey = None;
@@ -95,14 +95,14 @@
   SingleClickLaunch = NO;
   MenuTextColor = "#000000";
   Attraction = NO;
-  DisableBlinking = NO;
   AntialiasedText = YES;
+  DisableBlinking = NO;
   MoveToWorkspace5Key = None;
   WorkspaceNameDisplayPosition = center;
   MenuTextFont = "sans serif:bold:pixelsize=12:xlfd=-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
   ScreenSwitchKey = None;
   SnapCornerDetect = 10;
-  MoveToNextWorkspaceKey = "Control+Shift+Mod1+Right";
+  MoveToNextWorkspaceKey = None;
   HMaximizeKey = "Control+Mod1+H";
   SnapToTopMaximizesFullscreen = NO;
   HighlightColor = "#ffffff";
@@ -117,11 +117,11 @@
   HideOthersKey = "Shift+Mod1+H";
   ClipAutoraiseDelay = "";
   WindowShortcut6Key = None;
-  ViKeyMenus = NO;
-  UTitleColor = "#000000";
   BounceAppIconsWhenUrgent = YES;
-  HighlightActiveApp = YES;
+  UTitleColor = "#000000";
+  ViKeyMenus = NO;
   CirculateRaise = NO;
+  HighlightActiveApp = YES;
   PTitleColor = "#ffffff";
   MoveToWorkspace4Key = None;
   RTCMaximizeKey = None;
