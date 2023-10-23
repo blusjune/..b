@@ -22,6 +22,7 @@ function _rsync_from_cwd_to_usbmem()
 		echo "### INF: rsync to  ${_mnt_root}/${_usbmem_tgt}";
 		echo "###";
 		echo "### ___________________________________________________________________________________";
+		sleep 2;
 		_list_to_rsync="..b ..bxd .bigfiles.d";
 		_rsync_target_dir_root="${_mnt_root}/${_usbmem_tgt}/..__ROOT__";
 		_rsync_opt="-v --delete";
