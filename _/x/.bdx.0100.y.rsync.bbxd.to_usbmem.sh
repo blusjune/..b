@@ -7,8 +7,10 @@ source /_b/x/.blib.rsync.sh;
 
 
 _mnt_root="/mnt/media.blusjune";
-_usbmem_oasis=".mnt.S02T0_oasis";	# S02T0_oasis	# previously ".ssd_0t5_t5_oasis";
-_usbmem_blur=".mnt.S01T0_blur";		# S01T0_blur	# previously ".ssd_1t0_t7_blur";
+_usbmem_oasis=".mnt.S02T0_oasis";		# S02T0_oasis		# previously ".ssd_0t5_t5_oasis";
+_usbmem_blur=".mnt.S01T0_blur";			# S01T0_blur		# previously ".ssd_1t0_t7_blur";
+_usbmem_pinkfloyd=".mnt.H05T0_pinkfloyd";	# H05T0_pinkfloyd
+_usbmem_metallica=".mnt.H16T0_metallica";	# H16T0_metallica
 
 
 function _rsync_from_cwd_to_usbmem()
@@ -53,16 +55,34 @@ echo "### INF:  ..b update";
 	fi
 )
 
-(cd  /_b/w/x/mediawiki; /_b/x/_BDX;) ### mediawiki DB dump
 
-_usbmem_tgt="$_usbmem_oasis";
-_rsync_from_cwd_to_usbmem;
+### mediawiki DB dump
+(cd  /_b/w/x/mediawiki; /_b/x/_BDX;) 
 
-_usbmem_tgt="$_usbmem_blur";
-_rsync_from_cwd_to_usbmem;
 
+### rsync to usbmem
+_list_tgt="
+$_usbmem_blur
+$_usbmem_oasis
+$_usbmem_pinkfloyd
+$_usbmem_metallica
+";
+for _usbmem_tgt in $_list_tgt; do
+	echo $_usbmem_tgt;
+	_rsync_from_cwd_to_usbmem;
+done
+
+
+### sync
 sync;
 
+
+
+
+#_usbmem_tgt="$_usbmem_oasis";
+#_rsync_from_cwd_to_usbmem;
+#_usbmem_tgt="$_usbmem_blur";
+#_rsync_from_cwd_to_usbmem;
 
 
 
