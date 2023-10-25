@@ -1,0 +1,10 @@
+[user]
+	name = Brian M. JUNG
+	email = brian.m.jung@gmail.com
+[http]
+	sslVerify = true
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[credential]
+	helper = store
