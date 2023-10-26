@@ -171,8 +171,13 @@ wfLoadExtension( 'TextExtracts' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'VisualEditor' );
 wfLoadExtension( 'WikiEditor' );
+wfLoadExtension( 'Mermaid' );
 
 
 # End of automatically generated settings.
 # Add more configuration options below.
 
+#$wgAllowExternalImages;
+#$wgAllowImageTag;
+
+$mermaidgDefaultTheme = 'forest';

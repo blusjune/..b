@@ -1,0 +1,56 @@
+@startuml
+
+skinparam BackgroundColor transparent
+skinparam componentStyle rectangle
+
+/'
+component [Package1] {
+'portin pi1
+'portin pi2
+'portin pi3
+
+component [CPU1] as cpu1
+component [CPU2] as cpu2
+component [memory] as mem1
+component [memory] as mem2
+component [memory] as mem3
+component [memory] as mem4
+component [Accelerator] as accel1
+component [I/O tile] as iotile
+
+'portout po1
+'portout po2
+'portout po3
+
+cpu1 -left- mem1
+cpu1 -right- cpu2
+cpu2 -right- mem2
+cpu1 -- accel1 : UCIe
+cpu2 -- iotile : UCIe
+mem3 - accel1
+iotile - mem4
+accel1 - iotile : UCIe
+}
+
+Package1 <-down-> [CXL/PCIe]
+Package1 <-down-> [DDR]
+'/
+
+rectangle [pkg1] {
+	[memory1] -r- [cpu1]
+	[cpu1] -r- [cpu2]
+	[cpu2] -r- [memory2]
+	[cpu1] -d- [accel] : UCIe
+	[cpu2] -d- [iotile] : UCIe
+	[memory3] -r- [accel]
+	[accel] -r- [iotile] : UCIe
+	[iotile] -r- [memory4]
+	[accel] -d- [port1]
+	[port2]
+}
+
+[port1] -d- [CXL/PCIe]
+[pkg1] -d- [DDR]
+
+
+@enduml

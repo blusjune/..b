@@ -1,0 +1,12 @@
+total 1116
+drwxrwxr-x  2 blusjune blusjune   4096 Oct 25 23:04 ./
+drwxrwxr-x 18 blusjune blusjune   4096 Oct 19 22:13 ../
+-rwxrwxr-x  1 blusjune blusjune     98 Oct 25 22:26 .bdx.0100.y.edit_puml.sh*
+-rw-rw-r--  1 blusjune blusjune      0 Oct 25 23:04 .list_of_files.txt
+-rw-rw-r--  1 blusjune blusjune 515628 Sep 14 07:44 PBSSD_workflow.pdf
+-rw-rw-r--  1 blusjune blusjune 451033 Oct 25 22:25 PBSSD_workflow.png
+-rw-rw-r--  1 blusjune blusjune  10379 Sep 14 07:44 PBSSD_workflow.puml
+-rw-rw-r--  1 blusjune blusjune   9325 Sep 14 07:44 PBSSD_workflow.puml.v01
+-rw-rw-r--  1 blusjune blusjune   9325 Sep 14 07:44 PBSSD_workflow.puml.v02
+-rw-rw-r--  1 blusjune blusjune 118736 Sep 14 07:44 PBSSD_workflow.svg
+-rw-rw-r--  1 blusjune blusjune    916 Oct 25 23:03 ucie_package_example.puml
