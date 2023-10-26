@@ -1,0 +1,7 @@
+### 20231025_205703 :EXEC: phase[ 1 ]:  vim emacs bluefish kwrite git gh w3m aptitude sysstat net-tools gparted rsync r-base gnuplot itop irqtop htop qtop btop atop numatop tiptop usbtop graphviz imagemagick proftpd-core ncftp exuberant-ctags cscope ipython3 python3-ipython python3-ipython-genutils python3-pip idle idle-python3.10 pyprof2calltree vim-latexsuite vim-pathogen latexml latex-make latex-mk qemu-kvm jq make build-essential clang libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl cmake gtkwave iverilog verilator plocate dkms npm
+### 20231025_205714 :SKIP: phase[ 2 ]:  mysql-server mysql-client
+### 20231025_205717 :SKIP: phase[ 3 ]:  xinit wmaker wmaker-common wmaker-data wmaker-utils chromium-browser xfce4 xscreensaver xscreensaver-data xscreensaver-data-extra
+### 20231025_205718 :SKIP: phase[ 4 ]:  kde-full sddm plasma-desktop kde-plasma-desktop
+### 20231025_205720 :SKIP: phase[ 5 ]:  krusader nemo xfe nnn krename
+### 20231025_205722 :EXEC: phase[ 6 ]:  mediawiki composer apache2 phpmyadmin
+### 20231025_205734 :TERM: terminate this installation loop

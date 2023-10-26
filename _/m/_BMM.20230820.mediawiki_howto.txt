@@ -429,4 +429,47 @@ wfLoadExtension( 'WikiEditor' );
 
 
 
+=== Allow external images ===
+
+* LocalSettings.php
+<pre>
+$wgAllowExternalImages;
+$wgAllowImageTag;
+</pre>
+
+
+
+
+=== Mermaid with Mediawiki ===
+: 20231025_213415
+
+* https://www.mediawiki.org/wiki/Extension:Mermaid
+
+<pre>
+sudo bash
+
+( cd /var/lib/mediawiki ;
+cat > /tmp/composer.local.json << EOF
+{
+	"require": {
+		"mediawiki/mermaid": "~3.1"
+	}
+}
+EOF
+
+mv /tmp/composer.local.json .
+
+wget -cO - https://getcomposer.org/composer-2.phar > composer.phar ; # https://www.mediawiki.org/wiki/Composer
+php composer.phar update --no-dev ; # https://github.com/SemanticMediaWiki/Mermaid/blob/master/docs/INSTALL.md
+
+echo "LocalSettings.php
+
+wfLoadExtension( 'Mermaid' );
+$mermaidgDefaultTheme = 'forest';
+" ;
+)
+</pre>
+
+
+
 
