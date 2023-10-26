@@ -1,5 +1,6 @@
 (
   kwrite,
+  bluefish,
   kwrite,
   "xclock -update 1 -analog",
   screenshot,
