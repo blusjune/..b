@@ -1,7 +1,7 @@
 (
   kwrite,
-  bluefish,
   kwrite,
+  bluefish,
   "xclock -update 1 -analog",
   screenshot,
   "chromium-browser",
