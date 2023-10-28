@@ -1,5 +1,25 @@
 {
   Dock = {
+    Applications2160 = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = Yes;
+        Command = "/usr/bin/WPrefs";
+      },
+      {
+        Forced = No;
+        Name = "x-terminal-emulator.XTerm";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,1";
+        Lock = No;
+        Command = "x-terminal-emulator";
+      }
+    );
     AutoRaiseLower = No;
     Applications = (
       {
@@ -21,28 +41,8 @@
         Command = "x-terminal-emulator";
       }
     );
-    Applications1080 = (
-      {
-        Forced = No;
-        Name = Logo.WMDock;
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,0";
-        Lock = Yes;
-        Command = "/usr/bin/WPrefs";
-      },
-      {
-        Forced = No;
-        Name = "x-terminal-emulator.XTerm";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,1";
-        Lock = No;
-        Command = "x-terminal-emulator";
-      }
-    );
     Lowered = No;
-    Position = "-64,0";
+    Position = "-64,13";
   };
   Clip = {
     Forced = No;
@@ -54,6 +54,18 @@
     Lock = No;
     Command = "-";
   };
+  Applications = (
+    {
+      Name = konsole.konsole;
+      Shaded = No;
+      Miniaturized = No;
+      Command = konsole;
+      Geometry = "960x521+475+324";
+      Hidden = No;
+      Workspace = WS.1;
+      ShortcutMask = 0;
+    }
+  );
   Drawers = (
     {
       Dock = {
@@ -63,7 +75,7 @@
         AutoAttractIcons = No;
       };
       Name = Drawer0;
-      Position = "1856,128";
+      Position = "5696,141";
     }
   );
   Workspaces = (
@@ -112,4 +124,5 @@
       Name = WS.4;
     }
   );
+  Workspace = WS.1;
 }

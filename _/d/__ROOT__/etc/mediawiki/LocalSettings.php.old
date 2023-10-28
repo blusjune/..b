@@ -21,7 +21,7 @@ require_once "$IP/includes/PlatformSettings.php";
 ## Uncomment this to disable output compression
 # $wgDisableOutputCompression = true;
 
-$wgSitename = "TheMatrix";
+$wgSitename = "TheMatrix_Radiohead";
 
 ## The URL base path to the directory containing the wiki;
 ## defaults for all runtime URL paths are based off of this.
@@ -46,8 +46,8 @@ $wgLogos = [ '1x' => "$wgResourceBasePath/resources/assets/wiki.png" ];
 $wgEnableEmail = false;
 $wgEnableUserEmail = true; # UPO
 
-$wgEmergencyContact = "";
-$wgPasswordSender = "";
+$wgEmergencyContact = "apache@🌻.invalid";
+$wgPasswordSender = "apache@🌻.invalid";
 
 $wgEnotifUserTalk = false; # UPO
 $wgEnotifWatchlist = false; # UPO
@@ -55,7 +55,7 @@ $wgEmailAuthentication = true;
 
 ## Database settings
 $wgDBtype = "mysql";
-$wgDBserver = "beatles";
+$wgDBserver = "localhost";
 $wgDBname = "matrix_radiohead";
 $wgDBuser = "neo";
 $wgDBpassword = "kkk";
@@ -104,14 +104,14 @@ $wgShellLocale = "en_US.utf8";
 # Site language code, should be one of the list in ./languages/data/Names.php
 $wgLanguageCode = "en";
 
-$wgSecretKey = "df00fe26a2ec9d71123bc3205f4f11fb6e8a5dff68c2f5a478ce353c98dddd8e";
+$wgSecretKey = "ae870dbce385b47235fc7c88bb2d9fd4370cdb5034490d29273b9c0317014967";
 
 # Changing this will log out all existing sessions.
 $wgAuthenticationTokenVersion = "1";
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "af2dc4b7d99105be";
+$wgUpgradeKey = "ea4205f91a4c0998";
 
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
@@ -123,10 +123,6 @@ $wgRightsIcon = "";
 
 # Path to the GNU diff3 utility. Used for conflict resolution.
 $wgDiff3 = "/usr/bin/diff3";
-
-# The following permissions were set based on your choice in the installer
-$wgGroupPermissions['*']['createaccount'] = false;
-$wgGroupPermissions['*']['edit'] = false;
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'vector', 'monobook':
@@ -147,7 +143,6 @@ wfLoadExtension( 'CategoryTree' );
 wfLoadExtension( 'Cite' );
 wfLoadExtension( 'CiteThisPage' );
 wfLoadExtension( 'CodeEditor' );
-wfLoadExtension( 'ConfirmEdit' );
 wfLoadExtension( 'Gadgets' );
 wfLoadExtension( 'ImageMap' );
 wfLoadExtension( 'InputBox' );
@@ -164,20 +159,13 @@ wfLoadExtension( 'Renameuser' );
 wfLoadExtension( 'ReplaceText' );
 wfLoadExtension( 'Scribunto' );
 wfLoadExtension( 'SecureLinkFixer' );
-wfLoadExtension( 'SpamBlacklist' );
 wfLoadExtension( 'SyntaxHighlight_GeSHi' );
 wfLoadExtension( 'TemplateData' );
 wfLoadExtension( 'TextExtracts' );
-wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'VisualEditor' );
 wfLoadExtension( 'WikiEditor' );
-wfLoadExtension( 'Mermaid' );
 
 
 # End of automatically generated settings.
 # Add more configuration options below.
 
-#$wgAllowExternalImages;
-#$wgAllowImageTag;
-
-$mermaidgDefaultTheme = 'forest';
