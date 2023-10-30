@@ -473,3 +473,27 @@ $mermaidgDefaultTheme = 'forest';
 
 
 
+=== Enabling Math extenstion ===
+
+* https://www.mediawiki.org/wiki/Extension:Math
+* https://www.mediawiki.org/wiki/Special:ExtensionDistributor?extdistname=Math&extdistversion=REL1_40
+
+
+; 1. Download tarball
+<pre>
+mkdir -p .tmp.d;
+(cd .tmp.d;
+_tarball="Math-REL1_40-3f00f61.tar.gz";
+wget https://extdist.wmflabs.org/dist/extensions/${_tarball}; # wget https://extdist.wmflabs.org/dist/extensions/Math-REL1_40-3f00f61.tar.gz
+tar -xzf ${_tarball} -C /var/www/mediawiki/extensions; # tar -xzf Math-REL1_40-3f00f61.tar.gz -C /var/www/mediawiki/extensions
+)
+</pre>
+
+; 2. Add the following code at the bottom of your LocalSettings.php file:
+<pre>
+wfLoadExtension( 'Math' );
+</pre>
+
+
+
+

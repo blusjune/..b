@@ -171,7 +171,6 @@ wfLoadExtension( 'TextExtracts' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'VisualEditor' );
 wfLoadExtension( 'WikiEditor' );
-wfLoadExtension( 'Mermaid' );
 
 
 # End of automatically generated settings.
@@ -180,4 +179,7 @@ wfLoadExtension( 'Mermaid' );
 #$wgAllowExternalImages;
 #$wgAllowImageTag;
 
+wfLoadExtension( 'Mermaid' );
 $mermaidgDefaultTheme = 'forest';
+
+wfLoadExtension( 'Math' );
