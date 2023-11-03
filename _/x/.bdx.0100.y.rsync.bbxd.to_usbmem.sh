@@ -43,13 +43,13 @@ function _rsync_from_cwd_to_usbmem()
 ### ..b
 echo "### INF:  ..b update";
 (cd  ..b;
-	read -p "### ASK:  ..b/_BDX ? [y|N]" _answer;
+	read -p "### ASK:  ..b/_BDX ? [y|N] " _answer;
 	if [ "X$_answer" = "Xy" ]; then
 		/_b/x/_BDX;
 	fi
 	git add -Av;
 	git commit -avs;
-	read -p "### ASK:  git push --all -u ? [y|N]" _answer;
+	read -p "### ASK:  git push --all -u ? [y|N] " _answer;
 	if [ "X$_answer" = "Xy" ]; then
 		git push --all -u;
 	fi
@@ -73,7 +73,6 @@ for _usbmem_tgt in $_list_tgt; do
 done
 
 
-### sync
 sync;
 
 
