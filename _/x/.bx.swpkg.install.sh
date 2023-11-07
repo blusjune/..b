@@ -104,6 +104,7 @@ ffmpeg
 cdparanoia
 k3b
 sound-juicer
+mp3blaster lxmusic music123 elisa clementine rhythmbox cmus qmmp
 "
 
 
