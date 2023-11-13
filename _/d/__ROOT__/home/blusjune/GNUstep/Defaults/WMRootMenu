@@ -30,9 +30,16 @@
     (
       "File Managers",
       (Dolphin, EXEC, dolphin),
-      (Thunar, SHORTCUT, "Control+Shift+Mod1+f", EXEC, thunar),
+      (Thunar, EXEC, thunar),
       (Konqueror, EXEC, konqueror),
-      (Nautilus, EXEC, "nautilus --no-desktop")
+      (Nautilus, EXEC, "nautilus --no-desktop"),
+      (
+        "Run Program",
+        SHORTCUT,
+        "Control+Shift+Mod1+f",
+        EXEC,
+        "/usr/bin/nemo"
+      )
     ),
     (
       Graphics,

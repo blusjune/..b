@@ -627,3 +627,26 @@ PS. If you enjoyed reading this blog post on how to enable HTTPS protocol with A
 
 
 
+== Nemo file manager (previously nautilus) ==
+
+* https://wiki.archlinux.org/title/Nemo
+
+Nemo is a fork of GNOME Files (formerly known as Nautilus). It is also the default file manager of the Cinnamon desktop. Nemo is based on the Files 3.4 code. It was created as a response to the changes in Files 3.6 which saw features such as type ahead find and split pane view removed.
+
+
+=== How to set/change the default terminal emulator for Nemo ===
+: 20231110_222247
+
+$ gsettings set org.cinnamon.desktop.default-applications.terminal exec konsole
+
+
+=== Nemo actions ===
+Nemo allows the user to add new entries to the context menu. The file /usr/share/nemo/actions/sample.nemo_action contains an example of a Nemo action. Directories to place custom action files:
+
+/usr/share/nemo/actions/ for system-wide actions
+~/.local/share/nemo/actions/ for user actions
+Action files must have the .nemo_action file extension.
+
+
+
+

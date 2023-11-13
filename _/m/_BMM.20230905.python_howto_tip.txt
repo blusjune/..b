@@ -596,3 +596,12 @@ main()   # or whatever kicks off your script
 
 
 
+== Python virtual environment (venv, virtualenv) ==
+: 20231111_001947
+
+Try one of the following methods.
+
+$ virtualenv --python=$(which python3.7) .env
+$ python -m venv .env
+
+
