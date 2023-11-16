@@ -8,8 +8,8 @@
   MoveToWorkspace9Key = None;
   IconTitleBack = "#000000";
   MoveToPrevWorkspaceLayerKey = None;
-  MaximizeKey = "Control+Mod1+M";
   MiniwindowPreviewBalloons = NO;
+  MaximizeKey = "Control+Mod1+M";
   MouseForwardButtonAction = None;
   MoveToWorkspace7Key = None;
   IconTitleFont = "sans serif:bold:pixelsize=9:xlfd=-*-helvetica-bold-r-normal-*-9-*-*-*-*-*-*-*";
@@ -21,32 +21,32 @@
   MouseWheelTiltAction = None;
   MenuTitleColor = "#ffffff";
   WindowShortcut3Key = None;
-  MenuTitleFont = "sans serif:bold:pixelsize=12:xlfd=-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
   ClipAutolowerDelay = "";
-  WindowRelaunchKey = "Control+Shift+Mod1+R";
-  MoveTo6to12Head = None;
+  MenuTitleFont = "sans serif:bold:pixelsize=12:xlfd=-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
   EnableWorkspacePager = NO;
+  MoveTo6to12Head = None;
+  WindowRelaunchKey = "Control+Shift+Mod1+R";
+  IconPosition = tlv;
   WindowShortcut4Key = None;
-  IconPosition = trh;
   NoWindowOverDock = NO;
-  OmnipresentKey = None;
   WorkspaceBack = (
     mpixmap,
     "/home/blusjune/GNUstep/Library/WindowMaker/Backgrounds/pink_floyd--dark_side_of_the_moon--wallpaper.svg",
     black
   );
-  LBCMaximizeKey = None;
+  OmnipresentKey = None;
   HighlightTextColor = "#000000";
   SnapEdgeDetect = 1;
+  LBCMaximizeKey = None;
   ClipAutoexpandDelay = "";
   WindowShortcut9Key = None;
   EnforceIconMargin = NO;
   HelpBalloons = NO;
   WindowSnapping = NO;
   KeepAtBottomKey = None;
-  PrevWorkspaceKey = "Control+Shift+Mod1+Left";
-  MoveResizeKey = "Control+Mod1+semicolon";
   KeepOnTopKey = None;
+  MoveResizeKey = "Control+Mod1+semicolon";
+  PrevWorkspaceKey = "Control+Shift+Mod1+Left";
   AppIconBalloons = NO;
   ClipTitleColor = "#000000";
   MoveTo12to6Head = None;
@@ -94,8 +94,8 @@
   MoveToLastWorkspaceKey = None;
   GroupNextKey = None;
   SingleClickLaunch = NO;
-  MenuTextColor = "#000000";
   Attraction = NO;
+  MenuTextColor = "#000000";
   AntialiasedText = YES;
   DisableBlinking = NO;
   MoveToWorkspace5Key = None;
@@ -107,21 +107,21 @@
   HMaximizeKey = "Control+Mod1+H";
   SnapToTopMaximizesFullscreen = NO;
   HighlightColor = "#ffffff";
-  NextWorkspaceKey = "Control+Shift+Mod1+Right";
   GroupPrevKey = None;
+  NextWorkspaceKey = "Control+Shift+Mod1+Right";
   PointerWithHalfMaxWindows = NO;
-  MoveToWorkspace3Key = None;
-  MinimizeAllKey = None;
   DisableDrawers = NO;
-  VMaximizeKey = "Control+Mod1+V";
+  MinimizeAllKey = None;
+  MoveToWorkspace3Key = None;
   CClipTitleColor = "#333333";
+  VMaximizeKey = "Control+Mod1+V";
   WindowShortcut5Key = None;
   HideOthersKey = "Shift+Mod1+H";
   ClipAutoraiseDelay = "";
   WindowShortcut6Key = None;
   BounceAppIconsWhenUrgent = YES;
-  UTitleColor = "#000000";
   ViKeyMenus = NO;
+  UTitleColor = "#000000";
   CirculateRaise = NO;
   HighlightActiveApp = YES;
   PTitleColor = "#ffffff";
