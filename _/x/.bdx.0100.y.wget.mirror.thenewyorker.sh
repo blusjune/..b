@@ -5,8 +5,14 @@
 
 
 
-_basic_options=" --mirror --page-requisites --convert-links --adjust-extension --span-hosts ";
+_ts="date +%Y%m%d_%H%M%S";
+
+
+
+
+_basic_options=" --mirror --background --page-requisites --convert-links --adjust-extension --span-hosts ";
 #	--mirror (-m)
+#	--background (-b)
 #	--page-requisites (-p)
 #	--convert-links (-k)
 #	--adjust-extension (-E)
@@ -22,13 +28,15 @@ _domain_list="newyorker.com"; #_domain_list="www.newyorker.com,contest.newyorker
 
 
 
-wget $_basic_options -t 1 -e robots=off -U $_user_agent $_target_website
-#wget $_basic_options -t 1 -e robots=off -U $_user_agent -D $_domain_list $_target_website
+set -x;
+wget $_basic_options -t 1 -e robots=off -U $_user_agent -D $_domain_list $_target_website ;
+set +x;
+#wget $_basic_options -t 1 -e robots=off -U $_user_agent $_target_website
 
 
 
 
-###
+### _________________________________
 ### History: not satisfactory options
 ###
 #wget -mpHkKEb -t 1 -e robots=off -U $_user_agent -D $_domain_list $_target_website
