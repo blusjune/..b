@@ -81,6 +81,8 @@ mediawiki
 composer
 apache2
 phpmyadmin
+httrack
+webhttrack
 "
 
 
