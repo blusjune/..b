@@ -115,21 +115,8 @@
       Clip = {
         AutoRaiseLower = No;
         AutoCollapse = No;
-        Applications = (
-          {
-            Forced = No;
-            Name = rhythmbox.Rhythmbox;
-            DropCommand = "rhythmbox %d";
-            BuggyApplication = No;
-            AutoLaunch = No;
-            Position = "0,1";
-            Lock = No;
-            PasteCommand = "rhythmbox %s";
-            Command = rhythmbox;
-            Omnipresent = No;
-          }
-        );
-        Collapsed = No;
+        Applications = ();
+        Collapsed = Yes;
         AutoAttractIcons = No;
         Lowered = Yes;
       };
