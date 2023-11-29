@@ -37,7 +37,7 @@
         DropCommand = "/usr/bin/kwalletd5 %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,3";
+        Position = "0,-13";
         Lock = No;
         PasteCommand = "/usr/bin/kwalletd5 %s";
         Command = "/usr/bin/kwalletd5";
@@ -79,14 +79,14 @@
         DropCommand = "/usr/bin/kwalletd5 %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,3";
+        Position = "0,-13";
         Lock = No;
         PasteCommand = "/usr/bin/kwalletd5 %s";
         Command = "/usr/bin/kwalletd5";
       }
     );
     Lowered = No;
-    Position = "0,822";
+    Position = "-64,834";
   };
   Clip = {
     Forced = No;
@@ -107,7 +107,7 @@
         AutoAttractIcons = No;
       };
       Name = Drawer0;
-      Position = "0,886";
+      Position = "1856,898";
     }
   );
   Workspaces = (
@@ -115,21 +115,8 @@
       Clip = {
         AutoRaiseLower = No;
         AutoCollapse = No;
-        Applications = (
-          {
-            Forced = No;
-            Name = rhythmbox.Rhythmbox;
-            DropCommand = "rhythmbox %d";
-            BuggyApplication = No;
-            AutoLaunch = No;
-            Position = "0,1";
-            Lock = No;
-            PasteCommand = "rhythmbox %s";
-            Command = rhythmbox;
-            Omnipresent = No;
-          }
-        );
-        Collapsed = No;
+        Applications = ();
+        Collapsed = Yes;
         AutoAttractIcons = No;
         Lowered = Yes;
       };

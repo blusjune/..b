@@ -10,6 +10,28 @@ $ xscreensaver-command -activate
 $ xscreensaver-command -prefs
 
 
+=== Autostart xscreensaver in WindowMaker ===
+
+* Please edit the file '/etc/xdg/autostart/screensaver.desktop' to put the following lines in this file.
+$ sudo vi /etc/xdg/autostart/screensaver.desktop ;
+<pre>
+[Desktop Entry]
+Name=Screensaver
+Type=Applicaton
+Exec=xscreensaver -nosplash
+</pre>
+
+
+* JFMI (Just for my information), my current Aerosmith (NUC12WSKv7) has the following contents in the same file. It works pretty well.
+$ cat /etc/xdg/autostart/xscreensaver.desktop | grep -e "Exec=" -e "Name=" -e "Type=" ;
+<pre>
+Type=Application
+Name=Screensaver
+Exec=/usr/share/xscreensaver/xscreensaver-wrapper.sh -no-splash
+TryExec=xscreensaver
+</pre>
+
+
 
 
 == systemsettings ==

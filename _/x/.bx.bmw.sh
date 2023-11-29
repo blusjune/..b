@@ -47,6 +47,10 @@ function _bmw_create()
 		if [ ! -L .bxd ]; then
 			ln -s ${HOME}/..bxd/_ .bxd;
 		fi
+		_bigfiles_d=".bigfiles.d";
+		if [ ! -L $_bigfiles_d ]; then
+			ln -s ${HOME}/${_bigfiles_d} ${_bigfiles_d};
+		fi
 	)
 	if [ ! -d $_shortcut_dir ]; then
 		mkdir -p $_shortcut_dir;
