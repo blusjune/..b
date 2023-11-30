@@ -2,6 +2,26 @@
 
 
 
+== awk ==
+
+* https://stackoverflow.com/questions/45571233/sed-inside-an-awk-statement
+<pre>
+$ cat roster.txt
+foo : bar@baz.123
+Employee : Kiara 20 hours@8.25
+Employee : Connor 25 hours@8.00
+Employee : Dylan 30 hours@9.00
+
+$ awk 'BEGIN{FS=OFS=" : "} $1=="Employee"{gsub(/ /,"_",$2); gsub(/@/,"at",$2); gsub(/\./,"dot",$2)} 1' roster.txt
+foo : bar@baz.123
+Employee : Kiara_20_hoursat8dot25
+Employee : Connor_25_hoursat8dot00
+Employee : Dylan_30_hoursat9dot00
+</pre>
+
+
+
+
 == xscreensaver ==
 : 20231020_220524
 

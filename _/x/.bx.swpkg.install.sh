@@ -69,6 +69,13 @@ kde-plasma-desktop
 #### phase++
 _phase=$((_phase + 1));
 _apt_pkg_phase[$_phase]="
+pdf2svg pdfchain pdfgrep pdfmod pdfposter pdfproctools pdfsam qpdf qpdfview xpdf
+"
+
+
+#### phase++
+_phase=$((_phase + 1));
+_apt_pkg_phase[$_phase]="
 krusader nemo xfe nnn
 krename
 "
