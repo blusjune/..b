@@ -15,7 +15,7 @@
         Name = "x-terminal-emulator.XTerm";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,1";
+        Position = "0,-32";
         Lock = No;
         Command = "x-terminal-emulator";
       },
@@ -58,7 +58,7 @@
         Name = "x-terminal-emulator.XTerm";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,1";
+        Position = "0,-32";
         Lock = No;
         Command = "x-terminal-emulator";
       },
@@ -86,7 +86,7 @@
       }
     );
     Lowered = No;
-    Position = "0,822";
+    Position = "-64,0";
   };
   Clip = {
     Forced = No;
@@ -107,7 +107,7 @@
         AutoAttractIcons = No;
       };
       Name = Drawer0;
-      Position = "0,886";
+      Position = "3776,64";
     }
   );
   Workspaces = (
