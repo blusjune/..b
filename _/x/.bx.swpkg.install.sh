@@ -5,6 +5,7 @@
 
 _ts="date +%Y%m%d_%H%M%S";
 declare -A _install_param;
+declare -A _install_cmd;
 _phase=0;
 _exe_log=".exelog.$($_ts).log";
 
@@ -26,6 +27,12 @@ sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://b
 echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update
 sudo apt install brave-browser
+}
+
+
+custom_install__freemind()
+{
+sudo snap install freemind
 }
 
 
@@ -144,6 +151,7 @@ proftpd-core ncftp
 exuberant-ctags cscope
 ipython3 python3-ipython python3-ipython-genutils python3-pip idle idle-python3.10 pyprof2calltree
 vim-latexsuite vim-pathogen
+plantuml
 latexml latex-make latex-mk
 qemu-kvm
 jq
@@ -151,7 +159,7 @@ make build-essential clang libssl-dev zlib1g-dev libbz2-dev libreadline-dev libs
 plocate dkms
 npm
 "
-_install_cmd="sudo apt install";
+_install_cmd[$_phase]="sudo apt install";
 
 
 #### phase++
@@ -160,7 +168,7 @@ _install_param[$_phase]="
 mysql-server
 mysql-client
 "
-_install_cmd="sudo apt install";
+_install_cmd[$_phase]="sudo apt install";
 
 
 #### phase++
@@ -177,7 +185,7 @@ xscreensaver
 xscreensaver-data
 xscreensaver-data-extra
 "
-_install_cmd="sudo apt install";
+_install_cmd[$_phase]="sudo apt install";
 
 
 #### phase++
@@ -188,7 +196,7 @@ sddm
 plasma-desktop
 kde-plasma-desktop
 "
-_install_cmd="sudo apt install";
+_install_cmd[$_phase]="sudo apt install";
 
 
 #### phase++
@@ -196,7 +204,7 @@ _phase=$((_phase + 1));
 _install_param[$_phase]="
 pdf2svg pdfchain pdfgrep pdfmod pdfposter pdfproctools pdfsam qpdf qpdfview xpdf
 "
-_install_cmd="sudo apt install";
+_install_cmd[$_phase]="sudo apt install";
 
 
 #### phase++
@@ -205,7 +213,7 @@ _install_param[$_phase]="
 krusader nemo xfe nnn
 krename
 "
-_install_cmd="sudo apt install";
+_install_cmd[$_phase]="sudo apt install";
 
 
 #### phase++
@@ -218,7 +226,7 @@ phpmyadmin
 httrack
 webhttrack
 "
-_install_cmd="sudo apt install";
+_install_cmd[$_phase]="sudo apt install";
 
 
 #### phase++
@@ -226,7 +234,7 @@ _phase=$((_phase + 1));
 _install_param[$_phase]="
 openjdk-19-dbg openjdk-19-doc openjdk-19-jdk openjdk-19-jre openjdk-19-source
 "
-_install_cmd="sudo apt install";
+_install_cmd[$_phase]="sudo apt install";
 
 
 #### phase++
@@ -244,7 +252,7 @@ k3b
 sound-juicer
 mp3blaster lxmusic music123 elisa clementine rhythmbox cmus qmmp
 "
-_install_cmd="sudo apt install";
+_install_cmd[$_phase]="sudo apt install";
 
 
 #### phase++
@@ -269,7 +277,7 @@ fonts-woowa-bm
 xfonts-baekmuk
 cairosvg
 "
-_install_cmd="sudo apt install";
+_install_cmd[$_phase]="sudo apt install";
 
 
 #### phase++
@@ -281,7 +289,7 @@ blktrace
 sysbench
 iperf
 "
-_install_cmd="sudo apt install";
+_install_cmd[$_phase]="sudo apt install";
 
 
 #### phase++
@@ -291,7 +299,7 @@ meld
 kompare
 diffuse
 "
-_install_cmd="sudo apt install";
+_install_cmd[$_phase]="sudo apt install";
 
 
 #### phase++
@@ -299,7 +307,15 @@ _phase=$((_phase + 1));
 _install_param[$_phase]="
 custom_install__brave_browser
 "
-_install_cmd=" ";
+_install_cmd[$_phase]=" ";
+
+
+#### phase++
+_phase=$((_phase + 1));
+_install_param[$_phase]="
+custom_install__freemind
+"
+_install_cmd[$_phase]=" ";
 
 
 #### phase++
@@ -307,7 +323,7 @@ _phase=$((_phase + 1));
 _install_param[$_phase]="
 custom_install__vim_plantuml
 "
-_install_cmd=" ";
+_install_cmd[$_phase]=" ";
 
 
 #### phase++
@@ -315,7 +331,7 @@ _phase=$((_phase + 1));
 _install_param[$_phase]="
 custom_install__gem5
 "
-_install_cmd=" ";
+_install_cmd[$_phase]=" ";
 
 
 ################################################################################################
@@ -346,7 +362,7 @@ while [ $_i -lt $_phase ]; do
 	case $_answer in 
 		"y"|"Y")
 			echo "### $($_ts) :EXEC: phase[ $_i ]: " ${_install_param[$_i]} | tee -a $_exe_log;
-			${_install_cmd} ${_install_param[$_i]};
+			${_install_cmd[$_i]} ${_install_param[$_i]};
 			;;
 		"s"|"S"|"n"|"N")
 			echo "### $($_ts) :SKIP: phase[ $_i ]: " ${_install_param[$_i]} | tee -a $_exe_log;
