@@ -26,7 +26,7 @@
         DropCommand = "konsole %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,1";
+        Position = "0,2";
         Lock = No;
         PasteCommand = "konsole %s";
         Command = konsole;
@@ -37,7 +37,7 @@
         DropCommand = "/usr/bin/kwalletd5 %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,2";
+        Position = "0,3";
         Lock = No;
         PasteCommand = "/usr/bin/kwalletd5 %s";
         Command = "/usr/bin/kwalletd5";
@@ -68,7 +68,7 @@
         DropCommand = "konsole %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,1";
+        Position = "0,2";
         Lock = No;
         PasteCommand = "konsole %s";
         Command = konsole;
@@ -79,14 +79,14 @@
         DropCommand = "/usr/bin/kwalletd5 %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,2";
+        Position = "0,3";
         Lock = No;
         PasteCommand = "/usr/bin/kwalletd5 %s";
         Command = "/usr/bin/kwalletd5";
       }
     );
     Lowered = No;
-    Position = "0,464";
+    Position = "0,1016";
   };
   Clip = {
     Forced = No;
@@ -107,7 +107,7 @@
         AutoAttractIcons = No;
       };
       Name = Drawer0;
-      Position = "0,656";
+      Position = "0,1912";
     }
   );
   Workspaces = (
