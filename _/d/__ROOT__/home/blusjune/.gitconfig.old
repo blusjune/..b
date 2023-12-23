@@ -1,10 +1,5 @@
 [user]
-	name = Brian M. "Aerosmith" JUNG
+	name = Brian M. (Beatles) JUNG
 	email = brian.m.jung@gmail.com
 [http]
-	sslVerify = true
-[credential "https://github.com"]
-	helper =
-	helper = !/usr/bin/gh auth git-credential
-[credential]
-	helper = store
+	sslverify = false
