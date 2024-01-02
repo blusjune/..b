@@ -119,6 +119,7 @@ fi
 
 
 
+
 #_BMM.20230817.shell_blusjune_bashrc.txt
 #Print the contents of the file '_BMM.20230817.shell_blusjune_bashrc.txt'
 #-------- BMM_PRINT { --------
@@ -141,14 +142,16 @@ eval "$(pyenv init -)"
 function _create_symlink_to_tgt()
 {
 #_tgt="b";
-	if [ ! -L ~/${_tgt} ]; then
+	(cd;
+	if [ ! -L ${_tgt} ]; then
 		if [ -d ..${_tgt} ]; then
 			echo "### INF: ln -s ..${_tgt}/_ ${_tgt}";
 			ln -s ..${_tgt}/_ ${_tgt};
 		else
-			echo "### ERR: there is no ..${_tgt}. so we can not create a symlink ${_tgt}";
+			echo "### ERR: there is no '..${_tgt}'. so we can not create a symlink ${_tgt}";
 		fi
 	fi
+	)
 }
 #
 _tgt="b";
@@ -192,18 +195,8 @@ export QT_IM_MODULE=ibus
 
 #-------- } BMM_PRINT --------
 
-#### >>> conda initialize >>>
-#### !! Contents within this block are managed by 'conda init' !!
-###__conda_setup="$('/home/blusjune/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-###if [ $? -eq 0 ]; then
-###    eval "$__conda_setup"
-###else
-###    if [ -f "/home/blusjune/anaconda3/etc/profile.d/conda.sh" ]; then
-###        . "/home/blusjune/anaconda3/etc/profile.d/conda.sh"
-###    else
-###        export PATH="/home/blusjune/anaconda3/bin:$PATH"
-###    fi
-###fi
-###unset __conda_setup
-#### <<< conda initialize <<<
-
+PATH="/home/blusjune/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/blusjune/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/blusjune/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/blusjune/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/blusjune/perl5"; export PERL_MM_OPT;

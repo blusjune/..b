@@ -1,4 +1,16 @@
 {
+  konsole.konsole = {
+    Icon = konsole.konsole.xpm;
+  };
+  kwalletd5.kwalletd5 = {
+    Icon = kwalletd5.kwalletd5.xpm;
+  };
+  clementine.Clementine = {
+    Icon = clementine.Clementine.xpm;
+  };
+  rhythmbox.Rhythmbox = {
+    Icon = rhythmbox.Rhythmbox.xpm;
+  };
   "brave-browser.Brave-browser" = {
     AlwaysUserIcon = No;
     KeepOnTop = Yes;

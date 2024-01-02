@@ -16,31 +16,9 @@
         Name = "x-terminal-emulator.XTerm";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,-32";
-        Lock = No;
-        Command = "x-terminal-emulator";
-      },
-      {
-        Forced = No;
-        Name = konsole.konsole;
-        DropCommand = "konsole %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
         Position = "0,1";
         Lock = No;
-        PasteCommand = "konsole %s";
-        Command = konsole;
-      },
-      {
-        Forced = No;
-        Name = kwalletd5.kwalletd5;
-        DropCommand = "/usr/bin/kwalletd5 %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,2";
-        Lock = No;
-        PasteCommand = "/usr/bin/kwalletd5 %s";
-        Command = "/usr/bin/kwalletd5";
+        Command = "x-terminal-emulator";
       }
     );
     Applications1080 = (
@@ -58,35 +36,13 @@
         Name = "x-terminal-emulator.XTerm";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,-32";
-        Lock = No;
-        Command = "x-terminal-emulator";
-      },
-      {
-        Forced = No;
-        Name = konsole.konsole;
-        DropCommand = "konsole %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
         Position = "0,1";
         Lock = No;
-        PasteCommand = "konsole %s";
-        Command = konsole;
-      },
-      {
-        Forced = No;
-        Name = kwalletd5.kwalletd5;
-        DropCommand = "/usr/bin/kwalletd5 %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,2";
-        Lock = No;
-        PasteCommand = "/usr/bin/kwalletd5 %s";
-        Command = "/usr/bin/kwalletd5";
+        Command = "x-terminal-emulator";
       }
     );
     Lowered = No;
-    Position = "-64,579";
+    Position = "-64,0";
   };
   Clip = {
     Forced = No;
@@ -107,7 +63,7 @@
         AutoAttractIcons = No;
       };
       Name = Drawer0;
-      Position = "1856,771";
+      Position = "1856,128";
     }
   );
   Workspaces = (
@@ -115,21 +71,8 @@
       Clip = {
         AutoRaiseLower = No;
         AutoCollapse = No;
-        Applications = (
-          {
-            Forced = No;
-            Name = rhythmbox.Rhythmbox;
-            DropCommand = "rhythmbox %d";
-            BuggyApplication = No;
-            AutoLaunch = No;
-            Position = "0,1";
-            Lock = No;
-            PasteCommand = "rhythmbox %s";
-            Command = rhythmbox;
-            Omnipresent = No;
-          }
-        );
-        Collapsed = No;
+        Applications = ();
+        Collapsed = Yes;
         AutoAttractIcons = No;
         Lowered = Yes;
       };
