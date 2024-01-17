@@ -288,6 +288,8 @@ gfio
 blktrace
 sysbench
 iperf
+ndctl
+nvme-cli
 "
 _install_cmd[$_phase]="sudo apt install";
 
