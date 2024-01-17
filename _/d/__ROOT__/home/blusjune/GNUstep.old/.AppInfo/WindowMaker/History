@@ -1,5 +1,5 @@
 (
-  kwrite,
+  gedit,
   kwrite,
   bluefish,
   "xclock -update 1 -analog",
