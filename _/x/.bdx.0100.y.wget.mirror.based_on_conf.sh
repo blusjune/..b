@@ -12,6 +12,7 @@ _bdx_conf_file=".bdx_conf.wget.mirror.txt";
 
 
 _basic_options=" --mirror --background --page-requisites --convert-links --adjust-extension --span-hosts ";
+#_basic_options=" --mirror --background --page-requisites --convert-links --adjust-extension --span-hosts -w 1 --random-wait ";
 #	--mirror (-m)
 #	--background (-b)
 #	--page-requisites (-p)
@@ -20,6 +21,8 @@ _basic_options=" --mirror --background --page-requisites --convert-links --adjus
 #	--span-hosts (-H)
 #	--no-parent (-np)
 #	--backup-converted (-K)
+#	-w 1
+#	--random-wait
 #	--D domain-list
 _user_agent="Brave/114.1.52.126 Google Chrome/114.0.5735.134 Internet Explorer/11.00.19041.1 Microsoft Edge/114.0.1823.51";
 

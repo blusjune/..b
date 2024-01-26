@@ -16,7 +16,7 @@
         Name = "x-terminal-emulator.XTerm";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,-32";
+        Position = "0,-4";
         Lock = No;
         Command = "x-terminal-emulator";
       },
@@ -26,7 +26,7 @@
         DropCommand = "konsole %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,1";
+        Position = "0,-1";
         Lock = No;
         PasteCommand = "konsole %s";
         Command = konsole;
@@ -37,7 +37,7 @@
         DropCommand = "/usr/bin/kwalletd5 %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,2";
+        Position = "0,-2";
         Lock = No;
         PasteCommand = "/usr/bin/kwalletd5 %s";
         Command = "/usr/bin/kwalletd5";
@@ -58,7 +58,7 @@
         Name = "x-terminal-emulator.XTerm";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,-32";
+        Position = "0,-4";
         Lock = No;
         Command = "x-terminal-emulator";
       },
@@ -68,7 +68,7 @@
         DropCommand = "konsole %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,1";
+        Position = "0,-1";
         Lock = No;
         PasteCommand = "konsole %s";
         Command = konsole;
@@ -79,14 +79,14 @@
         DropCommand = "/usr/bin/kwalletd5 %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,2";
+        Position = "0,-2";
         Lock = No;
         PasteCommand = "/usr/bin/kwalletd5 %s";
         Command = "/usr/bin/kwalletd5";
       }
     );
     Lowered = No;
-    Position = "-64,517";
+    Position = "0,1048";
   };
   Clip = {
     Forced = No;
@@ -107,7 +107,7 @@
         AutoAttractIcons = No;
       };
       Name = Drawer0;
-      Position = "1856,709";
+      Position = "0,952";
     }
   );
   Workspaces = (
