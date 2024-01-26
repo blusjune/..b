@@ -8,8 +8,8 @@
   MoveToWorkspace9Key = None;
   IconTitleBack = "#000000";
   MoveToPrevWorkspaceLayerKey = None;
-  MaximizeKey = "Control+Mod1+M";
   MiniwindowPreviewBalloons = NO;
+  MaximizeKey = "Control+Mod1+M";
   MouseForwardButtonAction = None;
   MoveToWorkspace7Key = None;
   IconTitleFont = "sans serif:bold:pixelsize=9:xlfd=-*-helvetica-bold-r-normal-*-9-*-*-*-*-*-*-*";
@@ -27,7 +27,6 @@
   MoveTo6to12Head = None;
   EnableWorkspacePager = NO;
   WindowShortcut4Key = None;
-  IconPosition = tlv;
   NoWindowOverDock = NO;
   OmnipresentKey = None;
   WorkspaceBack = (
@@ -100,6 +99,7 @@
   AntialiasedText = YES;
   MoveToWorkspace5Key = None;
   WorkspaceNameDisplayPosition = center;
+  IconSize = 32;
   MenuTextFont = "sans serif:bold:pixelsize=12:xlfd=-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
   ScreenSwitchKey = None;
   SnapCornerDetect = 10;
@@ -119,8 +119,8 @@
   HideOthersKey = "Shift+Mod1+H";
   ClipAutoraiseDelay = "";
   WindowShortcut6Key = None;
-  UTitleColor = "#000000";
   ViKeyMenus = NO;
+  UTitleColor = "#000000";
   BounceAppIconsWhenUrgent = YES;
   HighlightActiveApp = YES;
   CirculateRaise = NO;
