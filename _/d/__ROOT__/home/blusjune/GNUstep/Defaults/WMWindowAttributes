@@ -8,11 +8,17 @@
   clementine.Clementine = {
     Icon = clementine.Clementine.xpm;
   };
+  kwrite.kwrite = {
+    Icon = kwrite.kwrite.xpm;
+  };
   rhythmbox.Rhythmbox = {
     Icon = rhythmbox.Rhythmbox.xpm;
   };
   "brave-browser.Brave-browser" = {
     AlwaysUserIcon = No;
     KeepOnTop = Yes;
+  };
+  xclock.XClock = {
+    Icon = xclock.XClock.xpm;
   };
 }
