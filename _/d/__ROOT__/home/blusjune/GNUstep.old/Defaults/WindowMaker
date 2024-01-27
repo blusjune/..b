@@ -8,8 +8,9 @@
   MoveToWorkspace9Key = None;
   IconTitleBack = "#000000";
   MoveToPrevWorkspaceLayerKey = None;
-  MiniwindowPreviewBalloons = NO;
   MaximizeKey = "Control+Mod1+M";
+  HideKey = None;
+  MiniwindowPreviewBalloons = NO;
   MouseForwardButtonAction = None;
   MoveToWorkspace7Key = None;
   IconTitleFont = "sans serif:bold:pixelsize=9:xlfd=-*-helvetica-bold-r-normal-*-9-*-*-*-*-*-*-*";
@@ -21,8 +22,8 @@
   MouseWheelTiltAction = None;
   MenuTitleColor = "#ffffff";
   WindowShortcut3Key = None;
-  ClipAutolowerDelay = "";
   MenuTitleFont = "sans serif:bold:pixelsize=12:xlfd=-*-helvetica-bold-r-normal-*-12-*-*-*-*-*-*-*";
+  ClipAutolowerDelay = "";
   WindowRelaunchKey = "Control+Shift+Mod1+R";
   MoveTo6to12Head = None;
   EnableWorkspacePager = NO;
@@ -81,6 +82,7 @@
   ToggleKbdModeKey = None;
   DragMaximizedWindow = Move;
   DoNotMakeAppIconsBounce = NO;
+  ShadeKey = "Control+Mod1+backslash";
   MiniwindowTitleBalloons = NO;
   MaximusKey = None;
   WindowShortcut7Key = None;
