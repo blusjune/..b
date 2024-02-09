@@ -5,21 +5,41 @@
 * Normal case means that there are no exceptional cases.
 * and initial configuration (register/discovery) is already done.
 
-===== Special case: VPoM instance creation =====
 
-* registration
-* discovery
+===== Special case: VPoM instance: create =====
 
-===== Special case: VPoM instance =====
+* p<span class="DFlfde SwHCTb" data-precision="2" data-value="1332.6100000000001">1,332.61</span>re-assumption before this function: 
+** registration
+** discovery
 
-===== Normal case: boot up system (VPoM device, host which holds VPoM device) =====
 
-===== Normal case: initialize VPoM =====
+===== Special case: VPoM instance: remove =====
+
+* give (broadcast) an alert that the DMR (donated memory region) provided by me will be removed
+* give (broadcast) an alert that the DMR (donated memory region) provided by me will be removed
+
+
+
+===== Special case: VPoM instance: change =====
+# backup the essential configuration of the current VPoM instance
+# remove the current VPoM instance
+# create the new VPoM instance with new configuration
+
+
+===== Normal case: boot up and initialize (VPoM device, host which holds VPoM device) =====
+
 
 ===== Normal case: read/write =====
 
-===== Normal case: shutdown system (VPoM device, host which holds VPoM device) =====
+* data path
+* addressing
 
+* address space translation
+** from {pure/full-linear address space(?)}
+** to {node hierarchy + VPoM-local physical address}
+
+
+===== Normal case: destroy and shutdown (VPoM device, host which holds VPoM device) =====
 
 
 ===== Power-on: boot-up and initialize =====

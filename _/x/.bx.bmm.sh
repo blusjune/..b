@@ -102,9 +102,15 @@ function _bmm_grep()
 function _bmm_list()
 {
 	#echo ">>> ${_progname}.list";
-	(cd $_basedir;
-		ls -1 ${_prefix}.*.txt | more;
-	)
+	if [ "X$_keyword" = "X" ]; then
+		(cd $_basedir;
+			ls -1 ${_prefix}.*.txt | more;
+		)
+	else
+		(cd $_basedir;
+			ls -1 ${_prefix}.*.txt | grep -i $_keyword | more;
+		)
+	fi
 }
 
 function _bmm_print()
@@ -187,6 +193,7 @@ case $_progname_called in
 		_bmm_grep;
 		;;
 	"bmml")
+		_keyword=$1;
 		_bmm_list;
 		;;
 	"bmmp")
