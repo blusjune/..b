@@ -1,5 +1,25 @@
 {
   Dock = {
+    Applications2160 = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = Yes;
+        Command = "/usr/bin/WPrefs";
+      },
+      {
+        Forced = No;
+        Name = "x-terminal-emulator.XTerm";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,1";
+        Lock = No;
+        Command = "x-terminal-emulator";
+      }
+    );
     AutoRaiseLower = No;
     Applications = (
       {
@@ -13,150 +33,16 @@
       },
       {
         Forced = No;
-        Name = konsole.konsole;
-        DropCommand = "konsole %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,3";
-        Lock = No;
-        PasteCommand = "konsole %s";
-        Command = konsole;
-      },
-      {
-        Forced = No;
-        Name = rhythmbox.Rhythmbox;
-        DropCommand = "rhythmbox %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,4";
-        Lock = No;
-        PasteCommand = "rhythmbox %s";
-        Command = rhythmbox;
-      },
-      {
-        Forced = No;
-        Name = kwalletd5.kwalletd5;
-        DropCommand = "/usr/bin/kwalletd5 %d";
+        Name = "x-terminal-emulator.XTerm";
         BuggyApplication = No;
         AutoLaunch = No;
         Position = "0,1";
         Lock = No;
-        PasteCommand = "/usr/bin/kwalletd5 %s";
-        Command = "/usr/bin/kwalletd5";
-      },
-      {
-        Forced = No;
-        Name = kwrite.kwrite;
-        DropCommand = "kwrite %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,5";
-        Lock = No;
-        PasteCommand = "kwrite %s";
-        Command = kwrite;
-      },
-      {
-        Forced = No;
-        Name = xclock.XClock;
-        DropCommand = "xclock -update 1 -a %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,6";
-        Lock = No;
-        PasteCommand = "xclock -update 1 -a %s";
-        Command = "xclock -update 1 -a";
-      },
-      {
-        Forced = No;
-        Name = xclock.XClock;
-        DropCommand = "xclock -update 1 -d %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,7";
-        Lock = No;
-        PasteCommand = "xclock -update 1 -d %s";
-        Command = "xclock -update 1 -d";
-      }
-    );
-    Applications1080 = (
-      {
-        Forced = No;
-        Name = Logo.WMDock;
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,0";
-        Lock = Yes;
-        Command = "/usr/bin/WPrefs";
-      },
-      {
-        Forced = No;
-        Name = konsole.konsole;
-        DropCommand = "konsole %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,3";
-        Lock = No;
-        PasteCommand = "konsole %s";
-        Command = konsole;
-      },
-      {
-        Forced = No;
-        Name = rhythmbox.Rhythmbox;
-        DropCommand = "rhythmbox %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,4";
-        Lock = No;
-        PasteCommand = "rhythmbox %s";
-        Command = rhythmbox;
-      },
-      {
-        Forced = No;
-        Name = kwalletd5.kwalletd5;
-        DropCommand = "/usr/bin/kwalletd5 %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,1";
-        Lock = No;
-        PasteCommand = "/usr/bin/kwalletd5 %s";
-        Command = "/usr/bin/kwalletd5";
-      },
-      {
-        Forced = No;
-        Name = kwrite.kwrite;
-        DropCommand = "kwrite %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,5";
-        Lock = No;
-        PasteCommand = "kwrite %s";
-        Command = kwrite;
-      },
-      {
-        Forced = No;
-        Name = xclock.XClock;
-        DropCommand = "xclock -update 1 -a %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,6";
-        Lock = No;
-        PasteCommand = "xclock -update 1 -a %s";
-        Command = "xclock -update 1 -a";
-      },
-      {
-        Forced = No;
-        Name = xclock.XClock;
-        DropCommand = "xclock -update 1 -d %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,7";
-        Lock = No;
-        PasteCommand = "xclock -update 1 -d %s";
-        Command = "xclock -update 1 -d";
+        Command = "x-terminal-emulator";
       }
     );
     Lowered = No;
-    Position = "0,32";
+    Position = "-32,0";
   };
   Clip = {
     Forced = No;
@@ -164,10 +50,22 @@
     DropCommand = "wmsetbg -u -t %d";
     BuggyApplication = No;
     AutoLaunch = No;
-    Position = "0,0";
+    Position = "3840,0";
     Lock = No;
     Command = "-";
   };
+  Applications = (
+    {
+      Name = konsole.konsole;
+      Shaded = No;
+      Miniaturized = No;
+      Command = konsole;
+      Geometry = "960x521+475+324";
+      Hidden = No;
+      Workspace = WS.1;
+      ShortcutMask = 0;
+    }
+  );
   Drawers = (
     {
       Dock = {
@@ -177,7 +75,7 @@
         AutoAttractIcons = No;
       };
       Name = Drawer0;
-      Position = "0,96";
+      Position = "5728,64";
     }
   );
   Workspaces = (
@@ -185,7 +83,32 @@
       Clip = {
         AutoRaiseLower = No;
         AutoCollapse = No;
-        Applications = ();
+        Applications = (
+          {
+            Forced = No;
+            Name = qpdfview.qpdfview;
+            DropCommand = "qpdfview --unique \"/home/blusjune/Documents/doc/downloads/_pdf/technical/CXL Specification_rev3p1_ver1p0_2023August9.pdf\" %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "0,1";
+            Lock = No;
+            PasteCommand = "qpdfview --unique \"/home/blusjune/Documents/doc/downloads/_pdf/technical/CXL Specification_rev3p1_ver1p0_2023August9.pdf\" %s";
+            Command = "qpdfview --unique \"/home/blusjune/Documents/doc/downloads/_pdf/technical/CXL Specification_rev3p1_ver1p0_2023August9.pdf\"";
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = xclock.XClock;
+            DropCommand = "xclock -update 1 -a %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "0,2";
+            Lock = No;
+            PasteCommand = "xclock -update 1 -a %s";
+            Command = "xclock -update 1 -a";
+            Omnipresent = No;
+          }
+        );
         Collapsed = No;
         AutoAttractIcons = No;
         Lowered = Yes;
@@ -226,4 +149,5 @@
       Name = WS.4;
     }
   );
+  Workspace = WS.1;
 }

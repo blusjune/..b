@@ -1,0 +1,35 @@
+
+
+
+
+* Normal case means that there are no exceptional cases.
+* and initial configuration (register/discovery) is already done.
+
+===== Special case: VPoM instance creation =====
+
+* registration
+* discovery
+
+===== Special case: VPoM instance =====
+
+===== Normal case: boot up system (VPoM device, host which holds VPoM device) =====
+
+===== Normal case: initialize VPoM =====
+
+===== Normal case: read/write =====
+
+===== Normal case: shutdown system (VPoM device, host which holds VPoM device) =====
+
+
+
+===== Power-on: boot-up and initialize =====
+
+
+===== Register =====
+
+
+
+===== Power-off: destroy and shutdown =====
+
+
+==== Special case: 
