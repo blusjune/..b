@@ -2,6 +2,25 @@
 
 
 
+
+
+== udisksctl ==
+
+The way that Nemo (file manager) mounts and unmounts some disks
+
+ $ udisksctl mount -b /dev/sde1
+ $ udisksctl unmount -b /dev/sde1
+
+<pre>
+blusjune@aerosmith:~$ udisksctl mount -b /dev/sde1
+Mounted /dev/sde1 at /media/blusjune/H05T0_pinkfloyd
+blusjune@aerosmith:~$ udisksctl unmount -b /dev/sde1
+Unmounted /dev/sde1.
+</pre>
+
+
+
+
 == awk ==
 
 * https://stackoverflow.com/questions/45571233/sed-inside-an-awk-statement

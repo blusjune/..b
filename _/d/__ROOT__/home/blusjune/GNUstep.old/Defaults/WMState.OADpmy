@@ -13,25 +13,23 @@
       },
       {
         Forced = No;
+        Name = "x-terminal-emulator.XTerm";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,-32";
+        Lock = No;
+        Command = "x-terminal-emulator";
+      },
+      {
+        Forced = No;
         Name = konsole.konsole;
         DropCommand = "konsole %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,3";
+        Position = "0,1";
         Lock = No;
         PasteCommand = "konsole %s";
         Command = konsole;
-      },
-      {
-        Forced = No;
-        Name = rhythmbox.Rhythmbox;
-        DropCommand = "rhythmbox %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,4";
-        Lock = No;
-        PasteCommand = "rhythmbox %s";
-        Command = rhythmbox;
       },
       {
         Forced = No;
@@ -39,43 +37,10 @@
         DropCommand = "/usr/bin/kwalletd5 %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,1";
+        Position = "0,2";
         Lock = No;
         PasteCommand = "/usr/bin/kwalletd5 %s";
         Command = "/usr/bin/kwalletd5";
-      },
-      {
-        Forced = No;
-        Name = kwrite.kwrite;
-        DropCommand = "kwrite %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,5";
-        Lock = No;
-        PasteCommand = "kwrite %s";
-        Command = kwrite;
-      },
-      {
-        Forced = No;
-        Name = xclock.XClock;
-        DropCommand = "xclock -update 1 -a %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,6";
-        Lock = No;
-        PasteCommand = "xclock -update 1 -a %s";
-        Command = "xclock -update 1 -a";
-      },
-      {
-        Forced = No;
-        Name = xclock.XClock;
-        DropCommand = "xclock -update 1 -d %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,7";
-        Lock = No;
-        PasteCommand = "xclock -update 1 -d %s";
-        Command = "xclock -update 1 -d";
       }
     );
     Applications1080 = (
@@ -90,25 +55,23 @@
       },
       {
         Forced = No;
+        Name = "x-terminal-emulator.XTerm";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,-32";
+        Lock = No;
+        Command = "x-terminal-emulator";
+      },
+      {
+        Forced = No;
         Name = konsole.konsole;
         DropCommand = "konsole %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,3";
+        Position = "0,1";
         Lock = No;
         PasteCommand = "konsole %s";
         Command = konsole;
-      },
-      {
-        Forced = No;
-        Name = rhythmbox.Rhythmbox;
-        DropCommand = "rhythmbox %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,4";
-        Lock = No;
-        PasteCommand = "rhythmbox %s";
-        Command = rhythmbox;
       },
       {
         Forced = No;
@@ -116,47 +79,14 @@
         DropCommand = "/usr/bin/kwalletd5 %d";
         BuggyApplication = No;
         AutoLaunch = No;
-        Position = "0,1";
+        Position = "0,2";
         Lock = No;
         PasteCommand = "/usr/bin/kwalletd5 %s";
         Command = "/usr/bin/kwalletd5";
-      },
-      {
-        Forced = No;
-        Name = kwrite.kwrite;
-        DropCommand = "kwrite %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,5";
-        Lock = No;
-        PasteCommand = "kwrite %s";
-        Command = kwrite;
-      },
-      {
-        Forced = No;
-        Name = xclock.XClock;
-        DropCommand = "xclock -update 1 -a %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,6";
-        Lock = No;
-        PasteCommand = "xclock -update 1 -a %s";
-        Command = "xclock -update 1 -a";
-      },
-      {
-        Forced = No;
-        Name = xclock.XClock;
-        DropCommand = "xclock -update 1 -d %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,7";
-        Lock = No;
-        PasteCommand = "xclock -update 1 -d %s";
-        Command = "xclock -update 1 -d";
       }
     );
     Lowered = No;
-    Position = "0,170";
+    Position = "0,809";
   };
   Clip = {
     Forced = No;
@@ -177,7 +107,7 @@
         AutoAttractIcons = No;
       };
       Name = Drawer0;
-      Position = "0,234";
+      Position = "0,1001";
     }
   );
   Workspaces = (
@@ -185,7 +115,20 @@
       Clip = {
         AutoRaiseLower = No;
         AutoCollapse = No;
-        Applications = ();
+        Applications = (
+          {
+            Forced = No;
+            Name = rhythmbox.Rhythmbox;
+            DropCommand = "rhythmbox %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "0,1";
+            Lock = No;
+            PasteCommand = "rhythmbox %s";
+            Command = rhythmbox;
+            Omnipresent = No;
+          }
+        );
         Collapsed = No;
         AutoAttractIcons = No;
         Lowered = Yes;
