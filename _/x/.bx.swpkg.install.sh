@@ -290,6 +290,7 @@ sysbench
 iperf
 ndctl
 nvme-cli
+acpi
 "
 _install_cmd[$_phase]="sudo apt install";
 
