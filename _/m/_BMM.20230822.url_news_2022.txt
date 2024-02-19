@@ -1,5 +1,0 @@
-= 2022 =
-
-== 10 ==
-
-* [https://www.nextplatform.com/2022/10/11/deep-dive-on-googles-exascale-tpuv4-ai-systems/ DEEP DIVE ON GOOGLE'S EXASCALE TPUV4 AI SYSTEMS]

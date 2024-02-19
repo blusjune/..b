@@ -1,0 +1,229 @@
+{
+  Dock = {
+    AutoRaiseLower = No;
+    Applications = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = Yes;
+        Command = "/usr/bin/WPrefs";
+      },
+      {
+        Forced = No;
+        Name = konsole.konsole;
+        DropCommand = "konsole %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,3";
+        Lock = No;
+        PasteCommand = "konsole %s";
+        Command = konsole;
+      },
+      {
+        Forced = No;
+        Name = rhythmbox.Rhythmbox;
+        DropCommand = "rhythmbox %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,4";
+        Lock = No;
+        PasteCommand = "rhythmbox %s";
+        Command = rhythmbox;
+      },
+      {
+        Forced = No;
+        Name = kwalletd5.kwalletd5;
+        DropCommand = "/usr/bin/kwalletd5 %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,1";
+        Lock = No;
+        PasteCommand = "/usr/bin/kwalletd5 %s";
+        Command = "/usr/bin/kwalletd5";
+      },
+      {
+        Forced = No;
+        Name = kwrite.kwrite;
+        DropCommand = "kwrite %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,5";
+        Lock = No;
+        PasteCommand = "kwrite %s";
+        Command = kwrite;
+      },
+      {
+        Forced = No;
+        Name = xclock.XClock;
+        DropCommand = "xclock -update 1 -a %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,6";
+        Lock = No;
+        PasteCommand = "xclock -update 1 -a %s";
+        Command = "xclock -update 1 -a";
+      },
+      {
+        Forced = No;
+        Name = xclock.XClock;
+        DropCommand = "xclock -update 1 -d %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,7";
+        Lock = No;
+        PasteCommand = "xclock -update 1 -d %s";
+        Command = "xclock -update 1 -d";
+      }
+    );
+    Applications1080 = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = Yes;
+        Command = "/usr/bin/WPrefs";
+      },
+      {
+        Forced = No;
+        Name = konsole.konsole;
+        DropCommand = "konsole %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,3";
+        Lock = No;
+        PasteCommand = "konsole %s";
+        Command = konsole;
+      },
+      {
+        Forced = No;
+        Name = rhythmbox.Rhythmbox;
+        DropCommand = "rhythmbox %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,4";
+        Lock = No;
+        PasteCommand = "rhythmbox %s";
+        Command = rhythmbox;
+      },
+      {
+        Forced = No;
+        Name = kwalletd5.kwalletd5;
+        DropCommand = "/usr/bin/kwalletd5 %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,1";
+        Lock = No;
+        PasteCommand = "/usr/bin/kwalletd5 %s";
+        Command = "/usr/bin/kwalletd5";
+      },
+      {
+        Forced = No;
+        Name = kwrite.kwrite;
+        DropCommand = "kwrite %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,5";
+        Lock = No;
+        PasteCommand = "kwrite %s";
+        Command = kwrite;
+      },
+      {
+        Forced = No;
+        Name = xclock.XClock;
+        DropCommand = "xclock -update 1 -a %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,6";
+        Lock = No;
+        PasteCommand = "xclock -update 1 -a %s";
+        Command = "xclock -update 1 -a";
+      },
+      {
+        Forced = No;
+        Name = xclock.XClock;
+        DropCommand = "xclock -update 1 -d %d";
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,7";
+        Lock = No;
+        PasteCommand = "xclock -update 1 -d %s";
+        Command = "xclock -update 1 -d";
+      }
+    );
+    Lowered = No;
+    Position = "0,170";
+  };
+  Clip = {
+    Forced = No;
+    Name = Logo.WMClip;
+    DropCommand = "wmsetbg -u -t %d";
+    BuggyApplication = No;
+    AutoLaunch = No;
+    Position = "0,0";
+    Lock = No;
+    Command = "-";
+  };
+  Drawers = (
+    {
+      Dock = {
+        AutoCollapse = Yes;
+        Applications = ();
+        Collapsed = Yes;
+        AutoAttractIcons = No;
+      };
+      Name = Drawer0;
+      Position = "0,234";
+    }
+  );
+  Workspaces = (
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = WS.1;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = WS.2;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = WS.3;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = WS.4;
+    }
+  );
+}
