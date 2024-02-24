@@ -5,6 +5,9 @@
   kwalletd5.kwalletd5 = {
     Icon = kwalletd5.kwalletd5.xpm;
   };
+  groupLeader.WPrefs = {
+    Icon = groupLeader.WPrefs.xpm;
+  };
   clementine.Clementine = {
     Icon = clementine.Clementine.xpm;
   };
@@ -17,6 +20,9 @@
   "brave-browser.Brave-browser" = {
     AlwaysUserIcon = No;
     KeepOnTop = Yes;
+  };
+  systemsettings.systemsettings = {
+    Icon = systemsettings.systemsettings.xpm;
   };
   xclock.XClock = {
     Icon = xclock.XClock.xpm;
