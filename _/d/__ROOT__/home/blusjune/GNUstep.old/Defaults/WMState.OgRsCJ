@@ -24,7 +24,7 @@
       }
     );
     Lowered = No;
-    Position = "0,0";
+    Position = "-32,0";
   };
   Clip = {
     Forced = No;
@@ -47,7 +47,7 @@
             DropCommand = "/usr/bin/WPrefs %d";
             BuggyApplication = No;
             AutoLaunch = No;
-            Position = "7,0";
+            Position = "-7,0";
             Lock = No;
             PasteCommand = "/usr/bin/WPrefs %s";
             Command = "/usr/bin/WPrefs";
@@ -59,7 +59,7 @@
             DropCommand = "rhythmbox %d";
             BuggyApplication = No;
             AutoLaunch = No;
-            Position = "3,0";
+            Position = "-3,0";
             Lock = No;
             PasteCommand = "rhythmbox %s";
             Command = rhythmbox;
@@ -71,7 +71,7 @@
             DropCommand = "konsole %d";
             BuggyApplication = No;
             AutoLaunch = No;
-            Position = "4,0";
+            Position = "-4,0";
             Lock = No;
             PasteCommand = "konsole %s";
             Command = konsole;
@@ -83,7 +83,7 @@
             DropCommand = "xclock -update 1 -d %d";
             BuggyApplication = No;
             AutoLaunch = No;
-            Position = "6,0";
+            Position = "-6,0";
             Lock = No;
             PasteCommand = "xclock -update 1 -d %s";
             Command = "xclock -update 1 -d";
@@ -95,7 +95,7 @@
             DropCommand = "xclock -update 1 -a %d";
             BuggyApplication = No;
             AutoLaunch = No;
-            Position = "5,0";
+            Position = "-5,0";
             Lock = No;
             PasteCommand = "xclock -update 1 -a %s";
             Command = "xclock -update 1 -a";
@@ -107,7 +107,7 @@
             DropCommand = "/usr/bin/kwalletd5 %d";
             BuggyApplication = No;
             AutoLaunch = No;
-            Position = "2,0";
+            Position = "-2,0";
             Lock = No;
             PasteCommand = "/usr/bin/kwalletd5 %s";
             Command = "/usr/bin/kwalletd5";
@@ -119,7 +119,7 @@
             DropCommand = "xdg-desktop-portal-gtk %d";
             BuggyApplication = No;
             AutoLaunch = No;
-            Position = "1,0";
+            Position = "-1,0";
             Lock = No;
             PasteCommand = "xdg-desktop-portal-gtk %s";
             Command = "xdg-desktop-portal-gtk";
@@ -130,7 +130,7 @@
         AutoAttractIcons = No;
       };
       Name = Drawer0;
-      Position = "0,32";
+      Position = "1888,32";
     }
   );
   Workspaces = (
