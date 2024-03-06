@@ -8,7 +8,8 @@ _db_dump_dir="bxd_obj_mediawiki";
 _db_user="neo";
 _db_name="matrix_radiohead";
 _db_dump_prefix="mediawiki_db_dump";
-_db_dump_file_with_tstamp="${_db_dump_prefix}.${_db_name}.$(..ts).sql";
+_db_dump_file_with_tstamp_radix="${_db_dump_prefix}.${_db_name}.tstamp";
+_db_dump_file_with_tstamp="${_db_dump_file_with_tstamp_radix}.$(..ts).sql";
 _db_dump_file_latest="${_db_dump_prefix}.${_db_name}.latest.sql";
 _db_dump_file_latest_dir=".files.d/wiki_db_dump";
 
@@ -18,8 +19,9 @@ _db_dump_file_latest_dir=".files.d/wiki_db_dump";
 function _wiki_db_dump()
 {
 	mysqldump -u $_db_user -p --databases $_db_name > ${_db_dump_dir}/${_db_dump_file_with_tstamp} ;
-	cp -p ${_db_dump_dir}/${_db_dump_file_with_tstamp} ${_db_dump_file_latest_dir}/${_db_dump_file_latest} ;
-	(cd ${_db_dump_file_latest_dir} ; ln -s ${_db_dump_file_latest} ${_db_dump_file_with_tstamp} ;)
+	( cd ${_db_dump_file_latest_dir} ; rm -f ${_db_dump_file_latest} ${_db_dump_file_with_tstamp_radix}.*.sql ; )
+	cp -p  ${_db_dump_dir}/${_db_dump_file_with_tstamp}  ${_db_dump_file_latest_dir}/ ;
+	( cd ${_db_dump_file_latest_dir} ; ln -s ${_db_dump_file_with_tstamp} ${_db_dump_file_latest} ; )
 }
 
 
@@ -52,7 +54,7 @@ EOF
 	echo "____________";
 	ls -alF ${_db_dump_dir}/;
 	echo "____________";
-	_sql_dumpfile_for_load=$(cd $_db_dump_dir; ls -1t mediawiki_db_dump.*.sql | head -1);
+	_sql_dumpfile_for_load=$(cd $_db_dump_dir; ls -1t ${_db_dump_file_with_tstamp_radix}.*.sql | head -1);
 	echo $_sql_dumpfile_for_load;
 	echo "____________";
 	read -p "### ASK:  Do you want to load DB with SQL dump file above? [Y|n] " _answer;
