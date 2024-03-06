@@ -40,6 +40,15 @@ function _rsync_from_cwd_to_usbmem()
 
 
 
+########################################################################################################################
+### main function starts
+########################################################################################################################
+
+
+### mediawiki DB dump
+(cd  /_b/w/x/mediawiki; /_b/x/_BDX;) 
+
+
 ### ..b
 echo "### INF:  ..b update";
 (cd  ..b;
@@ -54,10 +63,6 @@ echo "### INF:  ..b update";
 		git push --all -u;
 	fi
 )
-
-
-### mediawiki DB dump
-(cd  /_b/w/x/mediawiki; /_b/x/_BDX;) 
 
 
 ### rsync to usbmem
