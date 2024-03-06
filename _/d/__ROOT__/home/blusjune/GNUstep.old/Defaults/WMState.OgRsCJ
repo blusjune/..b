@@ -1,0 +1,182 @@
+{
+  Dock = {
+    AutoRaiseLower = No;
+    Applications = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = Yes;
+        Command = "/usr/bin/WPrefs";
+      }
+    );
+    Applications1080 = (
+      {
+        Forced = No;
+        Name = Logo.WMDock;
+        BuggyApplication = No;
+        AutoLaunch = No;
+        Position = "0,0";
+        Lock = Yes;
+        Command = "/usr/bin/WPrefs";
+      }
+    );
+    Lowered = No;
+    Position = "-32,0";
+  };
+  Clip = {
+    Forced = No;
+    Name = Logo.WMClip;
+    DropCommand = "wmsetbg -u -t %d";
+    BuggyApplication = No;
+    AutoLaunch = No;
+    Position = "0,0";
+    Lock = No;
+    Command = "-";
+  };
+  Drawers = (
+    {
+      Dock = {
+        AutoCollapse = Yes;
+        Applications = (
+          {
+            Forced = No;
+            Name = groupLeader.WPrefs;
+            DropCommand = "/usr/bin/WPrefs %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "-7,0";
+            Lock = No;
+            PasteCommand = "/usr/bin/WPrefs %s";
+            Command = "/usr/bin/WPrefs";
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = rhythmbox.Rhythmbox;
+            DropCommand = "rhythmbox %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "-3,0";
+            Lock = No;
+            PasteCommand = "rhythmbox %s";
+            Command = rhythmbox;
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = konsole.konsole;
+            DropCommand = "konsole %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "-4,0";
+            Lock = No;
+            PasteCommand = "konsole %s";
+            Command = konsole;
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = xclock.XClock;
+            DropCommand = "xclock -update 1 -d %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "-6,0";
+            Lock = No;
+            PasteCommand = "xclock -update 1 -d %s";
+            Command = "xclock -update 1 -d";
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = xclock.XClock;
+            DropCommand = "xclock -update 1 -a %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "-5,0";
+            Lock = No;
+            PasteCommand = "xclock -update 1 -a %s";
+            Command = "xclock -update 1 -a";
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = kwalletd5.kwalletd5;
+            DropCommand = "/usr/bin/kwalletd5 %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "-2,0";
+            Lock = No;
+            PasteCommand = "/usr/bin/kwalletd5 %s";
+            Command = "/usr/bin/kwalletd5";
+            Omnipresent = No;
+          },
+          {
+            Forced = No;
+            Name = "xdg-desktop-portal-gtk.Xdg-desktop-portal-gtk";
+            DropCommand = "xdg-desktop-portal-gtk %d";
+            BuggyApplication = No;
+            AutoLaunch = No;
+            Position = "-1,0";
+            Lock = No;
+            PasteCommand = "xdg-desktop-portal-gtk %s";
+            Command = "xdg-desktop-portal-gtk";
+            Omnipresent = No;
+          }
+        );
+        Collapsed = Yes;
+        AutoAttractIcons = No;
+      };
+      Name = Drawer0;
+      Position = "1888,32";
+    }
+  );
+  Workspaces = (
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = WS.1;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = WS.2;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = WS.3;
+    },
+    {
+      Clip = {
+        AutoRaiseLower = No;
+        AutoCollapse = No;
+        Applications = ();
+        Collapsed = No;
+        AutoAttractIcons = No;
+        Lowered = Yes;
+      };
+      Name = WS.4;
+    }
+  );
+}
