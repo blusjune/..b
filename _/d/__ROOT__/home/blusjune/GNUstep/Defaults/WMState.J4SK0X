@@ -18,28 +18,6 @@
         Position = "0,1";
         Lock = No;
         Command = "x-terminal-emulator";
-      },
-      {
-        Forced = No;
-        Name = konsole.konsole;
-        DropCommand = "konsole %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,2";
-        Lock = No;
-        PasteCommand = "konsole %s";
-        Command = konsole;
-      },
-      {
-        Forced = No;
-        Name = kwalletd5.kwalletd5;
-        DropCommand = "/usr/bin/kwalletd5 %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,3";
-        Lock = No;
-        PasteCommand = "/usr/bin/kwalletd5 %s";
-        Command = "/usr/bin/kwalletd5";
       }
     );
     AutoRaiseLower = No;
@@ -61,32 +39,10 @@
         Position = "0,1";
         Lock = No;
         Command = "x-terminal-emulator";
-      },
-      {
-        Forced = No;
-        Name = konsole.konsole;
-        DropCommand = "konsole %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,2";
-        Lock = No;
-        PasteCommand = "konsole %s";
-        Command = konsole;
-      },
-      {
-        Forced = No;
-        Name = kwalletd5.kwalletd5;
-        DropCommand = "/usr/bin/kwalletd5 %d";
-        BuggyApplication = No;
-        AutoLaunch = No;
-        Position = "0,3";
-        Lock = No;
-        PasteCommand = "/usr/bin/kwalletd5 %s";
-        Command = "/usr/bin/kwalletd5";
       }
     );
     Lowered = No;
-    Position = "0,822";
+    Position = "-64,13";
   };
   Clip = {
     Forced = No;
@@ -98,6 +54,18 @@
     Lock = No;
     Command = "-";
   };
+  Applications = (
+    {
+      Name = konsole.konsole;
+      Shaded = No;
+      Miniaturized = No;
+      Command = konsole;
+      Geometry = "960x521+475+324";
+      Hidden = No;
+      Workspace = WS.1;
+      ShortcutMask = 0;
+    }
+  );
   Drawers = (
     {
       Dock = {
@@ -107,7 +75,7 @@
         AutoAttractIcons = No;
       };
       Name = Drawer0;
-      Position = "0,886";
+      Position = "5696,141";
     }
   );
   Workspaces = (
@@ -115,21 +83,8 @@
       Clip = {
         AutoRaiseLower = No;
         AutoCollapse = No;
-        Applications = (
-          {
-            Forced = No;
-            Name = rhythmbox.Rhythmbox;
-            DropCommand = "rhythmbox %d";
-            BuggyApplication = No;
-            AutoLaunch = No;
-            Position = "0,1";
-            Lock = No;
-            PasteCommand = "rhythmbox %s";
-            Command = rhythmbox;
-            Omnipresent = No;
-          }
-        );
-        Collapsed = No;
+        Applications = ();
+        Collapsed = Yes;
         AutoAttractIcons = No;
         Lowered = Yes;
       };
@@ -169,4 +124,5 @@
       Name = WS.4;
     }
   );
+  Workspace = WS.1;
 }
