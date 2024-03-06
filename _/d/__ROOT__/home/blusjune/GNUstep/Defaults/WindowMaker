@@ -8,14 +8,15 @@
   MoveToWorkspace9Key = None;
   IconTitleBack = "#000000";
   MoveToPrevWorkspaceLayerKey = None;
+  MiniwindowPreviewBalloons = NO;
   MaximizeKey = "Control+Mod1+M";
   HideKey = None;
-  MiniwindowPreviewBalloons = NO;
   MouseForwardButtonAction = None;
   MoveToWorkspace7Key = None;
   IconTitleFont = "sans serif:bold:pixelsize=9:xlfd=-*-helvetica-bold-r-normal-*-9-*-*-*-*-*-*-*";
   LargeDisplayFont = "sans serif:bold:pixelsize=24:xlfd=-*-helvetica-bold-r-normal-*-24-*-*-*-*-*-*-*";
   RBCMaximizeKey = "Control+Mod1+G";
+  IconificationStyle = twist;
   WindowShortcut10Key = None;
   IconTitleColor = "#ffffff";
   MoveToWorkspace2Key = None;
@@ -47,8 +48,8 @@
   PrevWorkspaceKey = "Control+Shift+Mod1+Left";
   MoveResizeKey = "Control+Mod1+semicolon";
   KeepOnTopKey = None;
-  ClipTitleColor = "#000000";
   AppIconBalloons = NO;
+  ClipTitleColor = "#000000";
   MoveTo12to6Head = None;
   MoveHalfMaximizedWindowsBetweenScreens = NO;
   WorkspaceBorder = None;

@@ -1,13 +1,28 @@
 {
-  qpdfview.qpdfview = {
-    Icon = qpdfview.qpdfview.xpm;
+  konsole.konsole = {
+    Icon = konsole.konsole.xpm;
+  };
+  kwalletd5.kwalletd5 = {
+    Icon = kwalletd5.kwalletd5.xpm;
+  };
+  groupLeader.WPrefs = {
+    Icon = groupLeader.WPrefs.xpm;
+  };
+  clementine.Clementine = {
+    Icon = clementine.Clementine.xpm;
   };
   kwrite.kwrite = {
     Icon = kwrite.kwrite.xpm;
   };
+  rhythmbox.Rhythmbox = {
+    Icon = rhythmbox.Rhythmbox.xpm;
+  };
   "brave-browser.Brave-browser" = {
     AlwaysUserIcon = No;
     KeepOnTop = Yes;
+  };
+  systemsettings.systemsettings = {
+    Icon = systemsettings.systemsettings.xpm;
   };
   xclock.XClock = {
     Icon = xclock.XClock.xpm;

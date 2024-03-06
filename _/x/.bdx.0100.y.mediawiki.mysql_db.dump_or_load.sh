@@ -8,14 +8,18 @@ _db_dump_dir="bxd_obj_mediawiki";
 _db_user="neo";
 _db_name="matrix_radiohead";
 _db_dump_prefix="mediawiki_db_dump";
-_db_dump_file="${_db_dump_prefix}.${_db_name}.$(..ts).sql";
+_db_dump_file_with_tstamp="${_db_dump_prefix}.${_db_name}.$(..ts).sql";
+_db_dump_file_latest="${_db_dump_prefix}.${_db_name}.latest.sql";
+_db_dump_file_latest_dir=".files.d/wiki_db_dump";
 
 
 
 
 function _wiki_db_dump()
 {
-	mysqldump -u $_db_user -p --databases $_db_name > ${_db_dump_dir}/${_db_dump_file}
+	mysqldump -u $_db_user -p --databases $_db_name > ${_db_dump_dir}/${_db_dump_file_with_tstamp} ;
+	cp -p ${_db_dump_dir}/${_db_dump_file_with_tstamp} ${_db_dump_file_latest_dir}/${_db_dump_file_latest} ;
+	(cd ${_db_dump_file_latest_dir} ; ln -s ${_db_dump_file_latest} ${_db_dump_file_with_tstamp} ;)
 }
 
 
