@@ -2,6 +2,10 @@
 
 
 
+== pdftoppm ==
+
+* pdftoppm -jpeg 'DMV Registration 20230521.PDF' dmv_registration_20230521.jpg;  ## Works well
+* convert DMV\ Registration\ 20230521.PDF dmv_registration_20230521.jpg; ## ERROR
 
 
 == udisksctl ==
