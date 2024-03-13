@@ -16,6 +16,19 @@ _db_dump_file_latest_dir=".files.d/wiki_db_dump";
 
 
 
+function _wiki_db_list()
+{
+	echo "### INF:  0. Check the SQL dump files we have";
+	echo "____________";
+	ls -alF ${_db_dump_dir}/;
+	echo "____________";
+	echo "";
+	main_func;
+}
+
+
+
+
 function _wiki_db_dump()
 {
 	mysqldump -u $_db_user -p --databases $_db_name > ${_db_dump_dir}/${_db_dump_file_with_tstamp} ;
@@ -34,6 +47,13 @@ function _wiki_db_load()
 	drop database $_db_name;
 	create database $_db_name;
 EOF
+
+
+	echo "### INF:  0. Check the latest 10 SQL dump files";
+	echo "____________";
+	ls -alF ${_db_dump_dir}/ | tail -10;
+	echo "____________";
+	echo "";
 
 
 	echo "### INF:  1. Prep";
@@ -70,8 +90,19 @@ EOF
 
 
 
-read -p "### ASK:  (1) DB dump?  (2) DB load?  [1|2] " _answer;
+function main_func()
+{
+read -p "### ASK:  (0) list?  (1) dump?  (2) load?  (9) exit?  [0|1|2|9] " _answer;
+#read -p "### ASK:  (0) list files?  (1) DB dump?  (2) DB load?  (9) exit?  [0|1|2|9] " _answer;
 case $_answer in
+	"0"|"list"|"l"|"L")
+		echo "=============================================================";
+		echo "-------------------------------------------------------------";
+		echo "### INF:  list DB SQL files";
+		_wiki_db_list;
+		echo "-------------------------------------------------------------";
+		echo "=============================================================";
+		;;
 	"1"|"dump"|"d"|"D")
 		echo "=============================================================";
 		echo "-------------------------------------------------------------";
@@ -90,6 +121,13 @@ case $_answer in
 		echo "-------------------------------------------------------------";
 		echo "=============================================================";
 		;;
+	"9"|"exit"|"e"|"E")
+		echo "=============================================================";
+		echo "-------------------------------------------------------------";
+		echo "### INF:  exit this program:  $0";
+		echo "-------------------------------------------------------------";
+		echo "=============================================================";
+		;;
 	*)
 		echo "=============================================================";
 		echo "-------------------------------------------------------------";
@@ -99,7 +137,9 @@ case $_answer in
 		exit 0;
 		;;
 esac
+}
 
 
 
 
+main_func;
