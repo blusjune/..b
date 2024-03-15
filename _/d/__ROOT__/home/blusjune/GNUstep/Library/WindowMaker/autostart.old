@@ -2,3 +2,7 @@
 xset m 20/10 4
 
 ibus-daemon -d
+
+xclock -u 1 -d
+xclock -u 1 -a
+
