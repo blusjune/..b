@@ -38,6 +38,23 @@ function _rsync_from_cwd_to_usbmem()
 }
 
 
+function _ddb_update()
+{
+### _ddb_target="..b"
+	read -p "### ASK:  '${_ddb_target}' update ? (${_ddb_target}/_BDX; git add/commit;) [y|N] " _answer;
+	if [ "X$_answer" = "Xy" ]; then
+		(cd  ${_ddb_target};
+			git add -Av;
+			git commit -avs;
+			read -p "### ASK:  git push --all -u ? [y|N] " _answer;
+			if [ "X$_answer" = "Xy" ]; then
+				git push --all -u;
+			fi
+		)
+	else
+		echo "### INF:  Nothing happened for '${_ddb_target}'";
+	fi
+}
 
 
 ########################################################################################################################
@@ -49,20 +66,9 @@ function _rsync_from_cwd_to_usbmem()
 (cd  /_b/w/x/mediawiki; /_b/x/_BDX;) 
 
 
-### ..b
-echo "### INF:  ..b update";
-(cd  ..b;
-	read -p "### ASK:  ..b/_BDX ? [y|N] " _answer;
-	if [ "X$_answer" = "Xy" ]; then
-		/_b/x/_BDX;
-	fi
-	git add -Av;
-	git commit -avs;
-	read -p "### ASK:  git push --all -u ? [y|N] " _answer;
-	if [ "X$_answer" = "Xy" ]; then
-		git push --all -u;
-	fi
-)
+### update: ..b, ..bxd
+_ddb_target="..b"; _ddb_update;
+_ddb_target="..bxd"; _ddb_update;
 
 
 ### rsync to usbmem
