@@ -117,8 +117,6 @@ if ! shopt -oq posix; then
 fi
 
 
-
-
 #_BMM.20230817.shell_blusjune_bashrc.txt
 #Print the contents of the file '_BMM.20230817.shell_blusjune_bashrc.txt'
 #-------- BMM_PRINT { --------
@@ -141,14 +139,16 @@ eval "$(pyenv init -)"
 function _create_symlink_to_tgt()
 {
 #_tgt="b";
-	if [ ! -L ~/${_tgt} ]; then
+	(cd;
+	if [ ! -L ${_tgt} ]; then
 		if [ -d ..${_tgt} ]; then
 			echo "### INF: ln -s ..${_tgt}/_ ${_tgt}";
 			ln -s ..${_tgt}/_ ${_tgt};
 		else
-			echo "### ERR: there is no ..${_tgt}. so we can not create a symlink ${_tgt}";
+			echo "### ERR: there is no '..${_tgt}'. so we can not create a symlink ${_tgt}";
 		fi
 	fi
+	)
 }
 #
 _tgt="b";
@@ -191,6 +191,7 @@ export QT_IM_MODULE=ibus
 ### }blusjune_bashrc
 
 #-------- } BMM_PRINT --------
+
 
 #### >>> conda initialize >>>
 #### !! Contents within this block are managed by 'conda init' !!
