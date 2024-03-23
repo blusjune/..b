@@ -18,7 +18,7 @@ _db_dump_file_latest_dir=".files.d/wiki_db_dump";
 
 function _wiki_db_list()
 {
-	echo "### INF:  0. Check the SQL dump files we have";
+	echo "### INF:  Check the SQL dump files we have";
 	echo "____________";
 	ls -alF ${_db_dump_dir}/;
 	echo "____________";
@@ -49,30 +49,30 @@ function _wiki_db_load()
 EOF
 
 
-	echo "### INF:  0. Check the latest 10 SQL dump files";
+#	echo "### INF:  0. Check the latest 10 SQL dump files";
+#	echo "____________";
+#	ls -alF ${_db_dump_dir}/ | tail -10;
+#	echo "____________";
+#	echo "";
+#
+#
+#	echo "### INF:  1. Prep";
+#	echo "____________";
+#	cat $_sql_file_for_prep;
+#	echo "____________";
+#	read -p "### ASK:  Do you want to execute this SQL commands? [Y|n] " _answer;
+#	if [ "X$_answer" = "Xy" ]; then
+#		set -x;
+#		mysql -p -u $_db_user < $_sql_file_for_prep # > db_load_result.log
+#		set +x;
+#	else
+#		echo "### INF:  Nothing happened"
+#	fi
+
+
+	echo "### INF:  Check the latest 10 SQL dump files";
 	echo "____________";
 	ls -alF ${_db_dump_dir}/ | tail -10;
-	echo "____________";
-	echo "";
-
-
-	echo "### INF:  1. Prep";
-	echo "____________";
-	cat $_sql_file_for_prep;
-	echo "____________";
-	read -p "### ASK:  Do you want to execute this SQL commands? [Y|n] " _answer;
-	if [ "X$_answer" = "Xy" ]; then
-		set -x;
-		mysql -p -u $_db_user < $_sql_file_for_prep # > db_load_result.log
-		set +x;
-	else
-		echo "### INF:  Nothing happened"
-	fi
-
-
-	echo "### INF:  2. Main (load DB with SQL dump file)";
-	echo "____________";
-	ls -alF ${_db_dump_dir}/;
 	echo "____________";
 	_sql_dumpfile_for_load=$(cd $_db_dump_dir; ls -1t ${_db_dump_file_with_tstamp_radix}.*.sql | head -1);
 	echo $_sql_dumpfile_for_load;
@@ -80,6 +80,8 @@ EOF
 	read -p "### ASK:  Do you want to load DB with SQL dump file above? [Y|n] " _answer;
 	if [ "X$_answer" = "Xy" ]; then
 		set -x;
+		cat $_sql_file_for_prep;
+		mysql -p -u $_db_user < $_sql_file_for_prep # > db_load_result.log
 		mysql -p -u $_db_user < ${_db_dump_dir}/${_sql_dumpfile_for_load} # > db_load_result.log
 		set +x;
 	else
