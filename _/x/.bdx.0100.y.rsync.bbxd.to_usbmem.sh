@@ -29,11 +29,6 @@ function _rsync_from_cwd_to_usbmem()
 		_rsync_target_dir_root="${_mnt_root}/${_usbmem_tgt}/..__ROOT__";
 		_rsync_opt="-v --delete";
 		rsync_exec;
-		#
-		#_list_to_rsync=".config";
-		#_rsync_target_dir_root="${_mnt_root}/${_usbmem_tgt}/..__ROOT__/home.blusjune.$(hostname)";
-		#_rsync_opt="-v --delete";
-		#rsync_exec;
 	fi
 }
 
