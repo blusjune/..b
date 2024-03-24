@@ -1,0 +1,10 @@
+### 20240324_131010 :SKIP: phase[ 1 ]:  vim emacs bluefish kwrite git gh w3m aptitude sysstat net-tools gparted rsync r-base gnuplot itop irqtop htop qtop btop atop numatop tiptop usbtop graphviz imagemagick proftpd-core ncftp exuberant-ctags cscope ipython3 python3-ipython python3-ipython-genutils python3-pip idle idle-python3.10 pyprof2calltree vim-latexsuite vim-pathogen plantuml latexml latex-make latex-mk qemu-kvm jq make build-essential clang libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl cmake gtkwave iverilog verilator plocate dkms npm
+### 20240324_131010 :SKIP: phase[ 2 ]:  mysql-server mysql-client
+### 20240324_131011 :SKIP: phase[ 3 ]:  xinit wmaker wmaker-common wmaker-data wmaker-utils chromium-browser xfce4 xscreensaver xscreensaver-data xscreensaver-data-extra
+### 20240324_131011 :SKIP: phase[ 4 ]:  kde-full sddm plasma-desktop kde-plasma-desktop
+### 20240324_131012 :SKIP: phase[ 5 ]:  pdf2svg pdfchain pdfgrep pdfmod pdfposter pdfproctools pdfsam qpdf qpdfview xpdf
+### 20240324_131013 :SKIP: phase[ 6 ]:  krusader nemo xfe nnn krename
+### 20240324_131014 :SKIP: phase[ 7 ]:  mediawiki composer apache2 phpmyadmin httrack webhttrack
+### 20240324_131014 :SKIP: phase[ 8 ]:  openjdk-19-dbg openjdk-19-doc openjdk-19-jdk openjdk-19-jre openjdk-19-source
+### 20240324_131018 :EXEC: phase[ 9 ]:  gimp libreoffice libreoffice-plasma kphotoalbum eog gwenview ffmpeg cdparanoia k3b sound-juicer audacity audacious mp3blaster lxmusic music123 elisa clementine rhythmbox cmus qmmp
+### 20240324_131042 :TERM: terminate this installation loop

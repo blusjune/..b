@@ -1,0 +1,6 @@
+### 20240324_160114 :SKIP: phase[ 1 ]: Essential; ::  vim emacs bluefish kwrite git gh w3m aptitude sysstat net-tools gparted rsync r-base gnuplot r-cran-findpython itop irqtop htop qtop btop atop numatop tiptop usbtop graphviz imagemagick proftpd-core ncftp exuberant-ctags cscope ipython3 python3-ipython python3-ipython-genutils python3-pip idle idle-python3.10 pyprof2calltree vim-python-jedi python-is-python3 meld kompare diffuse vim-latexsuite vim-pathogen plantuml latexml latex-make latex-mk qemu-kvm jq make build-essential clang libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl cmake gtkwave iverilog verilator plocate dkms npm
+### 20240324_160116 :SKIP: phase[ 2 ]: Database; ::  mysql-server mysql-client
+### 20240324_160127 :SKIP: phase[ 3 ]: X Windows Systems - Essential; ::  xinit wmaker wmaker-common wmaker-data wmaker-utils chromium-browser xfce4 xscreensaver xscreensaver-data xscreensaver-data-extra
+### 20240324_160134 :SKIP: phase[ 4 ]: X Windows Systems - Advanced; ::  kde-full sddm plasma-desktop kde-plasma-desktop
+### 20240324_160149 :SKIP: phase[ 5 ]: PDF; ::  pdf2svg pdfchain pdfgrep pdfmod pdfposter pdfproctools pdfsam qpdf qpdfview xpdf
+### 20240324_160206 :SKIP: phase[ 6 ]: File Manager; ::  krusader nemo xfe nnn krename

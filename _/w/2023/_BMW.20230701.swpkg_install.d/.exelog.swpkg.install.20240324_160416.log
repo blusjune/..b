@@ -1,0 +1,15 @@
+### 20240324_160419 :SKIP: phase[ 1 ]: Essential; ::  vim emacs bluefish kwrite git gh w3m aptitude sysstat net-tools gparted rsync r-base gnuplot r-cran-findpython itop irqtop htop qtop btop atop numatop tiptop usbtop graphviz imagemagick proftpd-core ncftp exuberant-ctags cscope ipython3 python3-ipython python3-ipython-genutils python3-pip idle idle-python3.10 pyprof2calltree vim-python-jedi python-is-python3 meld kompare diffuse vim-latexsuite vim-pathogen plantuml latexml latex-make latex-mk qemu-kvm jq make build-essential clang libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl cmake gtkwave iverilog verilator plocate dkms npm
+### 20240324_160424 :SKIP: phase[ 2 ]: Database; ::  mysql-server mysql-client
+### 20240324_160426 :SKIP: phase[ 3 ]: X Windows Systems - Essential; ::  xinit wmaker wmaker-common wmaker-data wmaker-utils chromium-browser xfce4 xscreensaver xscreensaver-data xscreensaver-data-extra
+### 20240324_160429 :SKIP: phase[ 4 ]: X Windows Systems - Advanced; ::  kde-full sddm plasma-desktop kde-plasma-desktop
+### 20240324_160430 :SKIP: phase[ 5 ]: PDF; ::  pdf2svg pdfchain pdfgrep pdfmod pdfposter pdfproctools pdfsam qpdf qpdfview xpdf
+### 20240324_160431 :SKIP: phase[ 6 ]: File Manager; ::  krusader nemo xfe nnn krename
+### 20240324_160432 :SKIP: phase[ 7 ]: Web; ::  mediawiki composer apache2 phpmyadmin httrack webhttrack
+### 20240324_160438 :SKIP: phase[ 8 ]: Java; ::  openjdk-19-dbg openjdk-19-doc openjdk-19-jdk openjdk-19-jre openjdk-19-source
+### 20240324_160444 :SKIP: phase[ 9 ]: Office; Image; Sound; Picture; Photo; Audio; Music; ::  libreoffice libreoffice-plasma gimp kphotoalbum eog gwenview ffmpeg cdparanoia k3b sound-juicer mp3blaster lxmusic music123 elisa clementine rhythmbox cmus qmmp audacity audacious
+### 20240324_160444 :SKIP: phase[ 10 ]: Hangul Input; ::  language-pack-kde-ko language-pack-ko language-pack-ko-base ibus-hangul libhangul-data libhangul-dev libhangul1 fonts-baekmuk fonts-lexi-gulim fonts-lexi-saebom fonts-nanum fonts-nanum-eco fonts-nanum-extra fonts-naver-d2coding fonts-unfonts-core fonts-unfonts-extra fonts-woowa-bm xfonts-baekmuk cairosvg
+### 20240324_160445 :SKIP: phase[ 11 ]: System Performance Benchmark; ::  fio gfio blktrace sysbench iperf ndctl nvme-cli acpi
+### 20240324_160445 :SKIP: phase[ 12 ]: Brave Browser; ::  custom_install__brave_browser
+### 20240324_160445 :SKIP: phase[ 13 ]: Freemind; ::  custom_install__freemind
+### 20240324_160445 :SKIP: phase[ 14 ]: PlantUML - VIM; ::  custom_install__vim_plantuml
+### 20240324_160446 :SKIP: phase[ 15 ]: Gem5; ::  custom_install__gem5

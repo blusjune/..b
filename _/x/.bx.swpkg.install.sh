@@ -3,11 +3,14 @@
 # 20230630_232320
 
 
+_prog_name_radix="swpkg.install";
+_prog_name=".bx.${_prog_name_radix}.sh";
 _ts="date +%Y%m%d_%H%M%S";
+declare -A _install_group_descr;
 declare -A _install_param;
 declare -A _install_cmd;
 _phase=0;
-_exe_log=".exelog.$($_ts).log";
+_exe_log=".exelog.${_prog_name_radix}.$($_ts).log";
 
 
 
@@ -138,6 +141,7 @@ custom_install__gem5()
 
 #### phase++
 _phase=$((_phase + 1));
+_install_group_descr[$_phase]="Essential;"
 _install_param[$_phase]="
 vim emacs bluefish kwrite
 git gh
@@ -145,11 +149,15 @@ w3m
 aptitude
 sysstat net-tools gparted rsync
 r-base gnuplot
+r-cran-findpython
 itop irqtop htop qtop btop atop numatop tiptop usbtop
 graphviz imagemagick
 proftpd-core ncftp
 exuberant-ctags cscope
 ipython3 python3-ipython python3-ipython-genutils python3-pip idle idle-python3.10 pyprof2calltree
+vim-python-jedi
+python-is-python3
+meld kompare diffuse
 vim-latexsuite vim-pathogen
 plantuml
 latexml latex-make latex-mk
@@ -164,6 +172,7 @@ _install_cmd[$_phase]="sudo apt install";
 
 #### phase++
 _phase=$((_phase + 1));
+_install_group_descr[$_phase]="Database;"
 _install_param[$_phase]="
 mysql-server
 mysql-client
@@ -173,6 +182,7 @@ _install_cmd[$_phase]="sudo apt install";
 
 #### phase++
 _phase=$((_phase + 1));
+_install_group_descr[$_phase]="X Windows Systems - Essential;"
 _install_param[$_phase]="
 xinit
 wmaker
@@ -190,6 +200,7 @@ _install_cmd[$_phase]="sudo apt install";
 
 #### phase++
 _phase=$((_phase + 1));
+_install_group_descr[$_phase]="X Windows Systems - Advanced;"
 _install_param[$_phase]="
 kde-full
 sddm
@@ -201,6 +212,7 @@ _install_cmd[$_phase]="sudo apt install";
 
 #### phase++
 _phase=$((_phase + 1));
+_install_group_descr[$_phase]="PDF;"
 _install_param[$_phase]="
 pdf2svg pdfchain pdfgrep pdfmod pdfposter pdfproctools pdfsam qpdf qpdfview xpdf
 "
@@ -209,6 +221,7 @@ _install_cmd[$_phase]="sudo apt install";
 
 #### phase++
 _phase=$((_phase + 1));
+_install_group_descr[$_phase]="File Manager;"
 _install_param[$_phase]="
 krusader nemo xfe nnn
 krename
@@ -218,6 +231,7 @@ _install_cmd[$_phase]="sudo apt install";
 
 #### phase++
 _phase=$((_phase + 1));
+_install_group_descr[$_phase]="Web;"
 _install_param[$_phase]="
 mediawiki
 composer
@@ -231,6 +245,7 @@ _install_cmd[$_phase]="sudo apt install";
 
 #### phase++
 _phase=$((_phase + 1));
+_install_group_descr[$_phase]="Java;"
 _install_param[$_phase]="
 openjdk-19-dbg openjdk-19-doc openjdk-19-jdk openjdk-19-jre openjdk-19-source
 "
@@ -239,31 +254,24 @@ _install_cmd[$_phase]="sudo apt install";
 
 #### phase++
 _phase=$((_phase + 1));
+_install_group_descr[$_phase]="Office; Image; Sound; Picture; Photo; Audio; Music;"
 _install_param[$_phase]="
+libreoffice libreoffice-plasma
 gimp
-libreoffice
-libreoffice-plasma
-kphotoalbum
-eog
-gwenview
-ffmpeg
-cdparanoia
-k3b
-sound-juicer
+kphotoalbum eog gwenview
+ffmpeg cdparanoia k3b sound-juicer
 mp3blaster lxmusic music123 elisa clementine rhythmbox cmus qmmp
+audacity audacious
 "
 _install_cmd[$_phase]="sudo apt install";
 
 
 #### phase++
 _phase=$((_phase + 1));
+_install_group_descr[$_phase]="Hangul Input;"
 _install_param[$_phase]="
-r-cran-findpython
-vim-python-jedi
 language-pack-kde-ko language-pack-ko language-pack-ko-base
 ibus-hangul libhangul-data libhangul-dev libhangul1
-python-is-python3
-pacman
 fonts-baekmuk
 fonts-lexi-gulim
 fonts-lexi-saebom
@@ -282,6 +290,7 @@ _install_cmd[$_phase]="sudo apt install";
 
 #### phase++
 _phase=$((_phase + 1));
+_install_group_descr[$_phase]="System Performance Benchmark;"
 _install_param[$_phase]="
 fio
 gfio
@@ -297,16 +306,7 @@ _install_cmd[$_phase]="sudo apt install";
 
 #### phase++
 _phase=$((_phase + 1));
-_install_param[$_phase]="
-meld
-kompare
-diffuse
-"
-_install_cmd[$_phase]="sudo apt install";
-
-
-#### phase++
-_phase=$((_phase + 1));
+_install_group_descr[$_phase]="Brave Browser;"
 _install_param[$_phase]="
 custom_install__brave_browser
 "
@@ -315,6 +315,7 @@ _install_cmd[$_phase]=" ";
 
 #### phase++
 _phase=$((_phase + 1));
+_install_group_descr[$_phase]="Freemind;"
 _install_param[$_phase]="
 custom_install__freemind
 "
@@ -323,6 +324,7 @@ _install_cmd[$_phase]=" ";
 
 #### phase++
 _phase=$((_phase + 1));
+_install_group_descr[$_phase]="PlantUML - VIM;"
 _install_param[$_phase]="
 custom_install__vim_plantuml
 "
@@ -331,6 +333,7 @@ _install_cmd[$_phase]=" ";
 
 #### phase++
 _phase=$((_phase + 1));
+_install_group_descr[$_phase]="Gem5;"
 _install_param[$_phase]="
 custom_install__gem5
 "
@@ -360,22 +363,22 @@ while [ $_i -lt $_phase ]; do
 	_i=$((_i + 1));
 	echo "";
 	echo "_____________";
-	echo "phase[ $_i ]: " ${_install_param[$_i]};
+	echo "phase[ $_i ]: ${_install_group_descr[$_i]} :: " ${_install_param[$_i]};
 	read -p ">>> Execute? [Y(yes)|s(skip)|t(terminate)] " _answer;
 	case $_answer in 
 		"y"|"Y")
-			echo "### $($_ts) :EXEC: phase[ $_i ]: " ${_install_param[$_i]} | tee -a $_exe_log;
+			echo "### $($_ts) :EXEC: phase[ $_i ]: ${_install_group_descr[$_i]} :: " ${_install_param[$_i]} | tee -a $_exe_log;
 			${_install_cmd[$_i]} ${_install_param[$_i]};
 			;;
 		"s"|"S"|"n"|"N")
-			echo "### $($_ts) :SKIP: phase[ $_i ]: " ${_install_param[$_i]} | tee -a $_exe_log;
+			echo "### $($_ts) :SKIP: phase[ $_i ]: ${_install_group_descr[$_i]} :: " ${_install_param[$_i]} | tee -a $_exe_log;
 			;;
 		"t"|"T")
 			echo "### $($_ts) :TERM: terminate this installation loop" | tee -a $_exe_log;
 			break;
 			;;
 		*)
-			echo "### $($_ts) :SKIP: phase[ $_i ]: " ${_install_param[$_i]} | tee -a $_exe_log;
+			echo "### $($_ts) :SKIP: phase[ $_i ]: ${_install_group_descr[$_i]} :: " ${_install_param[$_i]} | tee -a $_exe_log;
 			;;
 	esac
 #	if [ "X$_answer" = "Xy" ]; then
