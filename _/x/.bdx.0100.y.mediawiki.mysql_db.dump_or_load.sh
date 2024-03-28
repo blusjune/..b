@@ -79,12 +79,15 @@ EOF
 	echo "____________";
 	read -p "### ASK:  Do you want to load DB with SQL dump file above? [Y|n] " _answer;
 	if [ "X$_answer" = "Xy" ]; then
-		set -x;
 		cat $_sql_file_for_prep;
+		echo "____________";
+		echo "### INF:  Drop the current DB";
 		mysql -p -u $_db_user < $_sql_file_for_prep # > db_load_result.log
+		echo "____________";
+		echo "### INF:  Load the latest DB:  $_sql_dumpfile_for_load";
 		mysql -p -u $_db_user < ${_db_dump_dir}/${_sql_dumpfile_for_load} # > db_load_result.log
-		set +x;
 	else
+		echo "____________";
 		echo "### INF:  Nothing happened"
 	fi
 }
